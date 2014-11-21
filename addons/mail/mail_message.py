@@ -784,11 +784,11 @@ class mail_message(osv.Model):
 
     def _get_message_id(self, cr, uid, values, context=None):
         if values.get('no_auto_thread', False) is True:
-            message_id = tools.generate_tracking_message_id('reply_to')
+            message_id = tools.generate_tracking_message_id('reply_to', cr)
         elif values.get('res_id') and values.get('model'):
-            message_id = tools.generate_tracking_message_id('%(res_id)s-%(model)s' % values)
+            message_id = tools.generate_tracking_message_id('%(res_id)s-%(model)s' % values, cr)
         else:
-            message_id = tools.generate_tracking_message_id('private')
+            message_id = tools.generate_tracking_message_id('private', cr)
         return message_id
 
     def create(self, cr, uid, values, context=None):

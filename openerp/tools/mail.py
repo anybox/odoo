@@ -34,6 +34,7 @@ from email.utils import getaddresses, formataddr
 import openerp
 from openerp.loglevels import ustr
 from openerp.tools.translate import _
+from openerp import SUPERUSER_ID
 
 _logger = logging.getLogger(__name__)
 
@@ -616,19 +617,27 @@ command_re = re.compile("^Set-([a-z]+) *: *(.+)$", re.I + re.UNICODE)
 # group(1) = the record ID ; group(2) = the model (if any) ; group(3) = the domain
 reference_re = re.compile("<.*-open(?:object|erp)-(\\d+)(?:-([\w.]+))?[^>]*@([^>]*)>", re.UNICODE)
 
-
-def generate_tracking_message_id(res_id):
+def generate_tracking_message_id(res_id, cr=None):
     """Returns a string that can be used in the Message-ID RFC822 header field
 
        Used to track the replies related to a given object thanks to the "In-Reply-To"
        or "References" fields that Mail User Agents will set.
     """
+    # If not cr, get cr from current thread database
+    if not cr:
+        db_name = getattr(threading.currentThread(), 'dbname', None)
+        if db_name:
+            cr = pooler.get_db(db_name).cursor()
+        else:
+            raise Exception("No database cursor found, please pass one explicitly")
+    icp = pooler.get_pool(cr.dbname).get('ir.config_parameter')
+    tracking_domain = icp.get_param(cr, SUPERUSER_ID, 'mail.catchall.domain')
     try:
         rnd = random.SystemRandom().random()
     except NotImplementedError:
         rnd = random.random()
     rndstr = ("%.15f" % rnd)[2:]
-    return "<%.15f.%s-openerp-%s@%s>" % (time.time(), rndstr, res_id, socket.gethostname())
+    return "<%.15f.%s-openerp-%s@%s>" % (time.time(), rndstr, res_id, tracking_domain)
 
 def email_send(email_from, email_to, subject, body, email_cc=None, email_bcc=None, reply_to=False,
                attachments=None, message_id=None, references=None, openobject_id=False, debug=False, subtype='plain', headers=None,
