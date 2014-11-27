@@ -24,6 +24,8 @@ import cgi
 import logging
 import lxml.html
 import lxml.html.clean as clean
+import openerp.pooler as pooler
+from openerp import SUPERUSER_ID
 import random
 import re
 import socket
@@ -34,7 +36,6 @@ from email.utils import getaddresses, formataddr
 import openerp
 from openerp.loglevels import ustr
 from openerp.tools.translate import _
-from openerp import SUPERUSER_ID
 
 _logger = logging.getLogger(__name__)
 
