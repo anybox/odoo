@@ -632,7 +632,7 @@ def generate_tracking_message_id(res_id, cr=None):
         else:
             raise Exception("No database cursor found, please pass one explicitly")
     icp = pooler.get_pool(cr.dbname).get('ir.config_parameter')
-    tracking_domain = icp.get_param(cr, SUPERUSER_ID, 'mail.catchall.domain')
+    tracking_domain = icp.get_param(cr, SUPERUSER_ID, 'mail.catchall.domain', socket.gethostname())
     try:
         rnd = random.SystemRandom().random()
     except NotImplementedError:
