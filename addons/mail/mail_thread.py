@@ -1000,9 +1000,9 @@ class mail_thread(osv.AbstractModel):
             reply_hostname = ref_match.group(3)
             icp = self.pool.get('ir.config_parameter')
             # Also track message-ids generated from possible previous hosts
-            tracking_param = icp.get_param(cr, uid, 'mail.tracking.legacy')
+            tracking_param = icp.get_param(cr, uid, 'mail.tracking.legacy', '')
             if not tracking_param:
-                tracking_param = icp.get_param(cr, uid, 'mail.catchall.domain')
+                tracking_param = icp.get_param(cr, uid, 'mail.catchall.domain', '')
             tracking_hosts = [d.strip() for d in tracking_param.split(',')]
             # do not match forwarded emails from another OpenERP system (thread_id collision!)
             if reply_hostname in tracking_hosts:
