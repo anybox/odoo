@@ -110,11 +110,30 @@ class hr_payslip(osv.osv):
                 if float_is_zero(amt, precision_digits=precision):
                     continue
                 partner_id = line.salary_rule_id.register_id.partner_id and line.salary_rule_id.register_id.partner_id.id or default_partner_id
-                debit_account_id = line.salary_rule_id.account_debit.id
-                credit_account_id = line.salary_rule_id.account_credit.id
+                # choose the account to create the debit move
+                if (line.salary_rule_id.debit_employee_account == 'receivable'
+                        and slip.employee_id.address_home_id
+                        and slip.employee_id.address_home_id.property_account_receivable):
+                    debit_account_id = slip.employee_id.address_home_id.property_account_receivable.id
+                elif (line.salary_rule_id.debit_employee_account == 'payable'
+                        and slip.employee_id.address_home_id
+                        and slip.employee_id.address_home_id.property_account_payable):
+                    debit_account_id = slip.employee_id.address_home_id.property_account_payable.id
+                else:
+                    debit_account_id = line.salary_rule_id.account_debit.id
+                # choose the account to create the credit move
+                if (line.salary_rule_id.credit_employee_account == 'payable'
+                        and slip.employee_id.address_home_id
+                        and slip.employee_id.address_home_id.property_account_payable):
+                    credit_account_id = slip.employee_id.address_home_id.property_account_payable.id
+                elif (line.salary_rule_id.credit_employee_account == 'receivable'
+                        and slip.employee_id.address_home_id
+                        and slip.employee_id.address_home_id.property_account_receivable):
+                    credit_account_id = slip.employee_id.address_home_id.property_account_receivable.id
+                else:
+                    credit_account_id = line.salary_rule_id.account_credit.id
 
                 if debit_account_id:
-
                     debit_line = (0, 0, {
                     'name': line.name,
                     'date': timenow,
@@ -132,7 +151,6 @@ class hr_payslip(osv.osv):
                     debit_sum += debit_line[2]['debit'] - debit_line[2]['credit']
 
                 if credit_account_id:
-
                     credit_line = (0, 0, {
                     'name': line.name,
                     'date': timenow,
@@ -152,7 +170,9 @@ class hr_payslip(osv.osv):
             if float_compare(credit_sum, debit_sum, precision_digits=precision) == -1:
                 acc_id = slip.journal_id.default_credit_account_id.id
                 if not acc_id:
-                    raise osv.except_osv(_('Configuration Error!'),_('The Expense Journal "%s" has no properly configured Credit Account!')%(slip.journal_id.name))
+                    raise osv.except_osv(
+                        _('Configuration Error!'),
+                        _('The payslip is not balanced (credit - debit = %s) and the Expense Journal "%s" has no configured Credit Account!')%(credit_sum - debit_sum, slip.journal_id.name))
                 adjust_credit = (0, 0, {
                     'name': _('Adjustment Entry'),
                     'date': timenow,
@@ -168,7 +188,9 @@ class hr_payslip(osv.osv):
             elif float_compare(debit_sum, credit_sum, precision_digits=precision) == -1:
                 acc_id = slip.journal_id.default_debit_account_id.id
                 if not acc_id:
-                    raise osv.except_osv(_('Configuration Error!'),_('The Expense Journal "%s" has no properly configured Debit Account!')%(slip.journal_id.name))
+                    raise osv.except_osv(
+                        _('Configuration Error!'),
+                        _('The payslip is not balanced (debit - credit = %s) and the Expense Journal "%s" has no configured Debit Account!')%(debit_sum - credit_sum, slip.journal_id.name))
                 adjust_debit = (0, 0, {
                     'name': _('Adjustment Entry'),
                     'date': timenow,
@@ -204,6 +226,14 @@ class hr_salary_rule(osv.osv):
         'account_tax_id':fields.many2one('account.tax.code', 'Tax Code'),
         'account_debit': fields.many2one('account.account', 'Debit Account'),
         'account_credit': fields.many2one('account.account', 'Credit Account'),
+        'debit_employee_account': fields.selection([
+            ('payable', 'Employee payable account'),
+            ('receivable', 'Employee receivable account'),
+            ('other', 'Other account. Choose below:')], 'Debit account'),
+        'credit_employee_account': fields.selection([
+            ('payable', 'Employee payable account'),
+            ('receivable', 'Employee receivable account'),
+            ('other', 'Other account. Choose below:')], 'Credit account'),
     }
 
 class hr_contract(osv.osv):
