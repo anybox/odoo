@@ -24,6 +24,22 @@
     bank_account_id: res_partner_bank_0
     vehicle_distance: 0.0
 -
+  I create an account for John
+-
+  !record {model: account.account, id: john_account}:
+    code: 'X1111JOHN'
+    company_id: base.main_company
+    currency_mode: current
+    name: John account
+    type: payable
+    user_type: account.data_account_type_payable
+    parent_id: account.cli
+-
+  I assign this account on the home address
+-
+  !record {model: res.partner, id: base.res_partner_address_2}:
+    property_account_payable: john_account
+-
   I create a salary structure for 'Software Developer'.
 -
   !record {model: hr.payroll.structure, id: hr_payroll_structure_softwaredeveloper}:
@@ -38,6 +54,15 @@
       - hr_payroll.hr_salary_rule_providentfund1
       - hr_payroll.hr_salary_rule_meal_voucher
       - hr_payroll.hr_salary_rule_sales_commission
+-
+  I set the employee account on the Net salary rule
+-
+    !python {model: hr.salary.rule}: |
+      rule_id = ref('hr_payroll.hr_rule_net')
+      self.write(cr, uid, ref('hr_payroll.hr_rule_net'),
+          {'credit_employee_account': 'payable',
+           'debit_employee_account': 'other',
+           'account_debit': ref('account.a_salary_expense')})
 -
   I create a contract for "John".
 -
@@ -115,6 +140,8 @@
   !python {model: hr.payslip}: |
     payslip = self.browse(cr, uid, ref("hr_payslip_0"))
     assert payslip.move_id, "Accounting Entries has not been created"
+    line_accounts = [l.account_id.name for l in payslip.move_id.line_id]
+    assert 'John account' in line_accounts, "Wrong accounting entries created"
 -
   I verify that the payslip is in done state.
 -
