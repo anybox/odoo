@@ -125,8 +125,10 @@ class hr_payslip(osv.osv):
                         and slip.employee_id.address_home_id.property_account_payable):
                     debit_account_id = slip.employee_id.address_home_id.property_account_payable.id
                     partner_id = slip.employee_id.address_home_id.id
-                else:
+                elif line.salary_rule_id.debit_employee_account == 'other':
                     debit_account_id = line.salary_rule_id.account_debit.id
+                else:
+                    debit_account_id = False
                 # choose the account to create the credit move
                 if (line.salary_rule_id.credit_employee_account == 'payable'
                         and slip.employee_id.address_home_id
@@ -137,8 +139,10 @@ class hr_payslip(osv.osv):
                         and slip.employee_id.address_home_id
                         and slip.employee_id.address_home_id.property_account_receivable):
                     credit_account_id = slip.employee_id.address_home_id.property_account_receivable.id
-                else:
+                elif line.salary_rule_id.credit_employee_account == 'other':
                     credit_account_id = line.salary_rule_id.account_credit.id
+                else:
+                    credit_account_id = False
 
                 if debit_account_id:
                     debit_line = (0, 0, {
