@@ -40,7 +40,7 @@ msgstr "Lier l'employé à l'information"
 #. module: hr
 #: field:hr.employee,sinid:0
 msgid "SIN No"
-msgstr "Numéro de Sécurité Sociale"
+msgstr "Numéro d'assurance"
 
 #. module: hr
 #: model:ir.actions.act_window,name:hr.open_board_hr
