@@ -249,6 +249,9 @@
                                 </group>
                             </group>
                         </page>
+                        <page string="Invoices">
+                            <field name="invoice_ids"/>
+                        </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
