@@ -26,9 +26,13 @@
                     <page string="Accounting">
                         <group colspan="4">
                             <field name="debit_employee_account" />
-                            <field name="account_debit" string="..." attrs="{'invisible': [('debit_employee_account','!=','other')]}"/>
+                            <field name="account_debit" string="..."
+                                   attrs="{'invisible': [('debit_employee_account','!=','other')],
+                                           'required': [('debit_employee_account','=','other')]}"/>
                             <field name="credit_employee_account"/>
-                            <field name="account_credit" string="..." attrs="{'invisible': [('credit_employee_account','!=','other')]}"/>
+                            <field name="account_credit" string="..."
+                                   attrs="{'invisible': [('credit_employee_account','!=','other')],
+                                           'required': [('credit_employee_account','=','other')]}"/>
                             <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
                             <field name="account_tax_id"/>
                         </group>
