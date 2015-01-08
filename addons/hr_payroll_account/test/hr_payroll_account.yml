@@ -63,6 +63,9 @@
           {'credit_employee_account': 'payable',
            'debit_employee_account': 'other',
            'account_debit': ref('account.a_salary_expense')})
+      # 'other' with false is equivalent to no selection: it does nothing
+      self.write(cr, uid, ref('hr_payroll.hr_rule_taxable'),
+          {'credit_employee_account': 'other', 'account_credit': False})
 -
   I create a contract for "John".
 -
@@ -144,6 +147,7 @@
     payslip = self.browse(cr, uid, ref("hr_payslip_0"))
     assert payslip.move_id, "Accounting Entries has not been created"
     line_accounts = [l.account_id.name for l in payslip.move_id.line_id]
+    assert len(line_accounts) == 2, "Wrong number of accounting entries created"
     assert 'John account' in line_accounts, "Wrong accounting entries created"
 -
   I verify that the payslip is in done state.
