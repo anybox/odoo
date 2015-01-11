@@ -269,7 +269,7 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="Invoices">
+                        <page string="Related invoices" attrs="{'invisible': [('state','=','draft')], 'readonly': [('state','=','done')]}">
                             <field name="invoice_ids"/>
                         </page>
                     </notebook>
