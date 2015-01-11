@@ -35,7 +35,7 @@ class hr_payslip(osv.osv):
     _description = 'Pay Slip'
 
     _columns = {
-        'period_id': fields.many2one('account.period', 'Force Period',states={'draft': [('readonly', False)]}, readonly=True, domain=[('state','<>','done')], help="Keep empty to use the period of the validation(Payslip) date."),
+        'period_id': fields.many2one('account.period', 'Force Period',states={'draft': [('readonly', False)]}, readonly=True, domain=[('state','<>','done')], help="Keep empty to use the period of the payslip date."),
         'journal_id': fields.many2one('account.journal', 'Salary Journal',states={'draft': [('readonly', False)]}, readonly=True, required=True),
         'move_id': fields.many2one('account.move', 'Accounting Entry', readonly=True),
     }
@@ -157,7 +157,7 @@ class hr_payslip(osv.osv):
             if float_compare(credit_sum, debit_sum, precision_digits=precision) == -1:
                 acc_id = slip.journal_id.default_credit_account_id.id
                 if not acc_id:
-                    raise osv.except_osv(_('Configuration Error!'),_('The Expense Journal "%s" has not properly configured the Credit Account!')%(slip.journal_id.name))
+                    raise osv.except_osv(_('Configuration Error!'),_('The Expense Journal "%s" has no properly configured Credit Account!')%(slip.journal_id.name))
                 adjust_credit = (0, 0, {
                     'name': _('Adjustment Entry'),
                     'date': timenow,
@@ -173,7 +173,7 @@ class hr_payslip(osv.osv):
             elif float_compare(debit_sum, credit_sum, precision_digits=precision) == -1:
                 acc_id = slip.journal_id.default_debit_account_id.id
                 if not acc_id:
-                    raise osv.except_osv(_('Configuration Error!'),_('The Expense Journal "%s" has not properly configured the Debit Account!')%(slip.journal_id.name))
+                    raise osv.except_osv(_('Configuration Error!'),_('The Expense Journal "%s" has no properly configured Debit Account!')%(slip.journal_id.name))
                 adjust_debit = (0, 0, {
                     'name': _('Adjustment Entry'),
                     'date': timenow,
