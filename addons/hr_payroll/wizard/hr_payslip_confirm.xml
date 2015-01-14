@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_confirm_payslip" model="ir.ui.view">
+            <field name="name">hr.payslip.confirm</field>
+            <field name="model">hr.payslip.confirm</field>
+            <field name="arch" type="xml">
+                <form string="Confirm payslips" version="7.0">
+                    <group col="4" string="Confirm payslips">
+                    <p>Do you really want to confirm selected payslips? This action will create accounting entries.</p>
+                    </group>
+                    <footer>
+                        <button string="Confirm" name="process" type="object" default_focus="1" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_hr_payslip_confirm" model="ir.actions.act_window">
+            <field name="name">Confirm payslips</field>
+            <field name="res_model">hr.payslip.confirm</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_confirm_payslip"/>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.values" id="action_confirm_payslip_values">
+            <field name="model_id" ref="hr_payroll.model_hr_payslip_confirm" />
+            <field name="name">Confirm payslips</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' +str(ref('action_hr_payslip_confirm'))" />
+            <field name="key">action</field>
+            <field name="model">hr.payslip</field>
+        </record>
+
+    </data>
+</openerp>
+
