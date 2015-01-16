@@ -91,6 +91,9 @@ class hr_payslip(osv.osv):
         timenow = time.strftime('%Y-%m-%d')
 
         for slip in self.browse(cr, uid, ids, context=context):
+            if slip.move_id:
+                # avoid accumulating moves after reopening payslip
+                slip.move_id.unlink()
             line_ids = []
             debit_sum = 0.0
             credit_sum = 0.0
@@ -192,6 +195,11 @@ class hr_payslip(osv.osv):
             if slip.journal_id.entry_posted:
                 move_pool.post(cr, uid, [move_id], context=context)
         return super(hr_payslip, self).process_sheet(cr, uid, [slip.id], context=context)
+
+    def check_not_posted(self, cr, uid, ids, context=None):
+        """ workflow transition check allowing to reopen a payslip not posted
+        """
+        return self.browse(cr, uid, ids[0], context).move_id.state != 'posted'
 
 hr_payslip()
 

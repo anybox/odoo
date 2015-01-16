@@ -39,7 +39,8 @@ Generic Payroll system Integrated with Accounting.
         'account',
         'hr_expense'
     ],
-    'data': ['hr_payroll_account_view.xml'],
+    'data': ['hr_payroll_account_view.xml',
+             'hr_payroll_workflow.xml'],
     'demo': ['hr_payroll_account_demo.xml'],
     'test': ['test/hr_payroll_account.yml'],
     'installable': True,
