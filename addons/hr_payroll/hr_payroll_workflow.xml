@@ -35,7 +35,6 @@
             <field name="name">done</field>
             <field name="action">process_sheet()</field>
             <field name="kind">function</field>
-            <field name="flow_stop">False</field>
         </record>
 
         <record id="t1" model="workflow.transition">
