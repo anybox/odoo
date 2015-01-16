@@ -209,6 +209,7 @@ class hr_payslip_run(osv.osv):
 
     _name = 'hr.payslip.run'
     _description = 'Payslip Batches'
+    _order = 'date_start desc'
     _columns = {
         'name': fields.char('Name', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'slip_ids': fields.one2many('hr.payslip', 'payslip_run_id', 'Payslips', required=False, readonly=True, states={'draft': [('readonly', False)]}),
