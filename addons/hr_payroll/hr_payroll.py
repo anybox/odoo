@@ -250,6 +250,7 @@ class hr_payslip(osv.osv):
 
     _name = 'hr.payslip'
     _description = 'Pay Slip'
+    _order = 'date_from desc, number desc'
 
     def _get_lines_salary_rule_category(self, cr, uid, ids, field_names, arg=None, context=None):
         result = {}
