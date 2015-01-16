@@ -227,7 +227,10 @@ class hr_payslip(osv.osv):
     def check_not_posted(self, cr, uid, ids, context=None):
         """ workflow transition check allowing to reopen a payslip not posted
         """
-        return self.browse(cr, uid, ids[0], context).move_id.state != 'posted'
+        if self.browse(cr, uid, ids[0], context).move_id.state != 'posted':
+            return True
+        else:
+            raise osv.except_osv(_('Not allowed'),_('You cannot reopen a payslip already posted in accounting'))
 
 hr_payslip()
 
