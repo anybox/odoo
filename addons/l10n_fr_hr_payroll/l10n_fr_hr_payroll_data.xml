@@ -159,7 +159,7 @@
         <field name="name">Plafond Securite Sociale</field>
         <field name="code">SECU</field>
         <field name="sequence">10</field>
-        <field name="category_id" ref="other_totals"/>
+        <field name="category_id" ref="SECU"/>
         <field name="appears_on_payslip" eval="False"/>
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
