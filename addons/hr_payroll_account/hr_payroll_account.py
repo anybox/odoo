@@ -250,6 +250,11 @@ class hr_salary_rule(osv.osv):
             ('receivable', 'Employee receivable account'),
             ('other', 'Other account. Choose below:')], 'Credit account'),
     }
+    _defaults = {
+        'debit_employee_account': 'other',
+        'credit_employee_account': 'other',
+    }
+
 hr_salary_rule()
 
 class hr_contract(osv.osv):
