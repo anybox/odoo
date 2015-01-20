@@ -1156,7 +1156,7 @@ account_fiscalyear()
 class account_move(osv.osv):
     _name = "account.move"
     _description = "Account Entry"
-    _order = 'id desc'
+    _order = 'date desc, id desc'
 
     def account_assert_balanced(self, cr, uid, context=None):
         cr.execute("""\
