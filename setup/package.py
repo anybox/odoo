@@ -145,7 +145,7 @@ class OdooDocker(object):
     def __init__(self):
         self.log_file = NamedTemporaryFile(mode='w+b', prefix="bash", suffix=".txt", delete=False)
         self.port = 8069  # TODO sle: reliable way to get a free port?
-        self.prompt_re = '(\r\nroot@|bash-).*# '
+        self.prompt_re = '\[root@nightly-tests\] #'
         self.timeout = 1000
 
     def system(self, command):
@@ -317,7 +317,7 @@ def test_tgz(o):
     with docker('openerp-debian-nightly-tests', o.build_dir, o.pub) as wheezy:
         wheezy.release = 'openerp.tar.gz'
         wheezy.system("service postgresql start")
-        wheezy.system('/usr/local/bin/pip install /opt/release/%s' % wheezy.release)
+        wheezy.system('pip install /opt/release/%s' % wheezy.release)
         wheezy.system("useradd --system --no-create-home openerp")
         wheezy.system('su postgres -s /bin/bash -c "createuser -s openerp"')
         wheezy.system('su postgres -s /bin/bash -c "createdb mycompany"')
