@@ -544,7 +544,7 @@ class account_bank_statement_line(osv.osv):
             res['value']['account_id'] = account_id
         return res
 
-    _order = "statement_id desc, sequence"
+    _order = "statement_id desc, sequence, date asc, id"
     _name = "account.bank.statement.line"
     _description = "Bank Statement Line"
     _columns = {
