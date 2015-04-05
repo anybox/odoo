@@ -200,11 +200,10 @@ class ir_attachment(osv.osv):
                 ids = [ids]
             cr.execute('SELECT DISTINCT res_model, res_id FROM ir_attachment WHERE id = ANY (%s)', (ids,))
             for rmod, rid in cr.fetchall():
-                if not (rmod and rid is not False):
+                if not (rmod and rid):
                     require_employee = True
                     continue
-                if rid:
-                    res_ids.setdefault(rmod,set()).add(rid)
+                res_ids.setdefault(rmod,set()).add(rid)
         if values:
             if values.get('res_model') and values.get('res_id'):
                 res_ids.setdefault(values['res_model'],set()).add(values['res_id'])
