@@ -268,7 +268,6 @@ class mrp_bom(osv.osv):
             return res
         return check_bom(boms, [])
 
-
     _constraints = [
         (_check_recursion, 'Error ! You cannot create recursive BoM.', ['parent_id']),
         (_check_product, 'BoM line product should not be same as BoM product.', ['product_id']),
