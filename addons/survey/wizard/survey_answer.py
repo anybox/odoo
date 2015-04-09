@@ -26,7 +26,7 @@ from lxml import etree
 import os
 from time import strftime
 
-from openerp import addons, netsvc, tools
+from openerp import addons, netsvc, tools, SUPERUSER_ID
 from openerp.osv import fields, osv
 from openerp.tools import to_xml, SUPERUSER_ID
 from openerp.tools.translate import _
@@ -433,7 +433,7 @@ class survey_question_wiz(osv.osv_memory):
 
                         if user_email and resp_email:
                             user_name = user_obj.browse(cr, uid, uid, context=context).name
-                            mail = "Hello " + survey_data.responsible_id.name + ",\n\n " + str(user_name) + " has given the Response Of " + survey_data.title + " Survey.\nThe Response has been attached herewith.\n\n Thanks."
+                            mail = (u"Hello " + survey_data.responsible_id.name + u",\n\n " + user_name + " has given the Response Of " + survey_data.title + " Survey.\nThe Response has been attached herewith.\n\n Thanks.").encode('utf-8')
                             vals = {'state': 'outgoing',
                                     'subject': "Survey Answer Of " + user_name,
                                     'body_html': '<pre>%s</pre>' % mail,
