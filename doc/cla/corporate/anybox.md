@@ -13,4 +13,5 @@ Christophe Combelles ccomb@anybox.fr https://github.com/anybox
 List of contributors:
 
 - Christophe Combelles ccomb@anybox.fr https://github.com/ccomb
+- Clovis Nzouendjou clovis@anybox.fr https://github.com/kossovo
 
