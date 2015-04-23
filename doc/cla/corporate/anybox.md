@@ -14,4 +14,5 @@ List of contributors:
 
 - Christophe Combelles ccomb@anybox.fr https://github.com/ccomb
 - Clovis Nzouendjou clovis@anybox.fr https://github.com/kossovo
+- Florent Jouatte fjouatte@anybox.fr https://github.com/fjouatte
 
