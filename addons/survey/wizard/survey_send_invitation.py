@@ -71,20 +71,20 @@ class survey_send_invitation(osv.osv_memory):
             survey_id = sur.id
         if msg:
             raise osv.except_osv(_('Warning!'), _('The following surveys are not in open state: %s') % msg)
-        data['mail'] = _('''
-Hello %%(name)s, \n\n
-Would you please spent some of your time to fill-in our survey: \n%s\n
+        data['mail'] = _('''Hello %%(name)s,
+
+Would you please spent some of your time to fill-in our survey: %(survey)s
 You can access this survey with the following parameters:
- URL: %s
+ URL: <a href="%(url)s">%(url)s</a>
  Your login ID: %%(login)s\n
  Your password: %%(passwd)s\n
-\n\n
-Thanks,''') % (
-            name, 
-            self.pool.get('ir.config_parameter').get_param(
+
+Thanks,''') % {
+            'survey': name,
+            'url': self.pool.get('ir.config_parameter').get_param(
                 cr, uid, 'web.base.url', default='http://localhost:8069',
                 context=context)
-                + '#id=%d&view_type=form&model=survey' % survey_id)
+            + '#id=%d&view_type=form&model=survey' % survey_id}
         return data
 
     def create_report(self, cr, uid, res_ids, report_name=False, file_name=False):
@@ -148,7 +148,7 @@ Thanks,''') % (
                 if user[0] not in new_user:
                     new_user.append(user[0])
                 user = user_ref.browse(cr, uid, user[0])
-                user_ref.write(cr, uid, user.id, {'survey_id':[[6, 0, survey_ids]]})
+                survey_ref.write(cr, uid, survey_ids, {'users':[[6, 0, [user.id]]]})
                 mail = record['mail']%{'login':partner.email, 'passwd':user.password, \
                                             'name' : partner.name}
                 if record['send_mail_existing']:
