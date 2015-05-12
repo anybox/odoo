@@ -175,20 +175,18 @@ class account_analytic_line(osv.osv):
         if data is None:
             data = {}
 
-        journal_types = {}
+        partners = {}
 
         # prepare for iteration on journal and accounts
         for line in self.pool.get('account.analytic.line').browse(cr, uid, ids, context=context):
-            if line.journal_id.type not in journal_types:
-                journal_types[line.journal_id.type] = set()
-            journal_types[line.journal_id.type].add(line.account_id.id)
-        for journal_type, account_ids in journal_types.items():
+            if (not line.account_id.partner_id) or not (line.account_id.pricelist_id):
+                raise osv.except_osv(_('Analytic Account Incomplete!'),
+                        _('Contract incomplete. Please fill in the Customer and Pricelist fields.'))
+            if line.account_id.partner_id.id not in partners:
+                partners[line.account_id.partner_id.id] = set()
+            partners[line.account_id.partner_id.id].add(line.account_id.id)
+        for partner_id, account_ids in partners.items():
             for account in analytic_account_obj.browse(cr, uid, list(account_ids), context=context):
-                partner = account.partner_id
-
-                if (not partner) or not (account.pricelist_id):
-                    raise osv.except_osv(_('Analytic Account Incomplete!'),
-                            _('Contract incomplete. Please fill in the Customer and Pricelist fields.'))
                 context2 = context.copy()
                 context2['lang'] = account.partner_id.lang
                 # set company_id in context, so the correct default journal will be selected
@@ -199,7 +197,6 @@ class account_analytic_line(osv.osv):
                 context2['force_company'] = account.company_id.id
 
                 partner = res_partner_obj.browse(cr, uid, account.partner_id.id, context=context2)
-
                 date_due = False
                 if partner.property_payment_term:
                     pterm_list= account_payment_term_obj.compute(cr, uid,
@@ -212,33 +209,29 @@ class account_analytic_line(osv.osv):
 
                 curr_invoice = {
                     'name': time.strftime('%d/%m/%Y') + ' - '+account.name,
-                    'partner_id': account.partner_id.id,
+                    'partner_id': partner.id,
                     'company_id': account.company_id.id,
                     'payment_term': partner.property_payment_term.id or False,
                     'account_id': partner.property_account_receivable.id,
                     'currency_id': account.pricelist_id.currency_id.id,
                     'date_due': date_due,
-                    'fiscal_position': account.partner_id.property_account_position.id
+                    'fiscal_position': partner.property_account_position.id
                 }
 
                 last_invoice = invoice_obj.create(cr, uid, curr_invoice, context=context2)
                 invoices.append(last_invoice)
 
-                cr.execute("""SELECT product_id, user_id, to_invoice, sum(amount), sum(unit_amount), product_uom_id
+                cr.execute("""SELECT product_id, user_id, to_invoice, sum(amount), sum(unit_amount), product_uom_id, journal.type
                         FROM account_analytic_line as line LEFT JOIN account_analytic_journal journal ON (line.journal_id = journal.id)
                         WHERE account_id = %s
-                            AND line.id IN %s AND journal.type = %s AND to_invoice IS NOT NULL
-                        GROUP BY product_id, user_id, to_invoice, product_uom_id""", (account.id, tuple(ids), journal_type))
+                            AND line.id IN %s AND to_invoice IS NOT NULL
+                        GROUP BY product_id, user_id, to_invoice, product_uom_id, journal.type""", (account.id, tuple(ids)))
 
-                for product_id, user_id, factor_id, total_price, qty, uom in cr.fetchall():
+                for product_id, user_id, factor_id, total_price, qty, uom, journal_type in cr.fetchall():
                     context2.update({'uom': uom})
 
-                    if data.get('product'):
-                        # force product, use its public price
-                        product_id = data['product'][0]
-                        unit_price = self._get_invoice_price(cr, uid, account, product_id, user_id, qty, context2)
-                    elif journal_type == 'general' and product_id:
-                        # timesheets, use sale price
+                    product_id = data.get('product') and data['product'][0] or product_id
+                    if product_id and journal_type=='general':
                         unit_price = self._get_invoice_price(cr, uid, account, product_id, user_id, qty, context2)
                     else:
                         # expenses, using price from amount field
@@ -277,7 +270,7 @@ class account_analytic_line(osv.osv):
                     #
                     # Compute for lines
                     #
-                    cr.execute("SELECT * FROM account_analytic_line WHERE account_id = %s and id IN %s AND product_id=%s and to_invoice=%s ORDER BY account_analytic_line.date", (account.id, tuple(ids), product_id, factor_id))
+                    cr.execute("SELECT * FROM account_analytic_line WHERE account_id = %s and user_id = %s and id IN %s AND product_id=%s and to_invoice=%s ORDER BY account_analytic_line.date", (account.id, user_id, tuple(ids), product_id, factor_id))
 
                     line_ids = cr.dictfetchall()
                     note = []
@@ -294,6 +287,7 @@ class account_analytic_line(osv.osv):
                         if data.get('name', False):
                             details.append(line['name'])
                         note.append(u' - '.join(map(lambda x: unicode(x) or '',details)))
+
                     if note:
                         curr_line['name'] += "\n" + ("\n".join(map(lambda x: unicode(x) or '',note)))
                     invoice_line_obj.create(cr, uid, curr_line, context=context)

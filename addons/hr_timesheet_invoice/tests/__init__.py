@@ -19,8 +19,10 @@
 #
 ##############################################################################
 from . import test_multi_company
+from . import test_invoice
 
 checks = [
     test_multi_company,
+    test_invoice,
 ]
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
