@@ -270,7 +270,7 @@ class account_analytic_line(osv.osv):
                     #
                     # Compute for lines
                     #
-                    cr.execute("SELECT * FROM account_analytic_line WHERE user_id = %s and id IN %s AND product_id=%s and to_invoice=%s ORDER BY account_analytic_line.date", (user_id, tuple(ids), product_id, factor_id))
+                    cr.execute("SELECT * FROM account_analytic_line WHERE account_id = %s and user_id = %s and id IN %s AND product_id=%s and to_invoice=%s ORDER BY account_analytic_line.date", (account.id, user_id, tuple(ids), product_id, factor_id))
 
                     line_ids = cr.dictfetchall()
                     note = []
