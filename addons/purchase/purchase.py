@@ -33,6 +33,7 @@ import openerp.addons.decimal_precision as dp
 from openerp.osv.orm import browse_record, browse_null
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP
 from openerp.tools.float_utils import float_compare
+from openerp.tools.safe_eval import safe_eval as eval
 
 class purchase_order(osv.osv):
 
@@ -935,7 +936,7 @@ class purchase_order_line(osv.osv):
     def unlink(self, cr, uid, ids, context=None):
         procurement_ids_to_cancel = []
         for line in self.browse(cr, uid, ids, context=context):
-            if line.state not in ['draft', 'cancel']:
+            if line.order_id.state in ['approved', 'done'] and line.state not in ['draft', 'cancel']:
                 raise osv.except_osv(_('Invalid Action!'), _('Cannot delete a purchase order line which is in state \'%s\'.') %(line.state,))
             if line.move_dest_id:
                 procurement_ids_to_cancel.extend(procurement.id for procurement in line.move_dest_id.procurements)
@@ -1326,7 +1327,7 @@ class account_invoice(osv.Model):
             user_id = uid
         po_ids = purchase_order_obj.search(cr, user_id, [('invoice_ids', 'in', ids)], context=context)
         wf_service = netsvc.LocalService("workflow")
-        for order in purchase_order_obj.browse(cr, uid, po_ids, context=context):
+        for order in purchase_order_obj.browse(cr, user_id, po_ids, context=context):
             # Signal purchase order workflow that an invoice has been validated.
             invoiced = []
             shipped = True
@@ -1339,8 +1340,8 @@ class account_invoice(osv.Model):
                 if all(line.invoice_id.state not in ['draft', 'cancel'] for line in po_line.invoice_lines):
                     invoiced.append(po_line.id)
             if invoiced and shipped:
-                self.pool['purchase.order.line'].write(cr, uid, invoiced, {'invoiced': True})
-            wf_service.trg_write(uid, 'purchase.order', order.id, cr)
+                self.pool['purchase.order.line'].write(cr, user_id, invoiced, {'invoiced': True})
+            wf_service.trg_write(user_id, 'purchase.order', order.id, cr)
         return res
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
