@@ -19,7 +19,6 @@
 #
 ##############################################################################
 
-import time
 from lxml import etree
 
 from openerp import netsvc
@@ -427,7 +426,7 @@ class account_voucher(osv.osv):
         'state': 'draft',
         'pay_now': 'pay_now',
         'name': '',
-        'date': lambda *a: time.strftime('%Y-%m-%d'),
+        'date': fields.date.context_today,
         'company_id': lambda self,cr,uid,c: self.pool.get('res.company')._company_default_get(cr, uid, 'account.voucher',context=c),
         'tax_id': _get_tax,
         'payment_option': 'without_writeoff',
@@ -573,13 +572,21 @@ class account_voucher(osv.osv):
         else:
             if not journal.default_credit_account_id or not journal.default_debit_account_id:
                 raise osv.except_osv(_('Error!'), _('Please define default credit/debit accounts on the journal "%s".') % (journal.name))
-            account_id = journal.default_credit_account_id.id or journal.default_debit_account_id.id
+            if ttype in ('sale', 'receipt'):
+                account_id = journal.default_debit_account_id.id
+            elif ttype in ('purchase', 'payment'):
+                account_id = journal.default_credit_account_id.id
+            else:
+                account_id = journal.default_credit_account_id.id or journal.default_debit_account_id.id
             tr_type = 'receipt'
 
         default['value']['account_id'] = account_id
         default['value']['type'] = ttype or tr_type
 
-        vals = self.onchange_journal(cr, uid, ids, journal_id, line_ids, tax_id, partner_id, time.strftime('%Y-%m-%d'), price, ttype, company_id, context)
+        vals = self.onchange_journal(
+            cr, uid, ids, journal_id, line_ids, tax_id, partner_id,
+            fields.date.context_today(self, cr, uid, context=context),
+            price, ttype, company_id, context)
         default['value'].update(vals.get('value'))
 
         return default
@@ -665,6 +672,10 @@ class account_voucher(osv.osv):
             account_id = partner.property_account_receivable.id
         elif journal.type in ('purchase', 'purchase_refund','expense'):
             account_id = partner.property_account_payable.id
+        elif ttype in ('sale', 'receipt'):
+            account_id = journal.default_debit_account_id.id
+        elif ttype in ('purchase', 'payment'):
+            account_id = journal.default_credit_account_id.id
         else:
             account_id = journal.default_credit_account_id.id or journal.default_debit_account_id.id
 
@@ -921,7 +932,12 @@ class account_voucher(osv.osv):
             return False
         journal_pool = self.pool.get('account.journal')
         journal = journal_pool.browse(cr, uid, journal_id, context=context)
-        account_id = journal.default_credit_account_id or journal.default_debit_account_id
+        if ttype in ('sale', 'receipt'):
+            account_id = journal.default_debit_account_id
+        elif ttype in ('purchase', 'payment'):
+            account_id = journal.default_credit_account_id
+        else:
+            account_id = journal.default_credit_account_id or journal.default_debit_account_id
         tax_id = False
         if account_id and account_id.tax_ids:
             tax_id = account_id.tax_ids[0].id
@@ -1012,6 +1028,10 @@ class account_voucher(osv.osv):
                 account_id = partner.property_account_receivable.id
             elif journal.type in ('purchase', 'purchase_refund','expense'):
                 account_id = partner.property_account_payable.id
+            elif ttype in ('sale', 'receipt'):
+                account_id = journal.default_debit_account_id.id
+            elif ttype in ('purchase', 'payment'):
+                account_id = journal.default_credit_account_id.id
             else:
                 account_id = journal.default_credit_account_id.id or journal.default_debit_account_id.id
             if account_id:
@@ -1465,7 +1485,7 @@ class account_voucher(osv.osv):
             'reference': False
         })
         if 'date' not in default:
-            default['date'] = time.strftime('%Y-%m-%d')
+            default['date'] = fields.date.context_today(self, cr, uid, context=context)
         return super(account_voucher, self).copy(cr, uid, id, default, context)
 
 
