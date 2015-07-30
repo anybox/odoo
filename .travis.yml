@@ -1,3 +1,6 @@
+sudo: false
+cache: pip
+
 addons:
   apt:
     packages:
@@ -18,7 +21,6 @@ virtualenv:
 install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-  - sudo apt-get install python-lxml
   - pip install QUnitSuite flake8 coveralls
   - pip install -r ${HOME}/maintainer-quality-tools/travis/requirements.txt
 
