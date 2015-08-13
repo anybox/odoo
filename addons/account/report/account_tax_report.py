@@ -33,6 +33,7 @@ class tax_report(report_sxw.rml_parse, common_report_header):
         self.period_ids = []
         period_obj = self.pool.get('account.period')
         self.display_detail = data['form']['display_detail']
+        self.target_move = data['form']['target_move']
         res['periods'] = ''
         res['fiscalyear'] = data['form'].get('fiscalyear_id', False)
 
@@ -108,6 +109,10 @@ class tax_report(report_sxw.rml_parse, common_report_header):
     def _get_general(self, tax_code_id, period_list, company_id, based_on, context=None):
         if not self.display_detail:
             return []
+        if self.target_move == 'all':
+            move_states = ('draft', 'posted')
+        else:
+            move_states = ('posted', )
         res = []
         obj_account = self.pool.get('account.account')
         periods_ids = tuple(period_list)
@@ -153,9 +158,9 @@ class tax_report(report_sxw.rml_parse, common_report_header):
                         AND account.company_id = %s \
                         AND line.period_id IN %s\
                         AND account.active \
-                        AND move.state <> %s \
+                        AND move.state IN %s \
                     GROUP BY account.id,account.name,account.code', ('draft', tax_code_id,
-                        company_id, periods_ids, 'draft',))
+                        company_id, periods_ids, move_states,))
         res = self.cr.dictfetchall()
 
         i = 0
