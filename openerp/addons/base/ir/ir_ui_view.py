@@ -46,6 +46,7 @@ from openerp.tools.safe_eval import safe_eval as eval
 from openerp.tools.view_validation import valid_view
 from openerp.tools import misc
 from openerp.tools.translate import _
+from openerp.tools.convert import _fix_multiple_roots
 
 _logger = logging.getLogger(__name__)
 
