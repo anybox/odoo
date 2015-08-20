@@ -20,7 +20,7 @@
 #
 ##############################################################################
 
-__all__ = ['synchronized', 'lazy_property', 'classproperty']
+__all__ = ['synchronized', 'lazy_property', 'classproperty', 'conditional']
 
 from functools import wraps
 from inspect import getsourcefile
@@ -54,6 +54,21 @@ class lazy_property(object):
         for name in obj_dict.keys():
             if isinstance(getattr(cls, name, None), lazy_property):
                 obj_dict.pop(name)
+
+
+def conditional(condition, decorator):
+    """ Decorator for a conditionally applied decorator.
+
+        Example:
+
+           @conditional(get_config('use_cache'), ormcache)
+           def fn():
+               pass
+    """
+    if condition:
+        return decorator
+    else:
+        return lambda fn: fn
 
 
 def synchronized(lock_attr='_lock'):

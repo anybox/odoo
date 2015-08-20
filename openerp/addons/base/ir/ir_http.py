@@ -140,6 +140,9 @@ class ir_http(osv.AbstractModel):
             if attach:
                 return attach
 
+        # Don't handle exception but use werkeug debugger if server in --dev mode
+        if openerp.tools.config['dev_mode']:
+            raise
         # If handle_exception returns something different than None, it will be used as a response
         try:
             return request._handle_exception(exception)

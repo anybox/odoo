@@ -284,6 +284,7 @@ class configmanager(object):
         group = optparse.OptionGroup(parser, "Advanced options")
         if os.name == 'posix':
             group.add_option('--auto-reload', dest='auto_reload', action='store_true', my_default=False, help='enable auto reload')
+        group.add_option('--dev', dest='dev_mode', action='store_true', my_default=False, help='enable developper mode')
         group.add_option('--debug', dest='debug_mode', action='store_true', my_default=False, help='enable debug mode')
         group.add_option("--stop-after-init", action="store_true", dest="stop_after_init", my_default=False,
                           help="stop the server after its initialization")
@@ -419,6 +420,7 @@ class configmanager(object):
                 'xmlrpcs_interface', 'xmlrpcs_port', 'xmlrpcs',
                 'secure_cert_file', 'secure_pkey_file', 'dbfilter', 'log_level', 'log_db',
                 'log_db_level', 'geoip_database',
+                'dev_mode',
         ]
 
         for arg in keys:
