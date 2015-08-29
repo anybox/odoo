@@ -174,7 +174,10 @@ class view(osv.osv):
                 key = 'install_mode_data'
                 if context and key in context:
                     imd = context[key]
-                    if self._model._name == imd['model'] and (not view.xml_id or view.xml_id.split('.')[-1] == imd['xml_id']):
+                    if (self._model._name == imd['model']
+                        and (not view.xml_id
+                             or view.xml_id.split('.')[-1] == imd['xml_id'].split('.')[-1]
+                             or view.xml_id == imd['xml_id'])):
                         # we store the relative path to the resource instead of the absolute path, if found
                         # (it will be missing e.g. when importing data-only modules using base_import_module)
                         path_info = get_resource_from_path(imd['xml_file'])
