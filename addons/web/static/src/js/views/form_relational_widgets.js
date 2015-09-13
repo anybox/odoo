@@ -581,39 +581,40 @@ var AbstractManyField = common.AbstractField.extend({
         _.each(command_list, function(command) {
             self.mutex.exec(function() {
                 var id = command[1];
-                switch (command[0]) {
-                    case COMMANDS.CREATE:
-                        var data = _.clone(command[2]);
-                        delete data.id;
-                        return dataset.create(data, internal_options).then(function (id) {
-                            dataset.ids.push(id);
-                            res = id;
-                        });
-                    case COMMANDS.UPDATE:
-                        return dataset.write(id, command[2], internal_options).then(function () {
-                            if (dataset.ids.indexOf(id) === -1) {
+                if (!id || _.isString(id) || _.isNumber(id)) {
+                    switch (command[0]) {
+                        case COMMANDS.CREATE:
+                            var data = _.clone(command[2]);
+                            delete data.id;
+                            return dataset.create(data, internal_options).then(function (id) {
                                 dataset.ids.push(id);
                                 res = id;
+                            });
+                        case COMMANDS.UPDATE:
+                            return dataset.write(id, command[2], internal_options).then(function () {
+                                if (dataset.ids.indexOf(id) === -1) {
+                                    dataset.ids.push(id);
+                                    res = id;
+                                }
+                            });
+                        case COMMANDS.FORGET:
+                            return dataset.unlink([id]);
+                        case COMMANDS.DELETE:
+                            return dataset.unlink([id]);
+                        case COMMANDS.LINK_TO:
+                            if (dataset.ids.indexOf(id) === -1) {
+                                return dataset.add_ids([id], internal_options);
                             }
-                        });
-                    case COMMANDS.FORGET:
-                        return dataset.unlink([id]);
-                    case COMMANDS.DELETE:
-                        return dataset.unlink([id]);
-                    case COMMANDS.LINK_TO:
-                        if (dataset.ids.indexOf(id) === -1) {
-                            return dataset.add_ids([id], internal_options);
-                        }
-                        return;
-                    case COMMANDS.DELETE_ALL:
-                        return dataset.reset_ids([], {keep_read_data: true});
-                    case COMMANDS.REPLACE_WITH:
-                        dataset.ids = [];
-                        return dataset.alter_ids(command[2], internal_options);
-                    default:
-                        throw new Error("send_commands to '"+self.name+"' receive a non command value." +
-                            "\n" + JSON.stringify(command_list));
+                            return;
+                        case COMMANDS.DELETE_ALL:
+                            return dataset.reset_ids([], {keep_read_data: true});
+                        case COMMANDS.REPLACE_WITH:
+                            dataset.ids = [];
+                            return dataset.alter_ids(command[2], internal_options);
+                    }
                 }
+                throw new Error("send_commands to '"+self.name+"' receive a non command value." +
+                    "\n" + JSON.stringify(command_list));
             });
         });
 
@@ -1266,7 +1267,14 @@ var FieldOne2Many = FieldX2Many.extend({
     start: function() {
         this.$el.addClass('oe_form_field_one2many');
         return this._super.apply(this, arguments);
-    }
+    },
+    before_save: function() {
+        if(this.viewmanager.active_view.type === "list"
+            && this.viewmanager.active_view.controller.editable()) {
+            return this.viewmanager.active_view.controller.save_edition();
+        }
+        return $.when();
+    },
 });
 
 /**

@@ -220,7 +220,7 @@ class SaleOrder(models.Model):
 
     @api.multi
     def action_view_invoice(self):
-        self.ensure_one()
+        invoice_ids = self.mapped('invoice_ids')
         imd = self.env['ir.model.data']
         action = imd.xmlid_to_object('account.action_invoice_tree1')
         list_view_id = imd.xmlid_to_res_id('account.invoice_tree')
@@ -235,11 +235,11 @@ class SaleOrder(models.Model):
             'context': action.context,
             'res_model': action.res_model,
         }
-        if len(self.invoice_ids) > 1:
-            result['domain'] = "[('id','in',%s)]" % self.invoice_ids.ids
-        elif len(self.invoice_ids) == 1:
+        if len(invoice_ids) > 1:
+            result['domain'] = "[('id','in',%s)]" % invoice_ids.ids
+        elif len(invoice_ids) == 1:
             result['views'] = [(form_view_id, 'form')]
-            result['res_id'] = self.invoice_ids.id
+            result['res_id'] = invoice_ids.ids[0]
         else:
             result = {'type': 'ir.actions.act_window_close'}
         return result
@@ -444,7 +444,7 @@ class SaleOrderLine(models.Model):
                     taxes = fpos.map_tax(line.product_id.taxes_id)
                 line.tax_id = taxes
             else:
-                line.tax_id = False
+                line.tax_id = line.product_id.taxes_id if line.product_id.taxes_id else False
 
     @api.multi
     def _prepare_order_line_procurement(self, group_id=False):
@@ -505,13 +505,15 @@ class SaleOrderLine(models.Model):
     # Create new procurements if quantities purchased changes
     @api.multi
     def write(self, values):
-        precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
         lines = False
         if 'product_uom_qty' in values:
+            precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
             lines = self.filtered(
                 lambda r: r.state == 'sale' and float_compare(r.product_uom_qty, values['product_uom_qty'], precision_digits=precision) == -1)
+        result = super(SaleOrderLine, self).write(values)
+        if lines:
             lines._action_procurement_create()
-        return super(SaleOrderLine, self).write(values)
+        return result
 
     order_id = fields.Many2one('sale.order', string='Order Reference', required=True, ondelete='cascade', index=True, copy=False)
     name = fields.Text(string='Description', required=True)

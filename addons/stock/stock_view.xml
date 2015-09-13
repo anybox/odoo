@@ -195,7 +195,7 @@
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
                         <h1>
-                            <field name="name"/>
+                            <field name="name" placeholder="e.g. LOT/0001/20121"/>
                         </h1>
                     </div>
                     <group name="main_group">
@@ -522,13 +522,6 @@
         </record>
         <menuitem action="action_location_form" id="menu_action_location_form" groups="stock.group_locations"
             parent="menu_warehouse_config" sequence="2"/>
-
-
-        <record id="act_product_stock_move_open" model="ir.actions.act_window">
-            <field name="context">{'search_default_done': 1,'search_default_product_id': active_id, 'default_product_id': active_id}</field>
-            <field name="name">Moves</field>
-            <field name="res_model">stock.move</field>
-        </record>
 
         <record id="view_warehouse" model="ir.ui.view">
             <field name="name">stock.warehouse</field>
@@ -917,7 +910,7 @@
                             <field name="note" placeholder="Add an internal note..." class="oe_inline"/>
                         </page>
                         <page string="Initial Demand" attrs="{'invisible': [('state', 'in', ('draft', 'confirmed', 'waiting', 'done'))]}">
-                            <field name="move_lines_related" readonly="1"/>
+                            <field name="move_lines_related" readonly="1" context="{'address_in_id': partner_id, 'form_view_ref':'stock.view_move_picking_form', 'tree_view_ref':'stock.view_move_picking_tree', 'default_picking_type_id': picking_type_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}"/>
                         </page>
                         <page string="Additional Info" name="extra">
                             <group>
@@ -1246,11 +1239,11 @@
             <field name="model">stock.move</field>
             <field eval="8" name="priority"/>
             <field name="arch" type="xml">
-                <tree decoration-muted="state == 'cancel'" decoration-danger="(state not in ('cancel','done')) and date > current_date" string="Moves">
-                    <field name="name"/>
+                <tree decoration-muted="state == 'cancel'" decoration-danger="(state not in ('cancel','done')) and date > current_date" string="Moves" create="0">
+                    <field name="name" invisible="1"/>
                     <field name="picking_id" string="Reference"/>
                     <field name="origin"/>
-                    <field name="picking_type_id"/>
+                    <field name="picking_type_id" invisible="1"/>
                     <field name="create_date" invisible="1" groups="base.group_no_one"/>
                     <field name="product_id" on_change="onchange_product_id(product_id,location_id,location_dest_id, False)"/>
                     <field name="product_uom_qty" on_change="onchange_quantity(product_id, product_uom_qty, product_uom)"/>
@@ -1272,7 +1265,7 @@
         <record id="view_move_picking_tree" model="ir.ui.view">
             <field name="name">stock.move.tree</field>
             <field name="model">stock.move</field>
-            <field eval="4" name="priority"/>
+            <field eval="12" name="priority"/>
             <field name="arch" type="xml">
                 <tree decoration-muted="scrapped == True" string="Stock Moves" editable="bottom">
                     <field name="product_id" on_change="onchange_product_id(product_id,location_id,location_dest_id, parent.partner_id)"/>
@@ -1435,6 +1428,13 @@
             </field>
         </record>
 
+        <record id="act_product_stock_move_open" model="ir.actions.act_window">
+            <field name="context">{'search_default_product_id': active_id, 'default_product_id': active_id}</field>
+            <field name="name">Moves</field>
+            <field name="res_model">stock.move</field>
+            <field name="view_id" ref="stock.view_move_tree"/>
+        </record>
+
         <record id="action_move_form2" model="ir.actions.act_window">
             <field name="name">Stock Moves</field>
             <field name="res_model">stock.move</field>
@@ -1510,9 +1510,6 @@
                         states="draft,waiting,confirmed,assigned"
                         groups="stock.group_stock_user"/>
                     <field name="state"/>
-                    <button name="action_done" states="draft,assigned,confirmed"
-                        icon="gtk-go-forward" type="object" groups="stock.group_stock_user"
-                        class="oe_highlight" help="Done"/>
                 </tree>
             </field>
         </record>
@@ -2110,7 +2107,7 @@
                             <button class="oe_stat_button" name="%(action_picking_tree_all)d"
                             string="Package Transfers" type="action"
                             widget="statinfo" icon="fa-dropbox"/>
-                            <button name="get_content_package" type="object" string="View Contained Packages content" icon="gtk-execute" attrs="{'invisible': [('children_ids','=',[])]}"/>
+                            <button name="get_content_package" type="object" string="View Contained Packages content" icon="fa-cogs" attrs="{'invisible': [('children_ids','=',[])]}"/>
                         </div>
                         <div class="oe_title">
                             <label for="name" string="Package Reference" class="oe_edit_only"/>
@@ -2138,7 +2135,6 @@
                                         <field name="in_date"/>
                                     </tree>
                                 </field>
-
                                 <separator string="Contained Packages"/>
                                 <field name="children_ids">
                                     <tree string="Contained Packages">
