@@ -24,19 +24,15 @@ class SaleOrder(models.Model):
     warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse',
         required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
         default=_default_warehouse_id)
-    picking_ids = fields.One2many('stock.picking', compute='_compute_picking_ids', string='Picking associated to this sale')
+    picking_ids = fields.Many2many('stock.picking', compute='_compute_picking_ids', string='Picking associated to this sale')
     delivery_count = fields.Integer(string='Delivery Orders', compute='_compute_picking_ids')
 
     @api.multi
     @api.depends('procurement_group_id')
     def _compute_picking_ids(self):
         for order in self:
-            if not order.procurement_group_id:
-                order.picking_ids = []
-                order.delivery_count = 0
-            else:
-                order.picking_ids = self.env['stock.picking'].search([('group_id', '=', order.procurement_group_id.id)]).ids
-                order.delivery_count = len(order.picking_ids.ids)
+            order.picking_ids = self.env['stock.picking'].search([('group_id', '=', order.procurement_group_id.id)]) if order.procurement_group_id else []
+            order.delivery_count = len(order.picking_ids)
 
     @api.onchange('warehouse_id')
     def _onchange_warehouse_id(self):
@@ -73,6 +69,11 @@ class SaleOrder(models.Model):
             result['views'] = [(form_id, 'form')]
             result['res_id'] = pick_ids[0]
         return result
+
+    @api.multi
+    def action_cancel(self):
+        self.order_line.mapped('procurement_ids').cancel()
+        super(SaleOrder, self).action_cancel()
 
     @api.multi
     def _prepare_invoice(self):
@@ -118,6 +119,7 @@ class SaleOrderLine(models.Model):
         if not self.product_id:
             self.product_packaging = False
             return {}
+        precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
         self.product_tmpl_id = self.product_id.product_tmpl_id
         if self.product_id.type == 'product':
             product = self.product_id.with_context(
@@ -128,7 +130,7 @@ class SaleOrderLine(models.Model):
                 uom=self.product_uom.id,
                 warehouse_id=self.order_id.warehouse_id.id
             )
-            if float_compare(product.virtual_available, self.product_uom_qty, precision_rounding=self.product_uom.rounding) == -1:
+            if float_compare(product.virtual_available, self.product_uom_qty, precision_digits=precision) == -1:
                 # Check if MTO, Cross-Dock or Drop-Shipping
                 is_available = False
                 for route in self.route_id+self.product_id.route_ids:
@@ -136,11 +138,22 @@ class SaleOrderLine(models.Model):
                         if pull.location_id.id == self.order_id.warehouse_id.lot_stock_id.id:
                             is_available = True
                 if not is_available:
-                    return {
+                    warning_mess = {
                         'title': _('Not enough inventory!'),
                         'message' : _('You plan to sell %.2f %s but you only have %.2f %s available!\nThe stock on hand is %.2f %s.') % \
-                            (self.product_uom_qty, self.product_uom.name, product.virtual_available, self.product_uom.name, product.qty_available, self.product_uom.name)
+                            (self.product_uom_qty, self.product_uom.name or self.product_id.uom_id.name, product.virtual_available, self.product_uom.name or self.product_id.uom_id.name, product.qty_available, self.product_uom.name or self.product_id.uom_id.name)
                     }
+                    return {'warning': warning_mess}
+        return {}
+
+    @api.onchange('product_uom_qty')
+    def _onchange_product_uom_qty(self):
+        if self.state == 'sale' and self.product_id.type != 'service' and self.product_uom_qty < self._origin.product_uom_qty:
+            warning_mess = {
+                'title': _('Ordered quantity decreased!'),
+                'message' : _('You are decreasing the ordered quantity! Do not forget to manually update the delivery order if needed.'),
+            }
+            return {'warning': warning_mess}
         return {}
 
     @api.multi
@@ -166,21 +179,21 @@ class SaleOrderLine(models.Model):
         for move in self.procurement_ids.mapped('move_ids').filtered(lambda r: r.state == 'done' and not r.scrapped):
             if move.location_dest_id.usage == "customer":
                 qty += self.env['product.uom']._compute_qty_obj(move.product_uom, move.product_uom_qty, self.product_uom)
-            elif move.location_id.usage == "customer":
-                qty -= self.env['product.uom']._compute_qty_obj(move.product_uom, move.product_uom_qty, self.product_uom)
         return qty
 
     @api.multi
     def _check_package(self):
-        default_uom = self.product_id.product_uom
+        default_uom = self.product_id.uom_id
         pack = self.product_packaging
         qty = self.product_uom_qty
-        q = self.product_id.product_uom._compute_qty(pack.qty, default_uom)
+        q = self.env['product.uom']._compute_qty_obj(default_uom, pack.qty, self.product_uom)
         if qty and q and (qty % q):
             newqty = qty - (qty % q) + q
             return {
-               'title': _('Warning!'),
-               'message': _("This product is packaged by %d %s. You should sell %d %s.") % (pack.qty, default_uom, newqty, default_uom)
+                'warning': {
+                    'title': _('Warning'),
+                    'message': _("This product is packaged by %d . You should sell %d .") % (pack.qty, newqty),
+                },
             }
         return {}
 

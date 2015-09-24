@@ -56,7 +56,10 @@ class ir_translation_import_cursor(object):
     def push(self, trans_dict):
         """Feed a translation, as a dictionary, into the cursor
         """
-        params = dict(trans_dict, state="translated" if trans_dict['value'] else "to_translate")
+        if not trans_dict['value']:
+            return
+
+        params = dict(trans_dict, state="translated")
 
         if params['type'] == 'view':
             # ugly hack for QWeb views - pending refactoring of translations in master
@@ -275,7 +278,6 @@ class ir_translation(osv.osv):
             return
         return super(ir_translation, self)._check_selection_field_value(cr, uid, field, value, context=context)
 
-    @tools.ormcache_multi('name', 'tt', 'lang', multi='ids')
     def _get_ids(self, cr, uid, name, tt, lang, ids):
         translations = dict.fromkeys(ids, False)
         if ids:

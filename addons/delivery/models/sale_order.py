@@ -56,21 +56,21 @@ class SaleOrder(models.Model):
                         raise UserError(_('No carrier matching.'))
                     price_unit = carrier.get_price_available(order)
                     if order.company_id.currency_id.id != order.pricelist_id.currency_id.id:
-                        price_unit = order.company_id.currency_id.with_context(date=order.date_order).compute(order.pricelist_id.currency_id.id, price_unit)
+                        price_unit = order.company_id.currency_id.with_context(date=order.date_order).compute(price_unit, order.pricelist_id.currency_id)
 
                 account_id = carrier.product_id.property_account_income_id.id
                 if not account_id:
                     account_id = carrier.product_id.categ_id.property_account_income_categ_id.id
 
                 # Apply fiscal position
-                taxes = carrier.product_id.taxes_id
+                taxes = carrier.product_id.taxes_id.filtered(lambda t: t.company_id.id == order.company_id.id)
                 taxes_ids = taxes.ids
                 if order.partner_id and order.fiscal_position_id:
                     account_id = order.fiscal_position_id.map_account(account_id)
                     taxes_ids = order.fiscal_position_id.map_tax(taxes).ids
 
                 # Create the sale order line
-                SaleOrderLine.create({
+                values = {
                     'order_id': order.id,
                     'name': carrier.name,
                     'product_uom_qty': 1,
@@ -78,8 +78,11 @@ class SaleOrder(models.Model):
                     'product_id': carrier.product_id.id,
                     'price_unit': price_unit,
                     'tax_id': [(6, 0, taxes_ids)],
-                    'is_delivery': True
-                })
+                    'is_delivery': True,
+                }
+                if order.order_line:
+                    values['sequence'] = order.order_line[-1].sequence + 1
+                SaleOrderLine.create(values)
 
             else:
                 raise UserError(_('No carrier set for this order.'))

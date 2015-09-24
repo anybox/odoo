@@ -123,7 +123,7 @@ class PaymentAcquirer(osv.Model):
         'pending_msg': '<i>Pending,</i> Your online payment has been successfully processed. But your order is not validated yet.',
         'done_msg': '<i>Done,</i> Your online payment has been successfully processed. Thank you for your order.',
         'cancel_msg': '<i>Cancel,</i> Your payment has been cancelled.',
-        'error_msg': '<i>Error,</i> An error occurred. We cannot process your payment for the moment, please try again later.'
+        'error_msg': "<i>Error,</i> Please be aware that an error occurred during the transaction. The order has been confirmed but won't be paid. Don't hesitate to contact us if you have any questions on the status of your order."
     }
 
     def _check_required_if_provider(self, cr, uid, ids, context=None):
@@ -403,6 +403,32 @@ class PaymentTransaction(osv.Model):
             self.write(cr, uid, [tx_id], {'reference': str(tx_id)}, context=context)
         return tx_id
 
+    def write(self, cr, uid, ids, values, context=None):
+        Acquirer = self.pool['payment.acquirer']
+        if ('acquirer_id' in values or 'amount' in values) and 'fees' not in values:
+            # The acquirer or the amount has changed, and the fees are not explicitely forced. Fees must be recomputed.
+            if isinstance(ids, (int, long)):
+                ids = [ids]
+            for txn_id in ids:
+                vals = dict(values)
+                vals['fees'] = 0.0
+                transaction = self.browse(cr, uid, txn_id, context=context)
+                if 'acquirer_id' in values:
+                    acquirer = Acquirer.browse(cr, uid, values['acquirer_id'], context=context) if values['acquirer_id'] else None
+                else:
+                    acquirer = transaction.acquirer_id
+                if acquirer:
+                    custom_method_name = '%s_compute_fees' % acquirer.provider
+                    if hasattr(Acquirer, custom_method_name):
+                        amount = (values['amount'] if 'amount' in values else transaction.amount) or 0.0
+                        currency_id = values.get('currency_id') or transaction.currency_id.id
+                        country_id = values.get('partner_country_id') or transaction.partner_country_id.id
+                        fees = getattr(Acquirer, custom_method_name)(cr, uid, acquirer.id, amount, currency_id, country_id, context=None)
+                        vals['fees'] = float_round(fees, 2)
+                res = super(PaymentTransaction, self).write(cr, uid, txn_id, vals, context=context)
+            return res
+        return super(PaymentTransaction, self).write(cr, uid, ids, values, context=context)
+
     def on_change_partner_id(self, cr, uid, ids, partner_id, context=None):
         partner = None
         if partner_id:
@@ -418,6 +444,14 @@ class PaymentTransaction(osv.Model):
                 'partner_phone': partner and partner.phone or False,
             }}
         return {}
+
+    def get_next_reference(self, cr, uid, reference, context=None):
+        ref_suffix = 1
+        init_ref = reference
+        while self.pool['payment.transaction'].search_count(cr, uid, [('reference', '=', reference)], context=context):
+            reference = init_ref + '-' + str(ref_suffix)
+            ref_suffix += 1
+        return reference
 
     # --------------------------------------------------
     # FORM RELATED METHODS

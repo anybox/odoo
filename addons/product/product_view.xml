@@ -83,7 +83,7 @@
                         <field name='product_variant_count' invisible='1'/>
                         <field name="id" invisible="True"/>
                         <div class="oe_button_box" name="button_box">
-                            <button name="toggle_active" type="object"
+                            <button name="toggle_active" type="object" groups="base.group_no_one"
                                     class="oe_stat_button" icon="fa-archive">
                                 <field name="active" widget="boolean_button"
                                     options='{"terminology": "archive"}'/>
@@ -136,7 +136,7 @@
                                 <field name="seller_ids"/>
                                 <group name="packaging" string="Packaging"
                                     colspan="4"
-                                    attrs="{'invisible':[('type', 'not in', ['product, consu'])]}"
+                                    attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}"
                                     groups="product.group_stock_packaging">
                                     <field name="packaging_ids" nolabel="1"/>
                                 </group>
@@ -247,6 +247,7 @@
                             </group>
                             <group>
                                 <field name="active"/>
+                                <field name="type" invisible="1"/>
                             </group>
                         </group>
                         <group>
@@ -463,7 +464,7 @@
                    <attribute name="name">lst_price</attribute>
                 </field>
                 <field name="name" position="after">
-                    <field name="product_tmpl_id" class="oe_inline" readonly="1" attrs="{'invisible': [('id', '=', False)], 'required': [('id', '!=', False)]}"/>
+                    <field name="product_tmpl_id" class="oe_inline" readonly="1" invisible="1" attrs="{'required': [('id', '!=', False)]}"/>
                 </field>
                 <xpath expr="//div[@class='oe_title']" position="inside">
                     <field name="attribute_value_ids" widget="many2many_tags" groups="product.group_product_variant"/>
@@ -592,18 +593,14 @@
             <field name="name">product.category.form</field>
             <field name="model">product.category</field>
             <field name="arch" type="xml">
-                <form string="Product Categories">
+                <form class="oe_form_configuration">
                     <div class="oe_title">
-                        <label for="name" string="Category Name" class="oe_edit_only"/>
-                        <h1>
-                            <field name="name" placeholder="e.g. Lamps"/>
-                        </h1>
+                        <label for="name" string="Category name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Lamps"/></h1>
                     </div>
-                    <group name="parent">
-                        <group string="Category Type">
-                            <field name="parent_id"/>
-                            <field name="type"/>
-                        </group>
+                    <group name="first" col="4" string="Category Type">
+                        <field name="parent_id"/>
+                        <field name="type"/>
                     </group>
                 </form>
             </field>

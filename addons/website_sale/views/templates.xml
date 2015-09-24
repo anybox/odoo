@@ -130,6 +130,21 @@
 </template>
 
 <!-- /shop product listing -->
+<template id="pricelist_list" name="Pricelists Dropdown">
+  <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)"/>
+  <div t-attf-class="#{website_sale_pricelists and len(website_sale_pricelists)>1 and 'dropdown' or 'hidden'} btn-group">
+    <t t-set="curr_pl" t-value="website.get_current_pricelist()"/>
+    <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown">
+      <t t-esc="curr_pl and curr_pl.name or ' - '" />
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li t-foreach="website_sale_pricelists" t-as="pl" >
+        <a t-att-href="'/shop/change_pricelist/%s' % pl.id"><span class='switcher_pricelist' t-att-data-pl_id="pl.id" t-esc="pl.name"/></a>
+      </li>
+    </ul>
+  </div>
+</template>
 
 <template id="products" name="Products">
   <t t-call="website.layout">
@@ -139,7 +154,8 @@
         <div class="container oe_website_sale">
           <div class="products_pager">
             <div class="row" style="width: 100%;">
-              <t t-call="website_sale.search"><t t-set="search_class">pagination form-inline col-md-3</t></t>
+              <t t-call="website_sale.search"><t t-set="search_class">pagination form-inline</t></t>
+              <t t-call="website_sale.pricelist_list"/>
               <t t-call="website.pager"/>
             </div>
           </div>
@@ -327,15 +343,18 @@
                     <li class="active"><span t-field="product.name"/></li>
                 </ol>
             </div>
-            <div class="col-sm-3">
-              <t t-call="website_sale.search"><t t-set="search_class">pull-right</t></t>
+            <div class="col-sm-3 mb8">
+              <t t-call="website_sale.search"/>
             </div>
-            <div id="website_published_button" class="col-sm-4" groups="base.group_sale_manager">
-                <t t-call="website.publish_management">
+            <div id="website_published_button" class="col-sm-3">
+                <t t-call="website.publish_management" groups="base.group_sale_manager">
                   <t t-set="object" t-value="product"/>
                   <t t-set="publish_edit" t-value="True"/>
                   <t t-set="action" t-value="'product.product_template_action'"/>
                 </t>
+            </div>
+            <div class="col-sm-2 text-right">
+              <t t-call="website_sale.pricelist_list"/>
             </div>
           </div>
           <div class="row">
@@ -447,7 +466,7 @@
 <template id="variants">
   <t t-set="attribute_value_ids" t-value="get_attribute_value_ids(product)"/>
   <ul t-attf-class="list-unstyled js_add_cart_variants #{ul_class}" t-att-data-attribute_value_ids="attribute_value_ids">
-    <t t-foreach="product.attribute_line_ids" t-as="variant_id">
+    <t t-foreach="product.attribute_line_ids.sorted(key=lambda x: x.attribute_id.sequence)" t-as="variant_id">
       <li t-if="len(variant_id.value_ids) > 1">
 
         <strong t-field="variant_id.attribute_id.name"/>
@@ -539,7 +558,7 @@
   <xpath expr="//p[@t-field='product.description_sale']" position="after">
     <hr t-if="sum([(1 if len(l.value_ids)==1 else 0) for l in product.attribute_line_ids])"/>
     <p class="text-muted">
-      <t t-foreach="product.attribute_line_ids" t-as="variant_id">
+      <t t-foreach="product.attribute_line_ids.sorted(key=lambda x: x.attribute_id.sequence)" t-as="variant_id">
         <t t-if="len(variant_id.value_ids)==1">
           <span t-field="variant_id.attribute_id"/>: <span t-field="variant_id.value_ids[0].name"/><br/>
         </t>
@@ -574,6 +593,7 @@
                   <t t-set="object" t-value="product"/>
                   <t t-set="chatter_mode" t-value="'json'"/>
                   <t t-set="rating_enable" t-value="True"/>
+                  <t t-set="force_display" t-value="True"/>
                 </t>
             </div>
         </section>
@@ -584,7 +604,7 @@
 <!-- extend the generic mail thread message template to add rating widget -->
 <template id="message_thread_rating" inherit_id="website_mail.message_thread" name="Chatter with rating">
   <xpath expr="//section[contains(@class, 'o_website_mail_thread')]" position="attributes">
-    <attribute name="data-rating-enabled">1</attribute>
+    <attribute name="t-att-data-rating-enabled">rating_message_values and 1 or 0</attribute>
   </xpath>
   <xpath expr="//textarea[@name='message']" position="before">
     <t t-if="rating_enable">
@@ -1291,7 +1311,7 @@
                         <tbody>
                             <tr>
                                 <td colspan="2">
-                                    <t t-call="website_sale.payment_confirmation_status"/>
+                                    <strong>Payment Method:</strong> <t t-esc="order.payment_acquirer_id.name"/>
                                 </td>
                                 <td class="text-right" width="100"><strong>Total:</strong></td>
                                 <td class="text-right" width="100">
@@ -1301,6 +1321,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <t t-call="website_sale.payment_confirmation_status"/>
                 </div>
               </div>
               <div class="col-md-3 col-md-offset-1 text-muted">
@@ -1330,6 +1351,9 @@
 </template>
 
 <template id="order_state_message" name="Order State Message">
+    <t groups='base.group_system'>
+      <a class="btn btn-primary pull-right" target="_blank" t-att-href="'/web#model=%s&amp;id=%s&amp;action=%s&amp;view_type=form' % ('payment.acquirer',acquirer_id.id, 'payment.action_payment_acquirer')"><i class="fa fa-cog"></i> Configure Transfer Details</a>
+    </t>
     <t t-if="(not_order and state == 'error') or (not tx_ids and state == 'error')">
       <p>There seems to be an error with your request.</p>
     </t>
@@ -1391,23 +1415,31 @@
 
 <!-- payment acquirer information -->
 <template id="payment_confirmation_status">
-    <strong>Payment Method:</strong> <t t-esc="order.payment_acquirer_id.name"/><br />
-    <strong>Payment Status:</strong>
     <t t-if="order.payment_acquirer_id.auto_confirm == 'none'">
+      <div class="alert alert-info" role="alert">
         <t t-raw="order.payment_acquirer_id.pending_msg"/>
+      </div>
     </t>
     <t t-if="order.payment_acquirer_id.auto_confirm == 'at_pay_confirm'">
         <t t-if="order.payment_tx_id.state == 'pending'">
+          <div class="alert alert-info" role="alert">
             <t t-raw="order.payment_acquirer_id.pending_msg"/>
+          </div>
         </t>
         <t t-if="order.payment_tx_id.state == 'done'">
+          <div class="alert alert-success" role="alert">
             <t t-raw="order.payment_acquirer_id.done_msg"/>
+          </div>
         </t>
         <t t-if="order.payment_tx_id.state == 'cancel'">
+          <div class="alert alert-danger" role="alert">
             <t t-raw="order.payment_acquirer_id.cancel_msg"/>
+          </div>
         </t>
         <t t-if="order.payment_tx_id.state == 'error'">
+          <div class="alert alert-danger" role="alert">
             <t t-raw="order.payment_acquirer_id.error_msg"/>
+          </div>
         </t>
     </t>
 </template>
@@ -1441,24 +1473,6 @@
             <span t-esc="ol.product_id.name"/>
         </a>
     </xpath>
-</template>
-
-<template id="pricelist_selector" inherit_id="website.layout" name="Website Sale - Switcher Pricelist">
-  <xpath expr="//header//ul[@id='top_menu']/li" position="before">
-      <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)"/>
-      <li t-att-class="website_sale_pricelists and len(website_sale_pricelists)>1 and 'dropdown' or 'hidden'">
-        <t t-set="curr_pl" t-value="website.get_current_pricelist()"/>
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <t t-esc="curr_pl and curr_pl.name or ' - '" />
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li t-foreach="website_sale_pricelists" t-as="pl" >
-            <a t-att-href="'/shop/change_pricelist/%s' % pl.id"><span class='switcher_pricelist' t-att-data-pl_id="pl.id" t-esc="pl.name"/></a>
-          </li>
-        </ul>
-      </li>
-  </xpath>
 </template>
 
 </data>

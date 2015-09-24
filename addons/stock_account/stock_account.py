@@ -4,6 +4,7 @@
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 from openerp import SUPERUSER_ID, api, models
+from openerp.exceptions import UserError
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -83,7 +84,7 @@ class account_invoice_line(osv.osv):
                     to_unit = i_line.move_id.product_uom.id
                     price_unit = self.pool['product.uom']._compute_price(cr, uid, from_unit, price, to_uom_id=to_unit)
                 else:
-                    price_unit = i_line.product_id.standard_pric
+                    price_unit = i_line.product_id.standard_price
                 return [
                     {
                         'type':'src',
@@ -280,6 +281,8 @@ class stock_quant(osv.osv):
         acc_valuation = accounts.get('stock_valuation', False)
         if acc_valuation:
             acc_valuation = acc_valuation.id
+        if not accounts.get('stock_journal', False):
+            raise UserError(_('You don\'t have any stock journal defined on your product category, check if you have installed a chart of accounts'))
         journal_id = accounts['stock_journal'].id
         return journal_id, acc_src, acc_dest, acc_valuation
 
@@ -377,7 +380,7 @@ class stock_move(osv.osv):
             average_valuation_price += q.qty * q.cost
         average_valuation_price = average_valuation_price / move.product_qty
         # Write the standard price, as SUPERUSER_ID because a warehouse manager may not have the right to write on products
-        ctx = dict(context, force_company=move.company_id.id)
+        ctx = dict(context or {}, force_company=move.company_id.id)
         product_obj.write(cr, SUPERUSER_ID, [move.product_id.id], {'standard_price': average_valuation_price}, context=ctx)
         self.write(cr, uid, [move.id], {'price_unit': average_valuation_price}, context=context)
 

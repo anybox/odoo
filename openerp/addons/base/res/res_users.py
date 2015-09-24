@@ -14,6 +14,7 @@ from openerp import SUPERUSER_ID, models
 from openerp import tools
 import openerp.exceptions
 from openerp.osv import fields, osv, expression
+from openerp.service.db import check_super
 from openerp.tools.translate import _
 from openerp.http import request
 from openerp.exceptions import UserError
@@ -428,10 +429,7 @@ class res_users(osv.osv):
         return dataobj.browse(cr, uid, data_id, context=context).res_id
 
     def check_super(self, passwd):
-        if passwd == tools.config['admin_passwd']:
-            return True
-        else:
-            raise openerp.exceptions.AccessDenied()
+        return check_super(passwd)
 
     def check_credentials(self, cr, uid, password):
         """ Override this method to plug additional authentication methods"""
@@ -803,7 +801,7 @@ class groups_view(osv.osv):
             xml = E.field(E.group(*(xml1), col="2"), E.group(*(xml2), col="4"), name="groups_id", position="replace")
             xml.addprevious(etree.Comment("GENERATED AUTOMATICALLY BY GROUPS"))
             xml_content = etree.tostring(xml, pretty_print=True, xml_declaration=True, encoding="utf-8")
-            view.with_context(context).write({'arch': xml_content})
+            view.with_context(context, lang=None).write({'arch': xml_content})
         return True
 
     def get_application_groups(self, cr, uid, domain=None, context=None):

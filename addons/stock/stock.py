@@ -876,19 +876,27 @@ class stock_picking(models.Model):
             packop_ids = [op.id for op in picking.pack_operation_ids]
             self.pool.get('stock.pack.operation').write(cr, uid, packop_ids, {'owner_id': picking.owner_id.id}, context=context)
 
-    def onchange_picking_type(self, cr, uid, ids, picking_type_id, partner_id):
+    def onchange_picking_type(self, cr, uid, ids, picking_type_id, partner_id, context=None):
         res = {}
         if picking_type_id:
-            picking_type = self.pool['stock.picking.type'].browse(cr, uid, picking_type_id)
-            if not picking_type.default_location_src_id and partner_id:
-                partner = self.pool['res.partner'].browse(cr, uid, partner_id)
-                location_id = partner.property_stock_supplier.id
+            picking_type = self.pool['stock.picking.type'].browse(cr, uid, picking_type_id, context=context)
+            if not picking_type.default_location_src_id:
+                if partner_id:
+                    partner = self.pool['res.partner'].browse(cr, uid, partner_id, context=context)
+                    location_id = partner.property_stock_supplier.id
+                else:
+                    customerloc, supplierloc = self.pool['stock.warehouse']._get_partner_locations(cr, uid, [], context=context)
+                    location_id = supplierloc.id
             else:
                 location_id = picking_type.default_location_src_id.id
 
-            if not picking_type.default_location_dest_id and partner_id:
-                partner = self.pool['res.partner'].browse(cr, uid, partner_id)
-                location_dest_id = partner.property_stock_customer.id
+            if not picking_type.default_location_dest_id:
+                if partner_id:
+                    partner = self.pool['res.partner'].browse(cr, uid, partner_id, context=context)
+                    location_dest_id = partner.property_stock_customer.id
+                else:
+                    customerloc, supplierloc = self.pool['stock.warehouse']._get_partner_locations(cr, uid, [], context=context)
+                    location_dest_id = customerloc.id
             else:
                 location_dest_id = picking_type.default_location_dest_id.id
 
@@ -897,18 +905,16 @@ class stock_picking(models.Model):
         return res
 
     def _default_location_destination(self):
-        context = self._context or {}
-        if context.get('default_picking_type_id', False):
-            pick_type = self.env['stock.picking.type'].browse(context['default_picking_type_id'])
-            return pick_type.default_location_dest_id and pick_type.default_location_dest_id.id or False
-        return False
+        # retrieve picking type from context; if none this returns an empty recordset
+        picking_type_id = self._context.get('default_picking_type_id')
+        picking_type = self.env['stock.picking.type'].browse(picking_type_id)
+        return picking_type.default_location_dest_id
 
     def _default_location_source(self):
-        context = self._context or {}
-        if context.get('default_picking_type_id', False):
-            pick_type = self.env['stock.picking.type'].browse(context['default_picking_type_id'])
-            return pick_type.default_location_src_id and pick_type.default_location_src_id.id or False
-        return False
+        # retrieve picking type from context; if none this returns an empty recordset
+        picking_type_id = self._context.get('default_picking_type_id')
+        picking_type = self.env['stock.picking.type'].browse(picking_type_id)
+        return picking_type.default_location_src_id
 
     _columns = {
         'name': fields.char('Reference', select=True, states={'done': [('readonly', True)], 'cancel': [('readonly', True)]}, copy=False),
@@ -1478,11 +1484,17 @@ class stock_picking(models.Model):
         picking = op.picking_id
         ref = product.default_code
         name = '[' + ref + ']' + ' ' + product.name if ref else product.name
+        proc_id = False
+        for m in op.linked_move_operation_ids:
+            if m.move_id.procurement_id:
+                proc_id = m.move_id.procurement_id.id
+                break
         res = {
             'picking_id': picking.id,
             'location_id': picking.location_id.id,
             'location_dest_id': picking.location_dest_id.id,
             'product_id': product.id,
+            'procurement_id': proc_id,
             'product_uom': uom_id,
             'product_uom_qty': qty,
             'name': _('Extra Move: ') + name,
@@ -1500,8 +1512,7 @@ class stock_picking(models.Model):
         operation_obj = self.pool.get('stock.pack.operation')
         moves = []
         for op in picking.pack_operation_ids:
-            for product_id, remaining_qty in operation_obj._get_remaining_prod_quantities(cr, uid, op, context=context).items():
-                product = self.pool.get('product.product').browse(cr, uid, product_id, context=context)
+            for product, remaining_qty in operation_obj._get_remaining_prod_quantities(cr, uid, op, context=context).items():
                 if float_compare(remaining_qty, 0, precision_rounding=product.uom_id.rounding) > 0:
                     vals = self._prepare_values_extra_move(cr, uid, op, product, remaining_qty, context=context)
                     moves.append(move_obj.create(cr, uid, vals, context=context))
@@ -2055,8 +2066,8 @@ class stock_move(osv.osv):
                     wh_route_ids = []
                     if move.warehouse_id:
                         wh_route_ids = [x.id for x in move.warehouse_id.route_ids]
-                    elif move.picking_type_id and move.picking_type_id.warehouse_id:
-                        wh_route_ids = [x.id for x in move.picking_type_id.warehouse_id.route_ids]
+                    elif move.picking_id.picking_type_id.warehouse_id:
+                        wh_route_ids = [x.id for x in move.picking_id.picking_type_id.warehouse_id.route_ids]
                     if wh_route_ids:
                         rules = push_obj.search(cr, uid, domain + [('route_id', 'in', wh_route_ids)], order='route_sequence, sequence', context=context)
                     if not rules:
@@ -2077,6 +2088,8 @@ class stock_move(osv.osv):
         res = []
         for move in moves:
             res.append(self._create_procurement(cr, uid, move, context=context))
+        # Run procurements immediately when generated from multiple moves
+        self.pool['procurement.order'].run(cr, uid, res, context=context)
         return res
 
     def write(self, cr, uid, ids, vals, context=None):
@@ -2848,9 +2861,9 @@ class stock_inventory(osv.osv):
         if stock_settings.group_stock_tracking_owner:
             res_filter.append(('owner', _('One owner only')))
             res_filter.append(('product_owner', _('One product for a specific owner')))
-        if stock_settings.group_stock_tracking_lot:
+        if stock_settings.group_stock_production_lot:
             res_filter.append(('lot', _('One Lot/Serial Number')))
-        if stock_settings.group_stock_packaging:
+        if stock_settings.group_stock_tracking_lot:
             res_filter.append(('pack', _('A Pack')))
         return res_filter
 
@@ -3600,9 +3613,6 @@ class stock_warehouse(osv.osv):
         wh_output_stock_loc = warehouse.wh_output_stock_loc_id
         wh_pack_stock_loc = warehouse.wh_pack_stock_loc_id
 
-        #fetch customer and supplier locations, for references
-        customer_loc, supplier_loc = self._get_partner_locations(cr, uid, warehouse.id, context=context)
-
         #create in, out, internal picking types for warehouse
         input_loc = wh_input_stock_loc
         if warehouse.reception_steps == 'one_step':
@@ -3633,7 +3643,7 @@ class stock_warehouse(osv.osv):
             'use_create_lots': True,
             'use_existing_lots': False,
             'sequence_id': in_seq_id,
-            'default_location_src_id': supplier_loc.id,
+            'default_location_src_id': False,
             'default_location_dest_id': input_loc.id,
             'sequence': max_sequence + 1,
             'color': color}, context=context)
@@ -3646,7 +3656,7 @@ class stock_warehouse(osv.osv):
             'sequence_id': out_seq_id,
             'return_picking_type_id': in_type_id,
             'default_location_src_id': output_loc.id,
-            'default_location_dest_id': customer_loc.id,
+            'default_location_dest_id': False,
             'sequence': max_sequence + 4,
             'color': color}, context=context)
         picking_type_obj.write(cr, uid, [in_type_id], {'return_picking_type_id': out_type_id}, context=context)
@@ -4229,14 +4239,14 @@ class stock_pack_operation(osv.osv):
         '''Get the remaining quantities per product on an operation with a package. This function returns a dictionary'''
         #if the operation doesn't concern a package, it's not relevant to call this function
         if not operation.package_id or operation.product_id:
-            return {operation.product_id.id: operation.remaining_qty}
+            return {operation.product_id: operation.remaining_qty}
         #get the total of products the package contains
         res = self.pool.get('stock.quant.package')._get_all_products_quantities(cr, uid, operation.package_id.id, context=context)
         #reduce by the quantities linked to a move
         for record in operation.linked_move_operation_ids:
             if record.move_id.product_id.id not in res:
-                res[record.move_id.product_id.id] = 0
-            res[record.move_id.product_id.id] -= record.qty
+                res[record.move_id.product_id] = 0
+            res[record.move_id.product_id] -= record.qty
         return res
 
     def _get_remaining_qty(self, cr, uid, ids, name, args, context=None):

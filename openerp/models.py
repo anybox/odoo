@@ -1245,7 +1245,8 @@ class BaseModel(object):
         for fun, msg, names in self._constraints:
             try:
                 # validation must be context-independent; call ``fun`` without context
-                valid = not (set(names) & field_names) or fun(self._model, cr, uid, ids)
+                valid = names and not (set(names) & field_names)
+                valid = valid or fun(self._model, cr, uid, ids)
                 extra_error = None
             except Exception, e:
                 _logger.debug('Exception while validating constraint', exc_info=True)
@@ -2068,7 +2069,7 @@ class BaseModel(object):
             if f not in ('id', 'sequence')
             if f not in groupby_fields
             if f in self._fields
-            if self._fields[f].type in ('integer', 'float')
+            if self._fields[f].type in ('integer', 'float', 'monetary')
             if getattr(self._fields[f].base_field.column, '_classic_write', False)
         ]
 
@@ -2515,6 +2516,7 @@ class BaseModel(object):
                                 ('timestamp', 'date', 'date', '::date'),
                                 ('numeric', 'float', get_pg_type(f)[1], '::'+get_pg_type(f)[1]),
                                 ('float8', 'float', get_pg_type(f)[1], '::'+get_pg_type(f)[1]),
+                                ('float8', 'monetary', get_pg_type(f)[1], '::'+get_pg_type(f)[1]),
                             ]
                             if f_pg_type == 'varchar' and f._type in ('char', 'selection') and f_pg_size and (f.size is None or f_pg_size < f.size):
                                 try:
@@ -3223,39 +3225,43 @@ class BaseModel(object):
         # fetch the records of this model without field_name in their cache
         records = self._in_cache_without(field)
 
+        # determine which fields can be prefetched
+        fs = {field}
+        if self._context.get('prefetch_fields', True) and field.column._prefetch:
+            fs.update(
+                f
+                for f in self._fields.itervalues()
+                # select stored fields that can be prefetched
+                if f.store and f.column._prefetch
+                # discard fields with groups that the user may not access
+                if not (f.groups and not self.user_has_groups(f.groups))
+                # discard fields that must be recomputed
+                if not (f.compute and self.env.field_todo(f))
+            )
+
+        # special case: discard records to recompute for field
+        records -= self.env.field_todo(field)
+
+        # in onchange mode, discard computed fields and fields in cache
+        if self.env.in_onchange:
+            for f in list(fs):
+                if f.compute or (f.name in self._cache):
+                    fs.discard(f)
+                else:
+                    records &= self._in_cache_without(f)
+
+        # prefetch at most PREFETCH_MAX records
         if len(records) > PREFETCH_MAX:
             records = records[:PREFETCH_MAX] | self
 
-        # determine which fields can be prefetched
-        if not self.env.in_onchange and \
-                self._context.get('prefetch_fields', True) and \
-                self._columns[field.name]._prefetch:
-            # prefetch all classic and many2one fields that the user can access
-            fnames = {fname
-                for fname, fcolumn in self._columns.iteritems()
-                if fcolumn._prefetch
-                if not fcolumn.groups or self.user_has_groups(fcolumn.groups)
-            }
-        else:
-            fnames = {field.name}
-
-        # important: never prefetch fields to recompute!
-        get_recs_todo = self.env.field_todo
-        for fname in list(fnames):
-            if get_recs_todo(self._fields[fname]):
-                if fname == field.name:
-                    records -= get_recs_todo(field)
-                else:
-                    fnames.discard(fname)
-
         # fetch records with read()
-        assert self in records and field.name in fnames
+        assert self in records and field in fs
         result = []
         try:
-            result = records.read(list(fnames), load='_classic_write')
+            result = records.read([f.name for f in fs], load='_classic_write')
         except AccessError:
             # not all records may be accessible, try with only current record
-            result = self.read(list(fnames), load='_classic_write')
+            result = self.read([f.name for f in fs], load='_classic_write')
 
         # check the cache, and update it if necessary
         if field not in self._cache:
@@ -3952,8 +3958,8 @@ class BaseModel(object):
         # for recomputing new-style fields
         recs.modified(upd_todo)
 
-        unknown_fields = updend[:]
-        for table in self._inherits:
+        unknown_fields = set(updend)
+        for table, inherit_field in self._inherits.iteritems():
             col = self._inherits[table]
             nids = []
             for sub_ids in cr.split_for_in_conditions(ids):
@@ -3962,10 +3968,11 @@ class BaseModel(object):
                 nids.extend([x[0] for x in cr.fetchall()])
 
             v = {}
-            for val in updend:
-                if self._inherit_fields[val][0] == table:
-                    v[val] = vals[val]
-                    unknown_fields.remove(val)
+            for fname in updend:
+                field = self._fields[fname]
+                if field.inherited and field.related[0] == inherit_field:
+                    v[fname] = vals[fname]
+                    unknown_fields.discard(fname)
             if v:
                 self.pool[table].write(cr, user, nids, v, context)
 
@@ -4774,8 +4781,10 @@ class BaseModel(object):
             context = {}
 
         # avoid recursion through already copied records in case of circular relationship
-        seen_map = context.setdefault('__copy_data_seen', {})
-        if id in seen_map.setdefault(self._name, []):
+        if '__copy_data_seen' not in context:
+            context = dict(context, __copy_data_seen=defaultdict(list))
+        seen_map = context['__copy_data_seen']
+        if id in seen_map[self._name]:
             return
         seen_map[self._name].append(id)
 
@@ -4845,8 +4854,10 @@ class BaseModel(object):
             context = {}
 
         # avoid recursion through already copied records in case of circular relationship
-        seen_map = context.setdefault('__copy_translations_seen',{})
-        if old_id in seen_map.setdefault(self._name,[]):
+        if '__copy_translations_seen' not in context:
+            context = dict(context, __copy_translations_seen=defaultdict(list))
+        seen_map = context['__copy_translations_seen']
+        if old_id in seen_map[self._name]:
             return
         seen_map[self._name].append(old_id)
 
@@ -5421,7 +5432,11 @@ class BaseModel(object):
         """
         if self:
             vals = [func(rec) for rec in self]
-            return reduce(operator.or_, vals) if isinstance(vals[0], BaseModel) else vals
+            if isinstance(vals[0], BaseModel):
+                # return the union of all recordsets in O(n)
+                ids = set(itertools.chain(*[rec._ids for rec in vals]))
+                return vals[0].browse(ids)
+            return vals
         else:
             vals = func(self)
             return vals if isinstance(vals, BaseModel) else []
@@ -5761,20 +5776,20 @@ class BaseModel(object):
         """
         while self.env.has_todo():
             field, recs = self.env.get_todo()
-            # evaluate the fields to recompute, and save them to database
-            computed = self.env[field.model_name]._field_computed[field]
-            names = [f.name for f in computed if f.store and self.env.field_todo(f)]
-            for rec in recs:
-                try:
-                    values = rec._convert_to_write({
-                        name: rec[name] for name in names
-                    })
-                    with rec.env.norecompute():
-                        rec._write(values)
-                except MissingError:
-                    pass
-            # mark the computed fields as done
-            map(recs._recompute_done, computed)
+            # determine the fields to recompute
+            fs = self.env[field.model_name]._field_computed[field]
+            ns = [f.name for f in fs if f.store]
+            # evaluate fields, and group record ids by update
+            updates = defaultdict(set)
+            for rec in recs.exists():
+                vals = rec._convert_to_write({n: rec[n] for n in ns})
+                updates[frozendict(vals)].add(rec.id)
+            # update records in batch when possible
+            with recs.env.norecompute():
+                for vals, ids in updates.iteritems():
+                    recs.browse(ids)._write(dict(vals))
+            # mark computed fields as done
+            map(recs._recompute_done, fs)
 
     #
     # Generic onchange method

@@ -594,13 +594,15 @@ var ProductCategoriesWidget = PosBaseWidget.extend({
 
         var search_timeout  = null;
         this.search_handler = function(event){
-            clearTimeout(search_timeout);
+            if(event.type == "keypress" || event.keyCode === 46 || event.keyCode === 8){
+                clearTimeout(search_timeout);
 
-            var query = this.value;
+                var searchbox = this;
 
-            search_timeout = setTimeout(function(){
-                self.perform_search(self.category, query, event.which === 13);
-            },70);
+                search_timeout = setTimeout(function(){
+                    self.perform_search(self.category, searchbox.value, event.which === 13);
+                },70);
+            }
         };
     },
 
@@ -700,6 +702,8 @@ var ProductCategoriesWidget = PosBaseWidget.extend({
         this.product_list_widget.set_product_list(products); // FIXME: this should be moved elsewhere ... 
 
         this.el.querySelector('.searchbox input').addEventListener('keypress',this.search_handler);
+
+        this.el.querySelector('.searchbox input').addEventListener('keydown',this.search_handler);
 
         this.el.querySelector('.search-clear').addEventListener('click',this.clear_search_handler);
 
@@ -1510,7 +1514,8 @@ var PaymentScreenWidget = ScreenWidget.extend({
                     self.validate_order();
                 } else if ( event.keyCode === 190 || // Dot
                             event.keyCode === 110 ||  // Decimal point (numpad)
-                            event.keyCode === 188 ) { // Comma
+                            event.keyCode === 188 ||  // Comma
+                            event.keyCode === 46 ) {  // Numpad dot
                     key = '.';
                 } else if (event.keyCode >= 48 && event.keyCode <= 57) { // Numbers
                     key = '' + (event.keyCode - 48);
@@ -1910,6 +1915,8 @@ return {
     ScreenWidget: ScreenWidget,
     PaymentScreenWidget: PaymentScreenWidget,
     OrderWidget: OrderWidget,
+    NumpadWidget: NumpadWidget,
+    ProductScreenWidget: ProductScreenWidget,
 };
 
 });

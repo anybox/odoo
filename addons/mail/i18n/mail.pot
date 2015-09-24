@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-10 10:19+0000\n"
-"PO-Revision-Date: 2015-09-10 10:19+0000\n"
+"POT-Creation-Date: 2015-09-18 08:10+0000\n"
+"PO-Revision-Date: 2015-09-18 08:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -269,6 +269,14 @@ msgid "Access Groups"
 msgstr ""
 
 #. module: mail
+#: model:ir.model.fields,field_description:mail.field_mail_channel_message_needaction
+#: model:ir.model.fields,field_description:mail.field_mail_thread_message_needaction
+#: model:ir.model.fields,field_description:mail.field_res_partner_message_needaction
+#: model:ir.model.fields,field_description:mail.field_res_users_message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: mail
 #: model:ir.model.fields,help:mail.field_mail_message_subtype_default
 msgid "Activated by default when subscribing."
 msgstr ""
@@ -292,7 +300,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/xml/mail_followers.xml:58
+#: code:addons/mail/static/src/xml/mail_followers.xml:60
 #, python-format
 msgid "Add Channels"
 msgstr ""
@@ -321,7 +329,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/xml/mail_followers.xml:55
+#: code:addons/mail/static/src/xml/mail_followers.xml:57
 #, python-format
 msgid "Add followers"
 msgstr ""
@@ -403,7 +411,7 @@ msgstr ""
 #: code:addons/mail/static/src/js/mail_chat_backend.js:409
 #: code:addons/mail/static/src/js/mail_chat_common.js:29
 #: code:addons/mail/static/src/js/mail_chat_common.js:172
-#: code:addons/mail/static/src/js/mail_thread.js:559
+#: code:addons/mail/static/src/js/mail_thread.js:567
 #, python-format
 msgid "Anonymous"
 msgstr ""
@@ -423,7 +431,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:121
+#: code:addons/mail/static/src/js/mail_followers.js:122
 #, python-format
 msgid "Apply"
 msgstr ""
@@ -542,7 +550,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:128
+#: code:addons/mail/static/src/js/mail_followers.js:129
 #: model:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
 #: model:ir.ui.view,arch_db:mail.mail_wizard_invite_form
 #: model:ir.ui.view,arch_db:mail.view_mail_form
@@ -784,6 +792,11 @@ msgid "Create %s"
 msgstr ""
 
 #. module: mail
+#: model:ir.model.fields,field_description:mail.field_mail_channel_create_date
+msgid "Create Date"
+msgstr ""
+
+#. module: mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview_create_uid
 #: model:ir.model.fields,field_description:mail.field_mail_alias_create_uid
 #: model:ir.model.fields,field_description:mail.field_mail_channel_create_uid
@@ -802,7 +815,6 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview_create_date
 #: model:ir.model.fields,field_description:mail.field_mail_alias_create_date
-#: model:ir.model.fields,field_description:mail.field_mail_channel_create_date
 #: model:ir.model.fields,field_description:mail.field_mail_channel_partner_create_date
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message_create_date
 #: model:ir.model.fields,field_description:mail.field_mail_mail_create_date
@@ -828,7 +840,7 @@ msgid "Current user has a starred notification linked to this message"
 msgstr ""
 
 #. module: mail
-#: code:addons/mail/models/res_partner.py:14
+#: code:addons/mail/models/res_partner.py:16
 #, python-format
 msgid "Customers"
 msgstr ""
@@ -956,14 +968,14 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:118
+#: code:addons/mail/static/src/js/mail_followers.js:119
 #, python-format
 msgid "Edit Subscription of "
 msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/xml/mail_followers.xml:47
+#: code:addons/mail/static/src/xml/mail_followers.xml:49
 #, python-format
 msgid "Edit subscription"
 msgstr ""
@@ -1321,15 +1333,19 @@ msgid "Id of the followed resource"
 msgstr ""
 
 #. module: mail
-#: model:ir.model.fields,help:mail.field_mail_channel_message_needaction
 #: model:ir.model.fields,help:mail.field_mail_channel_message_unread
-#: model:ir.model.fields,help:mail.field_mail_thread_message_needaction
 #: model:ir.model.fields,help:mail.field_mail_thread_message_unread
-#: model:ir.model.fields,help:mail.field_res_partner_message_needaction
 #: model:ir.model.fields,help:mail.field_res_partner_message_unread
-#: model:ir.model.fields,help:mail.field_res_users_message_needaction
 #: model:ir.model.fields,help:mail.field_res_users_message_unread
 msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_mail_channel_message_needaction
+#: model:ir.model.fields,help:mail.field_mail_thread_message_needaction
+#: model:ir.model.fields,help:mail.field_res_partner_message_needaction
+#: model:ir.model.fields,help:mail.field_res_users_message_needaction
+msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: mail
@@ -1424,7 +1440,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:144
+#: code:addons/mail/static/src/js/mail_followers.js:145
 #, python-format
 msgid "Invite Follower"
 msgstr ""
@@ -1575,6 +1591,11 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel_channel_partner_ids
 msgid "Listeners"
+msgstr ""
+
+#. module: mail
+#: selection:mail.channel,channel_type:0
+msgid "Livechat Conversation"
 msgstr ""
 
 #. module: mail
@@ -1821,29 +1842,17 @@ msgid "Name to use for the generated report file (may contain placeholders)\n"
 msgstr ""
 
 #. module: mail
-#: model:ir.model.fields,field_description:mail.field_mail_channel_message_needaction
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message_needaction
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message_needaction_partner_ids
 #: model:ir.model.fields,field_description:mail.field_mail_mail_needaction
 #: model:ir.model.fields,field_description:mail.field_mail_mail_needaction_partner_ids
 #: model:ir.model.fields,field_description:mail.field_mail_message_needaction
 #: model:ir.model.fields,field_description:mail.field_mail_message_needaction_partner_ids
-#: model:ir.model.fields,field_description:mail.field_mail_thread_message_needaction
-#: model:ir.model.fields,field_description:mail.field_res_partner_message_needaction
-#: model:ir.model.fields,field_description:mail.field_res_users_message_needaction
 #: model:ir.model.fields,help:mail.field_mail_compose_message_needaction
 #: model:ir.model.fields,help:mail.field_mail_mail_needaction
 #: model:ir.model.fields,help:mail.field_mail_message_needaction
 #: model:ir.ui.view,arch_db:mail.view_message_search
 msgid "Need Action"
-msgstr ""
-
-#. module: mail
-#: model:ir.model.fields,field_description:mail.field_mail_channel_message_needaction_counter
-#: model:ir.model.fields,field_description:mail.field_mail_thread_message_needaction_counter
-#: model:ir.model.fields,field_description:mail.field_res_partner_message_needaction_counter
-#: model:ir.model.fields,field_description:mail.field_res_users_message_needaction_counter
-msgid "Need Action Counter"
 msgstr ""
 
 #. module: mail
@@ -1904,7 +1913,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:225
+#: code:addons/mail/static/src/js/mail_followers.js:226
 #, python-format
 msgid "No follower"
 msgstr ""
@@ -1951,11 +1960,19 @@ msgid "Notify followers of the document (mass post only)"
 msgstr ""
 
 #. module: mail
+#: model:ir.model.fields,field_description:mail.field_mail_channel_message_needaction_counter
+#: model:ir.model.fields,field_description:mail.field_mail_thread_message_needaction_counter
+#: model:ir.model.fields,field_description:mail.field_res_partner_message_needaction_counter
+#: model:ir.model.fields,field_description:mail.field_res_users_message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: mail
 #: model:ir.model.fields,help:mail.field_mail_channel_message_needaction_counter
 #: model:ir.model.fields,help:mail.field_mail_thread_message_needaction_counter
 #: model:ir.model.fields,help:mail.field_res_partner_message_needaction_counter
 #: model:ir.model.fields,help:mail.field_res_users_message_needaction_counter
-msgid "Number of needaction messages"
+msgid "Number of messages which requires an action"
 msgstr ""
 
 #. module: mail
@@ -2005,7 +2022,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:227
+#: code:addons/mail/static/src/js/mail_followers.js:228
 #, python-format
 msgid "One follower"
 msgstr ""
@@ -2142,7 +2159,7 @@ msgid "Partner"
 msgstr ""
 
 #. module: mail
-#: code:addons/mail/models/res_partner.py:33
+#: code:addons/mail/models/res_partner.py:35
 #, python-format
 msgid "Partner Profile"
 msgstr ""
@@ -2328,7 +2345,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/xml/mail_followers.xml:49
+#: code:addons/mail/static/src/xml/mail_followers.xml:51
 #, python-format
 msgid "Remove this follower"
 msgstr ""
@@ -2613,7 +2630,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message_subtype_id
 #: model:ir.model.fields,field_description:mail.field_mail_followers_subtype_ids
 #: model:ir.model.fields,field_description:mail.field_mail_mail_subtype_id
-#: model:ir.model.fields,field_description:mail.field_mail_message_subtype_id_1654
+#: model:ir.model.fields,field_description:mail.field_mail_message_subtype_id_2099
 #: model:ir.ui.view,arch_db:mail.view_message_subtype_tree
 msgid "Subtype"
 msgstr ""
@@ -2899,7 +2916,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:351
+#: code:addons/mail/static/src/js/mail_followers.js:352
 #, python-format
 msgid "Warning! \n"
 " If you remove a follower, he won't be notified of any email or discussion on this document. Do you really want to remove this follower ?"
@@ -3029,7 +3046,7 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/js/mail_followers.js:229
+#: code:addons/mail/static/src/js/mail_followers.js:230
 #, python-format
 msgid "followers"
 msgstr ""

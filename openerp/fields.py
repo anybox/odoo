@@ -956,9 +956,12 @@ class Field(object):
         spec = [(self, records._ids)]
         for field, path in records._field_triggers[self]:
             if path and field.store:
-                # don't move this line to function top, see log
-                env = records.env(user=SUPERUSER_ID, context={'active_test': False})
-                target = env[field.model_name].search([(path, 'in', records.ids)])
+                if path == 'id':
+                    target = records
+                else:
+                    # don't move this line to function top, see log
+                    env = records.env(user=SUPERUSER_ID, context={'active_test': False})
+                    target = env[field.model_name].search([(path, 'in', records.ids)])
                 if target:
                     spec.append((field, target._ids))
                     # recompute field on target in the environment of records,
@@ -985,7 +988,7 @@ class Field(object):
             computed = target.browse(env.computed[field])
             if path == 'id':
                 target = records - computed
-            elif path:
+            elif path and env.in_onchange:
                 target = (target.browse(env.cache[field]) - computed).filtered(
                     lambda rec: rec._mapped_cache(path) & records
                 )
@@ -1095,14 +1098,19 @@ class Monetary(Field):
     type = 'monetary'
     _slots = {
         'currency_field': None,
+        'group_operator': None,         # operator for aggregating values
     }
 
     def __init__(self, string=None, currency_field=None, **kwargs):
         super(Monetary, self).__init__(string=string, currency_field=currency_field, **kwargs)
 
-    _column_currency_field = property(attrgetter('currency_field'))
     _related_currency_field = property(attrgetter('currency_field'))
+    _related_group_operator = property(attrgetter('group_operator'))
+
     _description_currency_field = property(attrgetter('currency_field'))
+
+    _column_currency_field = property(attrgetter('currency_field'))
+    _column_group_operator = property(attrgetter('group_operator'))
 
     def _setup_regular_base(self, model):
         super(Monetary, self)._setup_regular_base(model)
@@ -1181,9 +1189,10 @@ class Char(_String):
     :param int size: the maximum size of values stored for that field
 
     :param translate: enable the translation of the field's values; use
-        `translate=True` to translate field values as a whole; `translate` may
-        also be a callable such that `translate(callback, value)` translates
-        `value` by using `callback(term)` to retrieve the translation of terms.
+        ``translate=True`` to translate field values as a whole; ``translate``
+        may also be a callable such that ``translate(callback, value)``
+        translates ``value`` by using ``callback(term)`` to retrieve the
+        translation of terms.
     """
     type = 'char'
     _slots = {
@@ -1209,9 +1218,10 @@ class Text(_String):
     have a size and usually displayed as a multiline text box.
 
     :param translate: enable the translation of the field's values; use
-        `translate=True` to translate field values as a whole; `translate` may
-        also be a callable such that `translate(callback, value)` translates
-        `value` by using `callback(term)` to retrieve the translation of terms.
+        ``translate=True`` to translate field values as a whole; ``translate``
+        may also be a callable such that ``translate(callback, value)``
+        translates ``value`` by using ``callback(term)`` to retrieve the
+        translation of terms.
     """
     type = 'text'
 
@@ -1285,13 +1295,15 @@ class Date(Field):
     @staticmethod
     def from_string(value):
         """ Convert an ORM ``value`` into a :class:`date` value. """
+        if not value:
+            return None
         value = value[:DATE_LENGTH]
         return datetime.strptime(value, DATE_FORMAT).date()
 
     @staticmethod
     def to_string(value):
         """ Convert a :class:`date` value into the format expected by the ORM. """
-        return value.strftime(DATE_FORMAT)
+        return value.strftime(DATE_FORMAT) if value else False
 
     def convert_to_cache(self, value, record, validate=True):
         if not value:
@@ -1349,6 +1361,8 @@ class Datetime(Field):
     @staticmethod
     def from_string(value):
         """ Convert an ORM ``value`` into a :class:`datetime` value. """
+        if not value:
+            return None
         value = value[:DATETIME_LENGTH]
         if len(value) == DATE_LENGTH:
             value += " 00:00:00"
@@ -1357,7 +1371,7 @@ class Datetime(Field):
     @staticmethod
     def to_string(value):
         """ Convert a :class:`datetime` value into the format expected by the ORM. """
-        return value.strftime(DATETIME_FORMAT)
+        return value.strftime(DATETIME_FORMAT) if value else False
 
     def convert_to_cache(self, value, record, validate=True):
         if not value:

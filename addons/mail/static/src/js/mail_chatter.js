@@ -181,7 +181,7 @@ var ChatterMailComposeMessage = mail_thread.MailComposeMessage.extend({
         // update subtype
         if(this.options.is_log) {
             var subtype_id = parseInt(this.$('.o_mail_chatter_compose_message_subtype_select').val());
-            if(_.indexOf(_.pluck(this.internal_subtypes, 'id'), subtype_id) == -1) {
+            if(_.indexOf(_.pluck(this.options.internal_subtypes, 'id'), subtype_id) == -1) {
                 values.subtype = 'mail.mt_note';
             }else{
                 values.subtype_id = subtype_id;
@@ -273,6 +273,7 @@ var ChatterMailThread = form_common.AbstractField.extend(mail_thread.MailThreadM
         "click .o_mail_thread_message_star": "on_message_star",
         "click .o_mail_thread_message_needaction": "on_message_needaction",
         "click .o_mail_thread_show_more": "message_load_history",
+        "click .o_mail_expand": "on_message_body_toggle",
         // toggle message composer (!! declaration order is important !!)
         "click .o_mail_chatter_button_new_message": "on_open_composer",
         "click .o_mail_chatter_button_log_note": "on_open_composer",

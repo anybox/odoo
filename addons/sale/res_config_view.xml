@@ -12,6 +12,7 @@
                         <field name="module_website_sale_digital" widget="radio"/>
                         <field name="group_uom" widget="radio"/>
                         <field name="default_invoice_policy" widget="radio"/>
+                        <field name="deposit_product_id_setting" class="oe_inline"/>
                     </group>
                     <group string="Quotations &amp; Sales" id="sale">
                         <field name="group_sale_delivery_address" widget="radio"/>
@@ -19,6 +20,7 @@
                         <field name="group_discount_per_so_line" widget="radio"/>
                         <field name="module_website_quote" widget="radio"/>
                         <field name="module_sale_margin" widget="radio"/>
+                        <field name="auto_done_setting" widget="radio"/>
                     </group>
                     <group name="manage_price">
                         <label for="sale_pricelist_setting" string="Sale Price"/>
@@ -28,12 +30,6 @@
                             <field name="group_pricelist_item" class="oe_inline" invisible="1"/>
                             <field name="group_product_pricelist" class="oe_inline" invisible="1"/>
                         </div>
-                    </group>
-                    <group string="Deposit" name="deposit" id="deposit">
-                        <group>
-                            <field name="deposit_property_account_income_id"/>
-                            <field name="deposit_taxes_ids" widget="many2many_tags"/>
-                        </group>
                     </group>
                 </div>
             </field>
