@@ -48,6 +48,7 @@ from openerp import pooler
 from report_helper import WebKitHelper
 from openerp.report.report_sxw import *
 from openerp import addons
+from openerp import SUPERUSER_ID
 from openerp import tools
 from openerp.tools.translate import _
 from openerp.osv.osv import except_osv
