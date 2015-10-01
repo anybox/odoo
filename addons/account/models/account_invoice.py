@@ -754,7 +754,7 @@ class AccountInvoice(models.Model):
             #refuse to validate a vendor bill/refund if there already exists one with the same reference for the same partner,
             #because it's probably a double encoding of the same bill/refund
             if invoice.type in ('in_invoice', 'in_refund') and invoice.reference:
-                if self.search([('type', 'in', ('in_invoice', 'in_refund')), ('reference', '=', invoice.reference), ('company_id', '=', invoice.company_id.id), ('commercial_partner_id', '=', invoice.commercial_partner_id.id), ('id', '!=', invoice.id)]):
+                if self.search([('type', '=', invoice.type), ('reference', '=', invoice.reference), ('company_id', '=', invoice.company_id.id), ('commercial_partner_id', '=', invoice.commercial_partner_id.id), ('id', '!=', invoice.id)]):
                     raise UserError(_("Duplicated vendor reference detected. You probably encoded twice the same vendor bill/refund."))
         return self.write({'state': 'open'})
 
@@ -1087,7 +1087,7 @@ class AccountInvoiceLine(models.Model):
 
         part = self.invoice_id.partner_id
         fpos = self.invoice_id.fiscal_position_id
-        company = self.company_id
+        company = self.invoice_id.company_id
         currency = self.invoice_id.currency_id
         type = self.invoice_id.type
 

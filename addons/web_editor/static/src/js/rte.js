@@ -144,7 +144,9 @@ var History = function History ($editable) {
     this.recordUndo = function ($editable, event, internal_history) {
         var self = this;
         if (!$editable) {
-            $editable = $(range.create().sc).closest(".o_editable");
+            var rng = range.create();
+            if(!rng) return;
+            $editable = $(rng.sc).closest(".o_editable");
         }
 
         if (aUndo[pos] && (event === "applySnap" || event === "activate")) {
@@ -316,16 +318,15 @@ var RTE = Widget.extend({
                 $node.addClass('o_is_inline_editable');
             }
 
-            // start element observation
-            $node.one('content_changed', function () {
-                $(this).addClass('o_dirty');
-            });
-
             $node.data('initInnerHTML', $node.html());
         });
 
-        $(document).on('content_changed', '.o_editable', function () {
+        // start element observation
+        $(document).on('content_changed', '.o_editable', function (event) {
             self.trigger('change', this);
+            if(!$(this).hasClass('o_dirty')) {
+                $(this).addClass('o_dirty');
+            }
         });
 
         $('#wrapwrap, .o_editable').on('click', '*', this, this.onClick);
@@ -444,7 +445,7 @@ var RTE = Widget.extend({
                 $el.data('oe-id'),
                 markup,
                 $el.data('oe-xpath') || null,
-                context || base.get_context()
+                _.omit(context || base.get_context(), 'lang')
             ],
         });
     },

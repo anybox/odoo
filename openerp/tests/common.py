@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-The module :mod:`openerp.tests.common` provides unittest2 test cases and a few
+The module :mod:`openerp.tests.common` provides unittest test cases and a few
 helpers and classes to write tests.
 
 """
@@ -15,7 +15,7 @@ import subprocess
 import threading
 import time
 import itertools
-import unittest2
+import unittest
 import urllib2
 import xmlrpclib
 from contextlib import contextmanager
@@ -79,7 +79,7 @@ def post_install(flag):
         return obj
     return decorator
 
-class BaseCase(unittest2.TestCase):
+class BaseCase(unittest.TestCase):
     """
     Subclass of TestCase for common OpenERP-specific code.
     
@@ -269,10 +269,28 @@ class HttpCase(TransactionCase):
         return self.opener.open(url, data, timeout)
 
     def authenticate(self, user, password):
-        if user is not None:
-            url = '/login?%s' % werkzeug.urls.url_encode({'db': get_db_name(),'login': user, 'key': password})
-            auth = self.url_open(url)
-            assert auth.getcode() < 400, "Auth failure %d" % auth.getcode()
+        # stay non-authenticated
+        if user is None:
+            return
+
+        db = get_db_name()
+        Users = self.registry['res.users']
+        uid = Users.authenticate(db, user, password, None)
+
+        # self.session.authenticate(db, user, password, uid=uid)
+        # OpenERPSession.authenticate accesses the current request, which we
+        # don't have, so reimplement it manually...
+        session = self.session
+
+        session.db = db
+        session.uid = uid
+        session.login = user
+        session.password = password
+        session.context = Users.context_get(self.cr, uid) or {}
+        session.context['uid'] = uid
+        session._fix_lang(session.context)
+
+        openerp.http.root.session_store.save(session)
 
     def phantom_poll(self, phantom, timeout):
         """ Phantomjs Test protocol.
@@ -352,7 +370,7 @@ class HttpCase(TransactionCase):
         try:
             phantom = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=None)
         except OSError:
-            raise unittest2.SkipTest("PhantomJS not found")
+            raise unittest.SkipTest("PhantomJS not found")
         try:
             self.phantom_poll(phantom, timeout)
         finally:
@@ -401,11 +419,12 @@ class HttpCase(TransactionCase):
             'code': code,
             'ready': ready,
             'timeout' : timeout,
-            'login' : login,
             'session_id': self.session_id,
         }
         options.update(kw)
-        options.setdefault('password', options.get('login'))
+
+        self.authenticate(login, login)
+
         phantomtest = os.path.join(os.path.dirname(__file__), 'phantomtest.js')
         cmd = ['phantomjs', phantomtest, json.dumps(options)]
         self.phantom_run(cmd, timeout)

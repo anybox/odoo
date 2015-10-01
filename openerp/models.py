@@ -2618,7 +2618,7 @@ class BaseModel(object):
 
                     # The field doesn't exist in database. Create it if necessary.
                     else:
-                        if not isinstance(f, fields.function) or f.store:
+                        if f._classic_write:
                             # add the missing field
                             cr.execute('ALTER TABLE "%s" ADD COLUMN "%s" %s' % (self._table, k, get_pg_type(f)[1]))
                             cr.execute("COMMENT ON COLUMN %s.\"%s\" IS %%s" % (self._table, k), (f.string,))
@@ -2684,13 +2684,14 @@ class BaseModel(object):
         if stored_fields:
             # trigger computation of new-style stored fields with a compute
             def func(cr):
+                fnames = [f.name for f in stored_fields]
                 _logger.info("Storing computed values of %s fields %s",
-                    self._name, ', '.join(sorted(f.name for f in stored_fields)))
+                             self._name, ', '.join(sorted(fnames)))
                 recs = self.browse(cr, SUPERUSER_ID, [], {'active_test': False})
                 recs = recs.search([])
                 if recs:
+                    recs.invalidate_cache(fnames, recs.ids)
                     map(recs._recompute_todo, stored_fields)
-                    recs.recompute()
 
             todo_end.append((1000, func, ()))
 
@@ -3877,7 +3878,8 @@ class BaseModel(object):
         upd_todo = []
         updend = []
         direct = []
-        totranslate = context.get('lang') and context['lang'] != 'en_US'
+        has_lang = context.get('lang')
+        has_trans = has_lang and context['lang'] != 'en_US'
         for field in vals:
             ffield = self._fields.get(field)
             if ffield and ffield.deprecated:
@@ -3887,12 +3889,11 @@ class BaseModel(object):
                 if hasattr(column, 'selection') and vals[field]:
                     self._check_selection_field_value(cr, user, field, vals[field], context=context)
                 if column._classic_write and not hasattr(column, '_fnct_inv'):
-                    if totranslate and column.translate:
-                        # vals[field] is a translation: do not update the table
-                        if callable(column.translate):
-                            flabel = ffield.get_description(recs.env)['string']
-                            raise UserError(_("You cannot update the translated value of field '%s'") % flabel)
-                    else:
+                    if has_lang and callable(column.translate):
+                        flabel = ffield.get_description(recs.env)['string']
+                        raise UserError(_("You cannot update the translated value of field '%s'") % flabel)
+                    if not (has_trans and column.translate):
+                        # vals[field] is not a translation: update the table
                         updates.append((field, '%s', column._symbol_set[1](vals[field])))
                     direct.append(field)
                 else:
@@ -3921,13 +3922,13 @@ class BaseModel(object):
             for f in direct:
                 column = self._columns[f]
                 if callable(column.translate):
-                    # The English value of a field has been modified,
+                    # The source value of a field has been modified,
                     # synchronize translated terms when possible.
-                    assert not totranslate
+                    assert not has_lang
                     self.pool['ir.translation']._sync_terms_translations(
                         cr, user, self._fields[f], recs, context=context)
 
-                elif column.translate and totranslate:
+                elif has_trans and column.translate:
                     # The translated value of a field has been modified.
                     src_trans = self.pool[self._name].read(cr, user, ids, [f])[0][f]
                     if not src_trans:
@@ -5846,7 +5847,19 @@ class BaseModel(object):
                 if 'domain' in method_res:
                     result.setdefault('domain', {}).update(method_res['domain'])
                 if 'warning' in method_res:
-                    result['warning'] = method_res['warning']
+                    if result.get('warning'):
+                        if method_res['warning']:
+                            # Concatenate multiple warnings
+                            warning = result['warning']
+                            warning['message'] = '\n\n'.join(filter(None, [
+                                warning.get('title'),
+                                warning.get('message'),
+                                method_res['warning'].get('title'),
+                                method_res['warning'].get('message')
+                            ]))
+                            warning['title'] = _('Warnings')
+                    else:
+                        result['warning'] = method_res['warning']
             return
 
         # onchange V7
@@ -5884,8 +5897,19 @@ class BaseModel(object):
             if 'domain' in method_res:
                 result.setdefault('domain', {}).update(method_res['domain'])
             if 'warning' in method_res:
-                result['warning'] = method_res['warning']
-
+                if result.get('warning'):
+                    if method_res['warning']:
+                        # Concatenate multiple warnings
+                        warning = result['warning']
+                        warning['message'] = '\n\n'.join(filter(None, [
+                            warning.get('title'),
+                            warning.get('message'),
+                            method_res['warning'].get('title'),
+                            method_res['warning'].get('message')
+                        ]))
+                        warning['title'] = _('Warnings')
+                else:
+                    result['warning'] = method_res['warning']
     @api.multi
     def onchange(self, values, field_name, field_onchange):
         """ Perform an onchange on the given field.

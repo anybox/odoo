@@ -276,13 +276,6 @@ exports.PosModel = Backbone.Model.extend({
             self.users = pos_users; 
         },
     },{
-        model:  'account.fiscal.position.tax',
-        fields: ['position_id', 'tax_src_id', 'tax_dest_id'],
-        domain: function(self) { return [['position_id', '=', self.config.fiscal_position_id && self.config.fiscal_position_id[0]]]; },
-        loaded: function(self, fiscal_position_tax) {
-            self.fiscal_position_tax = fiscal_position_tax;
-        },
-     },{
         model: 'stock.location',
         fields: [],
         ids:    function(self){ return [self.config.stock_location_id[0]]; },
@@ -378,6 +371,40 @@ exports.PosModel = Backbone.Model.extend({
             });
 
         },
+    },  {
+        model:  'account.fiscal.position',
+        fields: [],
+        domain: function(self){ return [['id','in',self.config.fiscal_position_ids]]; },
+        loaded: function(self, fiscal_positions){
+            self.fiscal_positions = fiscal_positions;
+        }
+    }, {
+        model:  'account.fiscal.position.tax',
+        fields: [],
+        domain: function(self){
+            var fiscal_position_tax_ids = [];
+
+            self.fiscal_positions.forEach(function (fiscal_position) {
+                fiscal_position.tax_ids.forEach(function (tax_id) {
+                    fiscal_position_tax_ids.push(tax_id);
+                });
+            });
+
+            return [['id','in',fiscal_position_tax_ids]];
+        },
+        loaded: function(self, fiscal_position_taxes){
+            self.fiscal_position_taxes = fiscal_position_taxes;
+            self.fiscal_positions.forEach(function (fiscal_position) {
+                fiscal_position.fiscal_position_taxes_by_id = {};
+                fiscal_position.tax_ids.forEach(function (tax_id) {
+                    var fiscal_position_tax = _.find(fiscal_position_taxes, function (fiscal_position_tax) {
+                        return fiscal_position_tax.id === tax_id;
+                    });
+
+                    fiscal_position.fiscal_position_taxes_by_id[fiscal_position_tax.id] = fiscal_position_tax;
+                });
+            });
+        }
     },  {
         label: 'fonts',
         loaded: function(){
@@ -1248,24 +1275,11 @@ exports.Orderline = Backbone.Model.extend({
     get_tax: function(){
         return this.get_all_prices().tax;
     },
-    get_fiscal_tax: function() {
-        var self = this;
-        var product_tax = this.get_product().taxes_id;
-        if(product_tax && this.pos.config.fiscal_position_id) {
-            _.each(product_tax, function(v, i) {
-                var fiscal_tax = _.filter(self.pos.fiscal_position_tax, function(t) { return t.tax_src_id[0] == v });
-                if(fiscal_tax.length) {
-                    product_tax[i] = fiscal_tax[0].tax_dest_id[0];
-                }
-            });
-        }
-        return _.uniq(_.compact(product_tax));
-    },
     get_applicable_taxes: function(){
         var i;
         // Shenaningans because we need
         // to keep the taxes ordering.
-        var ptaxes_ids = this.get_fiscal_tax();
+        var ptaxes_ids = this.get_product().taxes_id;
         var ptaxes_set = {};
         for (i = 0; i < ptaxes_ids.length; i++) {
             ptaxes_set[ptaxes_ids[i]] = true;
@@ -1282,12 +1296,28 @@ exports.Orderline = Backbone.Model.extend({
         return this.get_all_prices().taxDetails;
     },
     get_taxes: function(){
-        var taxes_ids = this.get_fiscal_tax();
+        var taxes_ids = this.get_product().taxes_id;
         var taxes = [];
         for (var i = 0; i < taxes_ids.length; i++) {
             taxes.push(this.pos.taxes_by_id[taxes_ids[i]]);
         }
         return taxes;
+    },
+    _map_tax_fiscal_position: function(tax) {
+        var current_order = this.pos.get_order();
+        var order_fiscal_position = current_order && current_order.fiscal_position;
+
+        if (order_fiscal_position) {
+            var mapped_tax = _.find(order_fiscal_position.fiscal_position_taxes_by_id, function (fiscal_position_tax) {
+                return fiscal_position_tax.tax_src_id[0] === tax.id;
+            });
+
+            if (mapped_tax) {
+                tax = this.pos.taxes_by_id[mapped_tax.tax_dest_id[0]];
+            }
+        }
+
+        return tax;
     },
     _compute_all: function(tax, base_amount, quantity) {
         if (tax.amount_type === 'fixed') {
@@ -1315,12 +1345,13 @@ exports.Orderline = Backbone.Model.extend({
            currency_rounding = currency_rounding * 0.00001;
         }
         _(taxes).each(function(tax) {
+            tax = self._map_tax_fiscal_position(tax);
             if (tax.amount_type === 'group'){
                 var ret = self.compute_all(tax.children_tax_ids, price_unit, quantity, currency_rounding);
                 total_excluded = ret.total_excluded;
                 base = ret.total_excluded;
                 total_included = ret.total_included;
-                list_taxes.concat(ret.taxes)
+                list_taxes.concat(ret.taxes);
             }
             else {
                 var tax_amount = self._compute_all(tax, price_unit, quantity);
@@ -1341,8 +1372,8 @@ exports.Orderline = Backbone.Model.extend({
                         id: tax.id,
                         amount: tax_amount,
                         name: tax.name,
-                    }
-                    list_taxes.push(data)
+                    };
+                    list_taxes.push(data);
                 }
             }
         });
@@ -1352,7 +1383,8 @@ exports.Orderline = Backbone.Model.extend({
         var price_unit = this.get_unit_price() * (1.0 - (this.get_discount() / 100.0));
         var taxtotal = 0;
 
-        var taxes_ids = this.get_fiscal_tax();
+        var product =  this.get_product();
+        var taxes_ids = product.taxes_id;
         var taxes =  this.pos.taxes;
         var taxdetail = {};
         var product_taxes = [];
@@ -1559,6 +1591,7 @@ exports.Order = Backbone.Model.extend({
             uid: this.uid,
             sequence_number: this.sequence_number,
             creation_date: this.creation_date,
+            fiscal_position_id: this.fiscal_position ? this.fiscal_position.id : false
         };
     },
     export_for_printing: function(){

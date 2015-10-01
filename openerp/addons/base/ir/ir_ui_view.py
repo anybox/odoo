@@ -11,7 +11,7 @@ import re
 import time
 from operator import itemgetter
 
-import simplejson
+import json
 import werkzeug
 import HTMLParser
 from lxml import etree
@@ -139,21 +139,14 @@ class view(osv.osv):
         result.update(map(itemgetter('res_id', 'id'), data_ids))
         return result
 
-    def _convert(self, cr, uid, s, view):
-        matches = re.finditer('[^%]%\((.*?)\)[ds]', s)
-        done = []
-        for m in matches:
-            found = m.group()[1:]
-            if found in done:
-                continue
-            done.append(found)
-            xmlid = m.groups()[0]
+    def _resolve_external_ids(self, cr, uid, view, arch_fs):
+        def replacer(m):
+            xmlid = m.group('xmlid')
             if '.' not in xmlid:
                 mod = view.get_external_id(cr, uid).get(view.id).split('.')[0]
                 xmlid = '%s.%s' % (mod, xmlid)
-            res = self.pool['ir.model.data'].xmlid_to_res_id(cr, uid, xmlid)
-            s = s.replace(found, str(res))
-        return s
+            return m.group('prefix') + str(self.pool['ir.model.data'].xmlid_to_res_id(cr, uid, xmlid))
+        return re.sub('(?P<prefix>[^%])%\((?P<xmlid>.*?)\)[ds]', replacer, arch_fs)
 
     def _arch_get(self, cr, uid, ids, name, arg, context=None):
         result = {}
@@ -164,7 +157,7 @@ class view(osv.osv):
                 fullpath = get_resource_path(*view.arch_fs.split('/'))
                 arch_fs = get_view_arch_from_file(fullpath, view.xml_id)
                 # replace %(xml_id)s, %(xml_id)d, %%(xml_id)s, %%(xml_id)d by the res_id
-                arch_fs = self._convert(cr, uid, arch_fs, view)
+                arch_fs = arch_fs and self._resolve_external_ids(cr, uid, view, arch_fs)
             result[view.id] = arch_fs or view.arch_db
         return result
 
@@ -1048,7 +1041,7 @@ class view(osv.osv):
             keep_query=keep_query,
             request=request, # might be unbound if we're not in an httprequest context
             debug=request.debug if request else False,
-            json=simplejson,
+            json=json,
             quote_plus=werkzeug.url_quote_plus,
             time=time,
             datetime=datetime,
@@ -1062,7 +1055,7 @@ class view(osv.osv):
         def get_modules_order():
             if request:
                 from openerp.addons.web.controllers.main import module_boot
-                return simplejson.dumps(module_boot())
+                return json.dumps(module_boot())
             return '[]'
         qcontext['get_modules_order'] = get_modules_order
 
