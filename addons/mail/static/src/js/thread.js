@@ -2,6 +2,7 @@ odoo.define('mail.ChatThread', function (require) {
 "use strict";
 
 var core = require('web.core');
+var time = require('web.time');
 var Widget = require('web.Widget');
 
 var QWeb = core.qweb;
@@ -33,6 +34,7 @@ var Thread = Widget.extend({
         this.options = _.defaults(options || {}, {
             display_order: ORDER.ASC,
             display_needactions: true,
+            display_stars: true,
             default_username: _t('Anonymous'),
             display_document_link: true,
             display_avatar: true,
@@ -64,6 +66,9 @@ var Thread = Widget.extend({
 
     _preprocess_message: function (message) {
         var msg = _.extend({}, message);
+
+        // Set the date in the browser timezone
+        msg.date = moment(time.str_to_datetime(msg.date)).format('YYYY-MM-DD HH:mm:ss');
 
         // Compute displayed author
         if (!msg.author_id || !msg.author_id[1]) {
@@ -108,7 +113,10 @@ var Thread = Widget.extend({
     scroll_to: function (target) {
         target = target || {};
         if (target.id !== undefined) {
-            this.$el.scrollTo(this.$('.o_thread_message[data-message-id=' + target.id + ']'));
+            var $target = this.$('.o_thread_message[data-message-id=' + target.id + ']');
+            if ($target.length) {
+                this.$el.scrollTo($target);
+            }
         } else if (target.offset !== undefined) {
             this.$el.scrollTop(target.offset);
         } else {

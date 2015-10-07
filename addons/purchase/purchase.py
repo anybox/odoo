@@ -139,7 +139,7 @@ class PurchaseOrder(models.Model):
     amount_tax = fields.Monetary(string='Taxes', store=True, readonly=True, compute='_amount_all')
     amount_total = fields.Monetary(string='Total', store=True, readonly=True, compute='_amount_all')
 
-    fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position')
+    fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position', oldname='fiscal_position')
     payment_term_id = fields.Many2one('account.payment.term', 'Payment Term')
     incoterm_id = fields.Many2one('stock.incoterms', 'Incoterm', help="International Commercial Terms are a series of predefined commercial terms used in international transactions.")
 
@@ -363,7 +363,6 @@ class PurchaseOrder(models.Model):
         This function returns an action that display existing picking orders of given purchase order ids.
         When only one found, show the picking immediately.
         '''
-        context = dict(self._context or {})
         action = self.env.ref('stock.action_picking_tree')
         result = action.read()[0]
 
@@ -385,12 +384,12 @@ class PurchaseOrder(models.Model):
         This function returns an action that display existing vendor bills of given purchase order ids.
         When only one found, show the vendor bill immediately.
         '''
-        context = dict(self._context or {})
         action = self.env.ref('account.action_invoice_tree2')
         result = action.read()[0]
 
         #override the context to get rid of the default filtering
-        result['context'] = {}
+        result['context'] = {'type': 'in_invoice', 'default_purchase_id': self.id}
+        result['domain'] = "[('purchase_id', '=', %s)]" % self.id
         invoice_ids = sum([order.invoice_ids.ids for order in self], [])
         #choose the view_mode accordingly
         if len(invoice_ids) > 1:
@@ -475,6 +474,8 @@ class PurchaseOrderLine(models.Model):
         for line in self:
             order = line.order_id
             price_unit = line.price_unit
+            if line.taxes_id:
+                price_unit = line.taxes_id.compute_all(price_unit, currency=line.order_id.currency_id, quantity=line.product_qty)['total_excluded']
             if line.product_uom.id != line.product_id.uom_id.id:
                 price_unit *= line.product_uom.factor / line.product_id.uom_id.factor
             if order.currency_id != order.company_id.currency_id:
@@ -724,7 +725,7 @@ class ProcurementOrder(models.Model):
 
         taxes = self.product_id.supplier_taxes_id
         fpos = po.fiscal_position_id
-        taxes_id = fpos.map_tax(taxes) if fpos else []
+        taxes_id = fpos.map_tax(taxes).ids if fpos else []
 
         return {
             'name': name,
