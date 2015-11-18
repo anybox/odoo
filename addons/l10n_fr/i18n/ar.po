@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-01 06:51+0000\n"
-"PO-Revision-Date: 2015-10-01 09:17+0000\n"
+"POT-Creation-Date: 2015-10-09 09:26+0000\n"
+"PO-Revision-Date: 2015-10-29 14:50+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Arabic (http://www.transifex.com/odoo/odoo-9/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -33,21 +33,9 @@ msgid "French Statements"
 msgstr ""
 
 #. module: l10n_fr
-#: model:account.fiscal.position.template,note:l10n_fr.fiscal_position_template_import_export
-msgid "French VAT exemption according to articles 262 I of \"CGI\""
-msgstr ""
-
-#. module: l10n_fr
-#: model:account.fiscal.position.template,note:l10n_fr.fiscal_position_template_intraeub2b
-msgid ""
-"French VAT exemption according to articles 262 ter I (for products) and/or "
-"283-2 (for services) of \"CGI\""
-msgstr ""
-
-#. module: l10n_fr
 #: model:ir.actions.client,name:l10n_fr.action_client_l10n_fr_menu
 msgid "Open Account Dashboard Menu"
-msgstr ""
+msgstr "قائمة لوحة تحكم الحساب المفتوح"
 
 #. module: l10n_fr
 #: model:ir.model.fields,field_description:l10n_fr.field_res_company_siret

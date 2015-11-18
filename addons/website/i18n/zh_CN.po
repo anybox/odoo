@@ -3,13 +3,14 @@
 # * website
 # 
 # Translators:
+# fausthuang, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 10:27+0000\n"
-"PO-Revision-Date: 2015-09-14 09:17+0000\n"
-"Last-Translator: Martin Trigaux\n"
+"POT-Creation-Date: 2015-10-09 09:18+0000\n"
+"PO-Revision-Date: 2015-11-13 04:18+0000\n"
+"Last-Translator: fausthuang\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/odoo/odoo-9/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,12 +21,12 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
 msgid "&amp;times;"
-msgstr ""
+msgstr "次数"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.layout
 msgid "&lt;!DOCTYPE html&gt;"
-msgstr ""
+msgstr "&lt;!DOCTYPE html&gt;"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.sitemap_index_xml
@@ -36,7 +37,7 @@ msgstr ""
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.gallery.xml:17
-#: code:addons/website/static/src/xml/website.gallery.xml:96
+#: code:addons/website/static/src/xml/website.gallery.xml:97
 #, python-format
 msgid "&times;"
 msgstr "&times;"
@@ -46,7 +47,7 @@ msgstr "&times;"
 msgid ""
 ",\n"
 "                                updated:"
-msgstr ""
+msgstr "已更新"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.layout_footer_copyright
@@ -68,7 +69,7 @@ msgstr ", 更新:"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "- The Odoo Team"
-msgstr ""
+msgstr "- Odoo团队"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.sitemap_index_xml
@@ -82,7 +83,7 @@ msgid ""
 "                                Use the link in the footer of your website (when logged in) to add\n"
 "                                languages from the available list. Also, you can change the\n"
 "                                default language in"
-msgstr ""
+msgstr "1.加入您的<strong>所需的语言</ STRONG><BR/>使用在你的网站上(登录时)的页脚中的链接，从可用列表添加语言。此外，您还可以更改默认语言"
 
 #. module: website
 #. openerp-web
@@ -94,22 +95,22 @@ msgstr "1. 定义关键字"
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "10s"
-msgstr ""
+msgstr "10秒"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "1s"
-msgstr ""
+msgstr "1秒"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "2. <strong>Setup Gengo</strong><br/>"
-msgstr ""
+msgstr "2.<strong>建立Gengo</strong><br/>"
 
 #. module: website
 #. openerp-web
@@ -121,12 +122,12 @@ msgstr "2.引用你的页面"
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_comparisons
 msgid "24x7 toll-free support"
-msgstr ""
+msgstr "24x7免费电话支持"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "2s"
-msgstr ""
+msgstr "2秒"
 
 #. module: website
 #. openerp-web
@@ -138,7 +139,7 @@ msgstr "3. 预览"
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "3s"
-msgstr ""
+msgstr "3秒"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.403
@@ -153,17 +154,17 @@ msgstr "404: 页面没有找到!"
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "5s"
-msgstr ""
+msgstr "5秒"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_big_picture
 msgid "<b>A Small Subtitle</b>"
-msgstr ""
+msgstr "<b>小科目</b>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "<b>Choose an image...</b>"
-msgstr ""
+msgstr "<b>选择一个图像...</b>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_text_block
@@ -172,7 +173,7 @@ msgid ""
 "                        just one person.</b> If you try to write with a wide general\n"
 "                        audience in mind, your story will ring false and be bland.\n"
 "                        No one will be interested. Write for one person. If it’s genuine for the one, it’s genuine for the rest."
-msgstr ""
+msgstr "伟大的故事是对每个人的，即使只对只有一个人写的。如果您尝试使用广泛的普通观众心目中的想法写，你的故事会很假，平淡的。没人会感兴趣。只为一个人写。如果是真的很好，那它对其他人也会很不错"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_text_block
@@ -188,76 +189,76 @@ msgstr ""
 #. module: website
 #: model:ir.actions.act_window,help:website.action_module_theme
 msgid "<b>No theme module found!</b>"
-msgstr ""
+msgstr "没发现主题模块"
 
 #. module: website
 #: model:ir.actions.act_window,help:website.action_module_website
 msgid "<b>No website module found!</b>"
-msgstr ""
+msgstr "没发现网站模块"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_sign_in
 msgid "<b>Sign in</b>"
-msgstr ""
+msgstr "签入"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_button
 msgid ""
 "<i class=\"fa fa-arrow-right\"/>\n"
 "                        Contact Us Now"
-msgstr ""
+msgstr "现在联系我们"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.language_selector
 msgid ""
 "<i class=\"fa fa-plus-circle\"/>\n"
 "                Add a language..."
-msgstr ""
+msgstr "增加一种语言"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.user_navbar
 msgid "<i class=\"fa fa-th-large\"/> Website<b class=\"caret\"/>"
-msgstr ""
+msgstr "网站"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
 "<i>\n"
-"                    The whole process may take a few hours, some discussions with your colleagues and\n"
-"                several cups of coffee to go through. But don't worry, you can return to this tool at any time.</i>"
-msgstr ""
+"                        The whole process may take a few hours, some discussions with your colleagues and\n"
+"                    several cups of coffee to go through. But don't worry, you can return to this tool at any time.</i>"
+msgstr "<I>整个过程可能需要几个小时，与你的同事讨论一会喝几杯咖啡。不过不用担心，你可以随时返回到该工具。</ I>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
 "<i>\n"
-"                    Whether you're a beginner or a pro, we have everything you need to plan, create,\n"
-"                publish and grow your site, blog or online store.</i>"
-msgstr ""
+"                        Whether you're a beginner or a pro, we have everything you need to plan, create,\n"
+"                    publish and grow your site, blog or online store.</i>"
+msgstr "无论你是初学者还是一个有经验的人，我们有你需要的一切，计划，创建，发布和拓展您的网站，博客或网上商店。</ I>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
 "<i>\n"
-"                This Planner will help you to think about your website and provide tips and ideas to inspire you. There are examples and explanations to guide you through the process of creating a top-notch, high quality site that meets all your needs.</i>"
-msgstr ""
+"                    This Planner will help you to think about your website and provide tips and ideas to inspire you. There are examples and explanations to guide you through the process of creating a top-notch, high quality site that meets all your needs.</i>"
+msgstr "该规划将帮助你想想你的网站，并提供建议和想法，激发你。还有例子和解释，引导您完成创建一个一流的，高质量的网站，以满足您的所有需求的过程。</ I>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
 "<i>Congratulations on taking the leap and deciding to build your own "
 "website!</i>"
-msgstr ""
+msgstr "恭喜飞跃的一步，并决定建立自己的网站！"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_comparisons
 msgid "<i>Instant setup, satisfied or reimbursed.</i>"
-msgstr ""
+msgstr "<I>即时安装，满意或报销。</ I>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<i>We wish you a fun time!</i>"
-msgstr ""
+msgstr "<I>我们希望您有一个有趣的时间！</ I>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_image_floating
@@ -274,7 +275,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website.s_quotes_slider
 #: model:ir.ui.view,arch_db:website.s_references
 msgid "<small>Author of this quote</small>"
-msgstr ""
+msgstr "这句话的作者"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_parallax_slider
@@ -286,17 +287,17 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<span class=\"fa fa-arrow-circle-o-down\"/> Install now"
-msgstr ""
+msgstr "<span class=\"fa fa-arrow-circle-o-down\"/>现在安装"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<span class=\"fa fa-comment-o\"/> Website Live Chat on"
-msgstr ""
+msgstr "<span class=\"fa fa-comment-o\"/> Website Live Chat on"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<span class=\"fa fa-envelope-o\"/> Email Our Website Expert"
-msgstr ""
+msgstr "<span class=\"fa fa-envelope-o\"/> 邮件通知我们网站的专家"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -547,7 +548,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website.s_image_floating
 #: model:ir.ui.view,arch_db:website.s_text_image_floating
 msgid "<strong>Click Here</strong>"
-msgstr ""
+msgstr "<strong>点击这里</strong>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -567,7 +568,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<strong>Contact us now:</strong><br/>"
-msgstr ""
+msgstr "<strong>现在就联系我们：</strong><br/>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -759,7 +760,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<strong>e-Commerce</strong>"
-msgstr ""
+msgstr "<strong>电子商务</strong>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -822,6 +823,16 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_features
 msgid "A small explanation of this great<br/>feature, in clear words."
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "A/B Testing"
+msgstr ""
+
+#. module: website
+#: model:ir.model.fields,field_description:website.field_website_config_settings_module_website_version
+msgid "A/B testing and versioning"
 msgstr ""
 
 #. module: website
@@ -1120,7 +1131,7 @@ msgstr "黑色"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Boost your online sales with sleek product pages."
-msgstr ""
+msgstr "提高您在线销售的时尚产品的页面"
 
 #. module: website
 #. openerp-web
@@ -1256,7 +1267,7 @@ msgstr "单击以自定义文本"
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.ace.xml:14
-#: code:addons/website/static/src/xml/website.gallery.xml:96
+#: code:addons/website/static/src/xml/website.gallery.xml:97
 #: code:addons/website/static/src/xml/website.seo.xml:19
 #: code:addons/website/static/src/xml/website.translator.xml:13
 #: code:addons/website/static/src/xml/website.xml:8
@@ -1294,6 +1305,11 @@ msgid "Columns"
 msgstr ""
 
 #. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Communicate"
+msgstr ""
+
+#. module: website
 #: model:ir.model,name:website.model_res_company
 msgid "Companies"
 msgstr "公司"
@@ -1315,12 +1331,11 @@ msgstr ""
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_compress_html
-#: model:ir.model.fields,field_description:website.field_website_config_settings_compress_html
 msgid "Compress HTML"
 msgstr ""
 
 #. module: website
-#: model:ir.ui.view,arch_db:website.view_website_config_settings
+#: model:ir.model.fields,field_description:website.field_website_config_settings_compress_html
 msgid "Compress rendered HTML for a better Google PageSpeed result"
 msgstr ""
 
@@ -1354,7 +1369,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Congratulations, you're done !"
-msgstr ""
+msgstr "恭喜，你已经完成了"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.footer_default
@@ -1439,7 +1454,7 @@ msgstr ""
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/website.editor.js:136
+#: code:addons/website/static/src/js/website.editor.js:138
 #, python-format
 msgid "Create page '%s'"
 msgstr "创建 '%s' 页"
@@ -1566,6 +1581,11 @@ msgid "Description..."
 msgstr "说明..."
 
 #. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Design"
+msgstr ""
+
+#. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Disable autoplay"
 msgstr ""
@@ -1599,7 +1619,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_published_mixin_display_name
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "显示名称"
 
 #. module: website
 #. openerp-web
@@ -1623,7 +1643,7 @@ msgstr "域"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Don't hesitate to"
-msgstr ""
+msgstr "不要犹豫做"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1725,6 +1745,11 @@ msgid "Email support"
 msgstr ""
 
 #. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "End"
+msgstr "结束"
+
+#. module: website
 #: model:ir.ui.view,arch_db:website.s_comparisons
 msgid "Enterprise package"
 msgstr "企业包"
@@ -1785,6 +1810,11 @@ msgid ""
 msgstr ""
 
 #. module: website
+#: model:ir.ui.view,arch_db:website.view_website_config_settings
+msgid "Extra Features"
+msgstr "额外属性"
+
+#. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Extra-Large"
 msgstr "特大"
@@ -1825,6 +1855,11 @@ msgstr "特性二"
 msgid ""
 "Finally don't try to make all your content accessible from the main menu or the footer.\n"
 "                            Indeed, a page can also be accessible through a direct link or button, from any other page of your website."
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Find Inspiration"
 msgstr ""
 
 #. module: website
@@ -1882,7 +1917,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
 "For the Odoo Team,<br/>\n"
-"                        Fabien Pinckaers, Founder"
+"                            Fabien Pinckaers, Founder"
+msgstr "关于Odoo团队,<br/>\n                            Fabien Pinckaers, 创始人"
+
+#. module: website
+#: model:ir.model.fields,field_description:website.field_website_config_settings_module_website_form_editor
+msgid "Form builder: create and customize forms"
 msgstr ""
 
 #. module: website
@@ -2010,6 +2050,11 @@ msgid "Group By"
 msgstr "分组"
 
 #. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Grow"
+msgstr ""
+
+#. module: website
 #: model:ir.ui.view,arch_db:website.user_navbar
 msgid "HELP &amp; TUTORIALS"
 msgstr ""
@@ -2080,7 +2125,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_config_settings_id
 #: model:ir.model.fields,field_description:website.field_website_id
-#: model:ir.model.fields,field_description:website.field_website_menu_id_1969
+#: model:ir.model.fields,field_description:website.field_website_menu_id_1976
 #: model:ir.model.fields,field_description:website.field_website_published_mixin_id
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_id
 msgid "ID"
@@ -2181,6 +2226,7 @@ msgstr "信息关于"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.user_navbar
+#: model:ir.ui.view,arch_db:website.website_planner
 msgid "Install Apps"
 msgstr "安装应用"
 
@@ -2316,6 +2362,11 @@ msgstr "最后更新"
 #: model:ir.model.fields,field_description:website.field_website_write_date
 msgid "Last Updated on"
 msgstr "最后更新"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Launch"
+msgstr "午餐"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2530,7 +2581,7 @@ msgstr ""
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/website.editor.js:121
+#: code:addons/website/static/src/js/website.editor.js:123
 #, python-format
 msgid "New or existing page"
 msgstr "新建或已存在的页面"
@@ -2558,7 +2609,7 @@ msgstr "无"
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/xml/website.backend.xml:5
+#: code:addons/website/static/src/js/website.backend.js:22
 #: model:ir.ui.view,arch_db:website.publish_management
 #: model:ir.ui.view,arch_db:website.publish_short
 #, python-format
@@ -2573,7 +2624,7 @@ msgstr "注意：要隐藏此页面，从顶部定制菜单取消勾选"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Note: To use those features, you need to install the"
-msgstr ""
+msgstr "注意：要使用这些功能，您需要安装"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.layout_footer_copyright
@@ -2679,7 +2730,7 @@ msgstr "确定"
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/xml/website.backend.xml:7
+#: code:addons/website/static/src/xml/website.backend.xml:5
 #, python-format
 msgid "On Website"
 msgstr ""
@@ -2812,6 +2863,11 @@ msgid "Partners"
 msgstr "业务伙伴"
 
 #. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Plan"
+msgstr ""
+
+#. module: website
 #: model:web.planner,tooltip_planner:website.planner_website
 msgid ""
 "Plan your website strategy, design your pages, sell your products and grow "
@@ -2821,7 +2877,7 @@ msgstr ""
 #. module: website
 #: model:ir.model,name:website.model_web_planner
 msgid "Planner"
-msgstr ""
+msgstr "计划"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.theme_customize
@@ -2830,7 +2886,7 @@ msgstr ""
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/website.theme.js:292
+#: code:addons/website/static/src/js/website.theme.js:293
 #, python-format
 msgid "Please install or update node-less"
 msgstr ""
@@ -2855,10 +2911,10 @@ msgstr "驱动于"
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/website.editor.js:36
+#: code:addons/website/static/src/js/website.editor.js:38
 #, python-format
 msgid "Press The Top-Left Edit Button"
-msgstr ""
+msgstr "按左上角的编辑按钮"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.kanban_contain
@@ -2884,6 +2940,7 @@ msgstr ""
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.seo.xml:5
+#: model:ir.ui.view,arch_db:website.website_planner
 #, python-format
 msgid "Promote"
 msgstr "推广"
@@ -2938,7 +2995,7 @@ msgstr "点击 <em>'保存'</em> 按钮来发布页面."
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/xml/website.backend.xml:6
+#: code:addons/website/static/src/js/website.backend.js:18
 #: model:ir.ui.view,arch_db:website.publish_management
 #: model:ir.ui.view,arch_db:website.publish_short
 #, python-format
@@ -2963,6 +3020,11 @@ msgstr "引用"
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Re-order"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Ready For Launch!"
 msgstr ""
 
 #. module: website
@@ -3129,12 +3191,12 @@ msgstr "轻松在线销售"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Sell more online"
-msgstr ""
+msgstr "更多在线销售"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.template_partner_comment
 msgid "Send <span class=\"fa fa-long-arrow-right\"/>"
-msgstr ""
+msgstr "发送"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.template_partner_comment
@@ -3144,7 +3206,7 @@ msgstr "发送消息给我们的业务伙伴"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Send an email to all your contacts"
-msgstr ""
+msgstr "发送一封邮件给你的联系人"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.contactus
@@ -3159,12 +3221,12 @@ msgstr "序号"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Settings &gt; Website"
-msgstr ""
+msgstr "设置；网站"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Shadows"
-msgstr ""
+msgstr "阴影"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_share
@@ -3174,7 +3236,7 @@ msgstr "共享"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Share experience on similar projects"
-msgstr ""
+msgstr "在类似的项目上分享经验"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_ui_view_customize_show
@@ -3184,7 +3246,7 @@ msgstr "作为可选继承显示"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Simple and obvious"
-msgstr ""
+msgstr "显而易见的"
 
 #. module: website
 #. openerp-web
@@ -3196,12 +3258,12 @@ msgstr "跳过"
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Slideshow"
-msgstr ""
+msgstr "幻灯"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Slideshow speed"
-msgstr ""
+msgstr "幻灯速度"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -3224,17 +3286,22 @@ msgstr "社交媒体"
 #: code:addons/website/static/src/xml/website.xml:95
 #, python-format
 msgid "Some dependencies can exist ..."
-msgstr ""
+msgstr "一些依赖能够存在。。。"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Special effects and animations"
-msgstr ""
+msgstr "特效和动画"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.view_website_config_settings
+msgid "Speed"
+msgstr "速度"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Square"
-msgstr ""
+msgstr "方形"
 
 #. module: website
 #. openerp-web
@@ -3285,7 +3352,7 @@ msgstr "风格"
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Styling"
-msgstr ""
+msgstr "造型"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.footer_custom
@@ -3363,7 +3430,7 @@ msgstr "“内容”菜单允许您添加或添加顶部菜单页面。"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "The Banner or Big Picture building blocks are good choices for that."
-msgstr ""
+msgstr "横幅或大图片积木都是好选择。"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_faq_collapse
@@ -3371,7 +3438,7 @@ msgid ""
 "The Point of Sale works perfectly on any kind of touch enabled\n"
 "                                device, whether it's multi-touch tablets like an iPad or\n"
 "                                keyboardless resistive touchscreen terminals."
-msgstr ""
+msgstr "销售点的工作完全可以在任何类型的触摸设备，无论是多点触控平板电脑，如iPad或键盘的电阻式触摸屏终端。"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_faq
@@ -3379,19 +3446,19 @@ msgid ""
 "The Point of Sale works perfectly on any kind of touch enabled\n"
 "                device, whether it's multi-touch tablets like an iPad or\n"
 "                keyboardless resistive touchscreen terminals."
-msgstr ""
+msgstr "销售点的工作完全可以在任何类型的触摸设备，无论是多点触控平板电脑，如iPad或键盘的电阻式触摸屏终端。"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
 "The best and simplest way to start is to create a few pages and link them directly from the main menu.\n"
 "                            Just try not to go over 6 items, otherwise your main menu will be difficult to use."
-msgstr ""
+msgstr "开始最好的和最简单的方法是创建一些页面，直接从主菜单链接它们，只是尽量不要超过6个项目，否则你的主菜单将很难使用"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "The building blocks"
-msgstr ""
+msgstr "积木"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3402,7 +3469,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "The colors palettes"
-msgstr ""
+msgstr "调色板"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3424,7 +3491,7 @@ msgstr "下面的错误是由网站控制器引发的"
 #. module: website
 #: model:ir.model.fields,help:website.field_website_published_mixin_website_url
 msgid "The full URL to access the document through the website."
-msgstr ""
+msgstr "通过网站完整的URL来访问操作服务器。"
 
 #. module: website
 #: model:ir.model.fields,help:website.field_ir_act_server_website_url
@@ -3447,7 +3514,7 @@ msgstr "页面不可用，可能是你输错了地址，也可能是最近网站
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "The pre-loaded images"
-msgstr ""
+msgstr "预先上传的图片"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.500
@@ -3475,9 +3542,14 @@ msgstr "此网站发生错误"
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/website.theme.js:296
+#: code:addons/website/static/src/js/website.theme.js:297
 #, python-format
 msgid "Theme Error"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Theme Selection"
 msgstr ""
 
 #. module: website
@@ -3590,6 +3662,7 @@ msgstr "旋转"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.user_navbar
+#: model:ir.ui.view,arch_db:website.website_planner
 msgid "Translate"
 msgstr "翻译"
 
@@ -3670,7 +3743,7 @@ msgstr ""
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/xml/website.gallery.xml:31
+#: code:addons/website/static/src/xml/website.gallery.xml:32
 #, python-format
 msgid ""
 "Upload failed, some images might not have been uploaded. Check your network "
@@ -3679,7 +3752,7 @@ msgstr ""
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/xml/website.gallery.xml:30
+#: code:addons/website/static/src/xml/website.gallery.xml:31
 #, python-format
 msgid "Upload successful."
 msgstr ""
@@ -3690,13 +3763,13 @@ msgid "Url"
 msgstr "Url"
 
 #. module: website
-#: model:ir.model.fields,field_description:website.field_website_config_settings_cdn_activated
-msgid "Use CDN"
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Use Google Adword"
 msgstr ""
 
 #. module: website
-#: model:ir.ui.view,arch_db:website.website_planner
-msgid "Use Google Adword"
+#: model:ir.model.fields,field_description:website.field_website_config_settings_cdn_activated
+msgid "Use a Content Delivery Network (CDN)"
 msgstr ""
 
 #. module: website
@@ -3915,6 +3988,11 @@ msgid "Websites to translate"
 msgstr "要翻译的网站"
 
 #. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Welcome"
+msgstr "欢迎"
+
+#. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:18
 #, python-format
@@ -4112,7 +4190,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:website.action_module_theme
 #: model:ir.actions.act_window,help:website.action_module_website
 msgid "You should try others search criteria."
-msgstr ""
+msgstr "请试试其他搜索条件"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -4128,6 +4206,31 @@ msgstr ""
 #, python-format
 msgid "Your Banner Title"
 msgstr "你的横幅标题"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Your Domain Name"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Your Footer"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Your Homepage"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Your Main Menu"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "Your Objectives"
+msgstr "你的对象"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_title
@@ -4208,6 +4311,21 @@ msgstr "显示你的页面内容"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "ex: About us"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "ex: Blog, Success stories, References, Events, Jobs"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "ex: Contact us, Our Customers, Privacy Policy, Events, Bolg, Jobs"
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "ex: interesting contents, texts and articles"
 msgstr ""
 
 #. module: website
@@ -4305,7 +4423,7 @@ msgstr "ir.attachment"
 #. module: website
 #: model:ir.model,name:website.model_ir_qweb
 msgid "ir.qweb"
-msgstr ""
+msgstr "ir.qweb"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_ui_view
@@ -4350,7 +4468,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "send us an email"
-msgstr ""
+msgstr "给我们发一封邮件"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.sitemap_index_xml
@@ -4414,7 +4532,7 @@ msgstr "网站"
 #. module: website
 #: model:ir.model,name:website.model_website_config_settings
 msgid "website.config.settings"
-msgstr ""
+msgstr "网站.配置.设置"
 
 #. module: website
 #: model:ir.model,name:website.model_website_published_mixin
@@ -4429,4 +4547,4 @@ msgstr "是"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "your Company details form"
-msgstr ""
+msgstr "你的公司的格式细节"
