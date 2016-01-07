@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-10-30 09:40+0000\n"
+"PO-Revision-Date: 2015-12-28 04:40+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-7/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -775,7 +775,7 @@ msgstr ""
 #. module: account
 #: view:account.invoice:0
 msgid "Print Invoice"
-msgstr ""
+msgstr "Vytlačiť faktúru"
 
 #. module: account
 #: code:addons/account/wizard/account_invoice_refund.py:120
@@ -954,7 +954,7 @@ msgstr ""
 #. module: account
 #: view:account.payment.term:0 field:account.payment.term.line,value:0
 msgid "Computation"
-msgstr ""
+msgstr "Výpočet"
 
 #. module: account
 #: field:account.journal.cashbox.line,pieces:0
@@ -991,7 +991,7 @@ msgstr ""
 #. module: account
 #: view:validate.account.move:0 view:validate.account.move.lines:0
 msgid "Approve"
-msgstr ""
+msgstr "Schváliť"
 
 #. module: account
 #: view:account.invoice:0 view:account.move:0 view:report.invoice.created:0
@@ -1356,7 +1356,7 @@ msgstr ""
 #. module: account
 #: field:account.account,level:0 field:account.financial.report,level:0
 msgid "Level"
-msgstr ""
+msgstr "Úroveň"
 
 #. module: account
 #: code:addons/account/wizard/account_change_currency.py:38
@@ -1567,7 +1567,7 @@ msgstr ""
 #. module: account
 #: view:account.invoice.refund:0
 msgid "Credit Note"
-msgstr ""
+msgstr "Kreditná poznámka"
 
 #. module: account
 #: view:account.config.settings:0
@@ -2077,7 +2077,7 @@ msgstr ""
 #: field:account.invoice,move_id:0 field:account.invoice,move_name:0
 #: field:account.move.line,move_id:0
 msgid "Journal Entry"
-msgstr ""
+msgstr "Vstup účtovnej knihy"
 
 #. module: account
 #: view:account.invoice:0
@@ -2499,7 +2499,7 @@ msgstr ""
 #. module: account
 #: field:account.sequence.fiscalyear,sequence_main_id:0
 msgid "Main Sequence"
-msgstr ""
+msgstr "Hlavná postupnosť"
 
 #. module: account
 #: code:addons/account/account_bank_statement.py:478
@@ -2758,7 +2758,7 @@ msgstr ""
 #. module: account
 #: view:res.partner.bank:0
 msgid "Accounting Information"
-msgstr ""
+msgstr "Účtovná informácia"
 
 #. module: account
 #: view:account.tax:0 view:account.tax.template:0
@@ -3066,7 +3066,7 @@ msgstr ""
 #. module: account
 #: field:account.config.settings,date_stop:0
 msgid "End date"
-msgstr ""
+msgstr "Dátum ukončenia"
 
 #. module: account
 #: field:account.invoice.tax,base_amount:0
@@ -3126,7 +3126,7 @@ msgstr ""
 #: field:account.account,child_parent_ids:0
 #: field:account.account.template,child_parent_ids:0
 msgid "Children"
-msgstr ""
+msgstr "Deti"
 
 #. module: account
 #: report:account.account.balance:0
@@ -3607,7 +3607,7 @@ msgstr ""
 #. module: account
 #: field:account.config.settings,date_start:0
 msgid "Start date"
-msgstr ""
+msgstr "Dátum začiatku"
 
 #. module: account
 #: view:account.invoice.refund:0
@@ -4489,7 +4489,7 @@ msgstr ""
 #. module: account
 #: view:account.move:0 view:account.move.line:0
 msgid "Add an internal note..."
-msgstr ""
+msgstr "Pridať internú poznámku"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_wizard_multi_chart
@@ -5167,7 +5167,7 @@ msgstr ""
 #: field:account.financial.report,children_ids:0
 #: model:ir.model,name:account.model_account_financial_report
 msgid "Account Report"
-msgstr ""
+msgstr "Výkaz účtu"
 
 #. module: account
 #: field:account.entries.report,year:0 view:account.invoice.report:0
@@ -5271,7 +5271,7 @@ msgstr ""
 #: view:account.model:0 selection:account.tax,type_tax_use:0
 #: view:account.tax.template:0 selection:account.tax.template,type_tax_use:0
 msgid "Sale"
-msgstr ""
+msgstr "Predaj"
 
 #. module: account
 #: model:ir.model,name:account.model_account_automatic_reconcile
@@ -5298,7 +5298,7 @@ msgstr "Suma"
 #: model:process.transition,name:account.process_transition_suppliervalidentries0
 #: model:process.transition,name:account.process_transition_validentries0
 msgid "Validation"
-msgstr ""
+msgstr "Validácia"
 
 #. module: account
 #: help:account.bank.statement,message_summary:0
@@ -5693,7 +5693,7 @@ msgstr ""
 #. module: account
 #: selection:account.payment.term.line,value:0 selection:account.tax,type:0
 msgid "Fixed Amount"
-msgstr ""
+msgstr "Pevná suma"
 
 #. module: account
 #: code:addons/account/account_move_line.py:1067
@@ -5709,7 +5709,7 @@ msgstr ""
 #. module: account
 #: view:account.move:0 view:account.move.line:0
 msgid "Journal Item"
-msgstr ""
+msgstr "Položka účtovnej knihy"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_account_fiscalyear_close
@@ -5986,7 +5986,7 @@ msgstr ""
 #: selection:account.account.type,close_method:0 selection:account.tax,type:0
 #: selection:account.tax.template,type:0
 msgid "None"
-msgstr ""
+msgstr "Žiadne"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_invoice_tree3
@@ -6045,7 +6045,7 @@ msgstr ""
 #. module: account
 #: selection:account.aged.trial.balance,direction_selection:0
 msgid "Past"
-msgstr ""
+msgstr "Minulé"
 
 #. module: account
 #: help:res.partner.bank,journal_id:0
@@ -6096,7 +6096,7 @@ msgstr "Analytický riadok"
 #. module: account
 #: model:ir.ui.menu,name:account.menu_action_model_form
 msgid "Models"
-msgstr ""
+msgstr "Modely"
 
 #. module: account
 #: code:addons/account/account_invoice.py:1131
@@ -6339,7 +6339,7 @@ msgstr ""
 #: code:addons/account/account.py:3407 code:addons/account/res_config.py:279
 #, python-format
 msgid "Only administrators can change the settings"
-msgstr ""
+msgstr "Iba správcovia môžu zmeniť nastaveni"
 
 #. module: account
 #: view:project.account.analytic.line:0
@@ -6578,7 +6578,7 @@ msgstr "Základ"
 #. module: account
 #: field:account.model,name:0
 msgid "Model Name"
-msgstr ""
+msgstr "Názov modelu"
 
 #. module: account
 #: field:account.chart.template,property_account_expense_categ:0
@@ -7583,7 +7583,7 @@ msgstr ""
 #: model:ir.ui.menu,name:account.menu_validate_account_moves
 #: view:validate.account.move:0 view:validate.account.move.lines:0
 msgid "Post Journal Entries"
-msgstr ""
+msgstr "Zapísať vstupy účtovnej knihy"
 
 #. module: account
 #: selection:account.bank.statement.line,type:0 view:account.config.settings:0
@@ -7673,7 +7673,7 @@ msgstr ""
 #: selection:account.config.settings,period:0
 #: selection:account.installer,period:0
 msgid "Monthly"
-msgstr ""
+msgstr "Mesačne"
 
 #. module: account
 #: model:account.account.type,name:account.data_account_type_asset
@@ -8018,7 +8018,7 @@ msgstr ""
 #: field:account.treasury.report,period_id:0
 #: field:validate.account.move,period_id:0
 msgid "Period"
-msgstr ""
+msgstr "Obdobie"
 
 #. module: account
 #: help:account.account,adjusted_balance:0
@@ -8354,7 +8354,7 @@ msgstr ""
 #. module: account
 #: view:account.tax.code:0
 msgid "Statistics"
-msgstr ""
+msgstr "Štatistiky"
 
 #. module: account
 #: field:account.analytic.chart,from_date:0
@@ -8487,7 +8487,7 @@ msgstr ""
 #. module: account
 #: model:res.groups,name:account.group_account_invoice
 msgid "Invoicing & Payments"
-msgstr ""
+msgstr "Fakturácia & platby"
 
 #. module: account
 #: help:account.invoice,internal_number:0
@@ -8500,7 +8500,7 @@ msgstr ""
 #: model:account.account.type,name:account.data_account_type_expense
 #: model:account.financial.report,name:account.account_financial_report_expense0
 msgid "Expense"
-msgstr ""
+msgstr "Výdaj"
 
 #. module: account
 #: help:account.chart,fiscalyear:0
@@ -8605,7 +8605,7 @@ msgstr ""
 #. module: account
 #: field:res.partner,contract_ids:0
 msgid "Contracts"
-msgstr ""
+msgstr "Zmluvy"
 
 #. module: account
 #: field:account.cashbox.line,bank_statement_id:0
@@ -8638,7 +8638,7 @@ msgstr "Je sledujúci"
 #: view:account.move:0 field:account.move,narration:0
 #: field:account.move.line,narration:0
 msgid "Internal Note"
-msgstr ""
+msgstr "Interná poznámka"
 
 #. module: account
 #: constraint:account.account:0
@@ -8745,7 +8745,7 @@ msgstr ""
 #. module: account
 #: view:account.analytic.line:0
 msgid "Product Information"
-msgstr ""
+msgstr "Informácie o produkte"
 
 #. module: account
 #: report:account.analytic.account.journal:0 view:account.move:0
@@ -9552,7 +9552,7 @@ msgstr ""
 #. module: account
 #: field:account.account,parent_left:0
 msgid "Parent Left"
-msgstr ""
+msgstr "Nadradená ľavá"
 
 #. module: account
 #: selection:account.financial.report,style_overwrite:0
@@ -9782,7 +9782,7 @@ msgstr ""
 #: field:account.invoice.refund,description:0 field:cash.box.in,name:0
 #: field:cash.box.out,name:0
 msgid "Reason"
-msgstr ""
+msgstr "Dôvod "
 
 #. module: account
 #: selection:account.partner.ledger,filter:0
@@ -9975,7 +9975,7 @@ msgstr ""
 #. module: account
 #: field:temp.range,name:0
 msgid "Range"
-msgstr ""
+msgstr "Rozsah"
 
 #. module: account
 #: view:account.analytic.line:0
@@ -10254,7 +10254,7 @@ msgstr ""
 #. module: account
 #: field:account.account,parent_right:0
 msgid "Parent Right"
-msgstr ""
+msgstr "Nadradená pravá"
 
 #. module: account
 #. openerp-web
@@ -10353,7 +10353,7 @@ msgstr ""
 #. module: account
 #: selection:account.aged.trial.balance,direction_selection:0
 msgid "Future"
-msgstr ""
+msgstr "Budúce"
 
 #. module: account
 #: view:account.move.line:0
