@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-05-29 13:13+0000\n"
+"PO-Revision-Date: 2015-12-19 11:50+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Catalan (http://www.transifex.com/odoo/odoo-7/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "Aquesta propietat defineix la llista d'excepcions de data/hora per a un 
 #: selection:calendar.event,rrule_type:0 selection:calendar.todo,rrule_type:0
 #: selection:crm.meeting,rrule_type:0
 msgid "Week(s)"
-msgstr ""
+msgstr "Setmana(es)"
 
 #. module: base_calendar
 #: field:calendar.event,we:0 field:calendar.todo,we:0 field:crm.meeting,we:0
@@ -51,7 +51,7 @@ msgstr "Dc"
 #. module: base_calendar
 #: selection:calendar.attendee,cutype:0
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #. module: base_calendar
 #: help:calendar.event,recurrency:0 help:calendar.todo,recurrency:0
@@ -125,7 +125,7 @@ msgstr "Especifiqueu el tipus d'invitació"
 #. module: base_calendar
 #: view:crm.meeting:0 field:crm.meeting,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Missatges pendents de llegir"
 
 #. module: base_calendar
 #: selection:calendar.event,week_list:0 selection:calendar.todo,week_list:0
@@ -155,7 +155,7 @@ msgstr "Lliure"
 #. module: base_calendar
 #: help:crm.meeting,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si està marcat hi ha missatges nous pendents."
 
 #. module: base_calendar
 #: help:calendar.attendee,rsvp:0
@@ -203,7 +203,7 @@ msgstr "Darrer"
 #. module: base_calendar
 #: help:crm.meeting,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Historial de missatges i comunicació"
 
 #. module: base_calendar
 #: field:crm.meeting,message_ids:0
@@ -235,7 +235,7 @@ msgstr "President"
 #. module: base_calendar
 #: view:crm.meeting:0
 msgid "My Meetings"
-msgstr ""
+msgstr "Les meves reunions "
 
 #. module: base_calendar
 #: selection:calendar.alarm,action:0
@@ -277,7 +277,7 @@ msgstr ""
 #. module: base_calendar
 #: field:crm.meeting,name:0
 msgid "Meeting Subject"
-msgstr ""
+msgstr "Tema de la reunió "
 
 #. module: base_calendar
 #: view:calendar.event:0
@@ -328,7 +328,7 @@ msgstr "Participació opcional"
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Manté el resum de la conversa (número de missatges, etc). Aquest resum és en format html  per poder-lo inserir a les vistes kanban."
 
 #. module: base_calendar
 #: code:addons/base_calendar/base_calendar.py:401
@@ -434,7 +434,7 @@ msgstr "Dia del mes"
 #. module: base_calendar
 #: field:crm.meeting,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidors"
 
 #. module: base_calendar
 #: field:calendar.event,location:0 field:calendar.todo,location:0
@@ -516,7 +516,7 @@ msgstr "URL de caldav"
 #. module: base_calendar
 #: model:ir.model,name:base_calendar.model_mail_wizard_invite
 msgid "Invite wizard"
-msgstr ""
+msgstr "Convida assistent "
 
 #. module: base_calendar
 #: selection:calendar.event,month_list:0 selection:calendar.todo,month_list:0
@@ -537,7 +537,7 @@ msgstr "Dj"
 #. module: base_calendar
 #: view:crm.meeting:0
 msgid "Meeting Details"
-msgstr ""
+msgstr "Detalls de la reunió"
 
 #. module: base_calendar
 #: field:calendar.attendee,child_ids:0
@@ -548,7 +548,7 @@ msgstr "Delegada en"
 #: code:addons/base_calendar/crm_meeting.py:102
 #, python-format
 msgid "The following contacts have no email address :"
-msgstr ""
+msgstr "Els següents contactes no tenen adreça de correu electrònic: "
 
 #. module: base_calendar
 #: selection:calendar.event,rrule_type:0 selection:calendar.todo,rrule_type:0
@@ -561,7 +561,7 @@ msgstr "Any/s"
 #: model:ir.actions.act_window,name:base_calendar.action_crm_meeting_type
 #: model:ir.ui.menu,name:base_calendar.menu_crm_meeting_type
 msgid "Meeting Types"
-msgstr ""
+msgstr "Tipus de reunions "
 
 #. module: base_calendar
 #: field:calendar.event,create_date:0 field:calendar.todo,create_date:0
@@ -685,7 +685,7 @@ msgstr "Rebutjat"
 #: code:addons/base_calendar/base_calendar.py:1528
 #, python-format
 msgid "Group by date is not supported, use the calendar view instead."
-msgstr ""
+msgstr "L'agrupació per data no està suportada, utilitzeu la vista de calendari al seu lloc."
 
 #. module: base_calendar
 #: view:calendar.event:0 view:crm.meeting:0
@@ -771,7 +771,7 @@ msgstr "Recordatori"
 #: selection:calendar.event,end_type:0 selection:calendar.todo,end_type:0
 #: selection:crm.meeting,end_type:0
 msgid "Number of repetitions"
-msgstr ""
+msgstr "Nombre de repeticions "
 
 #. module: base_calendar
 #: model:crm.meeting.type,name:base_calendar.categ_meet2
@@ -829,7 +829,7 @@ msgstr ""
 #. module: base_calendar
 #: model:ir.model,name:base_calendar.model_ir_model
 msgid "Models"
-msgstr ""
+msgstr "Models"
 
 #. module: base_calendar
 #: selection:calendar.event,month_list:0 selection:calendar.todo,month_list:0
@@ -846,7 +846,7 @@ msgstr "Data esdeveniment"
 #. module: base_calendar
 #: view:crm.meeting:0
 msgid "Invitations"
-msgstr ""
+msgstr "Invitacions "
 
 #. module: base_calendar
 #: view:calendar.event:0 view:crm.meeting:0
@@ -866,7 +866,7 @@ msgstr "Delegat de"
 #. module: base_calendar
 #: field:crm.meeting,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "És un seguidor"
 
 #. module: base_calendar
 #: field:calendar.attendee,user_id:0
@@ -916,7 +916,7 @@ msgstr "Incert"
 #: constraint:calendar.event:0 constraint:calendar.todo:0
 #: constraint:crm.meeting:0
 msgid "Error ! End date cannot be set before start date."
-msgstr ""
+msgstr "Error! La data de fi no pot ser anterior a la data d'inici."
 
 #. module: base_calendar
 #: field:calendar.alarm,trigger_occurs:0 field:res.alarm,trigger_occurs:0
@@ -962,7 +962,7 @@ msgstr "Actiu"
 #: code:addons/base_calendar/base_calendar.py:401
 #, python-format
 msgid "You cannot duplicate a calendar attendee."
-msgstr ""
+msgstr "No podeu duplicar un calendari d'assistents."
 
 #. module: base_calendar
 #: view:calendar.event:0
@@ -999,7 +999,7 @@ msgstr "Defineix l'acció a invocar quan surti l'alarma"
 #. module: base_calendar
 #: view:crm.meeting:0
 msgid "Starting at"
-msgstr ""
+msgstr "Comença a"
 
 #. module: base_calendar
 #: selection:calendar.event,end_type:0 selection:calendar.todo,end_type:0
@@ -1023,12 +1023,12 @@ msgstr "Si el camp actiu és verdader, li permetrà ocultar la notificació d'av
 #: field:calendar.event,end_type:0 field:calendar.todo,end_type:0
 #: field:crm.meeting,end_type:0
 msgid "Recurrence Termination"
-msgstr ""
+msgstr "Finalització de recurrència"
 
 #. module: base_calendar
 #: view:crm.meeting:0
 msgid "Until"
-msgstr ""
+msgstr "Fins"
 
 #. module: base_calendar
 #: view:res.alarm:0
@@ -1043,7 +1043,7 @@ msgstr ""
 #. module: base_calendar
 #: view:crm.meeting:0
 msgid "Day of Month"
-msgstr ""
+msgstr "Dia del mes"
 
 #. module: base_calendar
 #: selection:calendar.alarm,state:0
@@ -1204,7 +1204,7 @@ msgstr "ir.valors"
 #. module: base_calendar
 #: view:crm.meeting:0
 msgid "Search Meetings"
-msgstr ""
+msgstr "Cercar reunions "
 
 #. module: base_calendar
 #: model:ir.model,name:base_calendar.model_ir_attachment
@@ -1214,7 +1214,7 @@ msgstr "ir.adjunt"
 #. module: base_calendar
 #: model:ir.model,name:base_calendar.model_crm_meeting_type
 msgid "Meeting Type"
-msgstr ""
+msgstr "Tipus de reunió"
 
 #. module: base_calendar
 #: selection:calendar.attendee,state:0
@@ -1310,7 +1310,7 @@ msgstr "Abril"
 #: code:addons/base_calendar/crm_meeting.py:106
 #, python-format
 msgid "Email addresses not found"
-msgstr ""
+msgstr "Correu electrònic no trobat "
 
 #. module: base_calendar
 #: view:calendar.event:0
@@ -1339,7 +1339,7 @@ msgstr "Per dia"
 #: code:addons/base_calendar/base_calendar.py:443
 #, python-format
 msgid "First you have to specify the date of the invitation."
-msgstr ""
+msgstr "Primer heu d'especificar la data d'invitació. "
 
 #. module: base_calendar
 #: field:calendar.alarm,model_id:0
@@ -1414,7 +1414,7 @@ msgstr "Dissabte"
 #: field:calendar.event,interval:0 field:calendar.todo,interval:0
 #: field:crm.meeting,interval:0
 msgid "Repeat Every"
-msgstr ""
+msgstr "Repetir Cada "
 
 #. module: base_calendar
 #: selection:calendar.event,byday:0 selection:calendar.todo,byday:0

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-05-29 13:13+0000\n"
+"PO-Revision-Date: 2015-12-21 22:41+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Catalan (http://www.transifex.com/odoo/odoo-7/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 #. module: purchase
 #: model:ir.model,name:purchase.model_account_config_settings
 msgid "account.config.settings"
-msgstr ""
+msgstr "account.config.settings"
 
 #. module: purchase
 #: view:board.board:0
@@ -76,7 +76,7 @@ msgstr ""
 #. module: purchase
 #: help:purchase.order,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si està marcat hi ha missatges nous pendents."
 
 #. module: purchase
 #: model:ir.ui.menu,name:purchase.menu_procurement_management_inventory
@@ -100,7 +100,7 @@ msgstr "Compte analític"
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Manté el resum de la conversa (número de missatges, etc). Aquest resum és en format html  per poder-lo inserir a les vistes kanban."
 
 #. module: purchase
 #: code:addons/purchase/purchase.py:1087
@@ -200,7 +200,7 @@ msgstr "Aprovació"
 #: help:purchase.config.settings,group_uom:0
 msgid ""
 "Allows you to select and maintain different units of measure for products."
-msgstr ""
+msgstr "Ens permet seleccionar i mantenir diferents unitats de mesura per als productes."
 
 #. module: purchase
 #: help:purchase.order,minimum_planned_date:0
@@ -461,7 +461,7 @@ msgstr ""
 #: view:purchase.config.settings:0 view:purchase.order.group:0
 #: view:purchase.order.line_invoice:0
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #. module: purchase
 #: field:res.company,po_lead:0
@@ -484,7 +484,7 @@ msgstr ""
 #. module: purchase
 #: view:purchase.config.settings:0
 msgid "Apply"
-msgstr ""
+msgstr "Aplica"
 
 #. module: purchase
 #: field:purchase.order,amount_untaxed:0
@@ -693,7 +693,7 @@ msgstr "Petició pressupost"
 #. module: purchase
 #: view:purchase.order:0
 msgid "Send by Email"
-msgstr ""
+msgstr "Enviar per correu electrònic "
 
 #. module: purchase
 #: report:purchase.order:0 view:purchase.order:0
@@ -778,7 +778,7 @@ msgstr "Data de la creació d'aquest document."
 #. module: purchase
 #: field:purchase.order,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "És un seguidor"
 
 #. module: purchase
 #: model:ir.actions.act_window,name:purchase.action_purchase_order_report_graph
@@ -938,7 +938,7 @@ msgstr ""
 #. module: purchase
 #: help:purchase.order,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Historial de missatges i comunicació"
 
 #. module: purchase
 #: field:purchase.order,warehouse_id:0 field:stock.picking.in,warehouse_id:0
@@ -1008,7 +1008,7 @@ msgstr "Estadístiques comandes de compra"
 #. module: purchase
 #: view:purchase.order:0 field:purchase.order,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Missatges pendents de llegir"
 
 #. module: purchase
 #: model:ir.ui.menu,name:purchase.menu_purchase_uom_categ_form_action
@@ -1064,7 +1064,7 @@ msgstr "Moviment d'estoc"
 #: code:addons/purchase/purchase.py:259 code:addons/purchase/purchase.py:909
 #, python-format
 msgid "Invalid Action!"
-msgstr ""
+msgstr "Acció invàlida!"
 
 #. module: purchase
 #: field:purchase.order,validator:0 view:purchase.report:0
@@ -1694,12 +1694,12 @@ msgstr "Cancel·lada"
 #. module: purchase
 #: field:res.partner,purchase_order_count:0
 msgid "# of Purchase Order"
-msgstr ""
+msgstr "# de la comanda de compra "
 
 #. module: purchase
 #: model:ir.model,name:purchase.model_mail_compose_message
 msgid "Email composition wizard"
-msgstr ""
+msgstr "Assistent de composició de correu electrònic"
 
 #. module: purchase
 #: report:purchase.quotation:0
@@ -1749,7 +1749,7 @@ msgstr "Un albarà genera una factura de proveïdor. Segons el control de factur
 #. module: purchase
 #: field:purchase.order,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidors"
 
 #. module: purchase
 #: help:purchase.config.settings,module_purchase_requisition:0
@@ -1938,7 +1938,7 @@ msgstr ""
 #. module: purchase
 #: model:ir.ui.menu,name:purchase.menu_partner_categories_in_form
 msgid "Partner Categories"
-msgstr ""
+msgstr "Categories d'empreses"
 
 #. module: purchase
 #: field:purchase.report,state:0

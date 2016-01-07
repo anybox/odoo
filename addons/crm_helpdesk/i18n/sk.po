@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-09-27 10:12+0000\n"
+"PO-Revision-Date: 2015-12-17 08:03+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-7/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Marec"
 #. module: crm_helpdesk
 #: field:crm.helpdesk,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neprečítané správy"
 
 #. module: crm_helpdesk
 #: field:crm.helpdesk,company_id:0 view:crm.helpdesk.report:0
@@ -56,12 +56,12 @@ msgstr "Spoločnost"
 #. module: crm_helpdesk
 #: field:crm.helpdesk,email_cc:0
 msgid "Watchers Emails"
-msgstr ""
+msgstr "Emaily odberateľov"
 
 #. module: crm_helpdesk
 #: view:crm.helpdesk.report:0
 msgid "Salesperson"
-msgstr ""
+msgstr "Predajca"
 
 #. module: crm_helpdesk
 #: selection:crm.helpdesk,priority:0 selection:crm.helpdesk.report,priority:0
@@ -86,7 +86,7 @@ msgstr "Poznámky"
 #. module: crm_helpdesk
 #: field:crm.helpdesk,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Správy"
 
 #. module: crm_helpdesk
 #: view:crm.helpdesk.report:0
@@ -101,7 +101,7 @@ msgstr "Zrušené"
 #. module: crm_helpdesk
 #: help:crm.helpdesk,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ak zaškrtnuté, nové správy vyžadujú vašu pozornosť."
 
 #. module: crm_helpdesk
 #: model:ir.actions.act_window,name:crm_helpdesk.action_report_crm_helpdesk
@@ -166,13 +166,13 @@ msgstr "Priorita"
 #. module: crm_helpdesk
 #: field:crm.helpdesk,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Odberatelia"
 
 #. module: crm_helpdesk
 #: view:crm.helpdesk:0 selection:crm.helpdesk,state:0
 #: view:crm.helpdesk.report:0
 msgid "New"
-msgstr ""
+msgstr "Nové"
 
 #. module: crm_helpdesk
 #: model:ir.model,name:crm_helpdesk.model_crm_helpdesk_report
@@ -219,7 +219,7 @@ msgstr ""
 #: view:crm.helpdesk:0 field:crm.helpdesk,date_deadline:0
 #: field:crm.helpdesk.report,date_deadline:0
 msgid "Deadline"
-msgstr ""
+msgstr "Uzávierka"
 
 #. module: crm_helpdesk
 #: selection:crm.helpdesk.report,month:0
@@ -255,7 +255,7 @@ msgstr ""
 #: code:addons/crm_helpdesk/crm_helpdesk.py:105
 #, python-format
 msgid "No Subject"
-msgstr ""
+msgstr "Bez predmetu"
 
 #. module: crm_helpdesk
 #: view:crm.helpdesk:0
@@ -342,7 +342,7 @@ msgstr "Plánované náklady"
 #. module: crm_helpdesk
 #: help:crm.helpdesk,channel_id:0
 msgid "Communication channel."
-msgstr ""
+msgstr "Komunikačný kanál."
 
 #. module: crm_helpdesk
 #: help:crm.helpdesk,email_cc:0
@@ -350,7 +350,7 @@ msgid ""
 "These email addresses will be added to the CC field of all inbound and "
 "outbound emails for this record before being sent. Separate multiple email "
 "addresses with a comma"
-msgstr ""
+msgstr "Tieto emailové adresy budú pridané do poľa 'kópia' všetkých odchádzajúcich emailov pre\ntento záznam pred ich poslaním. Oddeľte jednotlivé email adresy čiarkou"
 
 #. module: crm_helpdesk
 #: view:crm.helpdesk:0
@@ -434,7 +434,7 @@ msgstr "Plánované príjmy"
 #. module: crm_helpdesk
 #: field:crm.helpdesk,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Je sledujúci"
 
 #. module: crm_helpdesk
 #: field:crm.helpdesk.report,user_id:0
@@ -491,7 +491,7 @@ msgstr "Dátum"
 #. module: crm_helpdesk
 #: view:crm.helpdesk:0
 msgid "Misc"
-msgstr ""
+msgstr "Rôzne"
 
 #. module: crm_helpdesk
 #: view:crm.helpdesk.report:0
@@ -554,7 +554,7 @@ msgstr "Hľadať"
 #. module: crm_helpdesk
 #: field:crm.helpdesk.report,delay_expected:0
 msgid "Overpassed Deadline"
-msgstr ""
+msgstr "Prekročená uzávierka"
 
 #. module: crm_helpdesk
 #: field:crm.helpdesk,description:0
@@ -574,7 +574,7 @@ msgstr "Pravdepodobnosť (%)"
 #. module: crm_helpdesk
 #: field:crm.helpdesk.report,email:0
 msgid "# Emails"
-msgstr ""
+msgstr "# Emaily"
 
 #. module: crm_helpdesk
 #: model:ir.actions.act_window,help:crm_helpdesk.action_report_crm_helpdesk
@@ -626,7 +626,7 @@ msgstr ""
 #. module: crm_helpdesk
 #: help:crm.helpdesk,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Správa a história komunikácie"
 
 #. module: crm_helpdesk
 #: model:ir.actions.act_window,help:crm_helpdesk.crm_helpdesk_categ_action
@@ -638,7 +638,7 @@ msgstr ""
 #. module: crm_helpdesk
 #: view:crm.helpdesk:0
 msgid "Request Date"
-msgstr ""
+msgstr "Dátum požiadavky"
 
 #. module: crm_helpdesk
 #: view:crm.helpdesk:0

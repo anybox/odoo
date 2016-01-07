@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-07-17 08:55+0000\n"
+"PO-Revision-Date: 2015-11-28 06:17+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Spanish (Colombia) (http://www.transifex.com/odoo/odoo-7/language/es_CO/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: code:addons/edi/static/src/js/edi.js:67
 #, python-format
 msgid "Reason:"
-msgstr ""
+msgstr "Razón:"
 
 #. module: edi
 #. openerp-web
@@ -46,7 +46,7 @@ msgstr "Compañías"
 #. module: edi
 #: model:ir.model,name:edi.model_res_currency
 msgid "Currency"
-msgstr ""
+msgstr "Moneda"
 
 #. module: edi
 #. openerp-web

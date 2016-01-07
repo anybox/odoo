@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-07 19:36+0000\n"
-"PO-Revision-Date: 2015-09-27 10:12+0000\n"
+"PO-Revision-Date: 2015-11-21 12:52+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-7/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -65,12 +65,12 @@ msgstr "Pole"
 #. module: anonymization
 #: selection:ir.model.fields.anonymization,state:0
 msgid "New"
-msgstr ""
+msgstr "Nové"
 
 #. module: anonymization
 #: field:ir.model.fields.anonymize.wizard,file_import:0
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #. module: anonymization
 #: model:ir.model,name:anonymization.model_ir_model_fields_anonymization
@@ -168,7 +168,7 @@ msgstr ""
 #. module: anonymization
 #: view:ir.model.fields.anonymize.wizard:0
 msgid "Database Anonymization"
-msgstr ""
+msgstr "Anonymizácia databázy"
 
 #. module: anonymization
 #: model:ir.ui.menu,name:anonymization.menu_administration_anonymization_wizard
@@ -282,7 +282,7 @@ msgstr ""
 #. module: anonymization
 #: field:ir.model.fields.anonymize.wizard,name:0
 msgid "File Name"
-msgstr ""
+msgstr "Názov súboru"
 
 #. module: anonymization
 #: field:ir.model.fields.anonymization.migration.fix,sequence:0

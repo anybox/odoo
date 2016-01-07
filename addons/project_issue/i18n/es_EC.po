@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-09-27 20:56+0000\n"
+"PO-Revision-Date: 2015-12-28 05:30+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Spanish (Ecuador) (http://www.transifex.com/odoo/odoo-7/language/es_EC/)\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr "Progreso (%)"
 #. module: project_issue
 #: view:project.issue:0 field:project.issue,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensajes no leídos"
 
 #. module: project_issue
 #: field:project.issue,company_id:0 view:project.issue.report:0
@@ -97,7 +97,7 @@ msgstr ""
 #. module: project_issue
 #: help:project.issue,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si esta habilitado, los nuevos mensajes deben ser revisado"
 
 #. module: project_issue
 #: help:account.analytic.account,use_issues:0
@@ -291,7 +291,7 @@ msgstr "Versión"
 #. module: project_issue
 #: field:project.issue,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: project_issue
 #: view:project.issue:0 selection:project.issue,state:0
@@ -564,7 +564,7 @@ msgstr "Junio"
 #. module: project_issue
 #: help:project.issue,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Historial de Comunicación y Mensajes"
 
 #. module: project_issue
 #: view:project.issue:0
@@ -615,7 +615,7 @@ msgstr "Buscar"
 #. module: project_issue
 #: view:project.issue:0
 msgid "Creation Month"
-msgstr ""
+msgstr "Mes de Creación"
 
 #. module: project_issue
 #: help:project.issue,days_since_creation:0
@@ -707,12 +707,12 @@ msgstr "Por hacer"
 #: model:ir.model,name:project_issue.model_project_issue
 #: view:project.issue.report:0
 msgid "Project Issue"
-msgstr ""
+msgstr "Problemas en el Proyecto"
 
 #. module: project_issue
 #: view:project.issue:0
 msgid "Add an internal note..."
-msgstr ""
+msgstr "Agregar una nota interna..."
 
 #. module: project_issue
 #: view:project.issue:0
@@ -722,7 +722,7 @@ msgstr ""
 #. module: project_issue
 #: help:project.issue,progress:0
 msgid "Computed as: Time Spent / Total Time."
-msgstr ""
+msgstr "Calculado como: Tiempo transcurrido / Tiempo total."
 
 #. module: project_issue
 #: field:project.project,issue_count:0
@@ -753,7 +753,7 @@ msgstr "Mes"
 #. module: project_issue
 #: view:project.issue:0 field:project.issue,name:0 view:project.project:0
 msgid "Issue"
-msgstr ""
+msgstr "Problema"
 
 #. module: project_issue
 #: model:project.category,name:project_issue.project_issue_category_02

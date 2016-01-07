@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-09-27 10:12+0000\n"
+"PO-Revision-Date: 2015-12-19 12:54+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-7/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "Zoskupiť podľa..."
 #. module: crm_claim
 #: view:crm.claim:0
 msgid "Responsibilities"
-msgstr ""
+msgstr "Zodpovednosti"
 
 #. module: crm_claim
 #: help:sale.config.settings,fetchmail_claim:0
@@ -64,7 +64,7 @@ msgstr ""
 #. module: crm_claim
 #: field:crm.claim,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neprečítané správy"
 
 #. module: crm_claim
 #: field:crm.claim,resolution:0
@@ -103,7 +103,7 @@ msgstr "Názov etapy"
 #. module: crm_claim
 #: view:crm.claim.report:0
 msgid "Salesperson"
-msgstr ""
+msgstr "Predajca"
 
 #. module: crm_claim
 #: selection:crm.claim,priority:0 selection:crm.claim.report,priority:0
@@ -123,7 +123,7 @@ msgstr ""
 #. module: crm_claim
 #: field:crm.claim,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Správy"
 
 #. module: crm_claim
 #: model:crm.case.categ,name:crm_claim.categ_claim1
@@ -144,7 +144,7 @@ msgstr ""
 #. module: crm_claim
 #: help:crm.claim,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ak zaškrtnuté, nové správy vyžadujú vašu pozornosť."
 
 #. module: crm_claim
 #: field:crm.claim.report,date_closed:0
@@ -154,7 +154,7 @@ msgstr "Dátum uzavretia"
 #. module: crm_claim
 #: view:res.partner:0
 msgid "False"
-msgstr ""
+msgstr "Falošné"
 
 #. module: crm_claim
 #: field:crm.claim,ref:0
@@ -182,7 +182,7 @@ msgstr ""
 #: view:crm.claim:0 field:crm.claim,date_deadline:0
 #: field:crm.claim.report,date_deadline:0
 msgid "Deadline"
-msgstr ""
+msgstr "Uzávierka"
 
 #. module: crm_claim
 #: view:crm.claim:0 field:crm.claim,partner_id:0 view:crm.claim.report:0
@@ -230,14 +230,14 @@ msgstr ""
 #. module: crm_claim
 #: field:crm.claim,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Odberatelia"
 
 #. module: crm_claim
 #: view:crm.claim:0 selection:crm.claim,state:0 view:crm.claim.report:0
 #: model:crm.claim.stage,name:crm_claim.stage_claim1
 #: selection:crm.claim.stage,state:0
 msgid "New"
-msgstr ""
+msgstr "Nové"
 
 #. module: crm_claim
 #: field:crm.claim.stage,section_ids:0
@@ -278,7 +278,7 @@ msgstr ""
 #. module: crm_claim
 #: model:crm.claim.stage,name:crm_claim.stage_claim3
 msgid "Rejected"
-msgstr ""
+msgstr "Rejected "
 
 #. module: crm_claim
 #: field:crm.claim,date_action_next:0
@@ -333,7 +333,7 @@ msgstr ""
 #: code:addons/crm_claim/crm_claim.py:202
 #, python-format
 msgid "No Subject"
-msgstr ""
+msgstr "Bez predmetu"
 
 #. module: crm_claim
 #: help:crm.claim.stage,state:0
@@ -442,7 +442,7 @@ msgstr ""
 #. module: crm_claim
 #: field:crm.claim,email_cc:0
 msgid "Watchers Emails"
-msgstr ""
+msgstr "Emaily odberateľov"
 
 #. module: crm_claim
 #: help:crm.claim,email_cc:0
@@ -450,7 +450,7 @@ msgid ""
 "These email addresses will be added to the CC field of all inbound and "
 "outbound emails for this record before being sent. Separate multiple email "
 "addresses with a comma"
-msgstr ""
+msgstr "Tieto emailové adresy budú pridané do poľa 'kópia' všetkých odchádzajúcich emailov pre\ntento záznam pred ich poslaním. Oddeľte jednotlivé email adresy čiarkou"
 
 #. module: crm_claim
 #: selection:crm.claim.report,state:0
@@ -528,7 +528,7 @@ msgstr "Telefón"
 #. module: crm_claim
 #: field:crm.claim,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Je sledujúci"
 
 #. module: crm_claim
 #: field:crm.claim.report,user_id:0
@@ -700,7 +700,7 @@ msgstr ""
 #. module: crm_claim
 #: field:crm.claim.report,delay_expected:0
 msgid "Overpassed Deadline"
-msgstr ""
+msgstr "Prekročená uzávierka"
 
 #. module: crm_claim
 #: field:crm.claim,cause:0
@@ -745,7 +745,7 @@ msgstr ""
 #. module: crm_claim
 #: field:crm.claim.report,email:0
 msgid "# Emails"
-msgstr ""
+msgstr "# Emaily"
 
 #. module: crm_claim
 #: view:crm.claim:0
@@ -794,7 +794,7 @@ msgstr ""
 #. module: crm_claim
 #: help:crm.claim,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Správa a história komunikácie"
 
 #. module: crm_claim
 #: field:sale.config.settings,fetchmail_claim:0

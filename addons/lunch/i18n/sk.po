@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-09-27 10:12+0000\n"
+"PO-Revision-Date: 2015-12-30 11:05+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-7/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgstr "Dodávateľ"
 #. module: lunch
 #: view:lunch.order.line:0
 msgid "Today"
-msgstr ""
+msgstr "Dnes"
 
 #. module: lunch
 #: selection:report.lunch.order.line,month:0
@@ -65,7 +65,7 @@ msgstr "Marec"
 #. module: lunch
 #: view:lunch.cashmove:0
 msgid "By Employee"
-msgstr ""
+msgstr "Podľa zamestnanca"
 
 #. module: lunch
 #: field:lunch.alert,friday:0
@@ -239,7 +239,7 @@ msgstr ""
 #. module: lunch
 #: selection:lunch.order,state:0 selection:lunch.order.line,state:0
 msgid "New"
-msgstr ""
+msgstr "Nové"
 
 #. module: lunch
 #: code:addons/lunch/lunch.py:190
@@ -482,7 +482,7 @@ msgstr ""
 #: model:ir.ui.menu,name:lunch.menu_lunch
 #: model:ir.ui.menu,name:lunch.menu_lunch_title
 msgid "Lunch"
-msgstr ""
+msgstr "Obed"
 
 #. module: lunch
 #: model:ir.model,name:lunch.model_lunch_order_line
@@ -698,7 +698,7 @@ msgstr "Jednotková cena"
 #. module: lunch
 #: view:lunch.cashmove:0
 msgid "By User"
-msgstr ""
+msgstr "Podľa pouźívateľa"
 
 #. module: lunch
 #: field:lunch.order.line,product_id:0 field:lunch.product,name:0
@@ -755,7 +755,7 @@ msgstr ""
 #. module: lunch
 #: view:lunch.cashmove:0 selection:lunch.cashmove,state:0
 msgid "Payment"
-msgstr ""
+msgstr "Platba"
 
 #. module: lunch
 #: selection:report.lunch.order.line,month:0

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-07-17 08:47+0000\n"
+"PO-Revision-Date: 2015-12-19 19:49+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Ukrainian (http://www.transifex.com/odoo/odoo-7/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -94,7 +94,7 @@ msgstr ""
 #: view:crm.lead:0 field:crm.lead,user_id:0 view:crm.lead.report:0
 #: view:crm.phonecall.report:0
 msgid "Salesperson"
-msgstr ""
+msgstr "Продавець"
 
 #. module: crm
 #: model:ir.model,name:crm.model_crm_lead_report
@@ -131,7 +131,7 @@ msgstr ""
 #. module: crm
 #: view:crm.phonecall:0
 msgid "Cancel Call"
-msgstr ""
+msgstr "Скасувати тендер"
 
 #. module: crm
 #: help:crm.lead.report,creation_day:0
@@ -172,7 +172,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Містить загальну інформацію про діалоги в форматі html."
 
 #. module: crm
 #: code:addons/crm/crm_lead.py:637 code:addons/crm/crm_lead.py:758
@@ -218,7 +218,7 @@ msgstr ""
 #. module: crm
 #: field:res.partner,meeting_count:0
 msgid "# Meetings"
-msgstr ""
+msgstr "# Зустрічі"
 
 #. module: crm
 #: model:ir.actions.server,name:crm.action_email_reminder_lead
@@ -288,7 +288,7 @@ msgstr ""
 #. module: crm
 #: field:crm.lead,contact_name:0
 msgid "Contact Name"
-msgstr ""
+msgstr "Назва контакту"
 
 #. module: crm
 #: help:crm.segmentation,categ_id:0
@@ -369,7 +369,7 @@ msgstr ""
 #: field:crm.case.section,message_unread:0 view:crm.lead:0
 #: field:crm.lead,message_unread:0 field:crm.phonecall,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Непрочитані повідомлення"
 
 #. module: crm
 #: view:crm.segmentation:0 field:crm.segmentation.line,segmentation_id:0
@@ -460,7 +460,7 @@ msgstr ""
 #. module: crm
 #: view:sale.config.settings:0
 msgid "Configure"
-msgstr ""
+msgstr "Налаштувати"
 
 #. module: crm
 #: view:crm.lead:0
@@ -482,7 +482,7 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "June"
-msgstr ""
+msgstr "June"
 
 #. module: crm
 #: selection:crm.segmentation,state:0
@@ -510,7 +510,7 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "October"
-msgstr ""
+msgstr "October"
 
 #. module: crm
 #: view:crm.segmentation:0
@@ -536,7 +536,7 @@ msgstr "Підсумок"
 #. module: crm
 #: view:crm.merge.opportunity:0
 msgid "Merge"
-msgstr ""
+msgstr "З’єднати"
 
 #. module: crm
 #: view:crm.case.categ:0
@@ -586,7 +586,7 @@ msgstr ""
 #. module: crm
 #: selection:crm.case.stage,state:0 view:crm.lead:0 selection:crm.lead,state:0
 msgid "In Progress"
-msgstr ""
+msgstr "В процесі"
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_phonecall_categ_action
@@ -610,7 +610,7 @@ msgstr ""
 #. module: crm
 #: field:crm.lead.report,creation_month:0
 msgid "Creation Month"
-msgstr ""
+msgstr "Створити меню"
 
 #. module: crm
 #: field:crm.case.section,resource_calendar_id:0
@@ -766,13 +766,13 @@ msgstr ""
 #: view:crm.lead2opportunity.partner.mass:0 view:crm.merge.opportunity:0
 #: view:crm.opportunity2phonecall:0 view:crm.phonecall2phonecall:0
 msgid "or"
-msgstr ""
+msgstr "або"
 
 #. module: crm
 #: field:crm.lead.report,create_date:0
 #: field:crm.phonecall.report,create_date:0
 msgid "Create Date"
-msgstr ""
+msgstr "Дата створення"
 
 #. module: crm
 #: field:crm.lead,ref2:0
@@ -862,7 +862,7 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "March"
-msgstr ""
+msgstr "March"
 
 #. module: crm
 #: view:crm.lead:0
@@ -873,7 +873,7 @@ msgstr ""
 #: help:crm.case.section,message_unread:0 help:crm.lead,message_unread:0
 #: help:crm.phonecall,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Якщо позначено, то повідомленя потребує вашої уваги"
 
 #. module: crm
 #: field:crm.lead,day_open:0
@@ -905,7 +905,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:crm.crm_meeting_partner view:res.partner:0
 #: field:res.partner,meeting_ids:0
 msgid "Meetings"
-msgstr ""
+msgstr "Зустрічі"
 
 #. module: crm
 #: field:crm.lead,date_action_next:0 field:crm.lead,title_action:0
@@ -1035,7 +1035,7 @@ msgstr ""
 #. module: crm
 #: field:crm.lead,user_login:0
 msgid "User Login"
-msgstr ""
+msgstr "Користувач"
 
 #. module: crm
 #: view:crm.lead:0
@@ -1066,7 +1066,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead:0
 msgid "Delete"
-msgstr ""
+msgstr "Вилучити"
 
 #. module: crm
 #: model:mail.message.subtype,description:crm.mt_lead_create
@@ -1081,14 +1081,14 @@ msgstr ""
 #. module: crm
 #: view:crm.phonecall:0
 msgid "Description..."
-msgstr ""
+msgstr "Опис..."
 
 #. module: crm
 #: selection:crm.lead.report,creation_month:0
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "September"
-msgstr ""
+msgstr "September"
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_case_category_act_oppor11
@@ -1209,7 +1209,7 @@ msgstr "невідомий"
 #: field:crm.lead,message_is_follower:0
 #: field:crm.phonecall,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Стежить"
 
 #. module: crm
 #: field:crm.opportunity2phonecall,date:0 view:crm.phonecall:0
@@ -1225,7 +1225,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead.report:0 view:crm.phonecall.report:0
 msgid "Extended Filters..."
-msgstr ""
+msgstr "Extended Filters..."
 
 #. module: crm
 #: view:crm.phonecall.report:0
@@ -1294,7 +1294,7 @@ msgstr "Код"
 #. module: crm
 #: view:sale.config.settings:0
 msgid "Features"
-msgstr ""
+msgstr "Можливості"
 
 #. module: crm
 #: field:crm.case.section,child_ids:0
@@ -1337,7 +1337,7 @@ msgstr ""
 #. module: crm
 #: view:crm.phonecall:0
 msgid "To Do"
-msgstr ""
+msgstr "До опрацювання"
 
 #. module: crm
 #: model:mail.message.subtype,description:crm.mt_lead_lost
@@ -1449,7 +1449,7 @@ msgstr ""
 #: help:crm.case.section,message_ids:0 help:crm.lead,message_ids:0
 #: help:crm.phonecall,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Повідомлення та історія бесіди"
 
 #. module: crm
 #: view:crm.lead:0
@@ -1464,7 +1464,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead:0 view:crm.phonecall:0
 msgid "Creation"
-msgstr ""
+msgstr "Створення"
 
 #. module: crm
 #: selection:crm.lead,priority:0 selection:crm.lead.report,priority:0
@@ -1497,7 +1497,7 @@ msgstr ""
 #: view:crm.lead:0 view:crm.lead.report:0 view:crm.phonecall:0
 #: view:crm.phonecall.report:0
 msgid "Group By..."
-msgstr ""
+msgstr "Група"
 
 #. module: crm
 #: model:email.template,subject:crm.email_template_opportunity_mail
@@ -1613,7 +1613,7 @@ msgstr "Відповісти"
 #. module: crm
 #: view:crm.lead:0
 msgid "Display"
-msgstr ""
+msgstr "Відображати"
 
 #. module: crm
 #: view:board.board:0
@@ -1652,7 +1652,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead:0
 msgid "Edit..."
-msgstr ""
+msgstr "Редагувати..."
 
 #. module: crm
 #: model:crm.case.resource.type,name:crm.type_lead5
@@ -1701,7 +1701,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:crm.open_board_statistical_dash
 #: model:ir.ui.menu,name:crm.menu_board_statistics_dash
 msgid "CRM"
-msgstr ""
+msgstr "RML"
 
 #. module: crm
 #: model:ir.actions.act_window,name:crm.crm_segmentation_tree-act
@@ -1727,7 +1727,7 @@ msgstr "Рядок сегментації"
 #. module: crm
 #: view:crm.opportunity2phonecall:0 view:crm.phonecall2phonecall:0
 msgid "Planned Date"
-msgstr ""
+msgstr "Очікувана дата"
 
 #. module: crm
 #: view:crm.lead:0
@@ -1749,7 +1749,7 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "July"
-msgstr ""
+msgstr "July"
 
 #. module: crm
 #: view:crm.lead:0
@@ -1827,7 +1827,7 @@ msgstr ""
 #. module: crm
 #: model:crm.case.categ,name:crm.categ_oppor5
 msgid "Design"
-msgstr ""
+msgstr "Дизайн"
 
 #. module: crm
 #: selection:crm.lead2opportunity.partner,name:0
@@ -1849,7 +1849,7 @@ msgstr ""
 #. module: crm
 #: field:crm.lead,user_email:0
 msgid "User Email"
-msgstr ""
+msgstr "Ел.пошта користувача"
 
 #. module: crm
 #: help:crm.lead,partner_name:0
@@ -1977,7 +1977,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead:0
 msgid "Misc"
-msgstr ""
+msgstr "Різне"
 
 #. module: crm
 #: view:crm.lead:0 view:crm.lead.report:0 selection:crm.lead.report,state:0
@@ -2080,7 +2080,7 @@ msgstr ""
 #. module: crm
 #: model:ir.model,name:crm.model_calendar_attendee
 msgid "Attendee information"
-msgstr ""
+msgstr "Інформація про учасників"
 
 #. module: crm
 #: view:crm.segmentation:0
@@ -2108,7 +2108,7 @@ msgstr "Остання дія"
 #. module: crm
 #: field:crm.phonecall,duration:0 field:crm.phonecall.report,duration:0
 msgid "Duration"
-msgstr ""
+msgstr "Тривалість"
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_case_categ_phone_outgoing0
@@ -2192,7 +2192,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead:0
 msgid "Reset"
-msgstr ""
+msgstr "Скинути"
 
 #. module: crm
 #: view:sale.config.settings:0
@@ -2203,7 +2203,7 @@ msgstr ""
 #: field:crm.case.section,message_ids:0 field:crm.lead,message_ids:0
 #: field:crm.phonecall,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Повідомлення"
 
 #. module: crm
 #: help:crm.lead,channel_id:0
@@ -2225,7 +2225,7 @@ msgstr "Скасований"
 #. module: crm
 #: view:crm.lead:0
 msgid "Street..."
-msgstr ""
+msgstr "Вулиця"
 
 #. module: crm
 #: field:crm.lead.report,date_closed:0
@@ -2260,7 +2260,7 @@ msgstr ""
 #. module: crm
 #: field:crm.lead,color:0
 msgid "Color Index"
-msgstr ""
+msgstr "Індекс кольору"
 
 #. module: crm
 #: field:crm.segmentation.line,expr_operator:0
@@ -2318,7 +2318,7 @@ msgstr "Додатковий вираз"
 #: field:crm.lead,message_follower_ids:0
 #: field:crm.phonecall,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Хто слідкує"
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_case_category_act_leads_all
@@ -2452,7 +2452,7 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "August"
-msgstr ""
+msgstr "August"
 
 #. module: crm
 #: model:mail.message.subtype,name:crm.mt_lead_lost
@@ -2470,7 +2470,7 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "December"
-msgstr ""
+msgstr "December"
 
 #. module: crm
 #: view:crm.phonecall:0
@@ -2562,7 +2562,7 @@ msgstr ""
 #: model:ir.model,name:crm.model_crm_meeting
 #: model:process.node,name:crm.process_node_meeting0
 msgid "Meeting"
-msgstr ""
+msgstr "Зустріч"
 
 #. module: crm
 #: model:ir.model,name:crm.model_crm_case_categ
@@ -2606,7 +2606,7 @@ msgstr "Користувач"
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #. module: crm
 #: view:crm.lead.report:0
@@ -2619,12 +2619,12 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "January"
-msgstr ""
+msgstr "January"
 
 #. module: crm
 #: model:process.process,name:crm.process_process_contractprocess0
 msgid "Contract"
-msgstr ""
+msgstr "Contract"
 
 #. module: crm
 #: model:crm.case.resource.type,name:crm.type_lead4
@@ -2665,7 +2665,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead:0
 msgid "Unassigned"
-msgstr ""
+msgstr "Непризначено"
 
 #. module: crm
 #: selection:crm.opportunity2phonecall,action:0
@@ -2732,14 +2732,14 @@ msgstr "Опис"
 #: field:crm.phonecall,section_id:0 view:crm.phonecall.report:0
 #: field:crm.phonecall2phonecall,section_id:0 field:res.partner,section_id:0
 msgid "Sales Team"
-msgstr ""
+msgstr "Відділ продажу"
 
 #. module: crm
 #: selection:crm.lead.report,creation_month:0
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "May"
-msgstr ""
+msgstr "May"
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_case_channel_action
@@ -2760,7 +2760,7 @@ msgstr ""
 #. module: crm
 #: view:crm.lead:0
 msgid "Internal Notes"
-msgstr ""
+msgstr "Внутрішня назва"
 
 #. module: crm
 #: view:crm.lead:0
@@ -2812,7 +2812,7 @@ msgstr "Покупець"
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "February"
-msgstr ""
+msgstr "February"
 
 #. module: crm
 #: view:crm.phonecall:0
@@ -2852,7 +2852,7 @@ msgstr ""
 #: selection:crm.lead.report,deadline_month:0
 #: selection:crm.phonecall.report,month:0
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #. module: crm
 #: field:crm.case.resource.type,name:0

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-07-12 22:17+0000\n"
+"PO-Revision-Date: 2015-11-18 17:23+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Bulgarian (http://www.transifex.com/odoo/odoo-7/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -1080,7 +1080,7 @@ msgstr "Код"
 #. module: account
 #: view:account.config.settings:0
 msgid "Features"
-msgstr ""
+msgstr "Възможности"
 
 #. module: account
 #: report:account.partner.balance:0
@@ -1135,7 +1135,7 @@ msgstr "Режим пейзаж"
 #. module: account
 #: model:email.template,subject:account.email_template_edi_invoice
 msgid "${object.company_id.name|safe} Invoice (Ref ${object.number or 'n/a'})"
-msgstr ""
+msgstr "${object.company_id.name|safe} Фактура (Ref ${object.number or 'n/a'})"
 
 #. module: account
 #: help:account.fiscalyear.close,fy_id:0
@@ -1567,7 +1567,7 @@ msgstr ""
 #. module: account
 #: view:account.invoice.refund:0
 msgid "Credit Note"
-msgstr ""
+msgstr "Кредитно известие"
 
 #. module: account
 #: view:account.config.settings:0
@@ -2027,7 +2027,7 @@ msgstr "Анализ на фактури"
 #. module: account
 #: model:ir.model,name:account.model_mail_compose_message
 msgid "Email composition wizard"
-msgstr ""
+msgstr "Помощник за създаване на имейл"
 
 #. module: account
 #: model:ir.model,name:account.model_account_period_close
@@ -2315,7 +2315,7 @@ msgstr "Графики сметка данък"
 #: model:account.payment.term,name:account.account_payment_term_net
 #: model:account.payment.term,note:account.account_payment_term_net
 msgid "30 Net Days"
-msgstr ""
+msgstr "30 дни чисто"
 
 #. module: account
 #: code:addons/account/account_bank_statement.py:424
@@ -3882,7 +3882,7 @@ msgstr "Бюджети"
 #: selection:accounting.report,filter:0
 #: selection:accounting.report,filter_cmp:0
 msgid "No Filters"
-msgstr ""
+msgstr "Няма Филтри"
 
 #. module: account
 #: view:account.invoice.report:0
@@ -4555,7 +4555,7 @@ msgstr "Приключващ баланс"
 #. module: account
 #: field:account.chart.template,visible:0
 msgid "Can be Visible?"
-msgstr ""
+msgstr "Може ли да се вижда?"
 
 #. module: account
 #: model:ir.model,name:account.model_account_journal_select
@@ -4753,7 +4753,7 @@ msgstr "Отменена фактура"
 #. module: account
 #: view:account.invoice:0
 msgid "My Invoices"
-msgstr ""
+msgstr "Моите Фактури"
 
 #. module: account
 #: selection:account.bank.statement,state:0
@@ -4938,7 +4938,7 @@ msgstr "Изчисление"
 #. module: account
 #: view:account.invoice:0
 msgid "Additional notes..."
-msgstr ""
+msgstr "Допълнителни бележки ..."
 
 #. module: account
 #: field:account.tax,type_tax_use:0
@@ -5306,7 +5306,7 @@ msgstr "Валидиране"
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Съдържа обобщена информация за Chatter - чат (брой съобщения и т.н).Това резшме е директно във формат HTML с цел да бъде вмъквано в изгледи kanban."
 
 #. module: account
 #: field:account.tax,child_depend:0 field:account.tax.template,child_depend:0
@@ -5683,7 +5683,7 @@ msgstr ""
 #. module: account
 #: selection:account.financial.report,style_overwrite:0
 msgid "Automatic formatting"
-msgstr ""
+msgstr "Автоматично форматиране"
 
 #. module: account
 #: view:account.move.line.reconcile:0
@@ -7116,7 +7116,7 @@ msgstr ""
 #. module: account
 #: view:account.invoice:0
 msgid "Customer Reference"
-msgstr ""
+msgstr "Клиентска референция"
 
 #. module: account
 #: field:account.account.template,parent_id:0
@@ -7185,7 +7185,7 @@ msgstr ""
 #. module: account
 #: model:ir.actions.act_window,name:account.open_account_charts_modules
 msgid "Chart Templates"
-msgstr ""
+msgstr "Шаблон на графика"
 
 #. module: account
 #: field:account.journal.period,icon:0
@@ -7233,7 +7233,7 @@ msgstr ""
 #. module: account
 #: field:account.config.settings,group_proforma_invoices:0
 msgid "Allow pro-forma invoices"
-msgstr ""
+msgstr "Разрешаване на Проформа Фактури"
 
 #. module: account
 #: view:account.bank.statement:0
@@ -7440,7 +7440,7 @@ msgstr "Това поле се използва за записи за задъ�
 #. module: account
 #: model:ir.ui.menu,name:account.menu_multi_currency
 msgid "Multi-Currencies"
-msgstr ""
+msgstr "Множество валути"
 
 #. module: account
 #: field:account.model.line,date_maturity:0
@@ -9383,7 +9383,7 @@ msgstr ""
 #. module: account
 #: view:accounting.report:0
 msgid "Comparison"
-msgstr ""
+msgstr "Сравнение"
 
 #. module: account
 #: code:addons/account/account_move_line.py:1130
