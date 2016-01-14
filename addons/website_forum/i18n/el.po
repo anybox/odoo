@@ -3,13 +3,14 @@
 # * website_forum
 # 
 # Translators:
+# Goutoudis Kostas <goutoudis@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2015-07-30 23:40+0000\n"
-"Last-Translator: Martin Trigaux\n"
+"PO-Revision-Date: 2016-01-02 22:27+0000\n"
+"Last-Translator: Goutoudis Kostas <goutoudis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/odoo/odoo-8/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +53,7 @@ msgstr ""
 #. module: website_forum
 #: view:website:website_forum.header
 msgid "&times;"
-msgstr ""
+msgstr "&times;"
 
 #. module: website_forum
 #: view:website:website_forum.post_description_full
@@ -453,7 +454,7 @@ msgstr "Χώρα"
 #. module: website_forum
 #: view:website:website_forum.edit_profile
 msgid "Country..."
-msgstr ""
+msgstr "Χώρα..."
 
 #. module: website_forum
 #: field:forum.post.vote,create_date:0
@@ -489,7 +490,7 @@ msgstr ""
 #. module: website_forum
 #: help:forum.forum,message_last_post:0 help:forum.post,message_last_post:0
 msgid "Date of the last message posted on the record."
-msgstr ""
+msgstr "Ημερομηνία του τελευταίου μηνύματος "
 
 #. module: website_forum
 #: field:forum.forum,karma_unlink_all:0
@@ -659,7 +660,7 @@ msgstr "Ακόλουθοι"
 #: model:ir.ui.menu,name:website_forum.menu_website_forum
 #: model:website.menu,name:website_forum.menu_questions
 msgid "Forum"
-msgstr ""
+msgstr "Φόρουμ"
 
 #. module: website_forum
 #: field:gamification.badge,level:0
@@ -811,7 +812,7 @@ msgstr "Είναι Ακόλουθος"
 #. module: website_forum
 #: view:website:website_forum.header
 msgid "It appears your email has not been verified."
-msgstr ""
+msgstr "Φαίνεται ότι το email σας δεν έχει επαληθευτεί."
 
 #. module: website_forum
 #: field:res.users,karma:0 view:website:website_forum.user_detail_full
@@ -887,13 +888,13 @@ msgstr "Τελευταία ημερομηνία μηνύματος"
 #: field:forum.forum,write_uid:0 field:forum.post.reason,write_uid:0
 #: field:forum.post.vote,write_uid:0 field:forum.tag,write_uid:0
 msgid "Last Updated by"
-msgstr "Τελευταία Αναβαθμίστηκε από"
+msgstr "Τελευταία Ενημέρωση από"
 
 #. module: website_forum
 #: field:forum.forum,write_date:0 field:forum.post.reason,write_date:0
 #: field:forum.post.vote,write_date:0 field:forum.tag,write_date:0
 msgid "Last Updated on"
-msgstr "Τελευταία Αναβαθμίστηκε στις"
+msgstr "Τελευταία Ενημέρωση στις"
 
 #. module: website_forum
 #: view:website:website_forum.forum_index
@@ -903,7 +904,7 @@ msgstr ""
 #. module: website_forum
 #: view:website:website_forum.header
 msgid "Last updated:"
-msgstr ""
+msgstr "Τελευταία Ενημέρωση:"
 
 #. module: website_forum
 #: field:forum.forum,karma_editor_link_files:0
@@ -976,7 +977,7 @@ msgstr ""
 #. module: website_forum
 #: view:website:website_forum.forum_index
 msgid "Newest"
-msgstr ""
+msgstr "Νεώτερα"
 
 #. module: website_forum
 #: model:gamification.badge,name:website_forum.badge_a_2
@@ -1023,7 +1024,7 @@ msgstr ""
 #. module: website_forum
 #: field:forum.post,views:0
 msgid "Number of Views"
-msgstr ""
+msgstr "Αριθμός Προβολών"
 
 #. module: website_forum
 #: field:res.users,bronze_badge:0
@@ -1060,7 +1061,7 @@ msgstr ""
 #. module: website_forum
 #: view:website:website_forum.header
 msgid "People"
-msgstr ""
+msgstr "Άνθρωποι"
 
 #. module: website_forum
 #: view:website:website_forum.edit_post
@@ -1144,7 +1145,7 @@ msgstr ""
 #: field:forum.tag,post_ids:0
 #: model:ir.ui.menu,name:website_forum.menu_forum_posts
 msgid "Posts"
-msgstr ""
+msgstr "Δημοσιεύσεις"
 
 #. module: website_forum
 #: view:website:website_forum.edit_profile
@@ -1231,7 +1232,7 @@ msgstr "Αιτιολογία"
 #. module: website_forum
 #: view:website:website_forum.close_question
 msgid "Reason:"
-msgstr ""
+msgstr "Αιτία:"
 
 #. module: website_forum
 #: view:website:website_forum.404 view:website:website_forum.private_profile
@@ -1291,7 +1292,7 @@ msgstr ""
 #. module: website_forum
 #: view:website:website_forum.forum_index
 msgid "Sort by"
-msgstr ""
+msgstr "Ταξινόμηση κατά"
 
 #. module: website_forum
 #: view:website:website_forum.header
@@ -1301,7 +1302,7 @@ msgstr ""
 #. module: website_forum
 #: field:forum.post,state:0
 msgid "Status"
-msgstr "Καθεστώς"
+msgstr "Κατάσταση"
 
 #. module: website_forum
 #: model:gamification.badge,name:website_forum.badge_q_6
@@ -1381,7 +1382,7 @@ msgstr "Σε"
 #. module: website_forum
 #: view:website:website_forum.header
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Εναλλαγή περιήγησης"
 
 #. module: website_forum
 #: view:website:website_forum.forum_index
@@ -1401,22 +1402,22 @@ msgstr ""
 #. module: website_forum
 #: field:forum.forum,message_unread:0 field:forum.post,message_unread:0
 msgid "Unread Messages"
-msgstr "Αδιάβαστα Μυνήματα"
+msgstr "Αδιάβαστα Μηνύματα"
 
 #. module: website_forum
 #: view:website:website_forum.edit_profile
 msgid "Update"
-msgstr "Ανανέωση"
+msgstr "Ενημέρωση"
 
 #. module: website_forum
 #: field:forum.post,write_date:0
 msgid "Update on"
-msgstr ""
+msgstr "Ενημέρωση από"
 
 #. module: website_forum
 #: field:forum.post,write_uid:0
 msgid "Updated by"
-msgstr ""
+msgstr "Ενημερώθηκε από"
 
 #. module: website_forum
 #: field:forum.forum,karma_upvote:0
@@ -1483,37 +1484,37 @@ msgstr "Ψήφοι"
 #. module: website_forum
 #: view:website:website_forum.edit_profile
 msgid "Website"
-msgstr "Ιστοσελίδα"
+msgstr "Ιστότοπος"
 
 #. module: website_forum
 #: field:forum.forum,website_message_ids:0
 msgid "Website Messages"
-msgstr ""
+msgstr "Μηνύματα Ιστότοπου"
 
 #. module: website_forum
 #: help:forum.forum,website_message_ids:0
 msgid "Website communication history"
-msgstr ""
+msgstr "Ιστορικό επικοινωνίας ιστότοπου"
 
 #. module: website_forum
 #: field:forum.forum,website_meta_description:0
 #: field:forum.post,website_meta_description:0
 #: field:forum.tag,website_meta_description:0
 msgid "Website meta description"
-msgstr ""
+msgstr "Μετά περιγραφή Ιστότοπου"
 
 #. module: website_forum
 #: field:forum.forum,website_meta_keywords:0
 #: field:forum.post,website_meta_keywords:0
 #: field:forum.tag,website_meta_keywords:0
 msgid "Website meta keywords"
-msgstr ""
+msgstr "Μετά λέξεις-κλειδιά"
 
 #. module: website_forum
 #: field:forum.forum,website_meta_title:0
 #: field:forum.post,website_meta_title:0 field:forum.tag,website_meta_title:0
 msgid "Website meta title"
-msgstr ""
+msgstr "Μετά τίτλος Ιστότοπου"
 
 #. module: website_forum
 #: view:website:website_forum.post_answer
@@ -1577,7 +1578,7 @@ msgstr ""
 #: view:website:website_forum.display_post
 #: view:website:website_forum.post_description_full
 msgid "by"
-msgstr ""
+msgstr "από"
 
 #. module: website_forum
 #: view:website:website_forum.forum_index
@@ -1679,7 +1680,7 @@ msgstr ""
 #: view:website:website_forum.post_comment
 #: view:website:website_forum.post_description_full
 msgid "on"
-msgstr ""
+msgstr "στις"
 
 #. module: website_forum
 #: view:website:website_forum.close_question
@@ -1769,7 +1770,7 @@ msgstr ""
 #. module: website_forum
 #: view:website:website_forum.display_post
 msgid "views"
-msgstr ""
+msgstr "προβολές"
 
 #. module: website_forum
 #: view:website:website_forum.display_post view:website:website_forum.vote
@@ -1785,9 +1786,9 @@ msgstr ""
 #. module: website_forum
 #: view:website:website_forum.user_detail_full
 msgid "website"
-msgstr ""
+msgstr "ιστότοπος"
 
 #. module: website_forum
 #: view:website:website_forum.display_post
 msgid "with"
-msgstr ""
+msgstr "με"

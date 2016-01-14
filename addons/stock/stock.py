@@ -484,10 +484,10 @@ class stock_quant(osv.osv):
 
     def apply_removal_strategy(self, cr, uid, location, product, quantity, domain, removal_strategy, context=None):
         if removal_strategy == 'fifo':
-            order = 'in_date, id'
+            order = 'in_date, location_id, package_id, lot_id, id'
             return self._quants_get_order(cr, uid, location, product, quantity, domain, order, context=context)
         elif removal_strategy == 'lifo':
-            order = 'in_date desc, id desc'
+            order = 'in_date desc, location_id desc, package_id desc, lot_id desc, id desc'
             return self._quants_get_order(cr, uid, location, product, quantity, domain, order, context=context)
         raise osv.except_osv(_('Error!'), _('Removal strategy %s not implemented.' % (removal_strategy,)))
 
@@ -1389,7 +1389,8 @@ class stock_picking(osv.osv):
         This can be used to provide a button that rereserves taking into account the existing pack operations
         """
         for pick in self.browse(cr, uid, ids, context=context):
-            self.rereserve_quants(cr, uid, pick, move_ids = [x.id for x in pick.move_lines], context=context)
+            self.rereserve_quants(cr, uid, pick, move_ids = [x.id for x in pick.move_lines
+                                                             if x.state not in ('done', 'cancel')], context=context)
 
     def rereserve_quants(self, cr, uid, picking, move_ids=[], context=None):
         """ Unreserve quants then try to reassign quants."""
@@ -1405,7 +1406,8 @@ class stock_picking(osv.osv):
     def do_enter_transfer_details(self, cr, uid, picking, context=None):
         if not context:
             context = {}
-
+        else:
+            context = context.copy()
         context.update({
             'active_model': self._name,
             'active_ids': picking,
@@ -1490,7 +1492,7 @@ class stock_picking(osv.osv):
         #write qty_done into field product_qty for every package_operation before doing the transfer
         pack_op_obj = self.pool.get('stock.pack.operation')
         for operation in self.browse(cr, uid, picking_id, context=context).pack_operation_ids:
-            pack_op_obj.write(cr, uid, operation.id, {'product_qty': operation.qty_done}, context=context)
+            pack_op_obj.write(cr, uid, operation.id, {'product_qty': operation.qty_done}, context=dict(context, no_recompute=True))
         self.do_transfer(cr, uid, [picking_id], context=context)
         #return id of next picking to work on
         return self.get_next_picking_for_ui(cr, uid, context=context)
@@ -2253,10 +2255,11 @@ class stock_move(osv.osv):
 
     def action_assign(self, cr, uid, ids, context=None):
         """ Checks the product type and accordingly writes the state.
+        @return: True
         """
         context = context or {}
         quant_obj = self.pool.get("stock.quant")
-        to_assign_moves = []
+        to_assign_moves = set()
         main_domain = {}
         todo_moves = []
         operations = set()
@@ -2264,12 +2267,12 @@ class stock_move(osv.osv):
             if move.state not in ('confirmed', 'waiting', 'assigned'):
                 continue
             if move.location_id.usage in ('supplier', 'inventory', 'production'):
-                to_assign_moves.append(move.id)
+                to_assign_moves.add(move.id)
                 #in case the move is returned, we want to try to find quants before forcing the assignment
                 if not move.origin_returned_move_id:
                     continue
             if move.product_id.type == 'consu':
-                to_assign_moves.append(move.id)
+                to_assign_moves.add(move.id)
                 continue
             else:
                 todo_moves.append(move)
@@ -2315,7 +2318,8 @@ class stock_move(osv.osv):
 
         #force assignation of consumable products and incoming from supplier/inventory/production
         if to_assign_moves:
-            self.force_assign(cr, uid, to_assign_moves, context=context)
+            self.force_assign(cr, uid, list(to_assign_moves), context=context)
+        return True
 
     def action_cancel(self, cr, uid, ids, context=None):
         """ Cancels the moves and if all moves are cancelled it cancels the picking.
@@ -3929,7 +3933,7 @@ class stock_package(osv.osv):
         quant_obj = self.pool.get('stock.quant')
         for package in self.browse(cr, uid, ids, context=context):
             quant_ids = [quant.id for quant in package.quant_ids]
-            quant_obj.write(cr, uid, quant_ids, {'package_id': package.parent_id.id or False}, context=context)
+            quant_obj.write(cr, SUPERUSER_ID, quant_ids, {'package_id': package.parent_id.id or False}, context=context)
             children_package_ids = [child_package.id for child_package in package.children_ids]
             self.write(cr, uid, children_package_ids, {'parent_id': package.parent_id.id or False}, context=context)
         #delete current package since it contains nothing anymore

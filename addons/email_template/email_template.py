@@ -504,6 +504,9 @@ class email_template(osv.osv):
 
             # Add report in attachments: generate once for all template_res_ids
             if template.report_template:
+                # Fix : Force report to use res ids and not active_ids
+                if ctx and 'active_ids' in ctx:
+                    del ctx['active_ids']
                 for res_id in template_res_ids:
                     attachments = []
                     report_name = self.render_template(cr, uid, template.report_name, template.model, res_id, context=ctx)
@@ -583,6 +586,6 @@ class email_template(osv.osv):
         return self.get_email_template_batch(cr, uid, template_id, [record_id], context)[record_id]
 
     def generate_email(self, cr, uid, template_id, res_id, context=None):
-        return self.generate_email_batch(cr, uid, template_id, [res_id], context)[res_id]
+        return self.generate_email_batch(cr, uid, template_id, [res_id], context=context)[res_id]
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

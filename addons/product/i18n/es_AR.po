@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2015-09-02 14:08+0000\n"
+"PO-Revision-Date: 2015-12-18 00:00+0000\n"
 "Last-Translator: Leonardo Germán Chianea <noamixcontenidos@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/odoo/odoo-8/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -1418,7 +1418,7 @@ msgstr ""
 #. module: product
 #: view:product.template:product.product_template_search_view
 msgid "Group by..."
-msgstr ""
+msgstr "Agrupado por..."
 
 #. module: product
 #: model:product.template,name:product.product_product_17_product_template
@@ -1632,7 +1632,7 @@ msgstr ""
 #. module: product
 #: view:product.template:product.product_template_form_view
 msgid "Inventory"
-msgstr "Equipo"
+msgstr ""
 
 #. module: product
 #: model:product.category,name:product.ipad
@@ -1775,7 +1775,7 @@ msgstr ""
 #. module: product
 #: model:ir.model,name:product.model_product_ul
 msgid "Logistic Unit"
-msgstr ""
+msgstr "Unidad logística"
 
 #. module: product
 #: model:ir.actions.act_window,name:product.product_ul_form_action
@@ -1783,7 +1783,7 @@ msgstr ""
 #: view:product.ul:product.product_ul_form_view
 #: view:product.ul:product.product_ul_tree
 msgid "Logistic Units"
-msgstr ""
+msgstr "Unidades logísticas"
 
 #. module: product
 #: field:product.template,packaging_ids:0
@@ -2379,7 +2379,7 @@ msgstr "Variantes de producto"
 #: model:ir.ui.menu,name:product.menu_products
 #: view:product.product:product.product_product_tree_view
 msgid "Product Variants"
-msgstr ""
+msgstr "Variantes del producto"
 
 #. module: product
 #: model:ir.model,name:product.model_product_uom_categ
@@ -2619,7 +2619,7 @@ msgstr "Secuencia"
 #. module: product
 #: model:product.public.category,name:product.server
 msgid "Server"
-msgstr ""
+msgstr "Servidor"
 
 #. module: product
 #: model:product.template,name:product.product_product_consultant_product_template
@@ -2813,7 +2813,7 @@ msgstr ""
 #. module: product
 #: field:product.product,name_template:0
 msgid "Template Name"
-msgstr ""
+msgstr "Nombre de plantilla"
 
 #. module: product
 #: help:product.packaging,ean:0
@@ -3081,7 +3081,7 @@ msgstr "Unidad de medida -> Coeficiente UdV"
 #: model:ir.actions.act_window,name:product.product_uom_categ_form_action
 #: model:ir.ui.menu,name:product.menu_product_uom_categ_form_action
 msgid "Unit of Measure Categories"
-msgstr ""
+msgstr "Categorías de las unidades de medida"
 
 #. module: product
 #: code:addons/product/product.py:737

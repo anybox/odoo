@@ -3,15 +3,17 @@
 # * website
 # 
 # Translators:
+# Hans Henrik Gabelgaard <hhg@gabelgaard.org>, 2015
 # jonas jensen <j.jensen@tcomp.dk>, 2015
+# Jonathan Stein <cgs@image.dk>, 2015
 # Per Rasmussen <perhgrasmussen@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-22 08:25+0000\n"
-"PO-Revision-Date: 2015-09-02 20:55+0000\n"
-"Last-Translator: Per Rasmussen <perhgrasmussen@gmail.com>\n"
+"PO-Revision-Date: 2015-12-07 17:33+0000\n"
+"Last-Translator: Jonathan Stein <cgs@image.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/odoo/odoo-8/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +24,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "\"OpenERP\""
-msgstr ""
+msgstr "\"OpenERP\""
 
 #. module: website
 #. openerp-web
@@ -36,26 +38,26 @@ msgstr "&nbsp;"
 #. module: website
 #: view:website:website.info view:website:website.themes
 msgid "&times;"
-msgstr ""
+msgstr "&times;"
 
 #. module: website
 #: view:website:website.500
 msgid "' in the box below if you want to confirm."
-msgstr ""
+msgstr "' I boksen nedenfor, hvis du vil bekræfte."
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:366
 #, python-format
 msgid "(Youtube, Vimeo, Dailymotion)"
-msgstr ""
+msgstr "(Youtube, Vimeo, Dailymotion)"
 
 #. module: website
 #: view:website:website.info
 msgid ""
 ",\n"
 "                            updated:"
-msgstr ""
+msgstr ",\n                            opdateret:"
 
 #. module: website
 #: view:website:website.layout
@@ -81,48 +83,48 @@ msgstr ""
 #. module: website
 #: view:website:website.info
 msgid ", author:"
-msgstr ""
+msgstr ", forfatter:"
 
 #. module: website
 #: view:website:website.info
 msgid ", updated:"
-msgstr ""
+msgstr ". opdateret:"
 
 #. module: website
 #: view:website:website.sitemap_index_xml
 msgid ".xml"
-msgstr ""
+msgstr ".xml"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.seo.xml:22
 #, python-format
 msgid "1. Define Keywords"
-msgstr ""
+msgstr "1. Definer Nøgleord"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.seo.xml:40
 #, python-format
 msgid "2. Reference Your Page"
-msgstr ""
+msgstr "2. Beskriv din side"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.seo.xml:57
 #, python-format
 msgid "3. Preview"
-msgstr ""
+msgstr "3. Forhåndsvisning"
 
 #. module: website
 #: view:website:website.403
 msgid "403: Forbidden"
-msgstr ""
+msgstr "403: Ingen adgang"
 
 #. module: website
 #: view:website:website.404
 msgid "404: Page not found!"
-msgstr ""
+msgstr "404: Siden blev ikke fundet!"
 
 #. module: website
 #: view:website:website.snippets
@@ -203,7 +205,7 @@ msgstr ""
 #. module: website
 #: view:website:website.aboutus view:website:website.layout
 msgid "About us"
-msgstr ""
+msgstr "Om os"
 
 #. module: website
 #: view:website:website.snippets
@@ -226,7 +228,7 @@ msgstr "Tilføj"
 #: code:addons/website/static/src/js/website.tour.banner.js:67
 #, python-format
 msgid "Add Another Block"
-msgstr ""
+msgstr "Tilføj en ny blok"
 
 #. module: website
 #. openerp-web
@@ -234,50 +236,50 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.contentMenu.xml:47
 #, python-format
 msgid "Add Menu Entry"
-msgstr ""
+msgstr "Tilføj menupunkt"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Add Slide"
-msgstr ""
+msgstr "Tilføj slide"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Add a great slogan"
-msgstr ""
+msgstr "Indtast et godt slogan"
 
 #. module: website
 #: view:website:website.layout
 msgid "Add a language..."
-msgstr ""
+msgstr "Tilføj et sprog"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:222
 #, python-format
 msgid "Add an image URL"
-msgstr ""
+msgstr "Tilføj billed-URL"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.seo.xml:25
 #, python-format
 msgid "Add keyword:"
-msgstr ""
+msgstr "Tilføj søgeord"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:111
 #, python-format
 msgid "Add new pages and menus"
-msgstr ""
+msgstr "Tilføj nye sider og menuer"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.contentMenu.js:50
 #, python-format
 msgid "Add page in menu"
-msgstr ""
+msgstr "Tilføj side i menuen"
 
 #. module: website
 #: view:website:website.snippets
@@ -327,7 +329,7 @@ msgstr ""
 #. module: website
 #: field:ir.attachment,website_url:0
 msgid "Attachment URL"
-msgstr ""
+msgstr "Vedhæftning URL"
 
 #. module: website
 #: view:website:website.snippets
@@ -351,7 +353,7 @@ msgstr ""
 #. module: website
 #: field:ir.actions.server,website_published:0
 msgid "Available on the Website"
-msgstr ""
+msgstr "Synlig på websiten"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -361,12 +363,12 @@ msgstr ""
 #. module: website
 #: view:website:website.500
 msgid "Back"
-msgstr ""
+msgstr "Tilbage"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Background"
-msgstr ""
+msgstr "Baggrund"
 
 #. module: website
 #: view:website:website.snippets
@@ -403,22 +405,22 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Beginner"
-msgstr ""
+msgstr "Begynder"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Big Message"
-msgstr ""
+msgstr "Stor besked"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Big Picture"
-msgstr ""
+msgstr "Stort billede"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Bigger Text"
-msgstr ""
+msgstr "Større tekst"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -442,7 +444,7 @@ msgstr "Kasse"
 #: code:addons/website/static/src/js/website.tour.banner.js:8
 #, python-format
 msgid "Build a page"
-msgstr ""
+msgstr "Byg en side"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -490,34 +492,34 @@ msgstr "Ændre"
 #. module: website
 #: view:website:website.snippets
 msgid "Change Background"
-msgstr ""
+msgstr "Skift baggrund"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Change Icons"
-msgstr ""
+msgstr "Skift ikoner"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:325
 #, python-format
 msgid "Change Media"
-msgstr ""
+msgstr "Skift medie"
 
 #. module: website
 #: view:website:website.layout
 msgid "Change Theme"
-msgstr ""
+msgstr "Skift Tema"
 
 #. module: website
 #: view:website:website.contactus
 msgid "Change address"
-msgstr ""
+msgstr "Skift adresse"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Change..."
-msgstr ""
+msgstr "Skift/ændre..."
 
 #. module: website
 #. openerp-web
@@ -534,7 +536,7 @@ msgstr ""
 #. module: website
 #: field:website.menu,child_id:0
 msgid "Child Menus"
-msgstr ""
+msgstr "Under-menuer"
 
 #. module: website
 #: view:website:website.snippets
@@ -547,7 +549,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippet_options
 msgid "Choose an image..."
-msgstr ""
+msgstr "Vælg et billede"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -557,21 +559,21 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Click Here"
-msgstr ""
+msgstr "Klik her"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:28
 #, python-format
 msgid "Click here to insert blocks of content in the page."
-msgstr ""
+msgstr "Klik her for at indsætte indholdsblokke på siden."
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:43
 #, python-format
 msgid "Click in the text and start editing it."
-msgstr ""
+msgstr "Klik i teksten og redigér i den."
 
 #. module: website
 #: view:website:website.snippets
@@ -584,7 +586,7 @@ msgstr ""
 #: view:website:website.snippets
 #, python-format
 msgid "Click to customize this text"
-msgstr ""
+msgstr "Kik for at tilpasse denne tekst."
 
 #. module: website
 #. openerp-web
@@ -630,22 +632,22 @@ msgstr "Virksomhed"
 #. module: website
 #: view:website:website.layout
 msgid "Company name"
-msgstr ""
+msgstr "Firma navn"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Comparisons"
-msgstr ""
+msgstr "Sammenligninger"
 
 #. module: website
 #: view:website.config.settings:website.view_website_config_settings
 msgid "Configure Website"
-msgstr ""
+msgstr "Konfigurer website"
 
 #. module: website
 #: view:website.config.settings:website.view_website_config_settings
 msgid "Configure website menus"
-msgstr ""
+msgstr "Konfigurer website menuer"
 
 #. module: website
 #: view:website:website.layout
@@ -666,19 +668,19 @@ msgstr ""
 #. module: website
 #: view:website:website.403 view:website:website.404
 msgid "Contact Us"
-msgstr ""
+msgstr "Kontakt os"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Contact Us Now"
-msgstr ""
+msgstr "Kontakt os nu"
 
 #. module: website
 #: view:website:website.contactus view:website:website.layout
 #: view:website:website.snippets
 #: model:website.menu,name:website.menu_contactus
 msgid "Contact us"
-msgstr ""
+msgstr "Kontakt os"
 
 #. module: website
 #: view:website:website.contactus
@@ -700,7 +702,7 @@ msgstr "Indhold"
 #: code:addons/website/static/src/xml/website.translator.xml:22
 #, python-format
 msgid "Content to translate"
-msgstr ""
+msgstr "Indhold til oversættelse"
 
 #. module: website
 #. openerp-web
@@ -725,7 +727,7 @@ msgstr ""
 #. module: website
 #: view:website:website.page_404
 msgid "Create Page"
-msgstr ""
+msgstr "Opret side"
 
 #. module: website
 #. openerp-web
@@ -760,7 +762,7 @@ msgstr ""
 #: view:website:website.layout
 #, python-format
 msgid "Customize"
-msgstr ""
+msgstr "Tilpas"
 
 #. module: website
 #. openerp-web
@@ -769,21 +771,21 @@ msgstr ""
 msgid ""
 "Customize any block through this menu. Try to change the background of the "
 "banner."
-msgstr ""
+msgstr "Tilpas enhver blok gennem denne menu. Prøv at skifte bannerets baggrund."
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:42
 #, python-format
 msgid "Customize banner's text"
-msgstr ""
+msgstr "Tilpas tekst i banneret"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:59
 #, python-format
 msgid "Customize the banner"
-msgstr ""
+msgstr "Tilpas banneret"
 
 #. module: website
 #: view:website:website.themes
@@ -823,24 +825,24 @@ msgstr "Standard"
 #. module: website
 #: view:website:website.themes
 msgid "Default Theme"
-msgstr ""
+msgstr "Standard tema"
 
 #. module: website
 #: field:website,default_lang_id:0
 #: field:website.config.settings,default_lang_id:0
 msgid "Default language"
-msgstr ""
+msgstr "Standardsprog:"
 
 #. module: website
 #: field:website,default_lang_code:0
 #: field:website.config.settings,default_lang_code:0
 msgid "Default language code"
-msgstr ""
+msgstr "Standard sprogkode"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Delete Blocks"
-msgstr ""
+msgstr "Slet blokke"
 
 #. module: website
 #: view:website:website.snippets
@@ -894,7 +896,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Discover more about Odoo"
-msgstr ""
+msgstr "Lær mere om odoo"
 
 #. module: website
 #: view:website:website.template_partner_comment
@@ -924,21 +926,21 @@ msgstr "Domæne"
 #: code:addons/website/static/src/js/website.tour.banner.js:74
 #, python-format
 msgid "Drag & Drop This Block"
-msgstr ""
+msgstr "Træk og slip denne blok"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:34
 #, python-format
 msgid "Drag & Drop a Banner"
-msgstr ""
+msgstr "Træk og slip et banner"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.contentMenu.xml:34
 #, python-format
 msgid "Drag a menu to the right to create a sub-menu"
-msgstr ""
+msgstr "Træk en menu til højre for at oprette en undermenu"
 
 #. module: website
 #. openerp-web
@@ -959,7 +961,7 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.snippets.xml:34
 #, python-format
 msgid "Drag to Move"
-msgstr ""
+msgstr "Træk for at flytte"
 
 #. module: website
 #: view:website:website.snippets
@@ -976,7 +978,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Duplicate blocks to add more features."
-msgstr ""
+msgstr "Kopier blokke for at tilføje flere funktioner."
 
 #. module: website
 #: view:website:website.layout view:website:website.publish_management
@@ -989,24 +991,24 @@ msgstr "Redigér"
 #: view:website:website.layout
 #, python-format
 msgid "Edit Menu"
-msgstr ""
+msgstr "Redigér menu"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.contentMenu.xml:48
 #, python-format
 msgid "Edit Menu Entry"
-msgstr ""
+msgstr "Redigér menu"
 
 #. module: website
 #: view:website:website.layout
 msgid "Edit Top Menu"
-msgstr ""
+msgstr "Redigér top-menu"
 
 #. module: website
 #: view:website:website.publish_management
 msgid "Edit in backend"
-msgstr ""
+msgstr "Redigér backend"
 
 #. module: website
 #: view:website:website.page_404
@@ -1020,12 +1022,12 @@ msgstr ""
 #: code:addons/website/static/src/js/website.tour.banner.js:20
 #, python-format
 msgid "Edit this page"
-msgstr ""
+msgstr "Redigér denne side"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Effects"
-msgstr ""
+msgstr "Effekter"
 
 #. module: website
 #. openerp-web
@@ -1047,7 +1049,7 @@ msgstr "Fejl!"
 #. module: website
 #: view:website:website.http_error_debug
 msgid "Error message:"
-msgstr ""
+msgstr "Fejlmeddelelse"
 
 #. module: website
 #. openerp-web
@@ -1079,28 +1081,28 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:117
 #, python-format
 msgid "Extra Small"
-msgstr ""
+msgstr "Ekstra lille"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Extra-Large"
-msgstr ""
+msgstr "Ekstra stor"
 
 #. module: website
 #: view:website:website.snippets
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #. module: website
 #: field:website,social_facebook:0
 #: field:website.config.settings,social_facebook:0
 msgid "Facebook Account"
-msgstr ""
+msgstr "Facebook konto"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Fast"
-msgstr ""
+msgstr "Hurtig"
 
 #. module: website
 #: view:website:website.snippets
@@ -1194,7 +1196,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Get this page efficiently referenced in Google to attract more visitors."
-msgstr ""
+msgstr "Få denne side refereret effektivt i Google så du tiltrækker flere besøgende."
 
 #. module: website
 #: field:website,social_github:0 field:website.config.settings,social_github:0
@@ -1287,7 +1289,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippet_options
 msgid "Hide link"
-msgstr ""
+msgstr "Skjul link"
 
 #. module: website
 #: view:website:website.500 view:website:website.layout
@@ -1299,7 +1301,7 @@ msgstr ""
 #: view:website:website.403 view:website:website.404
 #: view:website:website.layout
 msgid "Homepage"
-msgstr ""
+msgstr "Startside"
 
 #. module: website
 #. openerp-web
@@ -1367,7 +1369,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Image Gallery"
-msgstr ""
+msgstr "Billed gallery"
 
 #. module: website
 #: view:website:website.snippets
@@ -1377,7 +1379,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Image-Text"
-msgstr ""
+msgstr "Billed-tekst"
 
 #. module: website
 #. openerp-web
@@ -1408,39 +1410,39 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.snippets.xml:7
 #, python-format
 msgid "Insert Blocks"
-msgstr ""
+msgstr "Indsæt blokke"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:27
 #, python-format
 msgid "Insert building blocks"
-msgstr ""
+msgstr "Indsæt bygningsblokke"
 
 #. module: website
 #: view:website:website.layout
 msgid "Install Apps"
-msgstr ""
+msgstr "Installer apps"
 
 #. module: website
 #: model:ir.model,name:website.model_base_language_install
 msgid "Install Language"
-msgstr ""
+msgstr "Installer sprog"
 
 #. module: website
 #: view:website:website.info
 msgid "Installed Applications"
-msgstr ""
+msgstr "Installerede programmer"
 
 #. module: website
 #: view:website:website.info
 msgid "Installed Modules"
-msgstr ""
+msgstr "Installerede moduler"
 
 #. module: website
 #: view:website:website.500
 msgid "Internal Server Error"
-msgstr ""
+msgstr "Intern server fejl"
 
 #. module: website
 #. openerp-web
@@ -1492,7 +1494,7 @@ msgstr "Sprog"
 #: view:website:website.snippet_options
 #, python-format
 msgid "Large"
-msgstr ""
+msgstr "Stor"
 
 #. module: website
 #: field:website,write_uid:0 field:website.config.settings,write_uid:0
@@ -1511,7 +1513,7 @@ msgstr "Sidst opdateret den"
 #. module: website
 #: view:website:website.snippet_options
 msgid "Left"
-msgstr ""
+msgstr "Venstre"
 
 #. module: website
 #. openerp-web
@@ -1530,49 +1532,49 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Limited support"
-msgstr ""
+msgstr "Begrænset support"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:89
 #, python-format
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:71
 #, python-format
 msgid "Link text"
-msgstr ""
+msgstr "Link tekst"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:41
 #, python-format
 msgid "Link to"
-msgstr ""
+msgstr "Link til"
 
 #. module: website
 #: field:website,social_linkedin:0
 #: field:website.config.settings,social_linkedin:0
 msgid "LinkedIn Account"
-msgstr ""
+msgstr "LinkedIn konto"
 
 #. module: website
 #: view:website:website.snippets
 msgid "List of Features"
-msgstr ""
+msgstr "Funktions-liste"
 
 #. module: website
 #: view:website:website.layout
 msgid "Logout"
-msgstr ""
+msgstr "Log ud"
 
 #. module: website
 #: field:website,menu_id:0
 msgid "Main Menu"
-msgstr ""
+msgstr "Hoved menu"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -1594,7 +1596,7 @@ msgstr ""
 #. module: website
 #: view:website:website.403 view:website:website.404
 msgid "Maybe you were looking for one of these popular pages ?"
-msgstr ""
+msgstr "Måske kiggede du efter en af disse populære sider?"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -1635,7 +1637,7 @@ msgstr ""
 #: view:website:website.layout
 #, python-format
 msgid "Mobile preview"
-msgstr ""
+msgstr "Mobil-visning"
 
 #. module: website
 #: view:website:website.snippets
@@ -1662,12 +1664,12 @@ msgstr ""
 #. module: website
 #: view:website:website.layout
 msgid "My Account"
-msgstr ""
+msgstr "Min konto"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Narrow"
-msgstr ""
+msgstr "Snæver"
 
 #. module: website
 #. openerp-web
@@ -1675,7 +1677,7 @@ msgstr ""
 #: view:website:website.layout
 #, python-format
 msgid "New Page"
-msgstr ""
+msgstr "Ny side"
 
 #. module: website
 #: field:website.menu,new_window:0
@@ -1687,7 +1689,7 @@ msgstr "Nyt vindue"
 #: code:addons/website/static/src/js/website.editor.js:966
 #, python-format
 msgid "New or existing page"
-msgstr ""
+msgstr "Ny eller eksisterende side"
 
 #. module: website
 #: view:website:website.kanban_contain view:website:website.pager
@@ -1699,12 +1701,12 @@ msgstr "Næste"
 #: code:addons/website/static/src/xml/website.editor.xml:162
 #, python-format
 msgid "Next →"
-msgstr ""
+msgstr "Næste →"
 
 #. module: website
 #: view:website:website.snippets
 msgid "No support"
-msgstr ""
+msgstr "Ingen support"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -1717,7 +1719,7 @@ msgstr "Ingen"
 #: view:website:website.publish_management view:website:website.publish_short
 #, python-format
 msgid "Not Published"
-msgstr ""
+msgstr "Ikke publiceret"
 
 #. module: website
 #: view:website:website.info
@@ -1727,7 +1729,7 @@ msgstr ""
 #. module: website
 #: view:website:website.layout view:website:website.snippets
 msgid "Odoo"
-msgstr ""
+msgstr "Odoo"
 
 #. module: website
 #: view:website:website.info
@@ -1794,7 +1796,7 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:56
 #, python-format
 msgid "Open in new window"
-msgstr ""
+msgstr "Åbn i nyt vindue"
 
 #. module: website
 #: view:website:website.themes
@@ -1814,7 +1816,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Order now"
-msgstr ""
+msgstr "Bestil nu"
 
 #. module: website
 #: view:website:website.view_website_form
@@ -1829,7 +1831,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Our Offers"
-msgstr ""
+msgstr "Vores tilbud"
 
 #. module: website
 #: view:website:website.snippets
@@ -1839,12 +1841,12 @@ msgstr "Vores referencer"
 #. module: website
 #: view:website:website.aboutus
 msgid "Our Team"
-msgstr ""
+msgstr "Vores team"
 
 #. module: website
 #: view:website:website.layout
 msgid "Our products & Services"
-msgstr ""
+msgstr "Vores varer og ydelser"
 
 #. module: website
 #: view:website:website.aboutus
@@ -1865,14 +1867,14 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:46
 #, python-format
 msgid "Page"
-msgstr ""
+msgstr "Side"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.contentMenu.js:39
 #, python-format
 msgid "Page Title"
-msgstr ""
+msgstr "Side titel"
 
 #. module: website
 #: view:website:website.snippets
@@ -1946,17 +1948,17 @@ msgstr ""
 #. module: website
 #: view:website:website.layout
 msgid "Create a"
-msgstr ""
+msgstr "Opret en"
 
 #. module: website
 #: view:website:website.layout
 msgid "free website"
-msgstr ""
+msgstr "Gratis hjemmeside"
 
 #. module: website
 #: view:website:website.layout
 msgid "with"
-msgstr ""
+msgstr "med"
 
 #. module: website
 #: view:website:website.layout
@@ -1966,7 +1968,7 @@ msgstr "Drevet af"
 #. module: website
 #: view:website:website.kanban_contain view:website:website.pager
 msgid "Prev"
-msgstr ""
+msgstr "Forrige"
 
 #. module: website
 #. openerp-web
@@ -1982,7 +1984,7 @@ msgstr "Eksempel"
 #: code:addons/website/static/src/xml/website.editor.xml:98
 #, python-format
 msgid "Primary"
-msgstr ""
+msgstr "Primære"
 
 #. module: website
 #: view:website:website.snippets
@@ -2000,14 +2002,14 @@ msgstr ""
 #: view:website:website.layout
 #, python-format
 msgid "Promote"
-msgstr ""
+msgstr "Udgiv"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.seo.xml:14
 #, python-format
 msgid "Promote This Page"
-msgstr ""
+msgstr "Udgiv denne side"
 
 #. module: website
 #. openerp-web
@@ -2015,7 +2017,7 @@ msgstr ""
 #: view:website:website.layout
 #, python-format
 msgid "Promote page on the web"
-msgstr ""
+msgstr "Udgiv denne side på web"
 
 #. module: website
 #: field:website,partner_id:0
@@ -2030,7 +2032,7 @@ msgstr ""
 #. module: website
 #: view:website:website.publish_management
 msgid "Publish"
-msgstr ""
+msgstr "Publicer"
 
 #. module: website
 #. openerp-web
@@ -2080,7 +2082,7 @@ msgstr ""
 #. module: website
 #: view:website:website.template_partner_comment
 msgid "Recipient"
-msgstr ""
+msgstr "Modtager"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -2097,19 +2099,19 @@ msgstr "Referencer"
 #: code:addons/website/static/src/xml/website.snippets.xml:36
 #, python-format
 msgid "Remove Block"
-msgstr ""
+msgstr "Slet blok"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:37
 #, python-format
 msgid "Remove Link"
-msgstr ""
+msgstr "Slet link"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Remove Slide"
-msgstr ""
+msgstr "Slet slide"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -2153,7 +2155,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippet_options
 msgid "Rounded corners"
-msgstr ""
+msgstr "Afrundede hjørner"
 
 #. module: website
 #: model:ir.model,name:website.model_website_seo_metadata
@@ -2163,7 +2165,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Sample images"
-msgstr ""
+msgstr "Prøve billeder"
 
 #. module: website
 #. openerp-web
@@ -2220,26 +2222,26 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.snippets.xml:29
 #, python-format
 msgid "Select Container Block"
-msgstr ""
+msgstr "Vælg container blok"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:152
 #, python-format
 msgid "Select a Media"
-msgstr ""
+msgstr "Vælg et medie"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:242
 #, python-format
 msgid "Select a Picture"
-msgstr ""
+msgstr "Vælg et billede"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Select and delete blocks to remove some features."
-msgstr ""
+msgstr "Vælg og slet blokke for at slette nogle features."
 
 #. module: website
 #. openerp-web
@@ -2251,7 +2253,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Sell Online. Easily."
-msgstr ""
+msgstr "Sælg online - nemt."
 
 #. module: website
 #: view:website:website.template_partner_comment
@@ -2261,12 +2263,12 @@ msgstr ""
 #. module: website
 #: view:website:website.template_partner_comment
 msgid "Send a Message to our Partners"
-msgstr ""
+msgstr "Send en besked til vores partnere"
 
 #. module: website
 #: view:website:website.contactus
 msgid "Send us an email"
-msgstr ""
+msgstr "Send os en email"
 
 #. module: website
 #: view:website:website.snippets
@@ -2283,7 +2285,7 @@ msgstr "Rækkefølge"
 #: code:addons/website/static/src/xml/website.editor.xml:367
 #, python-format
 msgid "Set a video URL"
-msgstr ""
+msgstr "Opret en video URL"
 
 #. module: website
 #: view:website:website.themes
@@ -2298,7 +2300,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 #. module: website
 #: field:ir.ui.view,customize_show:0
@@ -2325,14 +2327,14 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:114
 #, python-format
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/website.tour.banner.js:14
 #, python-format
 msgid "Skip It"
-msgstr ""
+msgstr "Drop den"
 
 #. module: website
 #: view:website:website.themes
@@ -2342,7 +2344,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippet_options
 msgid "Slow"
-msgstr ""
+msgstr "Langsom"
 
 #. module: website
 #. openerp-web
@@ -2350,7 +2352,7 @@ msgstr ""
 #: view:website:website.snippet_options
 #, python-format
 msgid "Small"
-msgstr ""
+msgstr "Lille"
 
 #. module: website
 #: view:website:website.view_website_form
@@ -2376,7 +2378,7 @@ msgstr ""
 #: code:addons/website/static/src/js/website.tour.banner.js:14
 #, python-format
 msgid "Start Tutorial"
-msgstr ""
+msgstr "Begynd guide"
 
 #. module: website
 #: view:website:website.snippets
@@ -2388,12 +2390,12 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Starter package"
-msgstr ""
+msgstr "Begynder pakke"
 
 #. module: website
 #: view:website:website.snippet_options
 msgid "Static"
-msgstr ""
+msgstr "Statisk"
 
 #. module: website
 #: view:website:website.snippets
@@ -2444,7 +2446,7 @@ msgstr ""
 #. module: website
 #: view:website:website.info
 msgid "Technical name:"
-msgstr ""
+msgstr "Teknisk navn"
 
 #. module: website
 #: view:website:website.snippets
@@ -2533,7 +2535,7 @@ msgstr ""
 #. module: website
 #: view:website:website.403
 msgid "The page you were looking for could not be authorized."
-msgstr ""
+msgstr "Du har ikke adgang til den ønskede side."
 
 #. module: website
 #: view:website:website.404
@@ -2541,7 +2543,7 @@ msgid ""
 "The page you were looking for could not be found; it is possible you have\n"
 "                        typed the address incorrectly, but it has most probably been removed due\n"
 "                        to the recent website reorganisation."
-msgstr ""
+msgstr "Du ønskede side kunne ikke findes. Er adressen skrevet korrekt? - Ellers kan siden være flyttet eller slettet."
 
 #. module: website
 #: view:website:website.500
@@ -2563,7 +2565,7 @@ msgstr ""
 #. module: website
 #: view:website:website.themes
 msgid "Theme Changed!"
-msgstr ""
+msgstr "Tema ændret!"
 
 #. module: website
 #: view:website:website.snippets
@@ -2589,7 +2591,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "Three Columns"
-msgstr ""
+msgstr "Tre kolonner"
 
 #. module: website
 #. openerp-web
@@ -2633,19 +2635,19 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.translator.xml:12
 #, python-format
 msgid "Translate this page"
-msgstr ""
+msgstr "Oversæt denne side"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.translator.xml:25
 #, python-format
 msgid "Translated content"
-msgstr ""
+msgstr "Oversat indhold"
 
 #. module: website
 #: view:website:website.themes
 msgid "Try a New Theme"
-msgstr ""
+msgstr "Prøv et nyt tema"
 
 #. module: website
 #: view:website:website.snippet_options
@@ -2656,12 +2658,12 @@ msgstr ""
 #: field:website,social_twitter:0
 #: field:website.config.settings,social_twitter:0
 msgid "Twitter Account"
-msgstr ""
+msgstr "Twitter konto"
 
 #. module: website
 #: view:website:website.500
 msgid "Type '"
-msgstr ""
+msgstr "Type '"
 
 #. module: website
 #: view:website:website.view_website_form
@@ -2699,21 +2701,21 @@ msgstr ""
 #. module: website
 #: view:website:website.publish_management
 msgid "Unpublish"
-msgstr ""
+msgstr "Af-publicér"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:209
 #, python-format
 msgid "Upload an image from your computer"
-msgstr ""
+msgstr "Upload et billede fra din computer"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:215
 #, python-format
 msgid "Upload image without optimization"
-msgstr ""
+msgstr "Upload billede uden optimering"
 
 #. module: website
 #. openerp-web
@@ -2811,7 +2813,7 @@ msgstr "Hjemmeside"
 #. module: website
 #: model:ir.actions.act_window,name:website.action_module_website
 msgid "Website Apps"
-msgstr ""
+msgstr "Website programmer"
 
 #. module: website
 #: model:ir.actions.act_url,name:website.action_website_homepage
@@ -2847,14 +2849,14 @@ msgstr ""
 #. module: website
 #: model:crm.case.section,name:website.salesteam_website_sales
 msgid "Website Sales"
-msgstr ""
+msgstr "Website salg"
 
 #. module: website
 #: model:ir.actions.act_window,name:website.action_website_configuration
 #: model:ir.ui.menu,name:website.menu_website_configuration
 #: view:website:website.view_website_form
 msgid "Website Settings"
-msgstr ""
+msgstr "Website indstillinger"
 
 #. module: website
 #: field:ir.actions.server,website_url:0
@@ -3053,25 +3055,25 @@ msgstr ""
 #: view:website:website.snippets
 #, python-format
 msgid "Your Banner Title"
-msgstr ""
+msgstr "Din banner titel"
 
 #. module: website
 #: view:website:website.snippets
 msgid "Your Website Title"
-msgstr ""
+msgstr "Din website titel"
 
 #. module: website
 #: field:website,social_youtube:0
 #: field:website.config.settings,social_youtube:0
 msgid "Youtube Account"
-msgstr ""
+msgstr "Youtube konto"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:302
 #, python-format
 msgid "all"
-msgstr ""
+msgstr "alle"
 
 #. module: website
 #: view:website:website.http_error_debug
@@ -3228,7 +3230,7 @@ msgstr ""
 #. module: website
 #: view:website:website.snippets
 msgid "per month"
-msgstr ""
+msgstr "pr. måned"
 
 #. module: website
 #: view:website:website.snippets
@@ -3267,14 +3269,14 @@ msgstr "ukendt"
 #: code:addons/website/static/src/xml/website.editor.xml:302
 #, python-format
 msgid "unsaved changes will be lost."
-msgstr ""
+msgstr "Ikke gemte ændringer vil gå tabt"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.seo.xml:40
 #, python-format
 msgid "using above suggested keywords"
-msgstr ""
+msgstr "Brug ovenfor foreslåede nøgleord"
 
 #. module: website
 #: field:website.config.settings,website_id:0
@@ -3284,12 +3286,12 @@ msgstr ""
 #. module: website
 #: view:website:website.500
 msgid "yes"
-msgstr ""
+msgstr "ja"
 
 #. module: website
 #: view:website:website.themes
 msgid "your homepage"
-msgstr ""
+msgstr "Din hjemmeside"
 
 #. module: website
 #. openerp-web
@@ -3297,11 +3299,11 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:378
 #, python-format
 msgid "— or —"
-msgstr ""
+msgstr "— eller —"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:161
 #, python-format
 msgid "← Previous"
-msgstr ""
+msgstr "← Forrige"

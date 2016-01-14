@@ -33,7 +33,6 @@ import openerp
 import openerp.modules.registry
 from openerp.addons.base.ir.ir_qweb import AssetsBundle, QWebTemplateNotFound
 from openerp.modules import get_module_resource
-from openerp.service import model as service_model
 from openerp.tools import topological_sort
 from openerp.tools.translate import _
 from openerp.tools import ustr
@@ -934,10 +933,7 @@ class DataSet(http.Controller):
         if method.startswith('_'):
             raise Exception("Access Denied: Underscore prefixed methods cannot be remotely called")
 
-        @service_model.check
-        def checked_call(__dbname, *args, **kwargs):
-            return getattr(request.registry.get(model), method)(request.cr, request.uid, *args, **kwargs)
-        return checked_call(request.db, *args, **kwargs)
+        return getattr(request.registry.get(model), method)(request.cr, request.uid, *args, **kwargs)
 
     @http.route('/web/dataset/call', type='json', auth="user")
     def call(self, model, method, args, domain_id=None, context_id=None):
@@ -1602,7 +1598,7 @@ class Reports(http.Controller):
         if 'name' not in action:
             reports = request.session.model('ir.actions.report.xml')
             res_id = reports.search([('report_name', '=', action['report_name']),],
-                                    0, False, False, context)
+                                    context=context)
             if len(res_id) > 0:
                 file_name = reports.read(res_id[0], ['name'], context)['name']
             else:

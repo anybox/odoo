@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2015-08-23 12:38+0000\n"
+"PO-Revision-Date: 2015-12-02 11:46+0000\n"
 "Last-Translator: Bogdan\n"
 "Language-Team: Ukrainian (http://www.transifex.com/odoo/odoo-8/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "Скасувати"
 #. module: procurement
 #: view:procurement.order:procurement.procurement_form_view
 msgid "Cancel Procurement"
-msgstr ""
+msgstr "Скасувати забезпечення"
 
 #. module: procurement
 #: selection:procurement.order,state:0
@@ -90,12 +90,12 @@ msgstr "Скасований"
 #: code:addons/procurement/procurement.py:156
 #, python-format
 msgid "Cannot delete Procurement Order(s) which are in %s state."
-msgstr ""
+msgstr "Неможливо видалити замовлення закупівлі в стані %s."
 
 #. module: procurement
 #: view:procurement.order:procurement.procurement_form_view
 msgid "Check Procurement"
-msgstr ""
+msgstr "Перевірити це забезпечення"
 
 #. module: procurement
 #: help:procurement.order,rule_id:0
@@ -167,17 +167,17 @@ msgstr "Виняток"
 #. module: procurement
 #: view:procurement.order:procurement.view_procurement_filter
 msgid "Exceptions"
-msgstr ""
+msgstr "Винятки"
 
 #. module: procurement
 #: view:procurement.order:procurement.procurement_form_view
 msgid "External note..."
-msgstr ""
+msgstr "Зовнішня примітка..."
 
 #. module: procurement
 #: view:procurement.order:procurement.procurement_form_view
 msgid "Extra Information"
-msgstr ""
+msgstr "Додаткова інформація"
 
 #. module: procurement
 #: selection:procurement.rule,group_propagation_option:0
@@ -208,7 +208,7 @@ msgstr "Групувати За"
 #: model:ir.actions.act_window,name:procurement.do_view_procurements
 #: view:procurement.order:procurement.procurement_form_view
 msgid "Group's Procurements"
-msgstr ""
+msgstr "Закупівлі групи"
 
 #. module: procurement
 #: help:procurement.order,message_summary:0
@@ -271,12 +271,12 @@ msgstr "Запізнено"
 #. module: procurement
 #: selection:procurement.rule,group_propagation_option:0
 msgid "Leave Empty"
-msgstr ""
+msgstr "Залишити пустим"
 
 #. module: procurement
 #: view:res.company:procurement.mrp_company
 msgid "Logistics"
-msgstr ""
+msgstr "Логістика"
 
 #. module: procurement
 #: field:procurement.order,message_ids:0
@@ -297,7 +297,7 @@ msgstr "Назва"
 #: code:addons/procurement/procurement.py:212
 #, python-format
 msgid "No rule matching this procurement"
-msgstr ""
+msgstr "Немає правила для цієї закупівлі"
 
 #. module: procurement
 #: selection:procurement.order,priority:0
@@ -335,7 +335,7 @@ msgstr "Постачання"
 #: model:ir.actions.act_window,name:procurement.procurement_action5
 #: view:procurement.order:procurement.view_procurement_filter
 msgid "Procurement Exceptions"
-msgstr ""
+msgstr "Проблеми забезпечення"
 
 #. module: procurement
 #: field:procurement.order,group_id:0
@@ -365,12 +365,12 @@ msgstr "Правило заготівлі"
 #. module: procurement
 #: view:procurement.group:procurement.procurement_group_form_view
 msgid "Procurement group"
-msgstr ""
+msgstr "Група забезпечення"
 
 #. module: procurement
 #: view:procurement.order:procurement.view_procurement_filter
 msgid "Procurement started late"
-msgstr ""
+msgstr "Дата початку забезпечення"
 
 #. module: procurement
 #: model:ir.actions.act_window,name:procurement.procurement_exceptions
@@ -408,7 +408,7 @@ msgstr ""
 #. module: procurement
 #: field:procurement.rule,group_propagation_option:0
 msgid "Propagation of Procurement Group"
-msgstr ""
+msgstr "Поширення групи забезпечення"
 
 #. module: procurement
 #: view:procurement.rule:procurement.view_procurement_rule_form
@@ -428,7 +428,7 @@ msgstr "Кількість"
 #. module: procurement
 #: view:procurement.order:procurement.procurement_form_view
 msgid "Reconfirm Procurement"
-msgstr ""
+msgstr "Перепідтвердити забезпечення"
 
 #. module: procurement
 #: field:procurement.group,name:0
@@ -445,12 +445,12 @@ msgstr ""
 #. module: procurement
 #: field:procurement.order,rule_id:0
 msgid "Rule"
-msgstr ""
+msgstr "Правило"
 
 #. module: procurement
 #: view:procurement.order:procurement.procurement_form_view
 msgid "Run Procurement"
-msgstr ""
+msgstr "Розпочати забезпечення"
 
 #. module: procurement
 #: model:ir.actions.act_window,name:procurement.action_compute_schedulers
@@ -476,17 +476,17 @@ msgstr ""
 #. module: procurement
 #: view:procurement.order.compute.all:procurement.view_compute_schedulers_wizard
 msgid "Scheduler Parameters"
-msgstr ""
+msgstr "Параметри планувальника"
 
 #. module: procurement
 #: view:procurement.order:procurement.procurement_form_view
 msgid "Scheduling"
-msgstr ""
+msgstr "Планування"
 
 #. module: procurement
 #: view:procurement.order:procurement.view_procurement_filter
 msgid "Search Procurement"
-msgstr ""
+msgstr "Пошук забезпечення"
 
 #. module: procurement
 #: field:procurement.rule,sequence:0

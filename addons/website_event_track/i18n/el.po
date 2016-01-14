@@ -3,13 +3,14 @@
 # * website_event_track
 # 
 # Translators:
+# Goutoudis Kostas <goutoudis@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2015-07-30 22:51+0000\n"
-"Last-Translator: Martin Trigaux\n"
+"PO-Revision-Date: 2016-01-02 22:27+0000\n"
+"Last-Translator: Goutoudis Kostas <goutoudis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/odoo/odoo-8/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +97,7 @@ msgstr "Εφαρμογή"
 #. module: website_event_track
 #: field:event.track,website_published:0
 msgid "Available in the website"
-msgstr ""
+msgstr "Διαθέσιμο στον ιστότοπο"
 
 #. module: website_event_track
 #: model:event.sponsor.type,name:website_event_track.event_sponsor_type1
@@ -153,12 +154,12 @@ msgstr "Δημιουργήθηκε στις"
 #: view:event.track:website_event_track.view_event_track_search
 #: view:website:website_event_track.track_view
 msgid "Date"
-msgstr "Ημερ/νία"
+msgstr "Ημερομηνία"
 
 #. module: website_event_track
 #: help:event.track,message_last_post:0
 msgid "Date of the last message posted on the record."
-msgstr ""
+msgstr "Ημερομηνία του τελευταίου μηνύματος "
 
 #. module: website_event_track
 #: view:event.track:website_event_track.view_event_track_kanban
@@ -203,7 +204,7 @@ msgstr ""
 #: field:event.track,event_id:0
 #: model:ir.model,name:website_event_track.model_event_event
 msgid "Event"
-msgstr "Γεγονός"
+msgstr "Εκδήλωση"
 
 #. module: website_event_track
 #: field:event.event,blog_id:0
@@ -393,7 +394,7 @@ msgstr "Εάν επιλεγεί τα νέα μηνύματα χρειάζοντ�
 #. module: website_event_track
 #: view:website:website_event_track.event_track_proposal
 msgid "Introduction"
-msgstr ""
+msgstr "Εισαγωγή"
 
 #. module: website_event_track
 #: field:event.track,message_is_follower:0
@@ -416,7 +417,7 @@ msgstr "Τελευταία ημερομηνία μηνύματος"
 #: field:event.track.location,write_uid:0 field:event.track.stage,write_uid:0
 #: field:event.track.tag,write_uid:0
 msgid "Last Updated by"
-msgstr "Τελευταία Αναβαθμίστηκε από"
+msgstr "Τελευταία Ενημέρωση από"
 
 #. module: website_event_track
 #: field:event.sponsor,write_date:0 field:event.sponsor.type,write_date:0
@@ -424,7 +425,7 @@ msgstr "Τελευταία Αναβαθμίστηκε από"
 #: field:event.track.location,write_date:0
 #: field:event.track.stage,write_date:0 field:event.track.tag,write_date:0
 msgid "Last Updated on"
-msgstr "Τελευταία Αναβαθμίστηκε στις"
+msgstr "Τελευταία Ενημέρωση στις"
 
 #. module: website_event_track
 #: model:event.track.tag,name:website_event_track.event_track_tag3
@@ -517,7 +518,7 @@ msgstr ""
 #: field:event.event,show_blog:0
 #, python-format
 msgid "News"
-msgstr ""
+msgstr "Νέα"
 
 #. module: website_event_track
 #: view:website:website_event_track.tracks
@@ -577,7 +578,7 @@ msgstr ""
 #. module: website_event_track
 #: model:event.track.stage,name:website_event_track.event_track_stage3
 msgid "Published"
-msgstr ""
+msgstr "Δημοσιοποιημένη"
 
 #. module: website_event_track
 #: view:website:website_event_track.track_view
@@ -637,7 +638,7 @@ msgstr ""
 #. module: website_event_track
 #: field:event.track,speaker_ids:0
 msgid "Speakers"
-msgstr ""
+msgstr "Ηχεία"
 
 #. module: website_event_track
 #: field:event.sponsor.type,name:0
@@ -824,7 +825,7 @@ msgstr ""
 #. module: website_event_track
 #: field:event.track,message_unread:0
 msgid "Unread Messages"
-msgstr "Αδιάβαστα Μυνήματα"
+msgstr "Αδιάβαστα Μηνύματα"
 
 #. module: website_event_track
 #: view:website:website_event_track.track_view
@@ -866,42 +867,42 @@ msgstr ""
 #. module: website_event_track
 #: field:event.track,website_message_ids:0
 msgid "Website Messages"
-msgstr ""
+msgstr "Μηνύματα Ιστότοπου"
 
 #. module: website_event_track
 #: help:event.track,website_message_ids:0
 msgid "Website communication history"
-msgstr ""
+msgstr "Ιστορικό επικοινωνίας ιστότοπου"
 
 #. module: website_event_track
 #: field:event.track,website_meta_description:0
 msgid "Website meta description"
-msgstr ""
+msgstr "Μετά περιγραφή Ιστότοπου"
 
 #. module: website_event_track
 #: field:event.track,website_meta_keywords:0
 msgid "Website meta keywords"
-msgstr ""
+msgstr "Μετά λέξεις-κλειδιά"
 
 #. module: website_event_track
 #: field:event.track,website_meta_title:0
 msgid "Website meta title"
-msgstr ""
+msgstr "Μετά τίτλος Ιστότοπου"
 
 #. module: website_event_track
 #: field:event.track,website_url:0
 msgid "Website url"
-msgstr ""
+msgstr "Διεύθυνση url του Ιστότοπου"
 
 #. module: website_event_track
 #: view:website:website_event_track.event_track_proposal
 msgid "Your Email"
-msgstr ""
+msgstr "Το email σας"
 
 #. module: website_event_track
 #: view:website:website_event_track.event_track_proposal
 msgid "Your Name"
-msgstr ""
+msgstr "Το Όνομά σας"
 
 #. module: website_event_track
 #: view:website:website_event_track.event_track_proposal
@@ -922,7 +923,7 @@ msgstr ""
 #. module: website_event_track
 #: view:website:website_event_track.tracks
 msgid "not published"
-msgstr ""
+msgstr "μη δημοσιοποιημένο"
 
 #. module: website_event_track
 #: view:website:website_event_track.agenda

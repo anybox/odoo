@@ -686,6 +686,12 @@ class task(osv.osv):
             vals['date_start'] = fields.datetime.now()
         return {'value': vals}
 
+    def onchange_date_deadline(
+            self, cr, uid, ids, date_end, date_deadline, context=None):
+        if not date_end or (date_end[:10] == self.browse(
+                cr, uid, ids, context=context).date_deadline):
+            return {'value': {'date_end': date_deadline}}
+
     def duplicate_task(self, cr, uid, map_ids, context=None):
         mapper = lambda t: map_ids.get(t.id, t.id)
         for task in self.browse(cr, uid, map_ids.values(), context):
@@ -698,9 +704,12 @@ class task(osv.osv):
     def copy_data(self, cr, uid, id, default=None, context=None):
         if default is None:
             default = {}
+        current = self.browse(cr, uid, id, context=context)
         if not default.get('name'):
-            current = self.browse(cr, uid, id, context=context)
             default['name'] = _("%s (copy)") % current.name
+        if 'remaining_hours' not in default:
+            default['remaining_hours'] = current.planned_hours
+
         return super(task, self).copy_data(cr, uid, id, default, context)
 
     def _is_template(self, cr, uid, ids, field_name, arg, context=None):

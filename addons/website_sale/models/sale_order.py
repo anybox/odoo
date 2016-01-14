@@ -2,6 +2,7 @@
 import random
 
 from openerp import SUPERUSER_ID
+import openerp.addons.decimal_precision as dp
 from openerp.osv import osv, orm, fields
 from openerp.addons.web.http import request
 from openerp.tools.translate import _
@@ -113,6 +114,19 @@ class sale_order(osv.Model):
             product_ids = random.sample(s, min(len(s),3))
             return self.pool['product.product'].browse(cr, uid, product_ids, context=context)
 
+class sale_order_line(osv.Model):
+    _inherit = "sale.order.line"
+
+    def _fnct_get_discounted_price(self, cr, uid, ids, field_name, args, context=None):
+        res = dict.fromkeys(ids, False)
+        for line in self.browse(cr, uid, ids, context=context):
+            res[line.id] = (line.price_unit * (1.0 - (line.discount or 0.0) / 100.0))
+        return res
+
+    _columns = {
+        'discounted_price': fields.function(_fnct_get_discounted_price, string='Discounted price', type='float', digits_compute=dp.get_precision('Product Price')),
+    }
+
 class website(orm.Model):
     _inherit = 'website'
 
@@ -130,8 +144,15 @@ class website(orm.Model):
         sale_order_obj = self.pool['sale.order']
         sale_order_id = request.session.get('sale_order_id')
         sale_order = None
+
+        # Test validity of the sale_order_id
+        if sale_order_id and sale_order_obj.exists(cr, SUPERUSER_ID, sale_order_id, context=context):
+            sale_order = sale_order_obj.browse(cr, SUPERUSER_ID, sale_order_id, context=context)
+        else:
+            sale_order_id = None
+
         # create so if needed
-        if not sale_order_id and (force_create or code):  
+        if not sale_order_id and (force_create or code):
             # TODO cache partner_id session
             partner = self.pool['res.users'].browse(cr, SUPERUSER_ID, uid, context=context).partner_id
 
@@ -146,15 +167,11 @@ class website(orm.Model):
                 values = sale_order_obj.onchange_partner_id(cr, SUPERUSER_ID, [], partner.id, context=context)['value']
                 sale_order_obj.write(cr, SUPERUSER_ID, [sale_order_id], values, context=context)
                 request.session['sale_order_id'] = sale_order_id
+                sale_order = sale_order_obj.browse(cr, SUPERUSER_ID, sale_order_id, context=context)
+
         if sale_order_id:
             # TODO cache partner_id session
             partner = self.pool['res.users'].browse(cr, SUPERUSER_ID, uid, context=context).partner_id
-
-            sale_order = sale_order_obj.browse(cr, SUPERUSER_ID, sale_order_id, context=context)
-            if not sale_order.exists():
-                request.session['sale_order_id'] = None
-                return None
-
             # check for change of pricelist with a coupon
             if code and code != sale_order.pricelist_id.code:
                 pricelist_ids = self.pool['product.pricelist'].search(cr, SUPERUSER_ID, [('code', '=', code)], context=context)
@@ -196,6 +213,10 @@ class website(orm.Model):
             # update browse record
             if (code and code != sale_order.pricelist_id.code) or sale_order.partner_id.id !=  partner.id:
                 sale_order = sale_order_obj.browse(cr, SUPERUSER_ID, sale_order.id, context=context)
+
+        else:
+            request.session['sale_order_id'] = None
+            return None
 
         return sale_order
 

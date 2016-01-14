@@ -3,12 +3,13 @@
 # * auth_signup
 # 
 # Translators:
+# Oihane Crucelaegui <oihanecruce@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-21 14:07+0000\n"
-"PO-Revision-Date: 2015-07-17 06:50+0000\n"
+"POT-Creation-Date: 2015-12-16 13:15+0000\n"
+"PO-Revision-Date: 2015-12-17 08:25+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Basque (http://www.transifex.com/odoo/odoo-8/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -94,7 +95,13 @@ msgid ""
 msgstr ""
 
 #. module: auth_signup
-#: code:addons/auth_signup/controllers/main.py:125
+#: code:addons/auth_signup/controllers/main.py:58
+#, python-format
+msgid "Another user is already registered using this email address."
+msgstr ""
+
+#. module: auth_signup
+#: code:addons/auth_signup/controllers/main.py:130
 #, python-format
 msgid "Authentification Failed."
 msgstr ""
@@ -113,10 +120,16 @@ msgstr ""
 #. module: auth_signup
 #: view:website:auth_signup.fields
 msgid "Confirm Password"
+msgstr "Pasahitza baieztatu"
+
+#. module: auth_signup
+#: code:addons/auth_signup/controllers/main.py:61
+#, python-format
+msgid "Could not create a new account."
 msgstr ""
 
 #. module: auth_signup
-#: code:addons/auth_signup/controllers/main.py:80
+#: code:addons/auth_signup/controllers/main.py:84
 #, python-format
 msgid "Could not reset your password"
 msgstr ""
@@ -150,7 +163,7 @@ msgstr "Kidea"
 #. module: auth_signup
 #: view:website:auth_signup.fields
 msgid "Password"
-msgstr ""
+msgstr "Pasahitza"
 
 #. module: auth_signup
 #: model:email.template,subject:auth_signup.reset_password_email
@@ -165,6 +178,12 @@ msgstr ""
 #. module: auth_signup
 #: view:website:auth_signup.reset_password
 msgid "Reset password"
+msgstr ""
+
+#. module: auth_signup
+#: code:addons/auth_signup/res_users.py:267
+#, python-format
+msgid "Reset password: invalid username or email"
 msgstr ""
 
 #. module: auth_signup
@@ -225,7 +244,7 @@ msgstr ""
 #. module: auth_signup
 #: model:ir.model,name:auth_signup.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "Erabiltzaileak"
 
 #. module: auth_signup
 #: view:website:auth_signup.fields view:website:auth_signup.reset_password

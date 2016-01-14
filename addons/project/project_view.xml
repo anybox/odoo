@@ -396,6 +396,7 @@
                             <field name="project_id" domain="[('state','not in', ('close', 'cancelled'))]" on_change="onchange_project(project_id)" context="{'default_use_tasks':1}"/>
                             <field name="user_id"
                                 options='{"no_open": True}'
+                                on_change="onchange_user_id(user_id, context)"
                                 context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}"/>
                             <field name="reviewer_id"
                                 options='{"no_open": True}'
@@ -405,7 +406,8 @@
                                     on_change="onchange_planned(planned_hours, effective_hours)"/>
                         </group>
                         <group>
-                            <field name="date_deadline"/>
+                            <field name="date_deadline"
+                                   on_change="onchange_date_deadline(date_end, date_deadline)"/>
                             <field name="categ_ids" widget="many2many_tags"/>
                             <field name="progress" widget="progressbar"
                                 groups="project.group_time_work_estimation_tasks"/>

@@ -731,13 +731,16 @@ class website_sale(http.Controller):
         # find an already existing transaction
         tx = request.website.sale_get_transaction()
         if tx:
-            if tx.state == 'draft':  # button cliked but no more info -> rewrite on tx or create a new one ?
+            tx_id = tx.id
+            if tx.reference != order.name:
+                tx = False
+                tx_id = False
+            elif tx.state == 'draft':  # button cliked but no more info -> rewrite on tx or create a new one ?
                 tx.write({
                     'acquirer_id': acquirer_id,
                     'amount': order.amount_total,
                 })
-            tx_id = tx.id
-        else:
+        if not tx:
             tx_id = transaction_obj.create(cr, SUPERUSER_ID, {
                 'acquirer_id': acquirer_id,
                 'type': 'form',
@@ -777,16 +780,14 @@ class website_sale(http.Controller):
                 '|', ('sale_order_id', '=', order.id), ('reference', '=', order.name)
             ], context=context)
 
+        state = 'done'
+        message = ""
+        validation = None
+
         if not tx_ids:
             if order.amount_total:
-                return {
-                    'state': 'error',
-                    'message': '<p>%s</p>' % _('There seems to be an error with your request.'),
-                }
-            else:
-                state = 'done'
-                message = ""
-                validation = None
+                state = 'error'
+                message = '<p>%s</p>' % _('There seems to be an error with your request.')
         else:
             tx = request.registry['payment.transaction'].browse(cr, SUPERUSER_ID, tx_ids[0], context=context)
             state = tx.state
