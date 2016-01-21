@@ -67,7 +67,7 @@ class payment_order(osv.osv):
     _name = 'payment.order'
     _description = 'Payment Order'
     _rec_name = 'reference'
-    _order = 'id desc'
+    _order = 'create_date desc'
 
     #dead code
     def get_wizard(self, type):

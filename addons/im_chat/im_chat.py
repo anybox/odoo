@@ -38,7 +38,7 @@ class im_chat_conversation_state(osv.Model):
 
 class im_chat_session(osv.Model):
     """ Conversations."""
-    _order = 'id desc'
+    _order = 'create_date desc'
     _name = 'im_chat.session'
     _rec_name = 'uuid'
 
@@ -153,7 +153,7 @@ class im_chat_message(osv.Model):
         Messages are sent to a session not to users.
     """
     _name = 'im_chat.message'
-    _order = "id desc"
+    _order = "create_date desc"
     _columns = {
         'create_date': fields.datetime('Create Date', required=True, select=True),
         'from_id': fields.many2one('res.users', 'Author'),

@@ -170,6 +170,6 @@ class ir_filters(osv.osv):
         'user_id': lambda self,cr,uid,context=None: uid,
         'is_default': False
     }
-    _order = 'model_id, name, id desc'
+    _order = 'model_id, name, create_date desc'
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

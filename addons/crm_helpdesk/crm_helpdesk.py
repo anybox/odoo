@@ -32,7 +32,7 @@ class crm_helpdesk(osv.osv):
 
     _name = "crm.helpdesk"
     _description = "Helpdesk"
-    _order = "id desc"
+    _order = "create_date desc"
     _inherit = ['mail.thread']
 
     _columns = {

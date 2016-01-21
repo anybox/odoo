@@ -585,7 +585,7 @@ class account_move_line(osv.osv):
         'period_id': _get_period,
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company')._company_default_get(cr, uid, 'account.move.line', context=c)
     }
-    _order = "date desc, id desc"
+    _order = "date desc, create_date desc"
     _sql_constraints = [
         ('credit_debit1', 'CHECK (credit*debit=0)',  'Wrong credit or debit value in accounting entry !'),
         ('credit_debit2', 'CHECK (credit+debit>=0)', 'Wrong credit or debit value in accounting entry !'),

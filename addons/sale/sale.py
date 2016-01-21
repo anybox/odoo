@@ -266,7 +266,7 @@ class sale_order(osv.osv):
     _sql_constraints = [
         ('name_uniq', 'unique(name, company_id)', 'Order Reference must be unique per Company!'),
     ]
-    _order = 'date_order desc, id desc'
+    _order = 'date_order desc, create_date desc'
 
     # Form filling
     def unlink(self, cr, uid, ids, context=None):
@@ -943,7 +943,7 @@ class sale_order_line(osv.osv):
         'delay': fields.float('Delivery Lead Time', required=True, help="Number of days between the order confirmation and the shipping of the products to the customer", readonly=True, states={'draft': [('readonly', False)]}),
         'procurement_ids': fields.one2many('procurement.order', 'sale_line_id', 'Procurements'),
     }
-    _order = 'order_id desc, sequence, id'
+    _order = 'order_id desc, sequence, create_date'
     _defaults = {
         'product_uom' : _get_uom_id,
         'discount': 0.0,

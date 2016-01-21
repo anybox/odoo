@@ -55,7 +55,7 @@ class hr_expense_expense(osv.osv):
     _name = "hr.expense.expense"
     _inherit = ['mail.thread']
     _description = "Expense"
-    _order = "id desc"
+    _order = "create_date desc"
     _track = {
         'state': {
             'hr_expense.mt_expense_approved': lambda self, cr, uid, obj, ctx=None: obj.state == 'accepted',

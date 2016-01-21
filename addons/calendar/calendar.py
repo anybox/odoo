@@ -685,7 +685,7 @@ class calendar_event(osv.Model):
     """ Model for Calendar Event """
     _name = 'calendar.event'
     _description = "Event"
-    _order = "id desc"
+    _order = "create_date desc"
     _inherit = ["mail.thread", "ir.needaction_mixin"]
 
     def do_run_scheduler(self, cr, uid, id, context=None):

@@ -1161,7 +1161,7 @@ class account_journal_period(osv.osv):
 class account_move(osv.osv):
     _name = "account.move"
     _description = "Account Entry"
-    _order = 'id desc'
+    _order = 'date desc, create_date desc'
 
     def account_assert_balanced(self, cr, uid, context=None):
         obj_precision = self.pool.get('decimal.precision')

@@ -29,7 +29,7 @@ class crm_phonecall(osv.osv):
     """ Model for CRM phonecalls """
     _name = "crm.phonecall"
     _description = "Phonecall"
-    _order = "id desc"
+    _order = "create_date desc"
     _inherit = ['mail.thread']
     
     _columns = {

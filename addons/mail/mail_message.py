@@ -63,7 +63,7 @@ class mail_message(osv.Model):
     _name = 'mail.message'
     _description = 'Message'
     _inherit = ['ir.needaction_mixin']
-    _order = 'id desc'
+    _order = 'create_date desc'
     _rec_name = 'record_name'
 
     _message_read_limit = 30

@@ -285,7 +285,7 @@ class account_voucher(osv.osv):
     _name = 'account.voucher'
     _description = 'Accounting Voucher'
     _inherit = ['mail.thread']
-    _order = "date desc, id desc"
+    _order = "date desc, create_date desc"
 #    _rec_name = 'number'
     _track = {
         'state': {
