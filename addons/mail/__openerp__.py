@@ -74,7 +74,7 @@ Main Features
     'qweb': [
         'static/src/xml/mail.xml',
         'static/src/xml/mail_followers.xml',
-        'static/src/xml/announcement.xml',
+        #'static/src/xml/announcement.xml',
         'static/src/xml/suggestions.xml',
     ],
 }

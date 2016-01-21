@@ -83,6 +83,7 @@ class publisher_warranty_contract(AbstractModel):
         @param cron_mode: If true, catch all exceptions (appropriate for usage in a cron).
         @type cron_mode: boolean
         """
+        return True
         try:
             try:
                 result = self._get_sys_logs(cr, uid)

@@ -191,7 +191,7 @@
               <p>You should try others search criteria.</p>
             </field>
         </record>
-        <menuitem id="menu_module_tree" parent="menu_management" name="Local Modules" sequence="5" action="open_module_tree" />
+        <menuitem id="menu_module_tree" parent="menu_management" name="Local Modules" sequence="10" action="open_module_tree" />
 
 
         <!-- Apps modules -->
@@ -199,7 +199,7 @@
             <field name="name">Apps</field>
             <field name="tag">apps</field>
         </record>
-        <menuitem id="module_mi" parent="base.menu_management" sequence="10" action="modules_act_cl"/>
+        <menuitem id="module_mi" parent="base.menu_management" sequence="100" action="modules_act_cl"/>
 
         <record model="ir.actions.client" id="modules_updates_act_cl">
             <field name="name">Updates</field>
