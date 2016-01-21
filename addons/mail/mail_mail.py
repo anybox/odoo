@@ -42,7 +42,7 @@ class mail_mail(osv.Model):
     _name = 'mail.mail'
     _description = 'Outgoing Mails'
     _inherits = {'mail.message': 'mail_message_id'}
-    _order = 'id desc'
+    _order = 'create_date desc'
     _rec_name = 'subject'
 
     _columns = {

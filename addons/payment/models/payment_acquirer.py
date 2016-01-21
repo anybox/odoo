@@ -323,7 +323,7 @@ class PaymentTransaction(osv.Model):
     _name = 'payment.transaction'
     _description = 'Payment Transaction'
     _inherit = ['mail.thread']
-    _order = 'id desc'
+    _order = 'create_date desc'
     _rec_name = 'reference'
 
     _columns = {

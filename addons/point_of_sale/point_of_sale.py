@@ -229,7 +229,7 @@ class pos_config(osv.osv):
 
 class pos_session(osv.osv):
     _name = 'pos.session'
-    _order = 'id desc'
+    _order = 'create_date desc'
 
     POS_SESSION_STATE = [
         ('opening_control', 'Opening Control'),  # Signal open
@@ -555,7 +555,7 @@ class pos_session(osv.osv):
 class pos_order(osv.osv):
     _name = "pos.order"
     _description = "Point of Sale"
-    _order = "id desc"
+    _order = "create_date desc"
 
     def _amount_line_tax(self, cr, uid, line, context=None):
         account_tax_obj = self.pool['account.tax']

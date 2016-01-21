@@ -58,7 +58,7 @@ class document_file(osv.osv):
         'partner_id':fields.many2one('res.partner', 'Partner', select=1),
         'file_type': fields.char('Content Type'),
     }
-    _order = "id desc"
+    _order = "create_date desc"
 
     _defaults = {
         'user_id': lambda self, cr, uid, ctx:uid,

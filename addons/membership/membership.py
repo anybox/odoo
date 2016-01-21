@@ -164,7 +164,7 @@ class membership_line(osv.osv):
         'company_id': fields.related('account_invoice_line', 'invoice_id', 'company_id', type="many2one", relation="res.company", string="Company", readonly=True, store=True)
     }
     _rec_name = 'partner'
-    _order = 'id desc'
+    _order = 'create_date desc'
     _constraints = [
         (_check_membership_date, 'Error, this membership product is out of date', [])
     ]

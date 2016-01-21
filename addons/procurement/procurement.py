@@ -55,7 +55,7 @@ class procurement_group(osv.osv):
     '''
     _name = 'procurement.group'
     _description = 'Procurement Requisition'
-    _order = "id desc"
+    _order = "create_date desc"
     _columns = {
         'name': fields.char('Reference', required=True),
         'move_type': fields.selection([

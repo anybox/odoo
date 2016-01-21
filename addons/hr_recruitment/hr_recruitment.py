@@ -80,7 +80,7 @@ class hr_recruitment_degree(osv.osv):
 class hr_applicant(osv.Model):
     _name = "hr.applicant"
     _description = "Applicant"
-    _order = "priority desc, id desc"
+    _order = "priority desc, create_date desc"
     _inherit = ['mail.thread', 'ir.needaction_mixin']
 
     _track = {

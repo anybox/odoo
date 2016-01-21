@@ -662,7 +662,7 @@ class stock_picking(osv.osv):
     _name = "stock.picking"
     _inherit = ['mail.thread']
     _description = "Picking List"
-    _order = "priority desc, date asc, id desc"
+    _order = "priority desc, date asc, create_date desc"
 
     def _set_min_date(self, cr, uid, id, field, value, arg, context=None):
         move_obj = self.pool.get("stock.move")

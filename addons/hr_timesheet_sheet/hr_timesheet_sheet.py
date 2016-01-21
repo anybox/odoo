@@ -33,7 +33,7 @@ class hr_timesheet_sheet(osv.osv):
     _name = "hr_timesheet_sheet.sheet"
     _inherit = "mail.thread"
     _table = 'hr_timesheet_sheet_sheet'
-    _order = "id desc"
+    _order = "create_date desc"
     _description="Timesheet"
 
     def _total(self, cr, uid, ids, name, args, context=None):
