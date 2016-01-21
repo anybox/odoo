@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-07-12 07:40+0000\n"
+"PO-Revision-Date: 2015-12-25 20:55+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Russian (http://www.transifex.com/odoo/odoo-7/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -149,7 +149,7 @@ msgstr "Сумма"
 #: model:ir.actions.act_window,name:point_of_sale.action_pos_box_out
 #: view:pos.session:0
 msgid "Take Money Out"
-msgstr ""
+msgstr "Взять Деньги"
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/point_of_sale.py:105
@@ -740,7 +740,7 @@ msgstr ""
 #. module: point_of_sale
 #: view:pos.session.opening:0
 msgid "Click to start a session."
-msgstr ""
+msgstr "Новая Сессия"
 
 #. module: point_of_sale
 #: view:pos.details:0 view:pos.payment.report:0 view:pos.payment.report.user:0
@@ -783,7 +783,7 @@ msgstr ""
 #. module: point_of_sale
 #: field:report.transaction.pos,invoice_am:0
 msgid "Invoice Amount"
-msgstr ""
+msgstr "Сумма к оплате"
 
 #. module: point_of_sale
 #: model:pos.category,name:point_of_sale.coke
@@ -865,7 +865,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:pos.category,name:point_of_sale.rouges_noyau_fruits
 msgid "Berries"
-msgstr ""
+msgstr "Ягоды"
 
 #. module: point_of_sale
 #: view:pos.ean_wizard:0
@@ -1260,7 +1260,7 @@ msgstr ""
 #: code:addons/point_of_sale/static/src/xml/pos.xml:324
 #, python-format
 msgid "Welcome"
-msgstr ""
+msgstr "Добро пожаловать"
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/wizard/pos_box_entries.py:46
@@ -1311,7 +1311,7 @@ msgstr "Сумма счета"
 #: model:ir.model,name:point_of_sale.model_pos_category
 #: field:product.product,pos_categ_id:0
 msgid "Point of Sale Category"
-msgstr ""
+msgstr "Категории точек продаж"
 
 #. module: point_of_sale
 #: view:report.pos.order:0 field:report.pos.order,product_qty:0
@@ -1557,12 +1557,12 @@ msgstr ""
 #. module: point_of_sale
 #: field:product.product,available_in_pos:0
 msgid "Available in the Point of Sale"
-msgstr ""
+msgstr "Доступно в точке продажи"
 
 #. module: point_of_sale
 #: selection:pos.config,state:0
 msgid "Deprecated"
-msgstr ""
+msgstr "Устаревшее"
 
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.coca_light_decaf_33cl_product_template
@@ -1599,7 +1599,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_pos_config
 msgid "pos.config"
-msgstr ""
+msgstr "pos.config"
 
 #. module: point_of_sale
 #: view:pos.ean_wizard:0
@@ -1955,7 +1955,7 @@ msgstr ""
 #: code:addons/point_of_sale/point_of_sale.py:1191
 #, python-format
 msgid "No Pricelist!"
-msgstr ""
+msgstr "Нет Прайс-листа! "
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/point_of_sale.py:789
@@ -2461,7 +2461,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:pos.category,name:point_of_sale.beers
 msgid "Beers"
-msgstr ""
+msgstr "Пиво"
 
 #. module: point_of_sale
 #: help:pos.config,name:0
@@ -2563,7 +2563,7 @@ msgstr "Подитог"
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.carotte_product_template
 msgid "Carrots"
-msgstr ""
+msgstr "Морковь"
 
 #. module: point_of_sale
 #: view:pos.open.statement:0
@@ -2638,7 +2638,7 @@ msgstr ""
 #: code:addons/point_of_sale/static/src/xml/pos.xml:444
 #, python-format
 msgid "Payment Terminal"
-msgstr ""
+msgstr "Платежный Терминал"
 
 #. module: point_of_sale
 #: view:account.bank.statement:0 field:pos.session,user_id:0
@@ -2677,7 +2677,7 @@ msgstr "Продажи пользователя за месяц"
 #. module: point_of_sale
 #: view:pos.session:0
 msgid "Cashbox Lines"
-msgstr ""
+msgstr "Строка Кассы"
 
 #. module: point_of_sale
 #: model:ir.actions.report.xml,name:point_of_sale.pos_payment_report_user
@@ -2820,7 +2820,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:pos.category,name:point_of_sale.pomme
 msgid "Apples"
-msgstr ""
+msgstr "Яблоки"
 
 #. module: point_of_sale
 #: report:pos.details:0
@@ -3010,12 +3010,12 @@ msgstr ""
 #: model:ir.actions.act_window,name:point_of_sale.action_account_journal_form
 #: model:ir.ui.menu,name:point_of_sale.menu_action_account_journal_form_open
 msgid "Payment Methods"
-msgstr ""
+msgstr "Способы оплаты"
 
 #. module: point_of_sale
 #: model:pos.category,name:point_of_sale.chips
 msgid "Chips"
-msgstr ""
+msgstr "Чипсы"
 
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.oetker_spinaci_product_template
@@ -3047,7 +3047,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:point_of_sale.action_pos_box_in
 #: view:pos.session:0
 msgid "Put Money In"
-msgstr ""
+msgstr "Положить Деньги в"
 
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.fanta_zero_orange_1,5l_product_template
@@ -3273,7 +3273,7 @@ msgstr ""
 #. module: point_of_sale
 #: help:product.product,available_in_pos:0
 msgid "Check if you want this product to appear in the Point of Sale"
-msgstr ""
+msgstr "Выберите, если товар должен присутствовать в точке продаж"
 
 #. module: point_of_sale
 #: view:report.pos.order:0
@@ -3581,7 +3581,7 @@ msgstr ""
 #. module: point_of_sale
 #: field:pos.session,details_ids:0
 msgid "Cash Control"
-msgstr ""
+msgstr "Контроль купюр"
 
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.oetker_vegetale_product_template
@@ -3644,7 +3644,7 @@ msgstr "Сумма подитогов"
 #. module: point_of_sale
 #: view:pos.session.opening:0
 msgid "Close Session"
-msgstr ""
+msgstr "Закрыть Сессию"
 
 #. module: point_of_sale
 #. openerp-web
@@ -3822,7 +3822,7 @@ msgstr "Изменить"
 #. module: point_of_sale
 #: view:pos.session.opening:0
 msgid "Click to continue the session."
-msgstr ""
+msgstr "Возобновить Сессию"
 
 #. module: point_of_sale
 #: view:pos.config:0

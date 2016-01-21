@@ -2346,7 +2346,7 @@ class stock_move(osv.osv):
         if move.location_dest_id.usage != 'internal' and move.product_id.cost_method == 'average':
             reference_amount = qty * move.product_id.standard_price
         elif move.product_id.cost_method == 'average' and move.price_unit:
-            reference_amount = qty * move.price_unit
+            reference_amount = move.product_qty * move.price_unit
             reference_currency_id = move.price_currency_id.id or reference_currency_id
 
         # Otherwise we default to the company's valuation price type, considering that the values of the
@@ -2496,6 +2496,8 @@ class stock_move(osv.osv):
                        {'state': 'done', 
                        'date': time.strftime(DEFAULT_SERVER_DATETIME_FORMAT)}, 
                        context=context)
+        for id in move_ids:
+             wf_service.trg_trigger(uid, 'stock.move', id, cr)
         for pick_id in picking_ids:
             wf_service.trg_write(uid, 'stock.picking', pick_id, cr)
 

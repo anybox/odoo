@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-07-10 10:33+0000\n"
+"PO-Revision-Date: 2015-11-11 08:23+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/odoo/odoo-7/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -101,7 +101,7 @@ msgstr ""
 #: help:mrp.bom,message_unread:0 help:mrp.production,message_unread:0
 #: help:mrp.production.workcenter.line,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ako je označeno, nove poruke zahtjevaju pažnju"
 
 #. module: mrp
 #: help:mrp.routing.workcenter,cycle_nbr:0
@@ -397,7 +397,7 @@ msgstr ""
 #: field:mrp.bom,product_qty:0 field:mrp.production,product_qty:0
 #: field:mrp.production.product.line,product_qty:0
 msgid "Product Quantity"
-msgstr ""
+msgstr "Količina proizvoda"
 
 #. module: mrp
 #: help:mrp.production,picking_id:0
@@ -510,7 +510,7 @@ msgstr ""
 #: view:mrp.product.produce:0 view:mrp.product_price:0
 #: view:mrp.workcenter.load:0
 msgid "or"
-msgstr ""
+msgstr "ili"
 
 #. module: mrp
 #: model:process.transition,note:mrp.process_transition_billofmaterialrouting0
@@ -1013,7 +1013,7 @@ msgstr ""
 #. module: mrp
 #: field:mrp.bom,position:0
 msgid "Internal Reference"
-msgstr ""
+msgstr "Interna oznaka"
 
 #. module: mrp
 #: field:mrp.production,product_uos_qty:0
@@ -1041,7 +1041,7 @@ msgstr "Model"
 #: help:mrp.bom,message_ids:0 help:mrp.production,message_ids:0
 #: help:mrp.production.workcenter.line,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Poruke i istorija komunikacije"
 
 #. module: mrp
 #: field:mrp.workcenter.load,measure_unit:0
@@ -1150,7 +1150,7 @@ msgstr ""
 #: field:mrp.bom,message_unread:0 field:mrp.production,message_unread:0
 #: field:mrp.production.workcenter.line,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Nepročitane poruke"
 
 #. module: mrp
 #: model:process.transition,note:mrp.process_transition_stockmts0
@@ -1734,7 +1734,7 @@ msgstr "Greška"
 #: code:addons/mrp/report/price.py:141 view:mrp.bom:0 view:product.product:0
 #, python-format
 msgid "Components"
-msgstr ""
+msgstr "Komponente"
 
 #. module: mrp
 #: report:bom.structure:0
@@ -1811,7 +1811,7 @@ msgstr ""
 #: field:mrp.production,message_follower_ids:0
 #: field:mrp.production.workcenter.line,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Pratioci"
 
 #. module: mrp
 #: help:mrp.bom,active:0
@@ -1962,7 +1962,7 @@ msgstr ""
 #: field:report.mrp.inout,date:0 view:report.workcenter.load:0
 #: field:report.workcenter.load,name:0
 msgid "Week"
-msgstr ""
+msgstr "Nedelja"
 
 #. module: mrp
 #: selection:mrp.production,priority:0

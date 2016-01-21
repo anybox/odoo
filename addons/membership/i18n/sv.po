@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-07 19:37+0000\n"
-"PO-Revision-Date: 2015-07-14 07:49+0000\n"
+"PO-Revision-Date: 2015-11-23 23:09+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Swedish (http://www.transifex.com/odoo/odoo-7/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "Gruppera på..."
 #. module: membership
 #: field:report.membership,num_paid:0
 msgid "# Paid"
-msgstr ""
+msgstr "# Betald"
 
 #. module: membership
 #: field:report.membership,tot_earned:0
@@ -187,7 +187,7 @@ msgstr "Leverantörsföretag"
 #. module: membership
 #: field:report.membership,num_invoiced:0
 msgid "# Invoiced"
-msgstr ""
+msgstr "# Fakturerad"
 
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_report_membership_tree
@@ -331,7 +331,7 @@ msgstr ""
 #. module: membership
 #: view:product.product:0
 msgid "Add a description..."
-msgstr ""
+msgstr "Lägg på beskrivning..."
 
 #. module: membership
 #: field:membership.membership_line,date:0
@@ -435,7 +435,7 @@ msgstr "Kontakter"
 #. module: membership
 #: view:report.membership:0
 msgid "Forecast"
-msgstr ""
+msgstr "Prognos"
 
 #. module: membership
 #: field:report.membership,partner_id:0
@@ -743,7 +743,7 @@ msgstr "Belopp för medlemskap"
 #. module: membership
 #: constraint:res.partner:0
 msgid "Error ! You cannot create recursive associated members."
-msgstr ""
+msgstr "Fel! Du kan inte skapa rekursivt associerade medlemmar."
 
 #. module: membership
 #: selection:membership.membership_line,state:0
