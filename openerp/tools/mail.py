@@ -24,7 +24,6 @@ import cgi
 import logging
 import lxml.html
 import lxml.html.clean as clean
-import openerp.pooler as pooler
 from openerp import SUPERUSER_ID
 import random
 import re
@@ -628,7 +627,7 @@ def generate_tracking_message_id(res_id, cr=None):
     if not cr:
         db_name = getattr(threading.currentThread(), 'dbname', None)
         if db_name:
-            cr = pooler.get_db(db_name).cursor()
+            cr = openerp.registry(db_name).cursor()
         else:
             raise Exception("No database cursor found, please pass one explicitly")
     icp = pooler.get_pool(cr.dbname).get('ir.config_parameter')
