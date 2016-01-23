@@ -630,7 +630,7 @@ def generate_tracking_message_id(res_id, cr=None):
             cr = openerp.registry(db_name).cursor()
         else:
             raise Exception("No database cursor found, please pass one explicitly")
-    icp = pooler.get_pool(cr.dbname).get('ir.config_parameter')
+    icp = openerp.registry(cr.dbname)['ir.config_parameter']
     tracking_domain = icp.get_param(cr, SUPERUSER_ID, 'mail.catchall.domain', socket.gethostname())
     try:
         rnd = random.SystemRandom().random()
