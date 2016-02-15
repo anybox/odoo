@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2016-01-08 15:41+0000\n"
+"PO-Revision-Date: 2016-02-10 19:57+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-8/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgstr ""
 #. module: marketing_campaign
 #: view:marketing.campaign.segment:marketing_campaign.view_marketing_campaign_segment_search
 msgid "All"
-msgstr ""
+msgstr "Všetko"
 
 #. module: marketing_campaign
 #: selection:marketing.campaign.segment,sync_mode:0
@@ -97,7 +97,7 @@ msgstr "August"
 #. module: marketing_campaign
 #: selection:marketing.campaign.transition,trigger:0
 msgid "Automatic"
-msgstr ""
+msgstr "Automatická"
 
 #. module: marketing_campaign
 #: code:addons/marketing_campaign/marketing_campaign.py:500
@@ -345,17 +345,17 @@ msgstr "Email"
 #: code:addons/marketing_campaign/marketing_campaign.py:774
 #, python-format
 msgid "Email Preview"
-msgstr ""
+msgstr "Náhľad emailu"
 
 #. module: marketing_campaign
 #: field:marketing.campaign.activity,email_template_id:0
 msgid "Email Template"
-msgstr ""
+msgstr "Emailová šablóna"
 
 #. module: marketing_campaign
 #: model:ir.model,name:marketing_campaign.model_email_template
 msgid "Email Templates"
-msgstr ""
+msgstr "Emailové šablóny"
 
 #. module: marketing_campaign
 #: field:marketing.campaign.segment,date_done:0
@@ -464,7 +464,7 @@ msgstr ""
 #. module: marketing_campaign
 #: selection:marketing.campaign.transition,interval_type:0
 msgid "Hour(s)"
-msgstr ""
+msgstr "Hodina(y)"
 
 #. module: marketing_campaign
 #: help:marketing.campaign.transition,trigger:0
@@ -664,12 +664,12 @@ msgstr ""
 #: view:marketing.campaign.activity:marketing_campaign.view_marketing_campaign_activity_form
 #: field:marketing.campaign.activity,to_ids:0
 msgid "Next Activities"
-msgstr ""
+msgstr "Ďalšie aktivity"
 
 #. module: marketing_campaign
 #: field:marketing.campaign.transition,activity_to_id:0
 msgid "Next Activity"
-msgstr ""
+msgstr "Ďlašia aktivita"
 
 #. module: marketing_campaign
 #: field:marketing.campaign.segment,date_next_sync:0
@@ -753,7 +753,7 @@ msgstr "Partneri"
 #: view:marketing.campaign.workitem:marketing_campaign.view_marketing_campaign_workitem_form
 #: view:marketing.campaign.workitem:marketing_campaign.view_marketing_campaign_workitem_tree
 msgid "Preview"
-msgstr ""
+msgstr "Náhľad"
 
 #. module: marketing_campaign
 #: view:marketing.campaign.activity:marketing_campaign.view_marketing_campaign_activity_form
@@ -892,7 +892,7 @@ msgstr ""
 #. module: marketing_campaign
 #: field:marketing.campaign.activity,start:0
 msgid "Start"
-msgstr ""
+msgstr "Štart"
 
 #. module: marketing_campaign
 #: view:marketing.campaign:marketing_campaign.view_marketing_campaign_form
@@ -953,7 +953,7 @@ msgstr ""
 #. module: marketing_campaign
 #: view:marketing.campaign:marketing_campaign.view_marketing_campaign_search
 msgid "Test Mode"
-msgstr ""
+msgstr "Testovací režim"
 
 #. module: marketing_campaign
 #: selection:marketing.campaign,mode:0
