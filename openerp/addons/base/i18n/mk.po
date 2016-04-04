@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-10-30 13:14+0000\n"
+"PO-Revision-Date: 2016-03-21 12:05+0000\n"
 "Last-Translator: Aleksandar Vangelovski <aleksandarv@hbee.eu>\n"
 "Language-Team: Macedonian (http://www.transifex.com/odoo/odoo-7/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -2353,7 +2353,7 @@ msgstr "\nУправување со алатката за помош.\n=========
 msgid ""
 "View type: Tree type to use for the tree view, set to 'tree' for a "
 "hierarchical tree view, or 'form' for a regular list view"
-msgstr ""
+msgstr "Тип на преглед: Дрво, за гледање преку овој тип, подеси на 'дрво' за хиерархичен приказ, или 'форм' за регуларен листовен приказ."
 
 #. module: base
 #: sql_constraint:ir.ui.view_sc:0
@@ -3967,7 +3967,7 @@ msgstr "Ограничена одговорност"
 #. module: base
 #: model:ir.actions.server,name:base.action_run_ir_action_todo
 msgid "Run Remaining Action Todo"
-msgstr ""
+msgstr "Уклучи ги останатите акции Todo"
 
 #. module: base
 #: field:res.partner,ean13:0
@@ -5550,7 +5550,7 @@ msgstr "Производи"
 #: model:ir.actions.act_window,name:base.act_values_form_defaults
 #: model:ir.ui.menu,name:base.menu_values_form_defaults view:ir.values:0
 msgid "User-defined Defaults"
-msgstr ""
+msgstr "Кориснички дефинирани стандарди"
 
 #. module: base
 #: model:ir.module.module,description:base.module_auth_signup
@@ -5703,7 +5703,7 @@ msgstr "Гуџарати / ગુજરાતી"
 msgid ""
 "Unable to process module \"%s\" because an external dependency is not met: "
 "%s"
-msgstr ""
+msgstr "Не е во можност да се инсталира модулот \"%s\" бидејќи надворешната зависност не е исполнета: %s"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll
@@ -5834,7 +5834,7 @@ msgstr "Име на мени"
 #. module: base
 #: field:ir.values,key2:0
 msgid "Qualifier"
-msgstr ""
+msgstr "Квалификувач"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_vn
@@ -6952,7 +6952,7 @@ msgstr ""
 #: code:addons/orm.py:2049
 #, python-format
 msgid "Insufficient fields for Calendar View!"
-msgstr ""
+msgstr "Недоволни полиња за календарски преглед!"
 
 #. module: base
 #: selection:ir.property,type:0
@@ -8009,7 +8009,7 @@ msgstr "Подмениа"
 #. module: base
 #: report:ir.module.reference:0
 msgid "Introspection report on objects"
-msgstr ""
+msgstr "Интроспекциски извештај на објекти"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_analytics
@@ -8141,7 +8141,7 @@ msgstr "Ажурирај листа на модули"
 msgid ""
 "Unable to upgrade module \"%s\" because an external dependency is not met: "
 "%s"
-msgstr ""
+msgstr "Не е во можност да се надгради модулот \"%s\" бидејќи надворешната зависност не е исполнета: %s"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account
@@ -8417,7 +8417,7 @@ msgstr "Ако влезната мени акција е act_window акција
 #, python-format
 msgid ""
 "Unable to delete this document because it is used as a default property"
-msgstr ""
+msgstr "Не можете да го избришете документот бидејќи е користен како default сопственост"
 
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_5
@@ -10025,7 +10025,7 @@ msgstr "Не е пронајден курс \nза валутата: %s \nна �
 msgid ""
 "Customized views are used when users reorganize the content of their "
 "dashboard views (via web client)"
-msgstr ""
+msgstr "Костумизираните прикази се користени кога корисниците ја реорганизираат содржината на своите прикази од работната табела/табла (преку веб клиентот)"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_stock
@@ -11098,7 +11098,7 @@ msgstr ""
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_16
 msgid "Retailer"
-msgstr ""
+msgstr "Tрговец на мало"
 
 #. module: base
 #: view:ir.model.fields:0 field:ir.model.fields,readonly:0
@@ -11340,7 +11340,7 @@ msgstr "Коста рика"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_auth_ldap
 msgid "Authentication via LDAP"
-msgstr ""
+msgstr "Автентикација преку LDAP"
 
 #. module: base
 #: view:workflow.activity:0
@@ -11455,7 +11455,7 @@ msgstr "Norwegian Bokmål / Norsk bokmål"
 #. module: base
 #: view:base.module.upgrade:0
 msgid "This module will trigger the uninstallation of below modules."
-msgstr ""
+msgstr "Овој модул ќе Ви ја активира де-инсталацијата на модулите надолу."
 
 #. module: base
 #: model:res.partner.title,name:base.res_partner_title_madam
@@ -12047,7 +12047,7 @@ msgstr ""
 #. module: base
 #: field:res.company,company_registry:0
 msgid "Company Registry"
-msgstr ""
+msgstr "Регистри на компанија"
 
 #. module: base
 #: view:ir.actions.report.xml:0 view:res.currency:0
@@ -12929,7 +12929,7 @@ msgstr "\nОвој модул додава пристапни правила н�
 #: field:ir.actions.server,trigger_obj_id:0
 #: field:ir.model.fields,relation_field:0
 msgid "Relation Field"
-msgstr ""
+msgstr "Поле на релација"
 
 #. module: base
 #: model:ir.module.module,description:base.module_portal_project
@@ -13621,7 +13621,7 @@ msgstr "Услуги после-продажба"
 #. module: base
 #: field:base.language.import,code:0
 msgid "ISO Code"
-msgstr ""
+msgstr "ISO код"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr
@@ -14101,7 +14101,7 @@ msgstr "Курс на валутата споредена со валутата 
 #. module: base
 #: field:ir.ui.view,name:0
 msgid "View Name"
-msgstr ""
+msgstr "Име на преглед"
 
 #. module: base
 #: model:ir.model,name:base.model_res_groups

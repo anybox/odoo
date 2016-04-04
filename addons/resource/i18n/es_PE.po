@@ -127,7 +127,7 @@ msgstr ""
 #: field:resource.calendar.leaves,company_id:0 view:resource.resource:0
 #: field:resource.resource,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Compañia"
 
 #. module: resource
 #: selection:resource.calendar.attendance,dayofweek:0
@@ -309,7 +309,7 @@ msgstr ""
 #. module: resource
 #: view:resource.resource:0
 msgid "Inactive"
-msgstr ""
+msgstr "Inactivo"
 
 #. module: resource
 #: code:addons/resource/faces/resource.py:340

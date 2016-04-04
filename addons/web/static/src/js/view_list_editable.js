@@ -259,14 +259,15 @@ openerp.web.list_editable = function (instance) {
                         }
                         if (focus_field  && fields[focus_field]){
                             var input = fields[focus_field].$el.find('input');
-                            if(input[0]){
+                            input.each(function(){
+                                var input = jQuery(this);
                                 if(input[0].type === 'text' ||
                                    input[0].type === 'textarea'){
                                     input[0].select();
                                 }else{
                                     input[0].focus();
                                 }
-                           }
+                           });
                         }
                         return record.attributes;
                     });

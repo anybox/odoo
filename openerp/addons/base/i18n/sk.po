@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-12-19 18:54+0000\n"
+"PO-Revision-Date: 2016-03-27 14:35+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-7/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -1702,7 +1702,7 @@ msgstr "Malý obrázok"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock
 msgid "Warehouse Management"
-msgstr ""
+msgstr "Spravovanie skladiska"
 
 #. module: base
 #: model:ir.model,name:base.model_res_request_link
@@ -2071,7 +2071,7 @@ msgstr "Mód zobrazenia"
 msgid ""
 "Display this bank account on the footer of printed documents like invoices "
 "and sales orders."
-msgstr ""
+msgstr "Zobraziť tento bankový účet v zápätí tlačených dokumentov, ako sú faktúry a predajné objednávok."
 
 #. module: base
 #: selection:base.language.install,lang:0
@@ -3674,7 +3674,7 @@ msgstr "Urdština / اردو"
 #: code:addons/orm.py:3952 code:addons/orm.py:3994
 #, python-format
 msgid "Access Denied"
-msgstr ""
+msgstr "Prístup zamietnutý"
 
 #. module: base
 #: field:res.company,name:0
@@ -5001,7 +5001,7 @@ msgstr "Kurzy"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_email_template
 msgid "Email Templates"
-msgstr ""
+msgstr "Emailové šablóny"
 
 #. module: base
 #: model:res.country,name:base.sy
@@ -5532,7 +5532,7 @@ msgstr "Pri vymazaní vlastnosti pre polia typu many2one"
 #. module: base
 #: model:ir.module.category,name:base.module_category_accounting_and_finance
 msgid "Accounting & Finance"
-msgstr ""
+msgstr "Účtovníctvo & Financie"
 
 #. module: base
 #: field:ir.actions.server,write_id:0
@@ -9609,7 +9609,7 @@ msgstr "Pravidlá záznamu"
 #. module: base
 #: view:multi_company.default:0
 msgid "Multi Company"
-msgstr ""
+msgstr "Multi spoločnosť"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_portal
@@ -10709,7 +10709,7 @@ msgstr "Zákazník"
 #. module: base
 #: view:res.partner:0 view:res.users:0
 msgid "e.g. +32.81.81.37.00"
-msgstr ""
+msgstr "napr. (+421) 481 231 231"
 
 #. module: base
 #: selection:base.language.install,lang:0
@@ -11266,7 +11266,7 @@ msgstr "Výber"
 #: model:ir.actions.act_window,name:base.change_password_wizard_action
 #: view:res.users:0
 msgid "Change Password"
-msgstr ""
+msgstr "Zmeniť heslo"
 
 #. module: base
 #: field:ir.actions.act_url,type:0 field:ir.actions.act_window,type:0
@@ -11613,7 +11613,7 @@ msgstr "Externé identity"
 #: code:addons/base/static/src/js/apps.js:104
 #, python-format
 msgid "Showing locally available modules"
-msgstr ""
+msgstr "Zobrazovanie lokálne dostupných modulov"
 
 #. module: base
 #: selection:base.language.install,lang:0
@@ -13634,7 +13634,7 @@ msgstr "Spustiť"
 #. module: base
 #: selection:res.partner,type:0
 msgid "Shipping"
-msgstr ""
+msgstr "Doprava"
 
 #. module: base
 #: model:ir.module.module,description:base.module_project_mrp
@@ -14104,7 +14104,7 @@ msgstr "Meno pohľadu"
 #. module: base
 #: model:ir.model,name:base.model_res_groups
 msgid "Access Groups"
-msgstr ""
+msgstr "Skupiny prístupov"
 
 #. module: base
 #: selection:base.language.install,lang:0
@@ -14395,7 +14395,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:base.open_module_tree
 #: model:ir.ui.menu,name:base.menu_module_tree
 msgid "Installed Modules"
-msgstr ""
+msgstr "Nainštalované moduly"
 
 #. module: base
 #: code:addons/base/res/res_users.py:190
@@ -14498,7 +14498,7 @@ msgstr ""
 #: code:addons/base/res/res_company.py:173 field:res.partner.bank,name:0
 #, python-format
 msgid "Bank Account"
-msgstr ""
+msgstr "Bankový účet"
 
 #. module: base
 #: model:ir.module.module,description:base.module_note

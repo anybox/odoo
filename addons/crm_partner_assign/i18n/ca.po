@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-07 08:38+0000\n"
-"PO-Revision-Date: 2015-11-30 11:40+0000\n"
+"PO-Revision-Date: 2016-03-08 10:10+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Catalan (http://www.transifex.com/odoo/odoo-7/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "Companyia"
 #. module: crm_partner_assign
 #: field:crm.lead.forward.to.partner,notification_ids:0
 msgid "Notifications"
-msgstr ""
+msgstr "Notificacions"
 
 #. module: crm_partner_assign
 #: field:crm.lead.report.assign,date_assign:0
@@ -141,7 +141,7 @@ msgstr ""
 #. module: crm_partner_assign
 #: field:res.partner,date_review_next:0
 msgid "Next Partner Review"
-msgstr ""
+msgstr "Següent revisió d'empresa"
 
 #. module: crm_partner_assign
 #: selection:crm.lead.forward.to.partner,history_mode:0
@@ -458,7 +458,7 @@ msgstr ""
 #: field:crm.partner.report.assign,date_review:0
 #: field:res.partner,date_review:0
 msgid "Latest Partner Review"
-msgstr ""
+msgstr "Última revisió del soci"
 
 #. module: crm_partner_assign
 #: field:crm.lead.forward.to.partner,subject:0
@@ -478,7 +478,7 @@ msgstr "Continguts"
 #. module: crm_partner_assign
 #: field:crm.lead.forward.to.partner,vote_user_ids:0
 msgid "Votes"
-msgstr ""
+msgstr "Vots"
 
 #. module: crm_partner_assign
 #: view:crm.lead.report.assign:0
@@ -494,7 +494,7 @@ msgstr ""
 #: field:crm.partner.report.assign,date_partnership:0
 #: field:res.partner,date_partnership:0
 msgid "Partnership Date"
-msgstr ""
+msgstr "Data d'associació"
 
 #. module: crm_partner_assign
 #: view:crm.lead:0
@@ -753,7 +753,7 @@ msgstr "Ingrés previst"
 #: field:crm.partner.report.assign,activation:0 view:res.partner:0
 #: field:res.partner,activation:0 view:res.partner.activation:0
 msgid "Activation"
-msgstr ""
+msgstr "Activació "
 
 #. module: crm_partner_assign
 #: view:crm.lead:0 field:crm.lead,partner_assigned_id:0

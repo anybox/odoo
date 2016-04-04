@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-05-23 13:52+0000\n"
+"PO-Revision-Date: 2016-03-21 09:22+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Italian (http://www.transifex.com/odoo/odoo-7/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr ""
 #. module: procurement
 #: view:procurement.order:0
 msgid "External note..."
-msgstr ""
+msgstr "Nota esterna..."
 
 #. module: procurement
 #: view:product.product:0
@@ -85,7 +85,7 @@ msgstr "Metodo approvvigionamento"
 #. module: procurement
 #: selection:product.template,supply_method:0
 msgid "Manufacture"
-msgstr ""
+msgstr "Produci"
 
 #. module: procurement
 #: model:process.process,name:procurement.process_process_serviceproductprocess0
@@ -195,7 +195,7 @@ msgstr "Movimento magazzino"
 #. module: procurement
 #: view:product.product:0
 msgid "Stockable products"
-msgstr ""
+msgstr "Prodotti stoccabili"
 
 #. module: procurement
 #: code:addons/procurement/procurement.py:154
@@ -487,7 +487,7 @@ msgstr "Se il campo 'attivo' non è selezionato, sarà possibile nascondere il p
 #. module: procurement
 #: view:procurement.order:0
 msgid "Internal note..."
-msgstr ""
+msgstr "Nota interna..."
 
 #. module: procurement
 #: help:procurement.orderpoint.compute,automatic:0
@@ -689,7 +689,7 @@ msgstr "Data chiusura"
 #. module: procurement
 #: view:res.company:0
 msgid "Logistics"
-msgstr ""
+msgstr "Logistica"
 
 #. module: procurement
 #: help:product.template,procure_method:0
@@ -894,7 +894,7 @@ msgstr "max"
 #: model:ir.ui.menu,name:procurement.menu_stock_order_points
 #: view:stock.warehouse.orderpoint:0
 msgid "Reordering Rules"
-msgstr ""
+msgstr "Regole di Riordino"
 
 #. module: procurement
 #: code:addons/procurement/procurement.py:155
@@ -946,7 +946,7 @@ msgstr "Storico messaggi e comunicazioni"
 #. module: procurement
 #: view:procurement.order:0
 msgid "Procurement started late"
-msgstr ""
+msgstr "Approvvigionamento incominciato in ritardo"
 
 #. module: procurement
 #: selection:mrp.property,composition:0

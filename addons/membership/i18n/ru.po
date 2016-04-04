@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-07 19:37+0000\n"
-"PO-Revision-Date: 2015-05-29 13:00+0000\n"
+"PO-Revision-Date: 2016-02-01 13:51+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Russian (http://www.transifex.com/odoo/odoo-7/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr ""
 #. module: membership
 #: model:ir.model,name:membership.model_report_membership
 msgid "Membership Analysis"
-msgstr ""
+msgstr "Анализ членства"
 
 #. module: membership
 #: selection:report.membership,month:0
@@ -86,7 +86,7 @@ msgstr "Организация"
 #: selection:report.membership,membership_state:0
 #: field:res.partner,free_member:0 selection:res.partner,membership_state:0
 msgid "Free Member"
-msgstr ""
+msgstr "Свободный член"
 
 #. module: membership
 #: view:res.partner:0
@@ -102,7 +102,7 @@ msgstr ""
 #: field:product.product,membership_date_to:0
 #: field:res.partner,membership_stop:0
 msgid "Membership End Date"
-msgstr ""
+msgstr "Дата окончания членства"
 
 #. module: membership
 #: view:report.membership:0 field:report.membership,user_id:0
@@ -140,7 +140,7 @@ msgstr "Налоги"
 #. module: membership
 #: view:res.partner:0
 msgid "All Members"
-msgstr ""
+msgstr "Все участники"
 
 #. module: membership
 #: view:product.product:0
@@ -193,7 +193,7 @@ msgstr "# выставленных счетов"
 #: model:ir.actions.act_window,name:membership.action_report_membership_tree
 #: model:ir.ui.menu,name:membership.menu_report_membership
 msgid "Members Analysis"
-msgstr ""
+msgstr "Анализ членства"
 
 #. module: membership
 #: view:res.partner:0
@@ -571,7 +571,7 @@ msgstr ""
 #. module: membership
 #: help:res.partner,membership_amount:0
 msgid "The price negotiated by the partner"
-msgstr ""
+msgstr "Цена, о которой договаривается партнер"
 
 #. module: membership
 #: model:product.template,name:membership.membership_2_product_template
@@ -636,7 +636,7 @@ msgstr "Отмена"
 #. module: membership
 #: view:res.partner:0
 msgid "All non Members"
-msgstr ""
+msgstr "Все незарегистрированные"
 
 #. module: membership
 #: field:membership.membership_line,account_invoice_line:0
@@ -656,7 +656,7 @@ msgstr "Цена члена"
 #. module: membership
 #: view:product.product:0
 msgid "Membership Duration"
-msgstr ""
+msgstr "Продолжительность членства"
 
 #. module: membership
 #: model:ir.model,name:membership.model_product_product

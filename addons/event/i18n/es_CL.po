@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-11-13 00:35+0000\n"
+"PO-Revision-Date: 2016-03-13 01:19+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Spanish (Chile) (http://www.transifex.com/odoo/odoo-7/language/es_CL/)\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr "Marzo"
 #. module: event
 #: view:event.registration:0
 msgid "Send Email"
-msgstr ""
+msgstr "Enviar Email"
 
 #. module: event
 #: field:event.event,company_id:0 field:event.registration,company_id:0
@@ -530,7 +530,7 @@ msgstr "Fecha inicial"
 #. module: event
 #: view:event.confirm:0
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #. module: event
 #: help:res.partner,speaker:0

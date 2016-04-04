@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 00:10+0000\n"
-"PO-Revision-Date: 2015-12-19 14:50+0000\n"
+"PO-Revision-Date: 2016-03-16 22:23+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-7/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: procurement
 #: model:ir.ui.menu,name:procurement.menu_stock_sched
 msgid "Schedulers"
-msgstr ""
+msgstr "Plánovače"
 
 #. module: procurement
 #: model:ir.model,name:procurement.model_make_procurement
@@ -60,7 +60,7 @@ msgid ""
 "                        product. According to the product configuration, this may\n"
 "                        trigger a draft purchase order, a manufacturing order or\n"
 "                        a new task."
-msgstr ""
+msgstr "Použite tohto asistenta na generovanie obstarávacích žiadostí pre tento\nprodukt. Podľa konfigurácie produktu, toto by mohlo\nspustiť návrh nákupnej objednávky, výrobnú objednávku alebo\nnovú úlohu."
 
 #. module: procurement
 #: view:procurement.order:0
@@ -84,7 +84,7 @@ msgstr ""
 #. module: procurement
 #: selection:product.template,supply_method:0
 msgid "Manufacture"
-msgstr ""
+msgstr "Výroba"
 
 #. module: procurement
 #: model:process.process,name:procurement.process_process_serviceproductprocess0
@@ -144,7 +144,7 @@ msgstr "Minimálne množstvo"
 #. module: procurement
 #: help:mrp.property,composition:0
 msgid "Not used in computations, for information purpose only."
-msgstr ""
+msgstr "Nepoužíva sa vo výpočtoch, len pre informačné účely."
 
 #. module: procurement
 #: field:stock.warehouse.orderpoint,procurement_id:0
@@ -236,7 +236,7 @@ msgstr "Potvrdené"
 #. module: procurement
 #: view:procurement.order:0
 msgid "Retry"
-msgstr ""
+msgstr "Opakovať"
 
 #. module: procurement
 #: view:procurement.order.compute:0 view:procurement.orderpoint.compute:0
@@ -251,7 +251,7 @@ msgstr "Potvrdiť"
 #. module: procurement
 #: view:stock.warehouse.orderpoint:0
 msgid "Quantity Multiple"
-msgstr ""
+msgstr "Viacnásobné množstvo"
 
 #. module: procurement
 #: help:procurement.order,origin:0
@@ -432,7 +432,7 @@ msgstr ""
 #. module: procurement
 #: model:ir.model,name:procurement.model_mrp_property
 msgid "Property"
-msgstr ""
+msgstr "Vlastnosť"
 
 #. module: procurement
 #: model:ir.actions.act_window,name:procurement.act_make_procurement
@@ -463,7 +463,7 @@ msgstr "Neprečítané správy"
 #. module: procurement
 #: selection:mrp.property,composition:0
 msgid "plus"
-msgstr ""
+msgstr "plus"
 
 #. module: procurement
 #: help:procurement.order,state:0
@@ -481,7 +481,7 @@ msgstr ""
 msgid ""
 "If the active field is set to False, it will allow you to hide the "
 "orderpoint without removing it."
-msgstr ""
+msgstr "Ak je aktívne pole nastavené na Nepravda, umožní Vám schovať položku objednávky bez jej odtránenia."
 
 #. module: procurement
 #: view:procurement.order:0
@@ -504,7 +504,7 @@ msgstr "Merná jednotka produktu"
 msgid ""
 "You have to select a product unit of measure in the same category than the "
 "default unit of measure of the product"
-msgstr ""
+msgstr "Musíte zvoliť mernú jendotku produktu v rovnakej kategórii ako predvolená merná jendotka produktu"
 
 #. module: procurement
 #: view:procurement.order:0
@@ -556,7 +556,7 @@ msgstr "Stav"
 #. module: procurement
 #: selection:product.template,supply_method:0
 msgid "Buy"
-msgstr ""
+msgstr "Kúpiť"
 
 #. module: procurement
 #: view:product.product:0
@@ -640,7 +640,7 @@ msgstr ""
 #. module: procurement
 #: field:stock.warehouse.orderpoint,qty_multiple:0
 msgid "Qty Multiple"
-msgstr ""
+msgstr "Množ viacnásobné"
 
 #. module: procurement
 #: view:product.product:0
@@ -683,7 +683,7 @@ msgstr ""
 #. module: procurement
 #: field:procurement.order,date_close:0
 msgid "Date Closed"
-msgstr ""
+msgstr "Dátum uzavretia"
 
 #. module: procurement
 #: view:res.company:0
@@ -700,13 +700,13 @@ msgstr ""
 #. module: procurement
 #: field:mrp.property,composition:0
 msgid "Properties composition"
-msgstr ""
+msgstr "Zloženie vlastností"
 
 #. module: procurement
 #: model:ir.model,name:procurement.model_mrp_property_group
 #: field:mrp.property,group_id:0 field:mrp.property.group,name:0
 msgid "Property Group"
-msgstr ""
+msgstr "Skupina vlastnosti"
 
 #. module: procurement
 #: view:stock.warehouse.orderpoint:0
@@ -847,12 +847,12 @@ msgstr ""
 #. module: procurement
 #: field:product.template,supply_method:0
 msgid "Supply Method"
-msgstr ""
+msgstr "Zásobovacia metóda"
 
 #. module: procurement
 #: field:procurement.order,move_id:0
 msgid "Reservation"
-msgstr ""
+msgstr "Rezervácia"
 
 #. module: procurement
 #: model:process.node,note:procurement.process_node_procureproducts0
@@ -884,7 +884,7 @@ msgstr "Meno"
 #. module: procurement
 #: selection:mrp.property,composition:0
 msgid "max"
-msgstr ""
+msgstr "max"
 
 #. module: procurement
 #: model:ir.actions.act_window,name:procurement.act_procurement_2_stock_warehouse_orderpoint
@@ -915,7 +915,7 @@ msgstr "šablona produktu"
 #: view:procurement.orderpoint.compute:0
 msgid ""
 "Wizard checks all the stock minimum rules and generate procurement order."
-msgstr ""
+msgstr "Sprievodca kontroluje všetky pravidlá minima skladu a generuje obstarávaciu objednávku."
 
 #. module: procurement
 #: view:procurement.order:0
@@ -950,7 +950,7 @@ msgstr "Obstarávanie začalo neskoro"
 #. module: procurement
 #: selection:mrp.property,composition:0
 msgid "min"
-msgstr ""
+msgstr "min"
 
 #. module: procurement
 #: view:make.procurement:0 view:procurement.order.compute:0
