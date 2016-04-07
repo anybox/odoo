@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:07+0000\n"
-"PO-Revision-Date: 2016-02-04 19:32+0000\n"
+"PO-Revision-Date: 2016-03-27 16:56+0000\n"
 "Last-Translator: Bogdan\n"
 "Language-Team: Ukrainian (http://www.transifex.com/odoo/odoo-8/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -21,13 +21,13 @@ msgstr ""
 #: code:addons/mail/mail_thread.py:384
 #, python-format
 msgid "%s created"
-msgstr ""
+msgstr "%s створено"
 
 #. module: mail
 #: code:addons/mail/res_users.py:98
 #, python-format
 msgid "%s has joined the %s network."
-msgstr ""
+msgstr "%s приєднався до мережі %s."
 
 #. module: mail
 #. openerp-web
@@ -41,7 +41,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/mail.xml:156
 #, python-format
 msgid "(no email address)"
-msgstr ""
+msgstr "(немає email-адреси)"
 
 #. module: mail
 #: code:addons/mail/wizard/invite.py:44
@@ -1179,7 +1179,7 @@ msgstr ""
 #. module: mail
 #: selection:res.partner,notify_email:0
 msgid "Never"
-msgstr ""
+msgstr "Ніколи"
 
 #. module: mail
 #: code:addons/mail/mail_thread.py:172
@@ -1415,12 +1415,12 @@ msgstr "Приватність"
 #. module: mail
 #: selection:mail.group,public:0
 msgid "Private"
-msgstr ""
+msgstr "Приватний"
 
 #. module: mail
 #: selection:mail.group,public:0
 msgid "Public"
-msgstr ""
+msgstr "Публічний"
 
 #. module: mail
 #: model:mail.group,name:mail.group_rd
@@ -1588,7 +1588,7 @@ msgstr ""
 #. module: mail
 #: view:mail.mail:mail.view_mail_search selection:mail.mail,state:0
 msgid "Sent"
-msgstr ""
+msgstr "Надіслано"
 
 #. module: mail
 #: code:addons/mail/mail_followers.py:155
@@ -1989,7 +1989,7 @@ msgstr "і"
 #. module: mail
 #: view:mail.mail:mail.view_mail_form
 msgid "by"
-msgstr ""
+msgstr "від"
 
 #. module: mail
 #: code:addons/mail/mail_thread.py:115

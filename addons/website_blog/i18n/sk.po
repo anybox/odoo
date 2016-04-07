@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2016-02-03 20:36+0000\n"
+"PO-Revision-Date: 2016-03-30 09:56+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Slovak (http://www.transifex.com/odoo/odoo-8/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -236,7 +236,7 @@ msgstr ""
 #. module: website_blog
 #: view:website:website_blog.blog_post_short
 msgid "About us"
-msgstr ""
+msgstr "O nás"
 
 #. module: website_blog
 #. openerp-web
@@ -271,7 +271,7 @@ msgstr ""
 #. module: website_blog
 #: field:blog.post,background_image:0
 msgid "Background Image"
-msgstr ""
+msgstr "Obrázok pozadia"
 
 #. module: website_blog
 #: view:blog.blog:website_blog.view_blog_blog_form
@@ -396,12 +396,12 @@ msgstr ""
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:102
 #, python-format
 msgid "Close Tutorial"
-msgstr ""
+msgstr "Zavrieť inštruktáž"
 
 #. module: website_blog
 #: view:website:website_blog.blog_post_short
 msgid "Contact us"
-msgstr ""
+msgstr "Kontaktujte nás"
 
 #. module: website_blog
 #: view:blog.post:website_blog.view_blog_post_search field:blog.post,content:0
@@ -703,7 +703,7 @@ msgstr ""
 #: code:addons/website_blog/static/src/xml/website_blog.inline.discussion.xml:9
 #, python-format
 msgid "Not Published"
-msgstr ""
+msgstr "Nepublikované"
 
 #. module: website_blog
 #: view:website:website_blog.latest_blogs
@@ -837,7 +837,7 @@ msgstr "Preskočiť"
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:13
 #, python-format
 msgid "Start Tutorial"
-msgstr ""
+msgstr "Začať inštruktáž"
 
 #. module: website_blog
 #: field:blog.post,subtitle:0
@@ -986,20 +986,20 @@ msgstr "História komunikácie webovej stránky"
 #: field:blog.post,website_meta_description:0
 #: field:blog.tag,website_meta_description:0
 msgid "Website meta description"
-msgstr ""
+msgstr "Website meta popis"
 
 #. module: website_blog
 #: field:blog.blog,website_meta_keywords:0
 #: field:blog.post,website_meta_keywords:0
 #: field:blog.tag,website_meta_keywords:0
 msgid "Website meta keywords"
-msgstr ""
+msgstr "Website meta kľúčové slová"
 
 #. module: website_blog
 #: field:blog.blog,website_meta_title:0 field:blog.post,website_meta_title:0
 #: field:blog.tag,website_meta_title:0
 msgid "Website meta title"
-msgstr ""
+msgstr "Website meta názov"
 
 #. module: website_blog
 #. openerp-web
@@ -1112,7 +1112,7 @@ msgstr ""
 #. module: website_blog
 #: view:website:website_blog.blog_post_short
 msgid "not published"
-msgstr ""
+msgstr "nepublikované"
 
 #. module: website_blog
 #: view:website:website_blog.blog_post_complete
