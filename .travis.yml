@@ -1,11 +1,18 @@
 sudo: false
+
 cache: pip
 
 addons:
   apt:
+    sources:
+      - pov-wkhtmltopdf
     packages:
       - expect-dev  # provides unbuffer utility
       - python-lxml # because pip installation is slow
+      - poppler-utils # document index
+      - antiword # document index
+      - python-ldap # auth_ldap
+      - wkhtmltopdf # report_webkit
 
 language: python
 
@@ -13,23 +20,29 @@ python:
   - "2.7"
 
 env:
-  - DATABASE="openerp_test"
+  - VERSION="7.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
 
 virtualenv:
   system_site_packages: true
 
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
 install:
-  - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
-  - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-  - pip install QUnitSuite flake8 coveralls
+  - ln -s ${HOME}/build/${ODOO_REPO} ${HOME}/${ODOO_REPO#*/}-${VERSION}
+  - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - pip install -r ${HOME}/maintainer-quality-tools/travis/requirements.txt
+  - pip install -q QUnitSuite flake8 coveralls pylint "pywebdav<0.9.8"
+  - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+  - export INCLUDE=$(getaddons.py -m ${HOME}/build/${ODOO_REPO}/openerp/addons ${HOME}/build/${ODOO_REPO}/addons)
+  - export EXCLUDE=hw_scanner,hw_escpos
+  - cp ${HOME}/maintainer-quality-tools/cfg/.coveragerc .
 
 script:
-#  - travis_run_flake8
-  - createdb ${DATABASE}
-  - ./openerp-server -d ${DATABASE} --addons-path=./openerp/addons,./addons --stop-after-init --init=all
-  - coverage run ./openerp-server -d ${DATABASE} --addons-path=./openerp/addons,./addons --stop-after-init --init=all --test-enable --log-level=test | tee stdout.log
-  - if grep -v mail stdout.log | egrep -q "(At least one test failed when loading the modules.|ERROR ${DATABASE})"; then exit 1; fi
+  - SERVER_PATH=${HOME}/${ODOO_REPO#*/}-${VERSION}
+  - export TRAVIS_BUILD_DIR=${SERVER_PATH}/openerp/addons
+  - travis_run_tests
 
 after_success:
-  coveralls
+  - travis_after_tests_success

@@ -74,7 +74,7 @@ def py2exe_options():
                         'mock',
                         'openerp',
                         'openid',
-                        'PIL',
+                        'pillow',
                         'poplib',
                         'psutil',
                         'python-chart',
@@ -125,7 +125,7 @@ setup(
         'lxml',  # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
         'mako',
         'mock',
-        'PIL', # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
+        'pillow', # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
         'psutil',  # windows binary code.google.com/p/psutil/downloads/list
         'psycopg2 >= 2.2',
         'python-chart',
