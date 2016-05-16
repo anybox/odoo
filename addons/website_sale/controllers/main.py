@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import logging
 import werkzeug
 
 from openerp import SUPERUSER_ID
@@ -10,6 +11,8 @@ from openerp.addons.web.controllers.main import login_redirect
 
 PPG = 20 # Products Per Page
 PPR = 4  # Products Per Row
+
+_logger = logging.getLogger(__name__)
 
 class table_compute(object):
     def __init__(self):
@@ -111,6 +114,8 @@ def get_pricelist():
     else:
         partner = pool['res.users'].browse(cr, SUPERUSER_ID, uid, context=context).partner_id
         pricelist = partner.property_product_pricelist
+    if not pricelist:
+        _logger.error('Fail to find pricelist for partner "%s" (id %s)', partner.name, partner.id)
     return pricelist
 
 class website_sale(http.Controller):
@@ -202,7 +207,7 @@ class website_sale(http.Controller):
         if attrib_list:
             post['attrib'] = attrib_list
         pager = request.website.pager(url=url, total=product_count, page=page, step=PPG, scope=7, url_args=post)
-        product_ids = product_obj.search(cr, uid, domain, limit=PPG, offset=pager['offset'], order='website_published desc, website_sequence desc', context=context)
+        product_ids = product_obj.search(cr, uid, domain, limit=PPG, offset=pager['offset'], context=context)
         products = product_obj.browse(cr, uid, product_ids, context=context)
 
         style_obj = pool['product.style']

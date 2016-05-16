@@ -726,14 +726,16 @@ instance.web.FormView = instance.web.View.extend(instance.web.form.FieldManagerM
         $(e.target).attr("disabled", true);
         return this.save().done(function(result) {
             self.trigger("save", result);
-            self.reload().then(function() {
+            self.reload().always(function(){
+                $(e.target).attr("disabled", false);
+            }).then(function() {
                 self.to_view_mode();
                 var menu = instance.webclient.menu;
                 if (menu) {
                     menu.do_reload_needaction();
                 }
             });
-        }).always(function(){
+        }).fail(function(){
             $(e.target).attr("disabled", false);
         });
     },
@@ -6149,13 +6151,20 @@ instance.web.form.FieldStatus = instance.web.form.AbstractField.extend({
             val = $li.data("id");
         }
         if (val != self.get('value')) {
-            this.view.recursive_save().done(function() {
-                var change = {};
-                change[self.name] = val;
-                self.view.dataset.write(self.view.datarecord.id, change).done(function() {
-                    self.view.reload();
+            if(!this.view.datarecord.id ||
+               this.view.datarecord.id.toString().match(instance.web.BufferedDataSet.virtual_id_regex)) {
+                // don't save, only set value for not-yet-saved many2ones
+                self.set_value(val);
+            }
+            else {
+                this.view.recursive_save().done(function() {
+                    var change = {};
+                    change[self.name] = val;
+                    self.view.dataset.write(self.view.datarecord.id, change).done(function() {
+                        self.view.reload();
+                    });
                 });
-            });
+            }
         }
     },
 });
