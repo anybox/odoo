@@ -781,6 +781,9 @@ class account_invoice(models.Model):
                     line2[tmp]['tax_amount'] += l['tax_amount']
                     line2[tmp]['amount_currency'] += l['amount_currency']
                     line2[tmp]['analytic_lines'] += l['analytic_lines']
+                    qty = l.get('quantity')
+                    if qty:
+                        line2[tmp]['quantity'] = line2[tmp].get('quantity', 0.0) + qty
                 else:
                     line2[tmp] = l
             line = []
@@ -1283,7 +1286,7 @@ class account_invoice_line(models.Model):
         default=0.0)
     invoice_line_tax_id = fields.Many2many('account.tax',
         'account_invoice_line_tax', 'invoice_line_id', 'tax_id',
-        string='Taxes', domain=[('parent_id', '=', False)])
+        string='Taxes', domain=[('parent_id', '=', False), '|', ('active', '=', False), ('active', '=', True)])
     account_analytic_id = fields.Many2one('account.analytic.account',
         string='Analytic Account')
     company_id = fields.Many2one('res.company', string='Company',

@@ -275,8 +275,9 @@ class account_move_line(osv.osv):
                     #we propose to continue the same move by copying the ref, the name, the partner...
                     move = move_obj.browse(cr, uid, move_id, context=context)
                     data.setdefault('name', move.line_id[-1].name)
+                    same_partner = len({l.partner_id for l in move.line_id}) == 1
                     for l in move.line_id:
-                        data['partner_id'] = data.get('partner_id') or l.partner_id.id
+                        data['partner_id'] = data.get('partner_id') or (same_partner and l.partner_id.id)
                         data['ref'] = data.get('ref') or l.ref
                         total += (l.debit or 0.0) - (l.credit or 0.0)
 
@@ -1271,7 +1272,7 @@ class account_move_line(osv.osv):
         done = {}
         for line in self.browse(cr, uid, ids, context=context):
             err_msg = _('Move name (id): %s (%s)') % (line.move_id.name, str(line.move_id.id))
-            if line.move_id.state <> 'draft' and (not line.journal_id.entry_posted):
+            if line.move_id.state <> 'draft':
                 raise osv.except_osv(_('Error!'), _('You cannot do this modification on a confirmed entry. You can just change some non legal fields or you must unconfirm the journal entry first.\n%s.') % err_msg)
             if line.reconcile_id:
                 raise osv.except_osv(_('Error!'), _('You cannot do this modification on a reconciled entry. You can just change some non legal fields or you must unreconcile first.\n%s.') % err_msg)

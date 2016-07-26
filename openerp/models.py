@@ -2585,8 +2585,8 @@ class BaseModel(object):
                                     self._set_default_value_on_column(cr, k, context=context)
                                 # add the NOT NULL constraint
                                 try:
-                                    cr.execute('ALTER TABLE "%s" ALTER COLUMN "%s" SET NOT NULL' % (self._table, k), log_exceptions=False)
                                     cr.commit()
+                                    cr.execute('ALTER TABLE "%s" ALTER COLUMN "%s" SET NOT NULL' % (self._table, k), log_exceptions=False)
                                     _schema.debug("Table '%s': column '%s': added NOT NULL constraint",
                                         self._table, k)
                                 except Exception:
@@ -3376,10 +3376,32 @@ class BaseModel(object):
             if column.deprecated:
                 _logger.warning('Field %s.%s is deprecated: %s', self._name, f, column.deprecated)
 
+        # determine fields that need cache validation (nonstored float function
+        # fields with a decimal precision)
+        validate_fields = [
+            f for f in field_names
+            if isinstance(self._columns[f], openerp.osv.fields.function) and
+            self._columns[f]._type == 'float' and self._columns[f].digits and
+            not self._columns[f].store
+        ]
         # store result in cache
         for vals in result:
             record = self.browse(vals.pop('id'))
-            record._cache.update(record._convert_to_cache(vals, validate=False))
+            # write database fields to cache without validation
+            record._cache.update(record._convert_to_cache(
+                {
+                    key: value for key, value in vals.iteritems()
+                    if key not in validate_fields
+                },
+                validate=False))
+            # write other fields to cache with validation
+            record._cache.update(record._convert_to_cache(
+                {
+                    key: value for key, value in vals.iteritems()
+                    if key in validate_fields
+                },
+                validate=True))
+
 
         # store failed values in cache for the records that could not be read
         fetched = self.browse(ids)
@@ -3787,12 +3809,18 @@ class BaseModel(object):
         if old_vals:
             self._write(old_vals)
 
-        # put the values of pure new-style fields into cache, and inverse them
         if new_vals:
+            # put the values of pure new-style fields into cache
             for record in self:
                 record._cache.update(record._convert_to_cache(new_vals, update=True))
+            # mark the fields as being computed, to avoid their invalidation
+            for key in new_vals:
+                self.env.computed[self._fields[key]].update(self._ids)
+            # inverse the fields
             for key in new_vals:
                 self._fields[key].determine_inverse(self)
+            for key in new_vals:
+                self.env.computed[self._fields[key]].difference_update(self._ids)
 
         return True
 
@@ -4093,10 +4121,16 @@ class BaseModel(object):
         # create record with old-style fields
         record = self.browse(self._create(old_vals))
 
-        # put the values of pure new-style fields into cache, and inverse them
+        # put the values of pure new-style fields into cache
         record._cache.update(record._convert_to_cache(new_vals))
+        # mark the fields as being computed, to avoid their invalidation
+        for key in new_vals:
+            self.env.computed[self._fields[key]].add(record.id)
+        # inverse the fields
         for key in new_vals:
             self._fields[key].determine_inverse(record)
+        for key in new_vals:
+            self.env.computed[self._fields[key]].discard(record.id)
 
         return record
 

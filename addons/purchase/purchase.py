@@ -316,7 +316,7 @@ class purchase_order(osv.osv):
         'picking_type_id': fields.many2one('stock.picking.type', 'Deliver To', help="This will determine picking type of incoming shipment", required=True,
                                            states={'confirmed': [('readonly', True)], 'approved': [('readonly', True)], 'done': [('readonly', True)]}),
         'related_location_id': fields.related('picking_type_id', 'default_location_dest_id', type='many2one', relation='stock.location', string="Related location", store=True),
-        'related_usage': fields.related('location_id', 'usage', type='char'),
+        'related_usage': fields.related('location_id', 'usage', type='char', readonly=True),
         'shipment_count': fields.function(_count_all, type='integer', string='Incoming Shipments', multi=True),
         'invoice_count': fields.function(_count_all, type='integer', string='Invoices', multi=True)
     }
@@ -365,14 +365,15 @@ class purchase_order(osv.osv):
 
     def copy(self, cr, uid, id, default=None, context=None):
         # FORWARDPORT UP TO SAAS-6
-        new_id = super(purchase_order, self).copy(cr, uid, id, context=context)
+        new_id = super(purchase_order, self).copy(cr, uid, id, default=default, context=context)
         for po in self.browse(cr, uid, [new_id], context=context):
             for line in po.order_line:
                 vals = self.pool.get('purchase.order.line').onchange_product_id(
                     cr, uid, line.id, po.pricelist_id.id, line.product_id.id, line.product_qty,
                     line.product_uom.id, po.partner_id.id, date_order=po.date_order, context=context
                 )
-                line.write({'date_planned': vals['value']['date_planned']})
+                if vals.get('value', {}).get('date_planned'):
+                    line.write({'date_planned': vals['value']['date_planned']})
         return new_id
 
     def set_order_line_status(self, cr, uid, ids, status, context=None):
@@ -420,6 +421,13 @@ class purchase_order(osv.osv):
                 value.update({'location_id': picktype.default_location_dest_id.id, 'related_usage': picktype.default_location_dest_id.usage})
             value.update({'related_location_id': picktype.default_location_dest_id.id})
         return {'value': value}
+
+    def onchange_location_id(self, cr, uid, ids, location_id, context=None):
+        value = {'related_usage': False}
+        if location_id:
+            value['related_usage'] = self.pool['stock.location'].browse(cr, uid, location_id, context=context).usage
+        return {'value': value}
+
 
     def onchange_partner_id(self, cr, uid, ids, partner_id, context=None):
         partner = self.pool.get('res.partner')
@@ -778,7 +786,7 @@ class purchase_order(osv.osv):
             price_unit = self.pool.get('res.currency').compute(cr, uid, order.currency_id.id, order.company_id.currency_id.id, price_unit, round=False, context=context)
         res = []
         if order.location_id.usage == 'customer':
-            name = order_line.product_id.with_context(dict(context or {}, lang=order.dest_address_id.lang)).name
+            name = order_line.product_id.with_context(dict(context or {}, lang=order.dest_address_id.lang)).display_name
         else:
             name = order_line.name or ''
         move_template = {
@@ -1098,7 +1106,7 @@ class purchase_order_line(osv.osv):
         'name': fields.text('Description', required=True),
         'product_qty': fields.float('Quantity', digits_compute=dp.get_precision('Product Unit of Measure'), required=True),
         'date_planned': fields.date('Scheduled Date', required=True, select=True),
-        'taxes_id': fields.many2many('account.tax', 'purchase_order_taxe', 'ord_id', 'tax_id', 'Taxes'),
+        'taxes_id': fields.many2many('account.tax', 'purchase_order_taxe', 'ord_id', 'tax_id', 'Taxes', domain=['|', ('active', '=', False), ('active', '=', True)]),
         'product_uom': fields.many2one('product.uom', 'Product Unit of Measure', required=True),
         'product_id': fields.many2one('product.product', 'Product', domain=[('purchase_ok','=',True)], change_default=True),
         'move_ids': fields.one2many('stock.move', 'purchase_line_id', 'Reservation', readonly=True, ondelete='set null'),
@@ -1558,7 +1566,7 @@ class procurement_order(osv.osv):
                         po_line_id = po_line_obj.create(cr, SUPERUSER_ID, line_vals, context=context)
                         linked_po_ids.append(procurement.id)
                 else:
-                    name = seq_obj.get(cr, uid, 'purchase.order', context=context) or _('PO: %s') % procurement.name
+                    name = seq_obj.get(cr, uid, 'purchase.order', context=ctx_company) or _('PO: %s') % procurement.name
                     po_vals = {
                         'name': name,
                         'origin': procurement.origin,
