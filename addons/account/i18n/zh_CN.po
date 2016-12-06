@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 06:40+0000\n"
-"PO-Revision-Date: 2016-07-08 12:57+0000\n"
+"PO-Revision-Date: 2016-11-04 08:33+0000\n"
 "Last-Translator: Jeffery Chenn <jeffery9@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/odoo/odoo-8/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -133,7 +133,7 @@ msgstr "# 分录"
 #: field:account.config.settings,code_digits:0
 #: field:wizard.multi.charts.accounts,code_digits:0
 msgid "# of Digits"
-msgstr "# 数字"
+msgstr "# 数字位数"
 
 #. module: account
 #: view:account.entries.report:account.view_account_entries_report_tree
@@ -199,7 +199,7 @@ msgstr "（如果您不选择会计期间，所有开放的期间将被选择）
 #. module: account
 #: view:account.state.open:account.view_account_state_open
 msgid "(Invoice should be unreconciled if you want to open it)"
-msgstr "(如果您想打开它发票要反调节)"
+msgstr "(如果您想打开发票，它应当是未调节的)"
 
 #. module: account
 #: view:account.analytic.chart:account.account_analytic_chart_view
@@ -952,12 +952,12 @@ msgstr "科目类型"
 #. module: account
 #: model:ir.model,name:account.model_account_unreconcile
 msgid "Account Unreconcile"
-msgstr "科目未调节"
+msgstr "会计取消调节"
 
 #. module: account
 #: model:ir.model,name:account.model_account_unreconcile_reconcile
 msgid "Account Unreconcile Reconcile"
-msgstr "科目未调节调节"
+msgstr "会计取消调节调节"
 
 #. module: account
 #: model:ir.model,name:account.model_account_vat_declaration
@@ -1068,7 +1068,7 @@ msgstr "会计信息"
 #. module: account
 #: field:account.installer,charts:0
 msgid "Accounting Package"
-msgstr "会计包"
+msgstr "会计科目表"
 
 #. module: account
 #: view:account.invoice:account.invoice_form
@@ -2177,7 +2177,7 @@ msgstr "不能 %s 草稿或形式发票或取消 发票"
 msgid ""
 "Cannot %s invoice which is already reconciled, invoice should be "
 "unreconciled first. You can only refund this invoice."
-msgstr "不能 %s 已经调节的发票, 发票必须被首先反调节。只能退还这张发票。"
+msgstr "不能 %s 已经调节的发票, 发票必须被首先取消调节。只能退还这张发票。"
 
 #. module: account
 #: code:addons/account/account_move_line.py:1299
@@ -2357,12 +2357,12 @@ msgstr "更改为"
 #: field:account.tax.template,chart_template_id:0
 #: field:wizard.multi.charts.accounts,chart_template_id:0
 msgid "Chart Template"
-msgstr "表模板"
+msgstr "会计科目表模板"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.open_account_charts_modules
 msgid "Chart Templates"
-msgstr "表模板"
+msgstr "会计科目表模板"
 
 #. module: account
 #: field:account.aged.trial.balance,chart_account_id:0
@@ -2727,7 +2727,7 @@ msgstr "共通报告"
 #. module: account
 #: field:account.bank.statement.line,name:0
 msgid "Communication"
-msgstr "沟通"
+msgstr "联络方式"
 
 #. module: account
 #: model:ir.model,name:account.model_res_company
@@ -3357,7 +3357,7 @@ msgstr "汇率"
 #. module: account
 #: help:wizard.multi.charts.accounts,currency_id:0
 msgid "Currency as per company's country."
-msgstr "币按公司所在的国家。"
+msgstr "设公司所在国家的币种。"
 
 #. module: account
 #: help:res.partner.bank,currency_id:0
@@ -6674,7 +6674,7 @@ msgstr "没有匹配的结果"
 #: help:account.chart.template,code_digits:0
 #: help:wizard.multi.charts.accounts,code_digits:0
 msgid "No. of Digits to use for account code"
-msgstr "科目代码使用数字"
+msgstr "科目代码使用数字位数"
 
 #. module: account
 #: help:account.config.settings,code_digits:0
@@ -8643,7 +8643,7 @@ msgstr "选择要关闭的会计年度"
 msgid ""
 "Select a configuration package to setup automatically your\n"
 "                        taxes and chart of accounts."
-msgstr "选择一个适合的科目表"
+msgstr "选择一个适合的科目表\n以便让odoo帮您自动化处理会计科目。"
 
 #. module: account
 #: help:account.change.currency,currency_id:0
@@ -10742,20 +10742,20 @@ msgstr "未实现收入和损失"
 #: view:account.unreconcile:account.account_unreconcile_view
 #: view:account.unreconcile.reconcile:account.account_unreconcile_reconcile_view
 msgid "Unreconcile"
-msgstr "未调节"
+msgstr "取消调节"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_account_unreconcile
 #: model:ir.actions.act_window,name:account.action_account_unreconcile_reconcile
 #: model:ir.actions.act_window,name:account.action_account_unreconcile_select
 msgid "Unreconcile Entries"
-msgstr "未调节分录"
+msgstr "取消调节分录"
 
 #. module: account
 #: view:account.unreconcile:account.account_unreconcile_view
 #: view:account.unreconcile.reconcile:account.account_unreconcile_reconcile_view
 msgid "Unreconcile Transactions"
-msgstr "未调节交易"
+msgstr "取消调节交易"
 
 #. module: account
 #: selection:account.account.type,close_method:0
@@ -11225,7 +11225,7 @@ msgstr "可以在凭证模版的名称上使用年月日变量\n\n%(year)s：本
 msgid ""
 "You cannot cancel an invoice which is partially paid. You need to "
 "unreconcile related payment entries first."
-msgstr "已部分付款的发票，不能取消。请先反调节相关的付款分录。"
+msgstr "已部分付款的发票，不能取消。请先取消调节相关的付款分录。"
 
 #. module: account
 #: code:addons/account/account.py:691
@@ -11345,7 +11345,7 @@ msgstr "不可修改一个已确认的分录，只可变动一些无特别要求
 msgid ""
 "You cannot do this modification on a reconciled entry. You can just change some non legal fields or you must unreconcile first.\n"
 "%s."
-msgstr "已调节的记录不能修改。仅能编辑非正式字段 或 先撤销调节. \n%s"
+msgstr "已调节的记录不能修改。仅能编辑非正式字段 或 先取消调节. \n%s"
 
 #. module: account
 #: code:addons/account/account.py:1352
@@ -11389,7 +11389,7 @@ msgid ""
 "You cannot unreconcile journal items if they has been generated by the"
 "                                                         opening/closing "
 "fiscal year process."
-msgstr "你不能反调节由开启/关闭会计年度过程生成的分类账项目。"
+msgstr "你不能取消调节由开启/关闭会计年度过程生成的分类账项目。"
 
 #. module: account
 #: code:addons/account/account_move_line.py:1173

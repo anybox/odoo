@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-19 06:31+0000\n"
-"PO-Revision-Date: 2016-07-30 15:14+0000\n"
+"PO-Revision-Date: 2016-10-19 00:40+0000\n"
 "Last-Translator: Bonny Useful <bonny.useful@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/odoo/odoo-8/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -786,7 +786,7 @@ msgid ""
 "\n"
 "Delivery Costs\n"
 "==============\n"
-msgstr ""
+msgstr "\nBiaya Pengiriman\n================\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_marketing_campaign_crm_demo
@@ -10413,7 +10413,7 @@ msgstr ""
 #. module: base
 #: view:ir.sequence:base.sequence_view
 msgid "Minute: %(min)s"
-msgstr ""
+msgstr "Menit: %(min)s"
 
 #. module: base
 #: selection:ir.cron,interval_type:0
@@ -10727,12 +10727,12 @@ msgstr ""
 #. module: base
 #: model:res.partner.title,shortcut:base.res_partner_title_mister
 msgid "Mr."
-msgstr ""
+msgstr "Tn."
 
 #. module: base
 #: model:res.partner.title,shortcut:base.res_partner_title_madam
 msgid "Mrs."
-msgstr ""
+msgstr "Ny."
 
 #. module: base
 #: model:res.groups,name:base.group_multi_company
@@ -10986,7 +10986,7 @@ msgstr ""
 #. module: base
 #: field:ir.model.data,noupdate:0
 msgid "Non Updatable"
-msgstr ""
+msgstr "Tidak dapat diperbarui"
 
 #. module: base
 #: selection:ir.mail_server,smtp_encryption:0
@@ -10996,7 +10996,7 @@ msgstr "Tidak ada"
 #. module: base
 #: model:res.country,name:base.nf
 msgid "Norfolk Island"
-msgstr ""
+msgstr "Pulau Norfolk"
 
 #. module: base
 #: model:res.partner.bank.type,name:base.bank_normal
@@ -11006,17 +11006,17 @@ msgstr ""
 #. module: base
 #: model:res.country,name:base.kp
 msgid "North Korea"
-msgstr ""
+msgstr "Korea Utara"
 
 #. module: base
 #: model:res.country,name:base.mp
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Kepulauan Mariana Utara"
 
 #. module: base
 #: model:res.country,name:base.no
 msgid "Norway"
-msgstr ""
+msgstr "Norwegia"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_no
@@ -11059,7 +11059,7 @@ msgstr ""
 #. module: base
 #: field:ir.cron,numbercall:0
 msgid "Number of Calls"
-msgstr ""
+msgstr "Jumlah Panggilan"
 
 #. module: base
 #: field:ir.module.category,module_nr:0
@@ -11069,22 +11069,22 @@ msgstr "Jumlah Modul"
 #. module: base
 #: field:base.module.update,added:0
 msgid "Number of modules added"
-msgstr ""
+msgstr "Jumlah modul yang ditambahkan"
 
 #. module: base
 #: field:base.module.update,updated:0
 msgid "Number of modules updated"
-msgstr ""
+msgstr "Jumlah modul yang diperbarui"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_auth_oauth
 msgid "OAuth2 Authentication"
-msgstr ""
+msgstr "Otentikasi OAuth2"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_syscohada
 msgid "OHADA - Accounting"
-msgstr ""
+msgstr "OHADA - Akuntansi"
 
 #. module: base
 #: view:ir.actions.act_window:base.view_window_action_form
@@ -11112,7 +11112,7 @@ msgstr "Nama objek"
 #. module: base
 #: field:ir.model.fields,relation:0
 msgid "Object Relation"
-msgstr ""
+msgstr "Relasi Objek"
 
 #. module: base
 #: help:multi_company.default,object_id:0
@@ -11134,7 +11134,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_im_odoo_support
 msgid "Odoo Live Support"
-msgstr ""
+msgstr "Layanan Langsung Odoo"
 
 #. module: base
 #: help:ir.sequence,padding:0
@@ -11151,7 +11151,7 @@ msgstr ""
 #. module: base
 #: model:res.groups,name:base.group_hr_user
 msgid "Officer"
-msgstr ""
+msgstr "Petugas"
 
 #. module: base
 #: model:ir.module.module,description:base.module_payment_ogone
@@ -11236,7 +11236,7 @@ msgstr "Hanya administrator yang dapat mengubah pengaturan"
 #: code:addons/base/ir/ir_attachment.py:80
 #, python-format
 msgid "Only administrators can execute this action."
-msgstr ""
+msgstr "Hanya administrator yang bisa mengeksekusi aksi ini"
 
 #. module: base
 #: help:ir.ui.view,mode:0
@@ -15046,7 +15046,7 @@ msgstr ""
 #. module: base
 #: help:res.users,login:0
 msgid "Used to log into the system"
-msgstr ""
+msgstr "Digunakan untuk masuk ke sistem"
 
 #. module: base
 #: help:res.partner,type:0
@@ -15838,12 +15838,12 @@ msgstr ""
 msgid ""
 "Your server does not seem to support SSL, you may want to try STARTTLS "
 "instead"
-msgstr ""
+msgstr "Server anda tidak mendukung SSL, anda bisa mencoba dengan STARTTLS"
 
 #. module: base
 #: model:res.country,name:base.yu
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Yugoslavia"
 
 #. module: base
 #: code:addons/base/res/res_partner.py:69
@@ -15858,17 +15858,17 @@ msgstr "Kode Pos"
 #. module: base
 #: model:res.country,name:base.zr
 msgid "Zaire"
-msgstr ""
+msgstr "Zaire"
 
 #. module: base
 #: model:res.country,name:base.zm
 msgid "Zambia"
-msgstr ""
+msgstr "Zambia"
 
 #. module: base
 #: model:res.country,name:base.zw
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabwe"
 
 #. module: base
 #: field:res.bank,zip:0 field:res.company,zip:0 field:res.partner,zip:0
@@ -15879,7 +15879,7 @@ msgstr "KodePos"
 #. module: base
 #: view:base.language.import:base.view_base_import_language
 msgid "_Import"
-msgstr ""
+msgstr "_Import"
 
 #. module: base
 #: sql_constraint:ir.sequence.type:0
@@ -15899,12 +15899,12 @@ msgstr "bank_bic"
 #. module: base
 #: selection:base.language.export,state:0
 msgid "choose"
-msgstr ""
+msgstr "pilih"
 
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "condition: True"
-msgstr ""
+msgstr "condition: True"
 
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
@@ -15914,12 +15914,12 @@ msgstr ""
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "context: current context"
-msgstr ""
+msgstr "context: context saat ini"
 
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "cr: database cursor"
-msgstr ""
+msgstr "cr: kursor database"
 
 #. module: base
 #: code:addons/models.py:4299
@@ -15931,12 +15931,12 @@ msgstr ""
 #: code:addons/base/ir/ir_fields.py:315
 #, python-format
 msgid "database id"
-msgstr ""
+msgstr "id database"
 
 #. module: base
 #: view:base.language.export:base.wizard_lang_export
 msgid "documentation"
-msgstr ""
+msgstr "dokumentasi"
 
 #. module: base
 #: selection:base.language.install,state:0
@@ -15947,7 +15947,7 @@ msgstr "SELESAI."
 #. module: base
 #: view:base.language.import:base.view_base_import_language
 msgid "e.g. English"
-msgstr ""
+msgstr "misalnya English"
 
 #. module: base
 #: view:res.partner.bank:base.view_partner_bank_form
@@ -15957,39 +15957,39 @@ msgstr "contoh: GEBABEBB"
 #. module: base
 #: view:res.company:base.view_company_form
 msgid "e.g. Global Business Solutions"
-msgstr ""
+msgstr "misalnya Global Business Solutions"
 
 #. module: base
 #: view:res.partner:base.view_partner_form
 #: view:res.partner:base.view_partner_simple_form
 msgid "e.g. Sales Director"
-msgstr ""
+msgstr "misalnya Sales Director"
 
 #. module: base
 #: view:base.language.import:base.view_base_import_language
 msgid "e.g. en_US"
-msgstr ""
+msgstr "misalnya: en_US"
 
 #. module: base
 #: view:res.company:base.view_company_form
 #: view:res.partner:base.view_partner_form
 msgid "e.g. www.odoo.com"
-msgstr ""
+msgstr "misalnya: www.odoo.com"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale
 msgid "eCommerce"
-msgstr ""
+msgstr "eCommerce"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_delivery
 msgid "eCommerce Delivery"
-msgstr ""
+msgstr "Pengiriman eCommerce"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_options
 msgid "eCommerce Optional Products"
-msgstr ""
+msgstr "Produk Pilihan eCommerce"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account
@@ -15999,19 +15999,19 @@ msgstr ""
 #. module: base
 #: view:res.users:base.view_users_simple_form
 msgid "email@yourcompany.com"
-msgstr ""
+msgstr "surel@perusahaan_anda.com"
 
 #. module: base
 #: code:addons/base/ir/ir_fields.py:329
 #, python-format
 msgid "external id"
-msgstr ""
+msgstr "id eksternal"
 
 #. module: base
 #: code:addons/base/ir/ir_fields.py:145
 #, python-format
 msgid "false"
-msgstr ""
+msgstr "false"
 
 #. module: base
 #: view:base.language.export:base.wizard_lang_export
@@ -16023,7 +16023,7 @@ msgstr ""
 #. module: base
 #: selection:base.language.export,state:0
 msgid "get"
-msgstr ""
+msgstr "get"
 
 #. module: base
 #: selection:base.language.install,state:0
@@ -16034,7 +16034,7 @@ msgstr "di dalamnya"
 #. module: base
 #: selection:ir.ui.menu,action:0
 msgid "ir.actions.act_url"
-msgstr ""
+msgstr "ir.actions.act_url"
 
 #. module: base
 #: selection:ir.ui.menu,action:0
@@ -16044,17 +16044,17 @@ msgstr "ir.action.act_window"
 #. module: base
 #: selection:ir.ui.menu,action:0
 msgid "ir.actions.client"
-msgstr ""
+msgstr "ir.actions.client"
 
 #. module: base
 #: selection:ir.ui.menu,action:0
 msgid "ir.actions.report.xml"
-msgstr ""
+msgstr "ir.actions.report.xml"
 
 #. module: base
 #: selection:ir.ui.menu,action:0
 msgid "ir.actions.server"
-msgstr ""
+msgstr "ir.actions.server"
 
 #. module: base
 #: selection:ir.ui.menu,action:0
@@ -16076,7 +16076,7 @@ msgstr ""
 #: code:addons/base/ir/ir_ui_view.py:346
 #, python-format
 msgid "n/a"
-msgstr ""
+msgstr "kosong"
 
 #. module: base
 #: code:addons/base/ir/ir_fields.py:339
@@ -16088,7 +16088,7 @@ msgstr "Nama"
 #: code:addons/base/ir/ir_fields.py:145
 #, python-format
 msgid "no"
-msgstr ""
+msgstr "no"
 
 #. module: base
 #: code:addons/amount_to_text_en.py:116
@@ -16100,17 +16100,17 @@ msgstr ""
 #: view:ir.actions.server:base.view_server_action_form
 msgid ""
 "object or obj: browse_record of the record on which the action is triggered"
-msgstr ""
+msgstr "object or obj: browse_record of the record on which the action is triggered"
 
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "object.partner_id"
-msgstr ""
+msgstr "object.partner_id"
 
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "object.partner_id.currency_id"
-msgstr ""
+msgstr "object.partner_id.currency_id"
 
 #. module: base
 #: view:ir.attachment:base.view_attachment_form
@@ -16143,7 +16143,7 @@ msgstr ""
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "pool: ORM model pool (i.e. self.pool)"
-msgstr ""
+msgstr "pool: ORM model pool (contoh self.pool)"
 
 #. module: base
 #: code:addons/mail.py:285
@@ -16159,42 +16159,42 @@ msgstr "res_config_contents"
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "self: ORM model of the record on which the action is triggered"
-msgstr ""
+msgstr "self: ORM model of the record on which the action is triggered"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_access_rights
 msgid "test of access rights and rules"
-msgstr ""
+msgstr "test hak ases dan aturan"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_exceptions
 msgid "test-exceptions"
-msgstr ""
+msgstr "test-exceptions"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_converter
 msgid "test-field-converter"
-msgstr ""
+msgstr "test-field-converter"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_impex
 msgid "test-import-export"
-msgstr ""
+msgstr "test-import-export"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_inherit
 msgid "test-inherit"
-msgstr ""
+msgstr "test-inherit"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_inherits
 msgid "test-inherits"
-msgstr ""
+msgstr "test-inherits"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_limits
 msgid "test-limits"
-msgstr ""
+msgstr "test-limits"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_uninstall
@@ -16204,24 +16204,24 @@ msgstr "test-uninstall"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_workflow
 msgid "test-workflow"
-msgstr ""
+msgstr "test-workflow"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_convert
 msgid "test_convert"
-msgstr ""
+msgstr "test_konversi"
 
 #. module: base
 #: model:res.groups,comment:base.group_hr_user
 msgid "the user will be able to approve document created by employees."
-msgstr ""
+msgstr "pengguna akan dapat menyetujui dokumen yang dibuat oleh karyawan."
 
 #. module: base
 #: model:res.groups,comment:base.group_user
 msgid ""
 "the user will be able to manage his own human resources stuff (leave "
 "request, timesheets, ...), if he is linked to an employee in the system."
-msgstr ""
+msgstr "pengguna dapat mengatur pengaturan personalia (permohonan izin, timesheet,...), jika dihubungkan ke karyawan disistem"
 
 #. module: base
 #: model:res.groups,comment:base.group_sale_salesman_all_leads
@@ -16240,7 +16240,7 @@ msgstr ""
 msgid ""
 "the user will have an access to the human resources configuration as well as"
 " statistic reports."
-msgstr ""
+msgstr "pengguna akan memiliki akses ke konfigurasi sumber daya manusia serta laporan statistik."
 
 #. module: base
 #: model:res.groups,comment:base.group_sale_manager
@@ -16252,7 +16252,7 @@ msgstr ""
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "time: Python time module"
-msgstr ""
+msgstr "time: Modul time Python"
 
 #. module: base
 #: view:res.config.installer:base.res_config_installer
@@ -16263,18 +16263,18 @@ msgstr "judul"
 #: code:addons/base/ir/ir_fields.py:145
 #, python-format
 msgid "true"
-msgstr ""
+msgstr "benar"
 
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "uid: current user id"
-msgstr ""
+msgstr "uid: id pengguna saat ini"
 
 #. module: base
 #: code:addons/fields.py:242
 #, python-format
 msgid "undefined get method !"
-msgstr ""
+msgstr "method get tak terdefinisi!"
 
 #. module: base
 #: field:base.language.export,state:0 field:ir.ui.menu,icon_pict:0
@@ -16286,7 +16286,7 @@ msgstr "tidak diketahui"
 #. module: base
 #: view:ir.actions.server:base.view_server_action_form
 msgid "workflow: Workflow engine"
-msgstr ""
+msgstr "workflow: Workflow engine"
 
 #. module: base
 #: code:addons/base/ir/ir_fields.py:145
@@ -16297,7 +16297,7 @@ msgstr "Audio"
 #. module: base
 #: model:res.country,name:base.ax
 msgid "Åland Islands"
-msgstr ""
+msgstr "Kepulauan Aland"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_cn

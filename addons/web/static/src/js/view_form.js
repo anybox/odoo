@@ -6073,13 +6073,20 @@ instance.web.form.FieldStatus = instance.web.form.AbstractField.extend({
             'value_folded': _.find(self.selection.folded, function(i){return i[0] === self.get('value');})
         });
         self.$el.html(content);
-        var statusbar_colors = JSON.parse((self.node.attrs || {}).statusbar_colors || "{}");
-        var color = statusbar_colors[self.get('value')];
-        if (color) {
-            var $color = $.Color(color);
-            var fr = $color.lightness(0.7);
-            var to = $color.lightness(0.4);
-            self.$(".oe_active, .oe_active > .arrow span").css("background-image", 'linear-gradient(to bottom, ' + fr.toHexString() + ', ' + to.toHexString() + ')');
+        if ('statusbar_colors' in self.node.attrs) {
+            var statusbar_colors = instance.web.py_eval(
+                    self.node.attrs.statusbar_colors
+                );
+            var color = statusbar_colors[self.get('value')];
+            if (color) {
+                var $color = $.Color(color);
+                var fr = $color.lightness(0.7);
+                var to = $color.lightness(0.4);
+                self.$(".oe_active, .oe_active > .arrow span").css(
+                    "background-image",
+                    'linear-gradient(to bottom, ' + fr.toHexString() + ', ' + to.toHexString() + ')'
+                );
+            }
         }
     },
     calc_domain: function() {
@@ -6160,10 +6167,14 @@ instance.web.form.FieldStatus = instance.web.form.AbstractField.extend({
             return fields;
         });
     },
-    on_click_stage: function (ev) {
+    on_click_stage: _.debounce(function (ev) {
         var self = this;
         var $li = $(ev.currentTarget);
+        var ul = $li.closest('.oe_form_field_status');
         var val;
+        if (ul.attr('disabled')) {
+            return;
+        }
         if (this.field.type == "many2one") {
             val = parseInt($li.data("id"), 10);
         }
@@ -6180,13 +6191,16 @@ instance.web.form.FieldStatus = instance.web.form.AbstractField.extend({
                 this.view.recursive_save().done(function() {
                     var change = {};
                     change[self.name] = val;
+                    ul.attr('disabled', true);
                     self.view.dataset.write(self.view.datarecord.id, change).done(function() {
                         self.view.reload();
+                    }).always(function() {
+                        ul.removeAttr('disabled');
                     });
                 });
             }
         }
-    },
+    }, 300, true),
 });
 
 instance.web.form.FieldMonetary = instance.web.form.FieldFloat.extend({
