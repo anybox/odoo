@@ -720,15 +720,15 @@ class calendar_event(osv.Model):
         return [d.astimezone(pytz.UTC) for d in rset1]
 
     def _get_recurrency_end_date(self, cr, uid, id, context=None):
-        data = self.read(cr, uid, id, ['final_date', 'recurrency', 'rrule_type', 'count', 'end_type', 'stop'], context=context)
+        data = self.read(cr, uid, id, ['final_date', 'recurrency', 'rrule_type', 'count', 'end_type', 'stop', 'interval'], context=context)
 
         if not data.get('recurrency'):
             return False
 
         end_type = data.get('end_type')
         final_date = data.get('final_date')
-        if end_type == 'count' and all(data.get(key) for key in ['count', 'rrule_type', 'stop']):
-            count = data['count'] + 1
+        if end_type == 'count' and all(data.get(key) for key in ['count', 'rrule_type', 'stop', 'interval']):
+            count = (data['count'] + 1) * data['interval']
             delay, mult = {
                 'daily': ('days', 1),
                 'weekly': ('days', 7),
@@ -1016,12 +1016,12 @@ class calendar_event(osv.Model):
             startdatetime = startdatetime or start
             if startdatetime:
                 start = datetime.strptime(startdatetime, DEFAULT_SERVER_DATETIME_FORMAT)
-                value['start_date'] = datetime.strftime(start, DEFAULT_SERVER_DATE_FORMAT)
+                value['start_date'] = fields.date.context_today(self, cr, uid, context=context, timestamp=start)
 
             enddatetime = enddatetime or end
             if enddatetime:
                 end = datetime.strptime(enddatetime, DEFAULT_SERVER_DATETIME_FORMAT)
-                value['stop_date'] = datetime.strftime(end, DEFAULT_SERVER_DATE_FORMAT)
+                value['stop_date'] = fields.date.context_today(self, cr, uid, context=context, timestamp=end)
         else:  # from date to datetime
             user = self.pool['res.users'].browse(cr, uid, uid, context)
             tz = pytz.timezone(user.tz) if user.tz else pytz.utc
@@ -1349,7 +1349,7 @@ class calendar_event(osv.Model):
             data['rrule_type'] = 'monthly'
 
         if r._bymonthday:
-            data['day'] = r._bymonthday[0]
+            data['day'] = list(r._bymonthday)[0]
             data['month_by'] = 'date'
             data['rrule_type'] = 'monthly'
 
@@ -1606,11 +1606,11 @@ class calendar_event(osv.Model):
             super(calendar_event, self).write(cr, uid, real_ids, values, context=context)
 
             # set end_date for calendar searching
-            if values.get('recurrency') and values.get('end_type', 'count') in ('count', unicode('count')) and \
-                    (values.get('rrule_type') or values.get('count') or values.get('start') or values.get('stop')):
-                for id in real_ids:
-                    final_date = self._get_recurrency_end_date(cr, uid, id, context=context)
-                    super(calendar_event, self).write(cr, uid, [id], {'final_date': final_date}, context=context)
+            if any(field in values for field in ['recurrency', 'end_type', 'count', 'rrule_type', 'start', 'stop']):
+                for event in self.browse(cr, uid, real_ids, context=context):
+                    if event.recurrency and event.end_type in ('count', unicode('count')):
+                        final_date = self._get_recurrency_end_date(cr, uid, event.id, context=context)
+                        super(calendar_event, self).write(cr, uid, [event.id], {'final_date': final_date}, context=context)
 
             attendees_create = False
             if values.get('partner_ids', False):
@@ -1705,7 +1705,8 @@ class calendar_event(osv.Model):
         for r in result:
             if r['user_id']:
                 user_id = type(r['user_id']) in (tuple, list) and r['user_id'][0] or r['user_id']
-                if user_id == uid:
+                partner_id = self.pool['res.users'].browse(cr, uid, uid, context).partner_id.id
+                if user_id == uid or partner_id in r.get("partner_ids", []):
                     continue
             if r['class'] == 'private':
                 for f in r.keys():
