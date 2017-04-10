@@ -19,6 +19,8 @@
 #
 ##############################################################################
 
+import logging
+
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
@@ -28,6 +30,8 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from psycopg2 import OperationalError
 import openerp
+
+_logger = logging.getLogger(__name__)
 
 class procurement_group(osv.osv):
     _inherit = 'procurement.group'
@@ -332,22 +336,23 @@ class procurement_order(osv.osv):
         '''
         Create procurement based on Orderpoint
 
-        :param bool use_new_cursor: if set, use a dedicated cursor and auto-commit after processing each procurement.
+        :param bool use_new_cursor: if set, use dedicated cursors and auto-commit after processing
+            100 orderpoints.
             This is appropriate for batch jobs only.
         '''
         if context is None:
             context = {}
-        if use_new_cursor:
-            cr = openerp.registry(cr.dbname).cursor()
         orderpoint_obj = self.pool.get('stock.warehouse.orderpoint')
 
         procurement_obj = self.pool.get('procurement.order')
         dom = company_id and [('company_id', '=', company_id)] or []
-        orderpoint_ids = orderpoint_obj.search(cr, uid, dom)
+        orderpoint_ids = orderpoint_obj.search(cr, uid, dom, context=context)
         prev_ids = []
         while orderpoint_ids:
             ids = orderpoint_ids[:100]
             del orderpoint_ids[:100]
+            if use_new_cursor:
+                cr = openerp.registry(cr.dbname).cursor()
             for op in orderpoint_obj.browse(cr, uid, ids, context=context):
                 try:
                     prods = self._product_virtual_get(cr, uid, op)
@@ -370,24 +375,29 @@ class procurement_order(osv.osv):
                                                              self._prepare_orderpoint_procurement(cr, uid, op, qty_rounded, context=context),
                                                              context=context)
                             self.check(cr, uid, [proc_id])
+                            # self.run can raise and that would destroy this
+                            # procurement, commit at this point
+                            if use_new_cursor:
+                                cr.commit()
                             self.run(cr, uid, [proc_id])
                     if use_new_cursor:
                         cr.commit()
-                except OperationalError:
+                except Exception as e:
+                    _logger.exception("Orderpoint processing failed")
                     if use_new_cursor:
-                        orderpoint_ids.append(op.id)
+                        # is retryable?
+                        if isinstance(e, OperationalError):
+                            orderpoint_ids.append(op.id)
                         cr.rollback()
                         continue
                     else:
                         raise
             if use_new_cursor:
                 cr.commit()
+                cr.close()
             if prev_ids == ids:
                 break
             else:
                 prev_ids = ids
 
-        if use_new_cursor:
-            cr.commit()
-            cr.close()
         return {}

@@ -8,12 +8,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2015-2016
 # lasch a <bmail440@gmail.com>, 2015
+# Mikael Åkerberg <mikael.akerberg@dermanord.se>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 06:40+0000\n"
-"PO-Revision-Date: 2016-07-12 01:08+0000\n"
+"PO-Revision-Date: 2016-12-30 11:59+0000\n"
 "Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/odoo/odoo-8/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -1779,7 +1780,7 @@ msgstr "Fel konto!"
 #: code:addons/account/account_invoice.py:819
 #, python-format
 msgid "Bad Total!"
-msgstr ""
+msgstr "Fel Total!"
 
 #. module: account
 #: field:account.account,balance:0
@@ -2251,7 +2252,7 @@ msgstr "Kontant"
 #: view:account.bank.statement:account.view_bank_statement_form2
 #: field:account.journal,cash_control:0
 msgid "Cash Control"
-msgstr "Valutakontroll"
+msgstr "Kontanthantering"
 
 #. module: account
 #: view:account.journal:account.view_account_journal_form
@@ -2635,7 +2636,7 @@ msgstr "stäng bokföringsår och perioder"
 #: code:addons/account/static/src/xml/account_bank_statement_reconciliation.xml:55
 #, python-format
 msgid "Close the statement"
-msgstr "Stäng ner utdraget."
+msgstr "Stäng utdraget."
 
 #. module: account
 #: selection:account.account,type:0 selection:account.account.template,type:0
@@ -2654,7 +2655,7 @@ msgstr "Stängt på"
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2
 msgid "Closing Cash Control"
-msgstr ""
+msgstr "Stäng kontanthanteringen"
 
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2
@@ -2666,7 +2667,7 @@ msgstr ""
 #: view:account.bank.statement:account.view_bank_statement_form2
 #: field:account.cashbox.line,subtotal_closing:0
 msgid "Closing Subtotal"
-msgstr ""
+msgstr "Deltotaler kassastängning"
 
 #. module: account
 #: help:account.cashbox.line,number_closing:0
@@ -6916,7 +6917,7 @@ msgstr "Ingående balans"
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2
 msgid "Opening Cash Control"
-msgstr ""
+msgstr "Öppna kontanthanteringen"
 
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2
@@ -6969,7 +6970,7 @@ msgstr "Öppningsperiod"
 #: view:account.bank.statement:account.view_bank_statement_form2
 #: field:account.cashbox.line,subtotal_opening:0
 msgid "Opening Subtotal"
-msgstr ""
+msgstr "Ingående  balanser"
 
 #. module: account
 #: help:account.cashbox.line,number_opening:0
@@ -8616,7 +8617,7 @@ msgstr "Välj bokföringsår för vilket du önskar justera årsavslutjournalen"
 #: code:addons/account/static/src/js/account_widgets.js:975
 #, python-format
 msgid "Select Partner"
-msgstr "Välj partner"
+msgstr "Välj företag/kontakt"
 
 #. module: account
 #: view:account.analytic.balance:account.account_analytic_balance_view
@@ -10482,7 +10483,7 @@ msgstr "Totalt kvarvarande"
 #. module: account
 #: field:account.bank.statement,total_entry_encoding:0
 msgid "Total Transactions"
-msgstr ""
+msgstr "Totalt transaktioner"
 
 #. module: account
 #: field:account.invoice.report,price_total:0
@@ -10542,7 +10543,7 @@ msgstr ""
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2
 msgid "Total of closing cash control lines."
-msgstr ""
+msgstr "Total vid kassastängning"
 
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2

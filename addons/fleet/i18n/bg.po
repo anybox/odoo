@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:09+0000\n"
-"PO-Revision-Date: 2016-07-17 15:15+0000\n"
+"PO-Revision-Date: 2016-08-23 05:42+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Bulgarian (http://www.transifex.com/odoo/odoo-8/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -876,7 +876,7 @@ msgstr "ID"
 #. module: fleet
 #: help:fleet.vehicle,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ако е отбелязано, новите съобщения ще изискват внимание."
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_29
@@ -1707,7 +1707,7 @@ msgstr "Непрочетени съобщения"
 #. module: fleet
 #: help:fleet.vehicle.state,sequence:0
 msgid "Used to order the note stages"
-msgstr ""
+msgstr "Използва се за да се подредят етапите на бележките"
 
 #. module: fleet
 #: model:res.groups,name:fleet.group_fleet_user

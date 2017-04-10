@@ -101,7 +101,7 @@ def ensure_db(redirect='/web/database/selector'):
     # If the db is taken out of a query parameter, it will be checked against
     # `http.db_filter()` in order to ensure it's legit and thus avoid db
     # forgering that could lead to xss attacks.
-    db = request.params.get('db')
+    db = request.params.get('db') and request.params.get('db').strip()
 
     # Ensure db is legit
     if db and db not in http.db_filter([db]):
@@ -1017,7 +1017,7 @@ class Binary(http.Controller):
         last_update = '__last_update'
         Model = request.registry[model]
         cr, uid, context = request.cr, request.uid, request.context
-        headers = [('Content-Type', 'image/png')]
+        headers = list()
         etag = request.httprequest.headers.get('If-None-Match')
         hashed_session = hashlib.md5(request.session_id).hexdigest()
         retag = hashed_session
@@ -1057,6 +1057,20 @@ class Binary(http.Controller):
             image_data = self.placeholder()
         headers.append(('ETag', retag))
         headers.append(('Content-Length', len(image_data)))
+
+        # Guess mime type
+        signatures = {
+            "image/jpeg": ['\xFF\xD8\xFF\xE0', '\xFF\xD8\xFF\xE2',
+                           '\xFF\xD8\xFF\xE3', '\xFF\xD8\xFF\xE1'],
+            "image/gif": ['GIF87a', 'GIF89a'],
+        }
+        mime = False
+        for key, matches in signatures.iteritems():
+            if any(image_data.startswith(match) for match in matches):
+                mime = key
+                break
+        headers.append(("Content-Type", mime or "image/png"))
+
         try:
             ncache = int(kw.get('cache'))
             headers.append(('Cache-Control', 'no-cache' if ncache == 0 else 'max-age=%s' % (ncache)))

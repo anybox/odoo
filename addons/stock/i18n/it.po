@@ -4,13 +4,13 @@
 # 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014
-# Paolo Valier, 2016
+# Paolo Valier, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-14 12:26+0000\n"
-"PO-Revision-Date: 2016-07-19 18:57+0000\n"
+"PO-Revision-Date: 2017-02-27 21:16+0000\n"
 "Last-Translator: Paolo Valier\n"
 "Language-Team: Italian (http://www.transifex.com/odoo/odoo-8/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgid ""
 "same product(%s), same location(%s), same package, same owner and same lot. "
 "Please first validate the first inventory adjustement with this product "
 "before creating another one."
-msgstr ""
+msgstr "Non è possibile avere due rettifiche inventariali nello stato \"In Corso\" per lo stesso prodotto(%s), stessa location(%s), stesso pacco, stesso proprietario e stesso lotto. Prego confermare la prima rettifica inventariale di questo prodotto prima di crearne una nuova."
 
 #. module: stock
 #: code:addons/stock/stock.py:3090
@@ -1947,27 +1947,27 @@ msgstr "Numero di riferimento interno nel caso sia diverso dal numero seriale di
 #. module: stock
 #: field:stock.inventory,location_id:0
 msgid "Inventoried Location"
-msgstr ""
+msgstr "Location inventariata"
 
 #. module: stock
 #: field:stock.inventory,lot_id:0
 msgid "Inventoried Lot/Serial Number"
-msgstr ""
+msgstr "Lotto/Numero di serie inventariato"
 
 #. module: stock
 #: field:stock.inventory,partner_id:0
 msgid "Inventoried Owner"
-msgstr ""
+msgstr "Proprietario inventariato"
 
 #. module: stock
 #: field:stock.inventory,package_id:0
 msgid "Inventoried Pack"
-msgstr ""
+msgstr "Pacco inventariato"
 
 #. module: stock
 #: field:stock.inventory,product_id:0
 msgid "Inventoried Product"
-msgstr ""
+msgstr "Prodotto inventariato"
 
 #. module: stock
 #: field:stock.inventory,line_ids:0
@@ -2410,7 +2410,7 @@ msgstr ""
 #. module: stock
 #: model:res.groups,name:stock.group_adv_location
 msgid "Manage Push and Pull inventory flows"
-msgstr "Gestisci flussi d'Invio e Richiesta invetario"
+msgstr "Gestisci flussi d'Invio e Richiesta inventario"
 
 #. module: stock
 #: field:stock.config.settings,group_stock_adv_location:0
@@ -2557,7 +2557,7 @@ msgstr ""
 #. module: stock
 #: field:procurement.rule,procure_method:0
 msgid "Move Supply Method"
-msgstr ""
+msgstr "Sposta Metodo di Approvvigionamento"
 
 #. module: stock
 #: help:stock.move,date:0
@@ -2977,7 +2977,7 @@ msgstr ""
 #: view:stock.quant.package:stock.view_quant_package_tree
 #: view:website:stock.report_inventory
 msgid "Package"
-msgstr ""
+msgstr "Confezione"
 
 #. module: stock
 #: model:ir.actions.report.xml,name:stock.action_report_quant_package_barcode_small
@@ -3350,7 +3350,7 @@ msgstr "Richiesta approvvigionamento"
 #. module: stock
 #: model:ir.model,name:stock.model_procurement_group
 msgid "Procurement Requisition"
-msgstr ""
+msgstr "Richiesta di approvvigionamento"
 
 #. module: stock
 #: model:ir.model,name:stock.model_procurement_rule field:stock.move,rule_id:0
@@ -3656,7 +3656,7 @@ msgstr ""
 #. module: stock
 #: field:stock.move,reserved_availability:0
 msgid "Quantity Reserved"
-msgstr ""
+msgstr "Quantità Riservata"
 
 #. module: stock
 #: code:addons/stock/wizard/stock_change_product_qty.py:92
@@ -4538,7 +4538,7 @@ msgstr "Informazioni di Approvvigionamento"
 #. module: stock
 #: field:stock.move,procure_method:0
 msgid "Supply Method"
-msgstr ""
+msgstr "Metodo di Approvvigionamento"
 
 #. module: stock
 #: selection:procurement.rule,procure_method:0
@@ -5444,7 +5444,7 @@ msgstr "Puoi cancellare solo i movimenti in bozza"
 #: code:addons/stock/stock.py:2244
 #, python-format
 msgid "You cannot cancel a stock move that has been set to 'Done'."
-msgstr ""
+msgstr "Non è possibile cancellare un movimento di magazzino che è nello stato 'Completato'."
 
 #. module: stock
 #: code:addons/stock/stock.py:638

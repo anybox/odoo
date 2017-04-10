@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2016-07-15 13:51+0000\n"
+"PO-Revision-Date: 2016-12-14 13:25+0000\n"
 "Last-Translator: Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/odoo/odoo-8/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -128,7 +128,7 @@ msgstr "Valmis"
 #. module: website_event_track
 #: model:event.track.tag,name:website_event_track.event_tag3
 msgid "Conference"
-msgstr ""
+msgstr "Konferenssi"
 
 #. module: website_event_track
 #: model:event.track.stage,name:website_event_track.event_track_stage2
@@ -290,7 +290,7 @@ msgstr ""
 #. module: website_event_track
 #: model:event.track.tag,name:website_event_track.event_tag2
 msgid "Exhibition"
-msgstr ""
+msgstr "Näyttely"
 
 #. module: website_event_track
 #: view:website:website_event_track.event_track_proposal
@@ -317,7 +317,7 @@ msgstr "Seuraajat"
 #. module: website_event_track
 #: view:website:website_event_track.agenda
 msgid "Found"
-msgstr ""
+msgstr "Löytyi"
 
 #. module: website_event_track
 #: model:event.sponsor.type,name:website_event_track.event_sponsor_type3
@@ -332,12 +332,12 @@ msgstr "Ryhmittele"
 #. module: website_event_track
 #: selection:event.track,priority:0
 msgid "High (**)"
-msgstr ""
+msgstr "Korkea (**)"
 
 #. module: website_event_track
 #: selection:event.track,priority:0
 msgid "Highest (***)"
-msgstr ""
+msgstr "Korkein (***)"
 
 #. module: website_event_track
 #: help:event.track,message_summary:0
@@ -395,7 +395,7 @@ msgstr "Jos valittu, uudet viestit vaativat huomiosi."
 #. module: website_event_track
 #: view:website:website_event_track.event_track_proposal
 msgid "Introduction"
-msgstr ""
+msgstr "Esittely"
 
 #. module: website_event_track
 #: field:event.track,message_is_follower:0
@@ -472,7 +472,7 @@ msgstr ""
 #. module: website_event_track
 #: selection:event.track,priority:0
 msgid "Medium (*)"
-msgstr ""
+msgstr "Keskitaso (*)"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track25
