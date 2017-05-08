@@ -3469,12 +3469,12 @@ instance.web.form.CompletionFieldMixin = {
         var pop = new instance.web.form.SelectCreatePopup(this);
         pop.select_element(
             self.field.relation,
-            {
+            _.extend(this.options || {}, {
                 title: (view === 'search' ? _t("Search: ") : _t("Create: ")) + this.string,
                 initial_ids: ids ? _.map(ids, function(x) {return x[0];}) : undefined,
                 initial_view: view,
                 disable_multiple_selection: true
-            },
+            }),
             self.build_domain(),
             new instance.web.CompoundContext(self.build_context(), context || {})
         );
@@ -5577,6 +5577,7 @@ instance.web.form.FieldReference = instance.web.form.AbstractField.extend(instan
         this.m2o = new instance.web.form.FieldMany2One(fm, { attrs: {
             name: 'Referenced Document',
             modifiers: JSON.stringify({readonly: this.get('effective_readonly')}),
+            context: this.build_context().eval(),
         }});
         this.m2o.on("change:value", this, this.data_changed);
         this.m2o.appendTo(this.$(".oe_form_view_reference_m2o"));
