@@ -977,7 +977,9 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
                     $row = self.$current.children(
                         '[data-id=' + record.get('id') + ']');
                 }
-                $row.replaceWith(self.render_record(record));
+                if ($row.length) {
+                    $row.replaceWith(self.render_record(record));
+                }
             },
             'add': function (ev, records, record, index) {
                 var $new_row = $(self.render_record(record));
@@ -1626,6 +1628,7 @@ instance.web.ListView.Groups = instance.web.Class.extend( /** @lends instance.we
                     self.render_groups(groups));
                 if (post_render) { post_render(); }
             }, function (dataset) {
+                self.view.$pager.find('.oe_pager_group').css('display', '');
                 self.render_dataset(dataset).then(function (list) {
                     self.children[null] = list;
                     self.elements =

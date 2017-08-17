@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-19 06:31+0000\n"
-"PO-Revision-Date: 2017-01-31 12:39+0000\n"
+"PO-Revision-Date: 2017-07-31 14:59+0000\n"
 "Last-Translator: RGB Consulting <odoo@rgbconsulting.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/odoo/odoo-8/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -661,7 +661,7 @@ msgid ""
 "Plan contable chileno e impuestos de acuerdo a disposiciones vigentes\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nPla de comptes i localització d'impostos xilens.\n=============================================\nPla comptable Xile i impostos d'acord amb les disposicions vigents"
 
 #. module: base
 #: model:ir.module.module,description:base.module_decimal_precision
@@ -787,7 +787,7 @@ msgid ""
 "\n"
 "Delivery Costs\n"
 "==============\n"
-msgstr ""
+msgstr "\nDespeses d'enviament\n=====================\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_marketing_campaign_crm_demo
@@ -1802,7 +1802,7 @@ msgid ""
 "This initially includes chart of accounts of USA translated to Arabic.\n"
 "\n"
 "In future this module will include some payroll rules for ME .\n"
-msgstr ""
+msgstr "\nLocalització aràbiga d'Odoo per la majoria dels països àrabs i Aràbia Saudita..\n\nAixò inclou inicialment el pla de comptes d'EE.UU. traduït a l'àrab.\n\nEn un futur aquest mòdul inclourà algunes regles de nòmina per ME.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_im_odoo_support
@@ -3832,7 +3832,7 @@ msgid ""
 "* Add services, fuel log entry, odometer values for all vehicles\n"
 "* Show all costs associated to a vehicle or to a type of service\n"
 "* Analysis graph for costs\n"
-msgstr ""
+msgstr "\nVehicles, lloguer, assegurances, costos\n===================================\nAmb aquest mòdul, Odoo l'ajuda a gestionar tots els seus vehicles, el contracte associat amb aquests vehicles i els seus serveis, registre de combustible, costos i altres moltes característiques necessàries per a la gestió de la seva flota de vehicle(s).\nCaracterístiques principals\n----------------------------------\n* Afegir vehicles a la seva flota\n* Gestionar contractes per vehicle\n* Recordatoris quan un contracte arriba a la seva data d'expiració\n* Afegir serveis, registres de combustible, valors d'hodòmetre per tots els vehicles\n* Mostrar tots els costos associats a un vehicle o a un tipus de servei\n* Gràfics d'anàlisis per a costos\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_stock_account
@@ -3851,7 +3851,7 @@ msgid ""
 "------------------------------------------------------\n"
 "* Stock Inventory Value at given date (support dates in the past)\n"
 "    "
-msgstr ""
+msgstr "\nMòdul de comptabilitat del SGA\n=========================\nAquest mòdul serveix de pont entre els mòduls 'stock' i 'account' i li permet crear assentaments comptables per valorar els moviments d'existències.\n\nCaracterístiques clau\n---------------------------\n* Valoració d'existències (periòdica o automàtica)\n* Facturació d'aquest albarà\n\nEl taulell / els informes per la gestió de magatzem inclou:\n-------------------------------------------------------------------------\n* Valoració d'existències en una data donada (suporta dates en el passat)"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_gengo
@@ -11130,7 +11130,7 @@ msgstr "Objecte:"
 #: code:addons/base/static/src/js/apps.js:179
 #, python-format
 msgid "Odoo Apps will be available soon"
-msgstr ""
+msgstr "Odoo Apps estarà disponible en breus"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_im_odoo_support
@@ -11152,7 +11152,7 @@ msgstr "Material d'oficina"
 #. module: base
 #: model:res.groups,name:base.group_hr_user
 msgid "Officer"
-msgstr ""
+msgstr "Oficial"
 
 #. module: base
 #: model:ir.module.module,description:base.module_payment_ogone
@@ -13186,7 +13186,7 @@ msgstr "Enviament"
 #: code:addons/base/static/src/js/apps.js:179
 #, python-format
 msgid "Showing locally available modules"
-msgstr ""
+msgstr "Mostrant els mòduls locals disponibles"
 
 #. module: base
 #: model:res.country,name:base.sl
@@ -16215,7 +16215,7 @@ msgstr "prova_convertir"
 #. module: base
 #: model:res.groups,comment:base.group_hr_user
 msgid "the user will be able to approve document created by employees."
-msgstr ""
+msgstr "l'usuari serà capaç d'aprovar el document creat pels empleats."
 
 #. module: base
 #: model:res.groups,comment:base.group_user
@@ -16229,12 +16229,12 @@ msgstr "l'usuari podrà gestionar el seu propi material de recursos humans (peti
 msgid ""
 "the user will have access to all records of everyone in the sales "
 "application."
-msgstr ""
+msgstr "l'usuari tindrà accés a tot els registres de tots de l'aplicació de vendes."
 
 #. module: base
 #: model:res.groups,comment:base.group_sale_salesman
 msgid "the user will have access to his own data in the sales application."
-msgstr ""
+msgstr "l'usuari tindrà accés a la configuració de vendes així com als informes estadístics."
 
 #. module: base
 #: model:res.groups,comment:base.group_hr_manager

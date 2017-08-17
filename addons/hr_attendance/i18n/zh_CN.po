@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2017-02-02 05:34+0000\n"
+"PO-Revision-Date: 2017-04-19 12:22+0000\n"
 "Last-Translator: liAnGjiA <liangjia@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/odoo/odoo-8/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "(*)正数表示员工工作时间小于记录的时间"
 #. module: hr_attendance
 #: selection:hr.employee,state:0
 msgid "Absent"
-msgstr "缺勤"
+msgstr "未打卡"
 
 #. module: hr_attendance
 #: field:hr.attendance,action:0 selection:hr.attendance,action:0
@@ -47,7 +47,7 @@ msgstr "操作"
 #: field:hr.attendance,action_desc:0
 #: model:ir.model,name:hr_attendance.model_hr_action_reason
 msgid "Action Reason"
-msgstr "操作原因"
+msgstr "签卡"
 
 #. module: hr_attendance
 #: field:hr.action.reason,action_type:0
@@ -193,12 +193,12 @@ msgstr "结束日期"
 #. module: hr_attendance
 #: constraint:hr.attendance:0
 msgid "Error ! Sign in (resp. Sign out) must follow Sign out (resp. Sign in)"
-msgstr "错误！登录（或注销）动作必须在注销（或登录）动作之后。"
+msgstr "错误！当前考勤状态必须是相对的。例如上班 (打卡) 之后必须下班(打卡)，反之亦然。"
 
 #. module: hr_attendance
 #: view:hr.attendance:hr_attendance.view_hr_attendance_filter
 msgid "Group By"
-msgstr "分组于"
+msgstr "分组"
 
 #. module: hr_attendance
 #: view:hr.attendance:hr_attendance.view_hr_attendance_filter
@@ -266,7 +266,7 @@ msgstr "没有数据！"
 #: code:addons/hr_attendance/wizard/hr_attendance_error.py:50
 #, python-format
 msgid "No records are found for your selection!"
-msgstr "你搜索的结果为空！"
+msgstr "您搜索的结果为空！"
 
 #. module: hr_attendance
 #: view:website:hr_attendance.report_attendanceerrors
@@ -312,7 +312,7 @@ msgstr "上班打卡"
 #: view:hr.employee:hr_attendance.hr_attendance_employee
 #, python-format
 msgid "Sign Out"
-msgstr "签出"
+msgstr "下班打卡"
 
 #. module: hr_attendance
 #: selection:hr.action.reason,action_type:0
@@ -322,7 +322,7 @@ msgstr "上班打卡"
 #. module: hr_attendance
 #: selection:hr.action.reason,action_type:0
 msgid "Sign out"
-msgstr "签出"
+msgstr "下班打卡"
 
 #. module: hr_attendance
 #: help:hr.attendance,action_desc:0
@@ -385,7 +385,7 @@ msgstr "工作时数"
 msgid ""
 "You tried to %s with a date anterior to another event !\n"
 "Try to contact the HR Manager to correct attendances."
-msgstr "你试图%s  前面的日期到另外的事件！尝试联系 人力资源主管纠正考勤"
+msgstr "您试图%s  前面的日期到另外的事件！尝试联系 人力资源主管纠正考勤"
 
 #. module: hr_attendance
 #: view:hr.attendance.error:hr_attendance.view_hr_attendance_error
