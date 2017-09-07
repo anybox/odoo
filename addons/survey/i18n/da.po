@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:07+0000\n"
-"PO-Revision-Date: 2017-05-18 10:52+0000\n"
+"PO-Revision-Date: 2017-08-22 09:13+0000\n"
 "Last-Translator: Hans Henrik Gabelgaard <hhg@gabelgaard.org>\n"
 "Language-Team: Danish (http://www.transifex.com/odoo/odoo-8/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -148,7 +148,7 @@ msgstr "Om din brug af Odoo"
 #. module: survey
 #: field:survey.mail.compose.message,active_domain:0
 msgid "Active domain"
-msgstr ""
+msgstr "Aktivt domæne"
 
 #. module: survey
 #: view:survey.mail.compose.message:survey.survey_email_compose_message
@@ -373,7 +373,7 @@ msgstr "Begrænsninger"
 #. module: survey
 #: field:survey.mail.compose.message,body:0
 msgid "Contents"
-msgstr ""
+msgstr "Indhold"
 
 #. module: survey
 #: view:survey.mail.compose.message:survey.survey_email_compose_message
@@ -607,7 +607,7 @@ msgstr ""
 #. module: survey
 #: field:survey.stage,fold:0
 msgid "Folded in kanban view"
-msgstr ""
+msgstr "Foldet i kanban visning"
 
 #. module: survey
 #: field:survey.survey,message_follower_ids:0
@@ -617,7 +617,7 @@ msgstr "Folk der følger dig"
 #. module: survey
 #: view:survey.question:survey.survey_question_form
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #. module: survey
 #: selection:survey.user_input_line,answer_type:0
@@ -1202,7 +1202,7 @@ msgstr "Partner"
 #: model:ir.actions.act_window,name:survey.action_partner_survey_mail
 #: model:ir.actions.act_window,name:survey.action_partner_survey_mail_crm
 msgid "Partner Survey Mailing"
-msgstr ""
+msgstr "Partner spørgeskema mails"
 
 #. module: survey
 #: help:survey.mail.compose.message,notified_partner_ids:0

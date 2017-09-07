@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:07+0000\n"
-"PO-Revision-Date: 2017-05-27 10:02+0000\n"
+"PO-Revision-Date: 2017-08-24 15:30+0000\n"
 "Last-Translator: Hans Henrik Gabelgaard <hhg@gabelgaard.org>\n"
 "Language-Team: Danish (http://www.transifex.com/odoo/odoo-8/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -538,7 +538,7 @@ msgstr ""
 #. module: point_of_sale
 #: view:pos.session:point_of_sale.view_pos_session_form
 msgid "Cashbox Lines"
-msgstr ""
+msgstr "Pengekasse linjer"
 
 #. module: point_of_sale
 #: field:pos.config,iface_cashdrawer:0
@@ -989,7 +989,7 @@ msgstr "Kunde faltura"
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.menu_point_of_sale
 msgid "Daily Operations"
-msgstr ""
+msgstr "Daglige aktiviteter"
 
 #. module: point_of_sale
 #: field:report.transaction.pos,date_create:0
@@ -1001,7 +1001,7 @@ msgstr "Dato"
 #. module: point_of_sale
 #: field:pos.details,date_end:0
 msgid "Date End"
-msgstr ""
+msgstr "Dato slut"
 
 #. module: point_of_sale
 #: field:report.pos.order,date:0
@@ -1011,7 +1011,7 @@ msgstr "Dato Rækkefølge"
 #. module: point_of_sale
 #: field:pos.details,date_start:0
 msgid "Date Start"
-msgstr ""
+msgstr "Startdato"
 
 #. module: point_of_sale
 #: view:website:point_of_sale.report_receipt
@@ -1057,7 +1057,7 @@ msgstr ""
 #. module: point_of_sale
 #: selection:pos.config,state:0
 msgid "Deprecated"
-msgstr ""
+msgstr "Forældet"
 
 #. module: point_of_sale
 #: view:website:point_of_sale.report_receipt
@@ -1899,7 +1899,7 @@ msgid ""
 "Medium-sized image of the category. It is automatically resized as a "
 "128x128px image, with aspect ratio preserved. Use this field in form views "
 "or some kanban views."
-msgstr ""
+msgstr "Mellemstort billede af kategorien. Den ændres automatisk til et 128x128px billede, med billedformat bevaret. Brug dette felt i formularvisninger eller  kanbanvisninger."
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/point_of_sale.py:799
@@ -3233,7 +3233,7 @@ msgid ""
 "Small-sized image of the category. It is automatically resized as a 64x64px "
 "image, with aspect ratio preserved. Use this field anywhere a small image is"
 " required."
-msgstr ""
+msgstr "Lille billede af kategorien. Den ændres automatisk til et 64x64px billede, med billedformatet bevares. Brug dette felt hvor et lille billede er påkrævet."
 
 #. module: point_of_sale
 #: model:pos.category,name:point_of_sale.soda
@@ -3464,7 +3464,7 @@ msgstr "Moms"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:400
 #, python-format
 msgid "Tax ID"
-msgstr ""
+msgstr "Moms ID"
 
 #. module: point_of_sale
 #: field:pos.order,amount_tax:0
