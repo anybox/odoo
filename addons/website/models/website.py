@@ -736,6 +736,9 @@ class ir_attachment(osv.osv):
         'mimetype': fields.char('Mime Type', readonly=True),
     }
 
+    def get_serving_groups(self):
+        return super(ir_attachment, self).get_serving_groups() + ['base.group_website_designer']
+
     def _add_mimetype_if_needed(self, values):
         if values.get('datas_fname'):
             values['mimetype'] = mimetypes.guess_type(values.get('datas_fname'))[0] or 'application/octet-stream'

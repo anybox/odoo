@@ -187,6 +187,30 @@ class ir_attachment(osv.osv):
             self._file_delete(cr, uid, fname_to_delete)
         return True
 
+    def get_serving_groups(self):
+        """ An ir.attachment record may be used as a fallback in the
+        http dispatch if its type field is set to "binary" and its url
+        field is set as the request's url. Only the groups returned by
+        this method are allowed to create and write on such records.
+        """
+        return ['base.group_system']
+
+    def _check_serving_attachments(self, cr, uid, ids, context=None):
+        # restrict writing on attachments that could be served by the
+        # ir.http's dispatch exception handling
+        user = self.pool['res.users'].browse(cr, uid, uid, context=context)
+        for ira in self.browse(cr, uid, ids, context):
+            if ira.type == 'binary' and ira.url:
+                has_group = user.has_group
+                print self.get_serving_groups()
+                if not any([has_group(g) for g in self.get_serving_groups()]):
+                    return False
+        return True
+
+    _constraints = [
+        (_check_serving_attachments, 'Sorry, you are not allowed to write on this document', ['type', 'url'])
+    ]
+
     _name = 'ir.attachment'
     _columns = {
         'name': fields.char('Attachment Name', required=True),
@@ -261,6 +285,8 @@ class ir_attachment(osv.osv):
                 raise except_orm(_('Access Denied'), _("Sorry, you are not allowed to access this document."))
 
     def _search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False, access_rights_uid=None):
+        # take care to have a stable order, this is crucial for limit+offset
+        order = (order + ',' if order else '') + 'id asc'
         ids = super(ir_attachment, self)._search(cr, uid, args, offset=offset,
                                                  limit=limit, order=order,
                                                  context=context, count=False,
@@ -311,7 +337,17 @@ class ir_attachment(osv.osv):
 
         # sort result according to the original sort ordering
         result = [id for id in orig_ids if id in ids]
-        return len(result) if count else list(result)
+        result = len(result) if count else list(result)
+
+        # if we got a limit and some ids were removed, search again
+        if limit and len(result) < len(orig_ids):
+            # search again with adapted offset+limit
+            return result + self._search(
+                cr, uid, args, offset=offset+limit,
+                limit=limit-len(result), order=order, context=context,
+                count=count, access_rights_uid=access_rights_uid)
+
+        return result
 
     def read(self, cr, uid, ids, fields_to_read=None, context=None, load='_classic_read'):
         if isinstance(ids, (int, long)):

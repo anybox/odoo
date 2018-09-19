@@ -23,6 +23,7 @@ import random
 from urlparse import urljoin
 import werkzeug
 
+from openerp import SUPERUSER_ID
 from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 from openerp.osv import osv, fields
 from openerp.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT, ustr
@@ -48,7 +49,7 @@ class res_partner(osv.Model):
     def _get_signup_valid(self, cr, uid, ids, name, arg, context=None):
         dt = now()
         res = {}
-        for partner in self.browse(cr, uid, ids, context):
+        for partner in self.browse(cr, SUPERUSER_ID, ids, context):
             res[partner.id] = bool(partner.signup_token) and \
                                 (not partner.signup_expiration or dt <= partner.signup_expiration)
         return res
@@ -60,7 +61,10 @@ class res_partner(osv.Model):
             context= {}
         res = dict.fromkeys(ids, False)
         base_url = self.pool.get('ir.config_parameter').get_param(cr, uid, 'web.base.url')
-        for partner in self.browse(cr, uid, ids, context):
+        for partner in self.browse(cr, SUPERUSER_ID, ids, context):
+            if any(self.user_has_groups(cr, u.id, 'base.group_user') for u in partner.user_ids if u.id != uid):
+                self.pool['res.users'].check_access_rights(cr, uid, 'write')
+
             # when required, make sure the partner has a valid signup token
             if context.get('signup_valid') and not partner.user_ids:
                 self.signup_prepare(cr, uid, [partner.id], context=context)
@@ -103,9 +107,9 @@ class res_partner(osv.Model):
         return self._get_signup_url_for_action(cr, uid, ids, context=context)
 
     _columns = {
-        'signup_token': fields.char('Signup Token', copy=False),
-        'signup_type': fields.char('Signup Token Type', copy=False),
-        'signup_expiration': fields.datetime('Signup Expiration', copy=False),
+        'signup_token': fields.char('Signup Token', copy=False, groups="base.group_erp_manager"),
+        'signup_type': fields.char('Signup Token Type', copy=False, groups="base.group_erp_manager"),
+        'signup_expiration': fields.datetime('Signup Expiration', copy=False, groups="base.group_erp_manager"),
         'signup_valid': fields.function(_get_signup_valid, type='boolean', string='Signup Token is Valid'),
         'signup_url': fields.function(_get_signup_url, type='char', string='Signup URL'),
     }
@@ -288,11 +292,20 @@ class res_users(osv.Model):
             template = self.pool.get('ir.model.data').get_object(cr, uid, 'auth_signup', 'reset_password_email')
         assert template._name == 'email.template'
 
+        template_values = {
+            'email_to': '${object.email|safe}',
+            'email_cc': False,
+            'auto_delete': True,
+            'partner_to': False,
+        }
+        template.write(template_values)
+
         for user in self.browse(cr, uid, ids, context):
             if not user.email:
                 raise osv.except_osv(_("Cannot send email: user has no email address."), user.name)
             context['lang'] = user.lang  # translate in targeted user language
-            self.pool.get('email.template').send_mail(cr, uid, template.id, user.id, force_send=True, raise_exception=True, context=context)
+            with cr.savepoint():
+                self.pool.get('email.template').send_mail(cr, uid, template.id, user.id, force_send=True, raise_exception=True, context=context)
 
     def create(self, cr, uid, values, context=None):
         if context is None:

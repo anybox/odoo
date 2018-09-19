@@ -1256,7 +1256,10 @@ class AssetsBundle(object):
 
     def get_cache(self, type):
         content = None
-        domain = [('url', '=', '/web/%s/%s/%s' % (type, self.xmlid, self.version))]
+        domain = [
+            ('url', '=', '/web/%s/%s/%s' % (type, self.xmlid, self.version)),
+            ('create_uid', '=', openerp.SUPERUSER_ID),
+        ]
         bundle = self.registry['ir.attachment'].search_read(self.cr, openerp.SUPERUSER_ID, domain, ['datas'], context=self.context)
         if bundle and bundle[0]['datas']:
             content = bundle[0]['datas'].decode('base64')

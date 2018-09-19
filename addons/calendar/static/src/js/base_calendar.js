@@ -24,7 +24,7 @@ function reload_favorite_list(result) {
                     is_remove: false,
                 };
 
-                sidebar_items[0] = filter_item ;
+                sidebar_items[filter_value] = filter_item ;
                 filter_item = {
                         value: -1,
                         label: _lt("Everybody's calendars"),

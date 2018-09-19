@@ -325,7 +325,7 @@ class email_template(osv.osv):
             model_data_id = data_obj._get_id(cr, uid, 'mail', 'email_compose_message_wizard_form')
             res_id = data_obj.browse(cr, uid, model_data_id, context=context).res_id
             button_name = _('Send Mail (%s)') % template.name
-            act_id = action_obj.create(cr, SUPERUSER_ID, {
+            act_id = action_obj.create(cr, uid, {
                  'name': button_name,
                  'type': 'ir.actions.act_window',
                  'res_model': 'mail.compose.message',
@@ -337,7 +337,7 @@ class email_template(osv.osv):
                  'target': 'new',
                  'auto_refresh':1
             }, context)
-            ir_values_id = self.pool.get('ir.values').create(cr, SUPERUSER_ID, {
+            ir_values_id = self.pool.get('ir.values').create(cr, uid, {
                  'name': button_name,
                  'model': src_obj,
                  'key2': 'client_action_multi',
@@ -356,10 +356,10 @@ class email_template(osv.osv):
         for template in self.browse(cr, uid, ids, context=context):
             try:
                 if template.ref_ir_act_window:
-                    self.pool.get('ir.actions.act_window').unlink(cr, SUPERUSER_ID, template.ref_ir_act_window.id, context)
+                    self.pool.get('ir.actions.act_window').unlink(cr, uid, template.ref_ir_act_window.id, context)
                 if template.ref_ir_value:
                     ir_values_obj = self.pool.get('ir.values')
-                    ir_values_obj.unlink(cr, SUPERUSER_ID, template.ref_ir_value.id, context)
+                    ir_values_obj.unlink(cr, uid, template.ref_ir_value.id, context)
             except Exception:
                 raise osv.except_osv(_("Warning"), _("Deletion of the action record failed."))
         return True
